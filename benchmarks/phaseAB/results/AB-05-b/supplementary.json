@@ -1,0 +1,72 @@
+{
+  "body_too_large": {
+    "http": 413,
+    "body": {
+      "error": {
+        "kind": "body_too_large",
+        "message": "body exceeds 65536 bytes"
+      }
+    },
+    "elapsed_s": 0.022,
+    "sent_body": false,
+    "declared_length": 70000
+  },
+  "non_object_json": {
+    "http": 400,
+    "body": {
+      "error": {
+        "kind": "bad_request",
+        "message": "the body must be a JSON object, got list"
+      }
+    },
+    "elapsed_s": 0.031
+  },
+  "index_override": {
+    "http": 400,
+    "body": {
+      "error": {
+        "kind": "index_override_rejected",
+        "message": "'index' is not accepted: the index is server-side configuration and cannot be chosen by a client"
+      }
+    },
+    "elapsed_s": 0.015
+  },
+  "health_after": {
+    "http": 200,
+    "body": {
+      "status": "ok",
+      "index_version": "488f54d755224c5b",
+      "index_dir": "D:\\MultiAgent\\vector\\qa\\current",
+      "index_working_tree_dirty": true,
+      "index_hash_scheme": "sha256-lf-v1",
+      "index_chunks": {
+        "manifest": 536,
+        "vectors": 536,
+        "metadata": 536
+      },
+      "embedding_service": "http://127.0.0.1:8113",
+      "generation_service": "http://127.0.0.1:8111",
+      "retrieval": "dense",
+      "reranker": "disabled",
+      "prompt_version": "qa-v2",
+      "limits": {
+        "max_question_chars": 1000,
+        "max_concurrency": 2,
+        "max_executing": 1,
+        "max_body_bytes": 65536,
+        "upstream_timeouts_s": {
+          "embed": 30,
+          "tokenize": 15,
+          "generate": 90
+        }
+      },
+      "inflight": {
+        "current": 0,
+        "peak": 2
+      },
+      "note": "liveness of this process only; the upstream services are not probed"
+    },
+    "elapsed_s": 0.015
+  },
+  "all_three_as_expected": true
+}

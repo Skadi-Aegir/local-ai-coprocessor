@@ -1,0 +1,104 @@
+# =============================================================================
+# local-smart worker configuration  (Phase 3)
+#
+# Single source of truth for the Local Smart Worker. Mirrors config/local-fast.yaml
+# in structure so one loader (scripts/lf_config.py) serves both.
+#
+# Parser note: stdlib YAML-subset only - scalars, simple lists, simple nested maps.
+# No anchors, no multi-line strings, no inline maps.
+#
+# STATUS: quant / context / presets are the PROVISIONAL Phase 3 defaults. They are
+# confirmed or revised against benchmarks/local-smart-results.md at the end of Phase 3.
+# =============================================================================
+
+model: local-smart
+
+# ---------------------------------------------------------------- model source
+source:
+  logical_name: local-smart
+  upstream_repo: Qwen/Qwen3.5-9B
+  upstream_revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a
+  gguf_repo: unsloth/Qwen3.5-9B-GGUF
+  gguf_revision: 3885219b6810b007914f3a7950a8d1b469d598a5
+  license: apache-2.0
+  parameters: 9B
+  architecture: qwen35
+  family: qwen3.5
+  modalities: text
+  note: upstream is a VLM; mmproj is intentionally not deployed for this text-only worker
+
+# Selected quantisation. See benchmarks/local-smart-results.md for the evidence.
+quant: Q4_K_M
+model_path: ${REPO}\models\llm\Qwen3.5-9B-Q4_K_M.gguf
+model_sha256: 03b74727a860a56338e042c4420bb3f04b2fec5734175f4cb9fa853daf52b7e8
+model_size_mb: 5417
+
+alternates:
+  Q5_K_M: ${REPO}\models\llm\Qwen3.5-9B-Q5_K_M.gguf
+  Q6_K: ${REPO}\models\llm\Qwen3.5-9B-Q6_K.gguf
+
+# ---------------------------------------------------------------- runtime
+runtime:
+  host: 127.0.0.1
+  port: 8112
+  # 16384 is the Phase 3 target. The KV geometry of the 9B is IDENTICAL to the 4B
+  # (8 full-attention layers x 4 KV heads x 256 width), so context costs the same
+  # 32,768 B/token and 16K is affordable.
+  context: 16384
+  parallel: 1
+  threads: 12
+  threads_batch: 12
+  gpu_layers: 99
+  batch_size: 2048
+  ubatch_size: 512
+  flash_attn: auto
+  cache_type_k: f16
+  cache_type_v: f16
+  enable_thinking: false
+  api_key_env: ""
+  # Higher than the fast worker: the 9B is ~5.3 GB of weights alone.
+  min_free_vram_mb: 6500
+  expected_vram_mb: 6400
+
+paths:
+  llama_dir: ${REPO}\tools\llama.cpp\b11254-cuda13.4
+  server_exe: ${REPO}\tools\llama.cpp\b11254-cuda13.4\llama-server.exe
+  logs_dir: ${REPO}\logs
+  pid_file: ${REPO}\logs\local-smart.pid
+  stdout_log: ${REPO}\logs\local-smart.stdout.log
+  stderr_log: ${REPO}\logs\local-smart.stderr.log
+  health_url: http://127.0.0.1:8112/health
+  models_url: http://127.0.0.1:8112/v1/models
+
+# ---------------------------------------------------------------- sampling presets
+presets:
+  deterministic:
+    temperature: 0.0
+    top_p: 1.0
+    top_k: 20
+    min_p: 0.0
+    repeat_penalty: 1.05
+    seed: 20260401
+    enable_thinking: false
+  general:
+    temperature: 0.3
+    top_p: 0.9
+    top_k: 40
+    min_p: 0.05
+    repeat_penalty: 1.05
+    seed: 20260401
+    enable_thinking: false
+  reasoning:
+    temperature: 0.6
+    top_p: 0.95
+    top_k: 20
+    min_p: 0.0
+    repeat_penalty: 1.0
+    seed: 20260401
+    enable_thinking: true
+
+limits:
+  request_timeout_s: 900
+  max_tokens_default: 1024
+  max_tokens_max: 4096
+  idle_unload_s: 0

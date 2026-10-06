@@ -1,0 +1,107 @@
+{
+  "rounds": 2,
+  "scenarios": [
+    {
+      "scenario": "single_interactive",
+      "results": [
+        {
+          "job_class": "interactive",
+          "status": "refused",
+          "wait_s": 0.087,
+          "reason": "insufficient margin: 166 MiB usable < 900 MiB required (free 2214 - reserved 0 - margin 2048)",
+          "vram_peak": 10013
+        },
+        {
+          "job_class": "interactive",
+          "status": "refused",
+          "wait_s": 0.089,
+          "reason": "insufficient margin: 165 MiB usable < 900 MiB required (free 2213 - reserved 0 - margin 2048)",
+          "vram_peak": 10014
+        }
+      ]
+    },
+    {
+      "scenario": "concurrent_background",
+      "results": [
+        {
+          "job_class": "background",
+          "status": "refused",
+          "wait_s": 0.089,
+          "reason": "insufficient margin: 152 MiB usable < 600 MiB required (free 2200 - reserved 0 - margin 2048)"
+        },
+        {
+          "job_class": "background",
+          "status": "refused",
+          "wait_s": 0.169,
+          "reason": "insufficient margin: 152 MiB usable < 600 MiB required (free 2200 - reserved 0 - margin 2048)"
+        },
+        {
+          "job_class": "background",
+          "status": "refused",
+          "wait_s": 0.246,
+          "reason": "insufficient margin: 152 MiB usable < 600 MiB required (free 2200 - reserved 0 - margin 2048)"
+        },
+        {
+          "job_class": "background",
+          "status": "refused",
+          "wait_s": 0.327,
+          "reason": "insufficient margin: 152 MiB usable < 600 MiB required (free 2200 - reserved 0 - margin 2048)"
+        },
+        {
+          "job_class": "background",
+          "status": "refused",
+          "wait_s": 0.07,
+          "reason": "insufficient margin: 152 MiB usable < 600 MiB required (free 2200 - reserved 0 - margin 2048)"
+        },
+        {
+          "job_class": "background",
+          "status": "refused",
+          "wait_s": 0.054,
+          "reason": "insufficient margin: 152 MiB usable < 600 MiB required (free 2200 - reserved 0 - margin 2048)"
+        }
+      ],
+      "vram_peak": 10027
+    },
+    {
+      "scenario": "interactive_during_background",
+      "interactive": {
+        "job_class": "interactive",
+        "status": "refused",
+        "wait_s": 0.117,
+        "reason": "insufficient margin: 152 MiB usable < 900 MiB required (free 2200 - reserved 0 - margin 2048)"
+      },
+      "vram_peak": 10027
+    },
+    {
+      "scenario": "exclusive_queueing",
+      "exclusive": {
+        "job_class": "exclusive",
+        "status": "refused",
+        "wait_s": 0.102,
+        "reason": "insufficient margin: 152 MiB usable < 2000 MiB required (free 2200 - reserved 0 - margin 2048)"
+      },
+      "vram_peak": 10027
+    }
+  ],
+  "vram_start": 10009,
+  "margin_mb": 2048,
+  "note": "every request is admitted through the scheduler; refusal means no call was made",
+  "summary": {
+    "requests": 10,
+    "completed": 0,
+    "refused": 10,
+    "failed": 0,
+    "completion_rate_pct": 0.0
+  },
+  "verdict": "FAIL - every normal request was refused",
+  "minimal_residency_option": {
+    "why": "the 2048 MiB margin plus three resident models leaves little usable room",
+    "option": "keep local-fast resident only; load local-embedding and local-reranker on demand",
+    "resident_cost_mb": 2981,
+    "switch_cost_s": {
+      "local-embedding": 1.7,
+      "local-reranker": 1.22
+    },
+    "tradeoff": "each retrieval step pays a model load (1.2-1.7 s) unless a warm cache is maintained"
+  }
+}

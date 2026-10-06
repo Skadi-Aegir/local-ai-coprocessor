@@ -1,0 +1,1848 @@
+[
+  {
+    "question": "What port does the local-fast service listen on, and what context size does it use by default?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4945,
+    "retrieve_s": 3.448,
+    "candidates": [
+      {
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "score": 0.633,
+        "chunk_id": "8b981462f118e4915edf"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.6308,
+        "chunk_id": "37e6acc88550be7f88b3"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 132,
+        "end_line": 148,
+        "score": 0.6091,
+        "chunk_id": "026840eff6be8eabee88"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.5847,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "scripts/start-local-fast.ps1",
+        "start_line": 1,
+        "end_line": 109,
+        "score": 0.5692,
+        "chunk_id": "0b14e73be6663f1c9ab9"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.633,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "config/local-fast.yaml",
+          "chunk_id": "8b981462f118e4915edf",
+          "start_line": 1,
+          "end_line": 119,
+          "chunk_start_line": 1,
+          "chunk_end_line": 119,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/local-fast-api.md",
+          "chunk_id": "37e6acc88550be7f88b3",
+          "start_line": 1,
+          "end_line": 9,
+          "chunk_start_line": 1,
+          "chunk_end_line": 9,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "026840eff6be8eabee88",
+          "start_line": 132,
+          "end_line": 148,
+          "chunk_start_line": 132,
+          "chunk_end_line": 148,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "76c8e81593a2b3d64130",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "scripts/start-local-fast.ps1",
+          "chunk_id": "0b14e73be6663f1c9ab9",
+          "start_line": 1,
+          "end_line": 109,
+          "chunk_start_line": 1,
+          "chunk_end_line": 109,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 3581,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 11018
+    },
+    "pack_chars": 11018,
+    "generate_s": 1.871,
+    "usage": {
+      "completion_tokens": 184,
+      "prompt_tokens": 3593,
+      "total_tokens": 3777,
+      "prompt_tokens_details": {
+        "cached_tokens": 3589
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [
+      "verified",
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The local-fast service listens on port **8111** and uses a default context size of **8192** tokens.\n\n*   The `local-fast.yaml` configuration file sets the `runtime.port` to `8111` [SOURCE 1].\n*   The same configuration file sets the `runtime.context` to `8192` [SOURCE 1].\n*   The `start-local-fast.ps1` script confirms that if no context size is specified, it defaults to the value in the config (`runtime.context`), which is `8111` for the port and `8192` for the context [SOURCE 5].\n*   The documentation further confirms the binding is `127.0.0.1:8111` and the context is `8192` [SOURCE 3].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "chunk_start_line": 1,
+        "chunk_end_line": 119,
+        "truncated": false,
+        "verification": {
+          "source_path": "config/local-fast.yaml",
+          "start_line": 1,
+          "end_line": 119,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "8273bc6ff060926d",
+          "current_hash": "8273bc6ff060926d",
+          "current_lines": 119,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 3,
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 132,
+        "end_line": 148,
+        "chunk_start_line": 132,
+        "chunk_end_line": 148,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/models/local-fast.md",
+          "start_line": 132,
+          "end_line": 148,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "6205b6da96dfb4d8",
+          "current_hash": "6205b6da96dfb4d8",
+          "current_lines": 179,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 5,
+        "source_path": "scripts/start-local-fast.ps1",
+        "start_line": 1,
+        "end_line": 109,
+        "chunk_start_line": 1,
+        "chunk_end_line": 109,
+        "truncated": false,
+        "verification": {
+          "source_path": "scripts/start-local-fast.ps1",
+          "start_line": 1,
+          "end_line": 109,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "21f16acfe0e20954",
+          "current_hash": "21f16acfe0e20954",
+          "current_lines": 209,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      3,
+      5
+    ],
+    "reported_source_numbers": [
+      1,
+      3,
+      5
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 5.391,
+    "free_vram_after_mb": 4954
+  },
+  {
+    "question": "Which pooling method and output dimension does the embedding service use?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4954,
+    "retrieve_s": 0.069,
+    "candidates": [
+      {
+        "source_path": "config/local-embedding.yaml",
+        "start_line": 1,
+        "end_line": 94,
+        "score": 0.6261,
+        "chunk_id": "b3928e6f759f05955051"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 191,
+        "end_line": 205,
+        "score": 0.6173,
+        "chunk_id": "48e042118b4fd38e929f"
+      },
+      {
+        "source_path": "services/retrieval/embedder.py",
+        "start_line": 72,
+        "end_line": 72,
+        "score": 0.6004,
+        "chunk_id": "d6b22bb165c234da2d00"
+      },
+      {
+        "source_path": "docs/reranking-architecture.md",
+        "start_line": 9,
+        "end_line": 35,
+        "score": 0.5972,
+        "chunk_id": "68a817ee6b9d71bcd8ab"
+      },
+      {
+        "source_path": "services/retrieval/embedder.py",
+        "start_line": 1,
+        "end_line": 18,
+        "score": 0.5861,
+        "chunk_id": "96680aee67c1b3dce809"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6261,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "config/local-embedding.yaml",
+          "chunk_id": "b3928e6f759f05955051",
+          "start_line": 1,
+          "end_line": 94,
+          "chunk_start_line": 1,
+          "chunk_end_line": 94,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/retrieval-architecture.md",
+          "chunk_id": "48e042118b4fd38e929f",
+          "start_line": 191,
+          "end_line": 205,
+          "chunk_start_line": 191,
+          "chunk_end_line": 205,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "services/retrieval/embedder.py",
+          "chunk_id": "d6b22bb165c234da2d00",
+          "start_line": 72,
+          "end_line": 72,
+          "chunk_start_line": 72,
+          "chunk_end_line": 72,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/reranking-architecture.md",
+          "chunk_id": "68a817ee6b9d71bcd8ab",
+          "start_line": 9,
+          "end_line": 35,
+          "chunk_start_line": 9,
+          "chunk_end_line": 35,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "services/retrieval/embedder.py",
+          "chunk_id": "96680aee67c1b3dce809",
+          "start_line": 1,
+          "end_line": 18,
+          "chunk_start_line": 1,
+          "chunk_end_line": 18,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1987,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 6301
+    },
+    "pack_chars": 6301,
+    "generate_s": 1.314,
+    "usage": {
+      "completion_tokens": 132,
+      "prompt_tokens": 1999,
+      "total_tokens": 2131,
+      "prompt_tokens_details": {
+        "cached_tokens": 1995
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The embedding service uses the **last_token** pooling method and an output dimension of **1024**.\n\n*   The `config/local-embedding.yaml` file specifies `pooling: last_token` under the `model` section [SOURCE 1].\n*   The same configuration file sets `native_dimension: 1024` and the `runtime` section explicitly sets `dimension: 1024`, noting that this dimension was measured to provide the best retrieval quality [SOURCE 1].\n*   The `embedder.py` documentation confirms that the pooling mode is **LAST-TOKEN** [SOURCE 5].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "config/local-embedding.yaml",
+        "start_line": 1,
+        "end_line": 94,
+        "chunk_start_line": 1,
+        "chunk_end_line": 94,
+        "truncated": false,
+        "verification": {
+          "source_path": "config/local-embedding.yaml",
+          "start_line": 1,
+          "end_line": 94,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "6d562163d5752b6a",
+          "current_hash": "6d562163d5752b6a",
+          "current_lines": 94,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 5,
+        "source_path": "services/retrieval/embedder.py",
+        "start_line": 1,
+        "end_line": 18,
+        "chunk_start_line": 1,
+        "chunk_end_line": 18,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/embedder.py",
+          "start_line": 1,
+          "end_line": 18,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "4233ca4c174e2de3",
+          "current_hash": "4233ca4c174e2de3",
+          "current_lines": 322,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      5
+    ],
+    "reported_source_numbers": [
+      1,
+      5
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 1.452,
+    "free_vram_after_mb": 4941
+  },
+  {
+    "question": "What chunking strategy does the index builder record for python code, and what does the strategy name signify?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4941,
+    "retrieve_s": 0.061,
+    "candidates": [
+      {
+        "source_path": "services/retrieval/index_builder.py",
+        "start_line": 42,
+        "end_line": 80,
+        "score": 0.6036,
+        "chunk_id": "bf3ab35539de02f8eeee"
+      },
+      {
+        "source_path": "services/retrieval/chunker.py",
+        "start_line": 1,
+        "end_line": 20,
+        "score": 0.6035,
+        "chunk_id": "8cc5f0c9704fae23fe01"
+      },
+      {
+        "source_path": "services/retrieval/index_builder.py",
+        "start_line": 1,
+        "end_line": 50,
+        "score": 0.5979,
+        "chunk_id": "4a3ad6b5d5c2bc3c5a94"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 87,
+        "end_line": 109,
+        "score": 0.587,
+        "chunk_id": "7dbe7afaec05a051049b"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 135,
+        "end_line": 153,
+        "score": 0.5714,
+        "chunk_id": "76e86beba6189e69c9da"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6036,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "services/retrieval/index_builder.py",
+          "chunk_id": "bf3ab35539de02f8eeee",
+          "start_line": 42,
+          "end_line": 80,
+          "chunk_start_line": 42,
+          "chunk_end_line": 80,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "services/retrieval/chunker.py",
+          "chunk_id": "8cc5f0c9704fae23fe01",
+          "start_line": 1,
+          "end_line": 20,
+          "chunk_start_line": 1,
+          "chunk_end_line": 20,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "services/retrieval/index_builder.py",
+          "chunk_id": "4a3ad6b5d5c2bc3c5a94",
+          "start_line": 1,
+          "end_line": 50,
+          "chunk_start_line": 1,
+          "chunk_end_line": 50,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/retrieval-architecture.md",
+          "chunk_id": "7dbe7afaec05a051049b",
+          "start_line": 87,
+          "end_line": 109,
+          "chunk_start_line": 87,
+          "chunk_end_line": 109,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/retrieval-architecture.md",
+          "chunk_id": "76e86beba6189e69c9da",
+          "start_line": 135,
+          "end_line": 153,
+          "chunk_start_line": 135,
+          "chunk_end_line": 153,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1708,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 6292
+    },
+    "pack_chars": 6292,
+    "generate_s": 1.959,
+    "usage": {
+      "completion_tokens": 195,
+      "prompt_tokens": 1720,
+      "total_tokens": 1915,
+      "prompt_tokens_details": {
+        "cached_tokens": 1716
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The index builder records the strategy name **\"structured\"** for Python code. This name signifies that the chunking is performed via Python's Abstract Syntax Tree (AST), specifically targeting module-level statements, functions, and classes [SOURCE 4].\n\nAccording to the sources, the \"structured\" strategy attempts to keep semantically complete units (like whole functions or classes) rather than splitting them arbitrarily. If a class is too large, it splits into methods while keeping the class name in the `symbol` field; if a function is too large, it splits by fixed windows but retains its symbol [SOURCE 4]. The documentation notes that the \"structured\" strategy is the default and is designed to ensure retrieved chunks are semantically complete on their own [SOURCE 2].\n\nIf parsing fails for any file, the strategy falls back to \"fixed\" windows, and the chunk's strategy is recorded as `fixed(fallback)` to make the degradation visible [SOURCE 4].",
+    "citations": [
+      {
+        "source": 2,
+        "source_path": "services/retrieval/chunker.py",
+        "start_line": 1,
+        "end_line": 20,
+        "chunk_start_line": 1,
+        "chunk_end_line": 20,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/chunker.py",
+          "start_line": 1,
+          "end_line": 20,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "7e5f5d2d492e0e60",
+          "current_hash": "7e5f5d2d492e0e60",
+          "current_lines": 414,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 4,
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 87,
+        "end_line": 109,
+        "chunk_start_line": 87,
+        "chunk_end_line": 109,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/retrieval-architecture.md",
+          "start_line": 87,
+          "end_line": 109,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "06f618a10195c7b2",
+          "current_hash": "06f618a10195c7b2",
+          "current_lines": 230,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      2,
+      4
+    ],
+    "reported_source_numbers": [
+      2,
+      4
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 2.081,
+    "free_vram_after_mb": 4942
+  },
+  {
+    "question": "What is the retrieval service health endpoint expected to return, and on which port does it serve?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4945,
+    "retrieve_s": 0.059,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-embedding.md",
+        "start_line": 128,
+        "end_line": 138,
+        "score": 0.6288,
+        "chunk_id": "cad33164c27da571306f"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 26,
+        "end_line": 39,
+        "score": 0.5937,
+        "chunk_id": "dd2aad327a1e06b546be"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 191,
+        "end_line": 205,
+        "score": 0.5615,
+        "chunk_id": "48e042118b4fd38e929f"
+      },
+      {
+        "source_path": "scripts/check-local-embedding.ps1",
+        "start_line": 103,
+        "end_line": 135,
+        "score": 0.5494,
+        "chunk_id": "ef10104e5b3ae0996fb0"
+      },
+      {
+        "source_path": "services/retrieval/server.py",
+        "start_line": 1,
+        "end_line": 22,
+        "score": 0.5314,
+        "chunk_id": "0a5d70cb74cd66bcc497"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6288,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/models/local-embedding.md",
+          "chunk_id": "cad33164c27da571306f",
+          "start_line": 128,
+          "end_line": 138,
+          "chunk_start_line": 128,
+          "chunk_end_line": 138,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/local-fast-api.md",
+          "chunk_id": "dd2aad327a1e06b546be",
+          "start_line": 26,
+          "end_line": 39,
+          "chunk_start_line": 26,
+          "chunk_end_line": 39,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/retrieval-architecture.md",
+          "chunk_id": "48e042118b4fd38e929f",
+          "start_line": 191,
+          "end_line": 205,
+          "chunk_start_line": 191,
+          "chunk_end_line": 205,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "scripts/check-local-embedding.ps1",
+          "chunk_id": "ef10104e5b3ae0996fb0",
+          "start_line": 103,
+          "end_line": 135,
+          "chunk_start_line": 103,
+          "chunk_end_line": 135,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "services/retrieval/server.py",
+          "chunk_id": "0a5d70cb74cd66bcc497",
+          "start_line": 1,
+          "end_line": 22,
+          "chunk_start_line": 1,
+          "chunk_end_line": 22,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1544,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 4649
+    },
+    "pack_chars": 4649,
+    "generate_s": 1.766,
+    "usage": {
+      "completion_tokens": 175,
+      "prompt_tokens": 1556,
+      "total_tokens": 1731,
+      "prompt_tokens_details": {
+        "cached_tokens": 1552
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The retrieval service health endpoint is `GET /health` and it serves on port **8113**.\n\nThe expected return value for the health endpoint is not explicitly defined in the provided sources; the documents only list the endpoint path and its availability without specifying the response body format.\n\n*   Port and Endpoint: \"Loopback only (`127.0.0.1:8113`)\" [SOURCE 3]; \"GET /health\" [SOURCE 3]; \"server.py - local-embedding HTTP service on 127.0.0.1:8113\" [SOURCE 5]; \"GET /health\" [SOURCE 5].\n*   Response Content: The sources list `/health` as an available endpoint but do not describe its response payload [SOURCE 3], [SOURCE 5].",
+    "citations": [
+      {
+        "source": 3,
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 191,
+        "end_line": 205,
+        "chunk_start_line": 191,
+        "chunk_end_line": 205,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/retrieval-architecture.md",
+          "start_line": 191,
+          "end_line": 205,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "06f618a10195c7b2",
+          "current_hash": "06f618a10195c7b2",
+          "current_lines": 230,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 5,
+        "source_path": "services/retrieval/server.py",
+        "start_line": 1,
+        "end_line": 22,
+        "chunk_start_line": 1,
+        "chunk_end_line": 22,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/server.py",
+          "start_line": 1,
+          "end_line": 22,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "4fc96439ea191e4b",
+          "current_hash": "4fc96439ea191e4b",
+          "current_lines": 347,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      3,
+      5
+    ],
+    "reported_source_numbers": [
+      3,
+      5
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 1.9,
+    "free_vram_after_mb": 4953
+  },
+  {
+    "question": "Trace how a question reaches the local-fast model: which components are involved, in what order, and what ports do they use?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4953,
+    "retrieve_s": 0.047,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.6031,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.5744,
+        "chunk_id": "37e6acc88550be7f88b3"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 26,
+        "end_line": 45,
+        "score": 0.5365,
+        "chunk_id": "3933fb0e9cf320e13caa"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 10,
+        "end_line": 25,
+        "score": 0.5234,
+        "chunk_id": "44bf367c93fec8c77592"
+      },
+      {
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "score": 0.5146,
+        "chunk_id": "8b981462f118e4915edf"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6031,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "76c8e81593a2b3d64130",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/local-fast-api.md",
+          "chunk_id": "37e6acc88550be7f88b3",
+          "start_line": 1,
+          "end_line": 9,
+          "chunk_start_line": 1,
+          "chunk_end_line": 9,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "3933fb0e9cf320e13caa",
+          "start_line": 26,
+          "end_line": 45,
+          "chunk_start_line": 26,
+          "chunk_end_line": 45,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "44bf367c93fec8c77592",
+          "start_line": 10,
+          "end_line": 25,
+          "chunk_start_line": 10,
+          "chunk_end_line": 25,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "config/local-fast.yaml",
+          "chunk_id": "8b981462f118e4915edf",
+          "start_line": 1,
+          "end_line": 119,
+          "chunk_start_line": 1,
+          "chunk_end_line": 119,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 2286,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 7157
+    },
+    "pack_chars": 7157,
+    "generate_s": 4.99,
+    "usage": {
+      "completion_tokens": 512,
+      "prompt_tokens": 2298,
+      "total_tokens": 2810,
+      "prompt_tokens_details": {
+        "cached_tokens": 2294
+      }
+    },
+    "finish_reason": "length",
+    "answer_truncated": true,
+    "citation_verification": [
+      "verified",
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "Based on the provided sources, here is the trace of how a question reaches the `local-fast` model, including the components, order, and ports involved:\n\n1.  **Client/Agent Layer**: The request originates from an agent or tool (such as Codex, Astra, Claude Code, or DeepSeek Harness) that calls the service using the logical alias **`local-fast`**. The code must not reference specific GGUF filenames or repository names [SOURCE 1].\n2.  **Configuration & Runtime**: The service is configured via `config/local-fast.yaml` [SOURCE 5]. This file defines the runtime environment, including the host, port, and context settings.\n3.  **Server Execution**: The configuration specifies that the service runs on **host `127.0.0.1`** and listens on **port `8111`** [SOURCE 5]. The server executable is located at `D:\\MultiAgent\\tools\\llama.cpp\\b11254-cuda13.4\\llama-server.exe` [SOURCE 5].\n4.  **Model Loading**: Upon startup, the server loads the model from the path defined in the configuration (e.g., `D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q4_K_M.gguf`) [SOURCE 5]. The model is a 4B parameter Qwen3.5 architecture running with the `Q4_K_M` quantization [SOURCE 5].\n5.  **Request Handling**: When a request is received on port 8111, the server processes it. The configuration enforces deterministic sampling (temperature 0.0) for tasks requiring parsing or validation, such as JSON extraction or structured field retrieval [SOURCE 5].\n6.  **Response**: The model generates the response, which is returned to the client/agent via the same endpoint (port 8111) [SOURCE 2].\n\n**Summary of Components and Order:**\n1.  **Client/Agent**: Initiates call using alias `local-fast` [SOURCE 1].\n2.  **Configuration Manager**: Reads `config/local-fast.yaml` to determine runtime parameters [SOURCE 5].\n3.  **Server Process**: Runs `llama-server.exe` on `127.0.0.1:8111` [SOURCE 5].\n4.  **Model Instance**: Loads `",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "chunk_start_line": 1,
+        "chunk_end_line": 12,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/models/local-fast.md",
+          "start_line": 1,
+          "end_line": 12,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "6205b6da96dfb4d8",
+          "current_hash": "6205b6da96dfb4d8",
+          "current_lines": 179,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 1,
+        "end_line": 9,
+        "chunk_start_line": 1,
+        "chunk_end_line": 9,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/local-fast-api.md",
+          "start_line": 1,
+          "end_line": 9,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "05d16237fe3876ca",
+          "current_hash": "05d16237fe3876ca",
+          "current_lines": 173,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 5,
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "chunk_start_line": 1,
+        "chunk_end_line": 119,
+        "truncated": false,
+        "verification": {
+          "source_path": "config/local-fast.yaml",
+          "start_line": 1,
+          "end_line": 119,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "8273bc6ff060926d",
+          "current_hash": "8273bc6ff060926d",
+          "current_lines": 119,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "reported_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 5.098,
+    "free_vram_after_mb": 4943
+  },
+  {
+    "question": "If the local-fast model cannot answer well enough, what does the escalation policy say should happen, and which model is the escalation target?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4943,
+    "retrieve_s": 0.045,
+    "candidates": [
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 123,
+        "end_line": 128,
+        "score": 0.5598,
+        "chunk_id": "30ce721bd3f92463256a"
+      },
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 84,
+        "end_line": 101,
+        "score": 0.5585,
+        "chunk_id": "fe5f328c37f0846d36ef"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.557,
+        "chunk_id": "33e445791f460c50acab"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.5213,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 1,
+        "end_line": 21,
+        "score": 0.4999,
+        "chunk_id": "1082c551fb253580b04e"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.5598,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "30ce721bd3f92463256a",
+          "start_line": 123,
+          "end_line": 128,
+          "chunk_start_line": 123,
+          "chunk_end_line": 128,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "chunk_id": "fe5f328c37f0846d36ef",
+          "start_line": 84,
+          "end_line": 101,
+          "chunk_start_line": 84,
+          "chunk_end_line": 101,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "33e445791f460c50acab",
+          "start_line": 1,
+          "end_line": 9,
+          "chunk_start_line": 1,
+          "chunk_end_line": 9,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "76c8e81593a2b3d64130",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "chunk_id": "1082c551fb253580b04e",
+          "start_line": 1,
+          "end_line": 21,
+          "chunk_start_line": 1,
+          "chunk_end_line": 21,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 965,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 3233
+    },
+    "pack_chars": 3233,
+    "generate_s": 2.441,
+    "usage": {
+      "completion_tokens": 243,
+      "prompt_tokens": 977,
+      "total_tokens": 1220,
+      "prompt_tokens_details": {
+        "cached_tokens": 973
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "Based on the provided sources, the escalation policy states that if local handling is insufficient (indicated by weak retrieval scores or missing expected sources), the task should be escalated to the **cloud**. The specific models targeted for these cloud calls are **DeepSeek**, **Claude**, or **Codex** [SOURCE 5].\n\nThe policy defines escalation shapes where a \"cloud\" shape is returned when the top retrieval score is below 0.45 or the expected source is absent, indicating uncertainty that requires upstream handling [SOURCE 2]. This \"cloud\" bundle is prepared without actually making the call, as the policy reserves actual cloud calls for hard work that local models cannot handle [SOURCE 5].\n\n**Answer:**\nIf the local-fast model cannot answer well enough, the escalation policy dictates that the task should be escalated to the **cloud** [SOURCE 5]. The specific models designated as escalation targets are **DeepSeek**, **Claude**, or **Codex** [SOURCE 5]. The system determines this by checking retrieval scores; if the top score is below 0.45 or the expected source is absent, the escalation shape is set to \"cloud\" [SOURCE 2].",
+    "citations": [
+      {
+        "source": 2,
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 84,
+        "end_line": 101,
+        "chunk_start_line": 84,
+        "chunk_end_line": 101,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "start_line": 84,
+          "end_line": 101,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "1a9e797a1ad7c70a",
+          "current_hash": "1a9e797a1ad7c70a",
+          "current_lines": 221,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 5,
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 1,
+        "end_line": 21,
+        "chunk_start_line": 1,
+        "chunk_end_line": 21,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "start_line": 1,
+          "end_line": 21,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "1a9e797a1ad7c70a",
+          "current_hash": "1a9e797a1ad7c70a",
+          "current_lines": 221,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      2,
+      5
+    ],
+    "reported_source_numbers": [
+      2,
+      5
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 2.537,
+    "free_vram_after_mb": 4938
+  },
+  {
+    "question": "How does the index store keep FAISS vector positions and chunk metadata consistent with each other?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4938,
+    "retrieve_s": 0.045,
+    "candidates": [
+      {
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 1,
+        "end_line": 17,
+        "score": 0.8137,
+        "chunk_id": "79d082d7cac4b6a575fe"
+      },
+      {
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 369,
+        "end_line": 412,
+        "score": 0.7619,
+        "chunk_id": "5d0187cacb8ebe43e8d2"
+      },
+      {
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 285,
+        "end_line": 310,
+        "score": 0.7609,
+        "chunk_id": "ca12d88432622ffc377a"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 110,
+        "end_line": 134,
+        "score": 0.73,
+        "chunk_id": "ce0a9c8b017a3607834e"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 76,
+        "end_line": 86,
+        "score": 0.7189,
+        "chunk_id": "248aa735c585f22047d7"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.8137,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "services/retrieval/index_store.py",
+          "chunk_id": "79d082d7cac4b6a575fe",
+          "start_line": 1,
+          "end_line": 17,
+          "chunk_start_line": 1,
+          "chunk_end_line": 17,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "services/retrieval/index_store.py",
+          "chunk_id": "5d0187cacb8ebe43e8d2",
+          "start_line": 369,
+          "end_line": 412,
+          "chunk_start_line": 369,
+          "chunk_end_line": 412,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "services/retrieval/index_store.py",
+          "chunk_id": "ca12d88432622ffc377a",
+          "start_line": 285,
+          "end_line": 310,
+          "chunk_start_line": 285,
+          "chunk_end_line": 310,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/retrieval-architecture.md",
+          "chunk_id": "ce0a9c8b017a3607834e",
+          "start_line": 110,
+          "end_line": 134,
+          "chunk_start_line": 110,
+          "chunk_end_line": 134,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/retrieval-architecture.md",
+          "chunk_id": "248aa735c585f22047d7",
+          "start_line": 76,
+          "end_line": 86,
+          "chunk_start_line": 76,
+          "chunk_end_line": 86,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1895,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 6906
+    },
+    "pack_chars": 6906,
+    "generate_s": 3.574,
+    "usage": {
+      "completion_tokens": 366,
+      "prompt_tokens": 1907,
+      "total_tokens": 2273,
+      "prompt_tokens_details": {
+        "cached_tokens": 1903
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [
+      "verified",
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The index store maintains consistency between FAISS vector positions and chunk metadata through a SQLite database that acts as the single authority for metadata, while FAISS stores only vectors and integer IDs [SOURCE 1]. Specifically, IDs are assigned by the store and mapped 1:1 to FAISS IDs, ensuring a FAISS hit can always be resolved back to a chunk [SOURCE 1].\n\nTo ensure vector positions match chunk row order exactly, the store rebuilds the FAISS index by reconstructing vectors from the live index when the count matches the metadata, avoiding reliance on potentially stale side files like `vectors.npy` during builds [SOURCE 2]. The process involves:\n1.  Querying the SQLite `chunks` table to retrieve rows ordered by `rowid` [SOURCE 2].\n2.  Reconstructing vectors from the FAISS index up to the number of rows found in the metadata [SOURCE 2].\n3.  Renormalizing vectors to ensure they are L2-normalized (unit vectors) so that inner product equals cosine similarity [SOURCE 2].\n4.  Adding these vectors to a new FAISS index [SOURCE 2].\n5.  Updating the SQLite `chunks` table to set `faiss_id` to the new sequential row position (0-indexed) corresponding to the chunk's order [SOURCE 2].\n\nIf the live index holds fewer vectors than the metadata, the system raises an error requiring a full rebuild from scratch rather than attempting a guessed pairing [SOURCE 2]. Alternatively, if rebuilding from a saved `vectors.npy` file, the store filters vectors to only those referenced by metadata, renames them to match sequential row positions, and updates the corresponding `faiss_id` in the SQLite table [SOURCE 3].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 1,
+        "end_line": 17,
+        "chunk_start_line": 1,
+        "chunk_end_line": 17,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/index_store.py",
+          "start_line": 1,
+          "end_line": 17,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "af3466fedaba6ed0",
+          "current_hash": "af3466fedaba6ed0",
+          "current_lines": 565,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 369,
+        "end_line": 412,
+        "chunk_start_line": 369,
+        "chunk_end_line": 412,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/index_store.py",
+          "start_line": 369,
+          "end_line": 412,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "af3466fedaba6ed0",
+          "current_hash": "af3466fedaba6ed0",
+          "current_lines": 565,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 3,
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 285,
+        "end_line": 310,
+        "chunk_start_line": 285,
+        "chunk_end_line": 310,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/index_store.py",
+          "start_line": 285,
+          "end_line": 310,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "af3466fedaba6ed0",
+          "current_hash": "af3466fedaba6ed0",
+          "current_lines": 565,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2,
+      3
+    ],
+    "reported_source_numbers": [
+      1,
+      2,
+      3
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 3.681,
+    "free_vram_after_mb": 4935
+  },
+  {
+    "question": "What is the monthly monetary cost of running local-fast on this machine?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4935,
+    "retrieve_s": 0.047,
+    "candidates": [
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.5973,
+        "chunk_id": "37e6acc88550be7f88b3"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.5877,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "score": 0.5309,
+        "chunk_id": "8b981462f118e4915edf"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 26,
+        "end_line": 45,
+        "score": 0.5229,
+        "chunk_id": "3933fb0e9cf320e13caa"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 144,
+        "end_line": 161,
+        "score": 0.512,
+        "chunk_id": "2f7ee755d2e323af14c7"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.5973,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/local-fast-api.md",
+          "chunk_id": "37e6acc88550be7f88b3",
+          "start_line": 1,
+          "end_line": 9,
+          "chunk_start_line": 1,
+          "chunk_end_line": 9,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "76c8e81593a2b3d64130",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "config/local-fast.yaml",
+          "chunk_id": "8b981462f118e4915edf",
+          "start_line": 1,
+          "end_line": 119,
+          "chunk_start_line": 1,
+          "chunk_end_line": 119,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "3933fb0e9cf320e13caa",
+          "start_line": 26,
+          "end_line": 45,
+          "chunk_start_line": 26,
+          "chunk_end_line": 45,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/local-fast-api.md",
+          "chunk_id": "2f7ee755d2e323af14c7",
+          "start_line": 144,
+          "end_line": 161,
+          "chunk_start_line": 144,
+          "chunk_end_line": 161,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 2390,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 7641
+    },
+    "pack_chars": 7641,
+    "generate_s": 0.314,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 2402,
+      "total_tokens": 2417,
+      "prompt_tokens_details": {
+        "cached_tokens": 2398
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [],
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 0.434,
+    "free_vram_after_mb": 4925
+  },
+  {
+    "question": "What is the exact GPU die temperature in degrees Celsius while local-fast is generating?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4925,
+    "retrieve_s": 0.047,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.518,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 27,
+        "end_line": 51,
+        "score": 0.5142,
+        "chunk_id": "87f816d15a58d3c434e3"
+      },
+      {
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "score": 0.5011,
+        "chunk_id": "8b981462f118e4915edf"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 132,
+        "end_line": 148,
+        "score": 0.4947,
+        "chunk_id": "026840eff6be8eabee88"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 144,
+        "end_line": 161,
+        "score": 0.4863,
+        "chunk_id": "2f7ee755d2e323af14c7"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.518,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "76c8e81593a2b3d64130",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "87f816d15a58d3c434e3",
+          "start_line": 27,
+          "end_line": 51,
+          "chunk_start_line": 27,
+          "chunk_end_line": 51,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "config/local-fast.yaml",
+          "chunk_id": "8b981462f118e4915edf",
+          "start_line": 1,
+          "end_line": 119,
+          "chunk_start_line": 1,
+          "chunk_end_line": 119,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "026840eff6be8eabee88",
+          "start_line": 132,
+          "end_line": 148,
+          "chunk_start_line": 132,
+          "chunk_end_line": 148,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/local-fast-api.md",
+          "chunk_id": "2f7ee755d2e323af14c7",
+          "start_line": 144,
+          "end_line": 161,
+          "chunk_start_line": 144,
+          "chunk_end_line": 161,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 2678,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 8032
+    },
+    "pack_chars": 8032,
+    "generate_s": 0.306,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 2690,
+      "total_tokens": 2705,
+      "prompt_tokens_details": {
+        "cached_tokens": 2686
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [],
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 0.426,
+    "free_vram_after_mb": 4877
+  },
+  {
+    "question": "Which commercial cloud provider hosts the local-smart model?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4877,
+    "retrieve_s": 0.051,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-smart.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.6231,
+        "chunk_id": "da5c32af22a8b0a46af6"
+      },
+      {
+        "source_path": "config/local-smart.yaml",
+        "start_line": 1,
+        "end_line": 104,
+        "score": 0.5864,
+        "chunk_id": "d1ce1bba19053e35a17c"
+      },
+      {
+        "source_path": "docs/models/local-smart.md",
+        "start_line": 72,
+        "end_line": 85,
+        "score": 0.5509,
+        "chunk_id": "f8f3f03105dbe3c66e4b"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 46,
+        "end_line": 57,
+        "score": 0.4965,
+        "chunk_id": "c185b4c3ee97c3987754"
+      },
+      {
+        "source_path": "scripts/coresidency.ps1",
+        "start_line": 1,
+        "end_line": 94,
+        "score": 0.4876,
+        "chunk_id": "d38c8e5be251c28d6e45"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6231,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/models/local-smart.md",
+          "chunk_id": "da5c32af22a8b0a46af6",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "config/local-smart.yaml",
+          "chunk_id": "d1ce1bba19053e35a17c",
+          "start_line": 1,
+          "end_line": 104,
+          "chunk_start_line": 1,
+          "chunk_end_line": 104,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/models/local-smart.md",
+          "chunk_id": "f8f3f03105dbe3c66e4b",
+          "start_line": 72,
+          "end_line": 85,
+          "chunk_start_line": 72,
+          "chunk_end_line": 85,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "c185b4c3ee97c3987754",
+          "start_line": 46,
+          "end_line": 57,
+          "chunk_start_line": 46,
+          "chunk_end_line": 57,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "scripts/coresidency.ps1",
+          "chunk_id": "d38c8e5be251c28d6e45",
+          "start_line": 1,
+          "end_line": 94,
+          "chunk_start_line": 1,
+          "chunk_end_line": 94,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 3334,
+      "budget_tokens": 7616,
+      "count_method": "tokenize",
+      "pack_chars": 9170
+    },
+    "pack_chars": 9170,
+    "generate_s": 0.316,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 3346,
+      "total_tokens": 3361,
+      "prompt_tokens_details": {
+        "cached_tokens": 3342
+      }
+    },
+    "finish_reason": "stop",
+    "answer_truncated": false,
+    "citation_verification": [],
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 0.438,
+    "free_vram_after_mb": 4878
+  }
+]

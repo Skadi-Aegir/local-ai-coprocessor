@@ -1,0 +1,30 @@
+{
+  "set_id": "p57c0_devset_v1",
+  "classification": "DEVELOPMENT VALIDATION (not independent held-out)",
+  "purpose": "Set-level hash closing the freeze coverage gap: the manifest's own hash covers only its payload and questions.txt, while questions.md carries the classification, the scoring rules and the discriminator audit. This file covers ALL THREE. It is ADDITIVE - no frozen artifact was modified to produce it, so the manifest hash and the questions.txt hash are unchanged.",
+  "hash_scheme": "sha256-lf-v1 over the concatenation of <name>\\0<lf-bytes>\\0 in the order manifest.json, questions.txt, questions.md",
+  "covered_files": [
+    "manifest.json",
+    "questions.txt",
+    "questions.md"
+  ],
+  "per_file": {
+    "manifest.json": {
+      "sha256": "aced08e92013e16929af51f86e2ba9a5c5aa8e27260f397fc82dc933cee5c3b1",
+      "sha256_lf": "029b9c2a48063486cda3c3ceda2e280300df496d0e4ed2a7699c3d2b7af47a21",
+      "bytes": 30982
+    },
+    "questions.txt": {
+      "sha256": "1ce9966dd4a583fa8fd3231347c97366b24451d8dad3472995b13acc9f999094",
+      "sha256_lf": "1ce9966dd4a583fa8fd3231347c97366b24451d8dad3472995b13acc9f999094",
+      "bytes": 754
+    },
+    "questions.md": {
+      "sha256": "a74893d3a666910d2995eb5bbd07259499c3497fab4d1f9e53c397f73fd1d8ed",
+      "sha256_lf": "a74893d3a666910d2995eb5bbd07259499c3497fab4d1f9e53c397f73fd1d8ed",
+      "bytes": 7723
+    }
+  },
+  "set_sha256": "3edeeabff2ca1a034d09b6cb2827f60d90212ea7baf50cb080f0f48f99c2bebf",
+  "manifest_sha256_unchanged": "aa44a4f870dc10bc831224e500931dbe8544426bcdd0617f32bf1690325e1c51"
+}

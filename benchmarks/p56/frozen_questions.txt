@@ -1,0 +1,10 @@
+﻿What port does the local-fast service listen on, and what context size does it use by default?
+Which pooling method and output dimension does the embedding service use?
+What chunking strategy does the index builder record for python code, and what does the strategy name signify?
+What is the retrieval service health endpoint expected to return, and on which port does it serve?
+Trace how a question reaches the local-fast model: which components are involved, in what order, and what ports do they use?
+If the local-fast model cannot answer well enough, what does the escalation policy say should happen, and which model is the escalation target?
+How does the index store keep FAISS vector positions and chunk metadata consistent with each other?
+What is the monthly monetary cost of running local-fast on this machine?
+What is the exact GPU die temperature in degrees Celsius while local-fast is generating?
+Which commercial cloud provider hosts the local-smart model?

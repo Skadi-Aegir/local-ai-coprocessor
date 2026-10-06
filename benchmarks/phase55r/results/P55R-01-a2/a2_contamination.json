@@ -1,0 +1,397 @@
+{
+  "served_index": {
+    "vectors_in_index": 1173,
+    "chunks_in_metadata": 1173,
+    "projects": [
+      "local-ai"
+    ],
+    "dimension": 1024,
+    "consistent": true
+  },
+  "key_bearing_files": {
+    "services/retrieval/rag_compare.py": {
+      "indexed": true
+    },
+    "services/retrieval/retrieval_bench.py": {
+      "indexed": true
+    },
+    "services/retrieval/benchmark_data.py": {
+      "indexed": true
+    },
+    "benchmarks/retrieval-results.md": {
+      "indexed": true
+    },
+    "benchmarks/reranker-results.md": {
+      "indexed": false
+    },
+    "benchmarks/local-fast-results.md": {
+      "indexed": true
+    },
+    "benchmarks/local-smart-results.md": {
+      "indexed": true
+    }
+  },
+  "questions": [
+    {
+      "q": "What context size does the local-fast worker use by default?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "8192",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md",
+            "benchmarks/llama-cpp-baseline.md"
+          ]
+        },
+        {
+          "fact": "8k",
+          "sources": [
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "How much VRAM does local-fast occupy when resident?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "2981",
+          "sources": [
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-smart-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "What generation speed did local-fast reach in its benchmark?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "130",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/retrieval-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "Why is concurrent inference of two local models not recommended?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "47",
+          "sources": [
+            "benchmarks/llama-cpp-baseline.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-smart-results.md"
+          ]
+        },
+        {
+          "fact": "throughput",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md"
+          ]
+        },
+        {
+          "fact": "half",
+          "sources": [
+            "benchmarks/local-smart-results.md",
+            "benchmarks/local-smart-results.md",
+            "benchmarks/local-fast/quant-analysis.md"
+          ]
+        },
+        {
+          "fact": "47",
+          "sources": [
+            "benchmarks/llama-cpp-baseline.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-smart-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "How long does it take to switch between the two local models?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "ff49bb43013305b9a47f",
+        "source": "services/retrieval/benchmark_data.py",
+        "line": 133
+      },
+      "facts": [
+        {
+          "fact": "7",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md"
+          ]
+        },
+        {
+          "fact": "second",
+          "sources": [
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-smart-results.md",
+            "benchmarks/retrieval-results.md"
+          ]
+        },
+        {
+          "fact": "3",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md"
+          ]
+        },
+        {
+          "fact": "4",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "What is the JSON schema adherence rate reported for local-fast?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "100",
+          "sources": [
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "Which pooling method does the Qwen3 embedding model use?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "last",
+          "sources": [
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast/ctx_sweep.py",
+            "benchmarks/local-fast/stability_test.py"
+          ]
+        },
+        {
+          "fact": "lasttoken",
+          "sources": [
+            "docs/models/local-embedding.md",
+            "services/retrieval/embedder.py",
+            "services/retrieval/rag_compare.py"
+          ]
+        },
+        {
+          "fact": "last_token",
+          "sources": [
+            "config/local-embedding.yaml",
+            "docs/retrieval-architecture.md",
+            "docs/retrieval-architecture.md"
+          ]
+        },
+        {
+          "fact": "last-token",
+          "sources": [
+            "docs/retrieval-architecture.md",
+            "docs/retrieval-architecture.md",
+            "docs/models/local-embedding.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "What is the maximum embedding dimension of the embedding model?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "1024",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": false
+    },
+    {
+      "q": "How much did retrieval reduce the token count?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "96",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/llama-cpp-baseline.md",
+            "benchmarks/llama-cpp-baseline.md"
+          ]
+        },
+        {
+          "fact": "99",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/llama-cpp-baseline.md",
+            "benchmarks/llama-cpp-baseline.md"
+          ]
+        },
+        {
+          "fact": "reduction",
+          "sources": [
+            "benchmarks/retrieval-results.md",
+            "config/local-embedding.yaml",
+            "services/retrieval/rag_compare.py"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "What port does the embedding service listen on?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "8113",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/retrieval-results.md",
+            "config/local-embedding.yaml"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    },
+    {
+      "q": "What is the recommended batch size for embedding, and why?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "32",
+          "sources": [
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md",
+            "benchmarks/embedding-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": false
+    },
+    {
+      "q": "Which chunking strategy performed better, fixed or structure aware?",
+      "question_verbatim_in_index": true,
+      "question_chunk": {
+        "id": "4293138b1547c925a0d1",
+        "source": "services/retrieval/rag_compare.py",
+        "line": 39
+      },
+      "facts": [
+        {
+          "fact": "structure",
+          "sources": [
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast-results.md"
+          ]
+        }
+      ],
+      "answer_key_in_index": true
+    }
+  ],
+  "note": "the historical index is NOT modified; this measures the leak and produces an exclusion list",
+  "indexed_paths": 94,
+  "summary": {
+    "questions": 12,
+    "question_verbatim_in_index": 12,
+    "answer_key_in_index": 10,
+    "pct_question_verbatim": 100.0,
+    "pct_answer_key": 83.3
+  },
+  "exclusion_list": [
+    "benchmarks/local-fast-results.md",
+    "benchmarks/local-smart-results.md",
+    "benchmarks/retrieval-results.md",
+    "services/retrieval/benchmark_data.py",
+    "services/retrieval/rag_compare.py",
+    "services/retrieval/retrieval_bench.py"
+  ],
+  "exclusion_chunk_counts": {
+    "benchmarks/local-fast-results.md": 15,
+    "benchmarks/local-smart-results.md": 22,
+    "benchmarks/retrieval-results.md": 14,
+    "services/retrieval/benchmark_data.py": 13,
+    "services/retrieval/rag_compare.py": 18,
+    "services/retrieval/retrieval_bench.py": 30
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: docs/local-fast-api.md\nlines: 75-112\nscore: 0.5020\nchunk_id: d9a90e2cd5cd24d1cacf\nsymbol: Structured extraction (deterministic)\ncontent:\n### Structured extraction (deterministic)\n\n```bash\ncurl -s http://127.0.0.1:8111/v1/chat/completions \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"model\": \"local-fast\",\n    \"messages\": [\n      {\"role\": \"system\", \"content\": \"You extract structured data. Reply with ONLY a JSON object, no prose, no code fences.\"},\n      {\"role\": \"user\",   \"content\": \"任务 T-204 属于 eye-tracking 项目，优先级 80，需要 GPU，预计由 local-smart 处理，目前状态 pending。\"}\n    ],\n    \"temperature\": 0.0, \"top_p\": 1.0, \"top_k\": 20, \"max_tokens\": 200,\n    \"chat_template_kwargs\": {\"enable_thinking\": false}\n  }'\n```\n\nExpected shape:\n\n```json\n{\"task_id\":\"T-204\",\"project\":\"eye-tracking\",\"priority\":80,\n \"requires_gpu\":true,\"worker\":\"local-smart\",\"status\":\"pending\"}\n```\n\nWhen the answer must be machine-parseable and cannot be retried, constrain it server-side rather\nthan hoping. `llama-server` accepts either a JSON schema or a GBNF grammar:\n\n```jsonc\n\"response_format\": {\n  \"type\": \"json_schema\",\n  \"json_schema\": { \"name\": \"result\", \"schema\": { /* JSON Schema */ } }\n}\n// or\n\"grammar\": \"root ::= \\\"{\\\" ws ... \\\"}\\\"\"\n```\n\nThe benchmark suite measures adherence both with and without these constraints; use whichever the\nresults show is needed.\n\n\nSOURCE 2\npath: benchmarks/local-fast-results.md\nlines: 149-161\nscore: 0.4802\nchunk_id: e9661a4cd53aef041876\nsymbol: 8. Sampling presets — measured, then fixed\ncontent:\n## 8. Sampling presets — measured, then fixed\n\nA/B on the human-read tasks (Test A and Test F):\n\n| Preset | Test A facts | Hallucinations | Test F |\n|---|---|---|---|\n| `deterministic` (temp 0.0, top_p 1.0, top_k 20, min_p 0.0) | 7/10 | 0 | 9/9 sections |\n| **`general` (temp 0.3, top_p 0.9, top_k 40, min_p 0.05)** | **10/10** | 0 | 9/9 sections |\n\n**The split is justified by measurement, not assumption:** temperature 0 costs real information\non summarisation (7/10 → 10/10) while `deterministic` is what delivers the 100 % structured\nsuccess rate. Values in `config/local-fast.yaml` are confirmed as deployed.\n\n\nSOURCE 3\npath: services/retrieval/retrieval_bench.py\nlines: 51-51\nscore: 0.4564\nchunk_id: b74ef3a0e967d584c37d\ncontent:\nSTRATEGIES = [\"structured\", \"fixed\"]\n\nSOURCE 4\npath: benchmarks/local-fast/fixtures/test_f_handoff_context.md\nlines: 85-103\nscore: 0.4512\nchunk_id: 595fbd505d7b558c09c4\nsymbol: Important decisions\ncontent:\n## Important decisions\n\n决策一：中间产物一律使用 Parquet 而不是 CSV。原因是中间数据有几十列且\n包含大量浮点，CSV 的文本往返会引入精度损失，而我们要求逐字节可复现。\nParquet 写入时固定了 schema 和压缩级别，这一点记录在\n`docs/decisions/0001-parquet-intermediate.md`。\n\n决策二：不使用 GPU。除了上面提到的收益不足，还有一个原因是\n实验室的机器是共享的，GPU 经常被其他人的训练任务占用，\n把管线绑在 GPU 上会让整条链路变得不可预测。\n\n决策三：所有随机性必须显式播种。管线里任何涉及随机的步骤\n（主要是数据增强和采样）都从 `config/pipeline.yaml` 的 `seed` 字段取值，\n默认 20260401。这是\"逐字节一致\"验收标准的前提。\n\n决策四：不使用全局状态。旧脚本用模块级变量缓存配置，\n导致同一个进程里跑第二个被试时会带上第一个被试的参数。\n现在配置通过显式参数传递，`cli.py` 是唯一读取配置文件的地方。\n\n\nSOURCE 5\npath: benchmarks/local-fast/fixtures/test_f_handoff_context.md\nlines: 119-135\nscore: 0.4248\nchunk_id: 69fcf80603dfd9fdeb63\nsymbol: Open questions\ncontent:\n## Open questions\n\n1. 逐字节一致的失败到底来自哪里？目前怀疑两处：一是\n   `detect/ivt.py` 里对注视点做排序时用了不稳定的排序键\n   （只有时间戳，没有次级键），二是 `scheduler.py` 收集结果时\n   按完成顺序而不是按被试 ID 顺序写文件。这两个都还没有验证。\n2. `test_ivt.py` 的偶发失败是否和上面同源？如果是，修好排序键\n   可能同时解决两个问题。\n3. 左下原点带旋转的校准文件是否需要支持？实验室说这种设备\n   下个月可能到货，但没有明确。如果支持，`calibrate.py` 需要\n   引入旋转矩阵，工作量大约两天。\n4. 质量报告里的\"有效采样率\"定义是否合理？目前定义为\n   剔除眨眼和丢失帧之后的采样点数除以理论采样点数。\n   导师认为应该按时间加权，但这会让报告更难解释。\n5. 是否需要保留 `idt_legacy.py`？现在没有任何代码引用它，\n   但论文的方法对比章节可能要引用旧结果。\n\n\nTASK: Where would I change the sampling randomness for structured extraction?"
+    }
+  ],
+  "meta": {
+    "question": "Where would I change the sampling randomness for structured extraction?",
+    "query_type": "code_concept",
+    "sources": 5,
+    "source_paths": [
+      "docs/local-fast-api.md",
+      "benchmarks/local-fast-results.md",
+      "services/retrieval/retrieval_bench.py",
+      "benchmarks/local-fast/fixtures/test_f_handoff_context.md",
+      "benchmarks/local-fast/fixtures/test_f_handoff_context.md"
+    ],
+    "top_score": 0.501959,
+    "context_tokens": 1484,
+    "prompt_tokens": 1549,
+    "within_budget": true
+  }
+}

@@ -1,0 +1,368 @@
+{
+  "note": "Re-scores the SAME stored predictions. No OCR was re-run and no frozen file was changed.",
+  "tiers": {
+    "mobile": {
+      "as_measured_cer_mean": 0.010429,
+      "as_measured_cer_median": 0.0,
+      "gap_preserving_cer_mean": 0.010429,
+      "gap_preserving_cer_median": 0.0,
+      "artifact_pp": 0.0,
+      "per_image": [
+        {
+          "id": "syn_zh_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_zh_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_zh_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_zh_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_en_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_en_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_en_03",
+          "as_measured": 0.043478,
+          "gap_preserving": 0.043478
+        },
+        {
+          "id": "syn_en_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_mx_01",
+          "as_measured": 0.074074,
+          "gap_preserving": 0.074074
+        },
+        {
+          "id": "syn_mx_02",
+          "as_measured": 0.035714,
+          "gap_preserving": 0.035714
+        },
+        {
+          "id": "syn_mx_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_mx_04",
+          "as_measured": 0.027778,
+          "gap_preserving": 0.027778
+        },
+        {
+          "id": "syn_code_01",
+          "as_measured": 0.0125,
+          "gap_preserving": 0.0125
+        },
+        {
+          "id": "syn_code_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_code_03",
+          "as_measured": 0.037037,
+          "gap_preserving": 0.037037
+        },
+        {
+          "id": "syn_code_04",
+          "as_measured": 0.015385,
+          "gap_preserving": 0.015385
+        },
+        {
+          "id": "syn_sm_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_sm_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_sm_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_sm_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_lc_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_lc_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_lc_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_lc_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_ui_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_ui_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_ui_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_ui_04",
+          "as_measured": 0.033333,
+          "gap_preserving": 0.033333
+        },
+        {
+          "id": "real_nvidia_smi",
+          "as_measured": 0.008065,
+          "gap_preserving": 0.008065
+        },
+        {
+          "id": "real_git_log",
+          "as_measured": 0.005019,
+          "gap_preserving": 0.005019
+        },
+        {
+          "id": "real_pip_paddle",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "real_server_py",
+          "as_measured": 0.010563,
+          "gap_preserving": 0.010563
+        },
+        {
+          "id": "real_local_fast_yaml",
+          "as_measured": 0.016529,
+          "gap_preserving": 0.016529
+        },
+        {
+          "id": "real_local_ocr_md",
+          "as_measured": 0.035111,
+          "gap_preserving": 0.035111
+        }
+      ]
+    },
+    "server": {
+      "as_measured_cer_mean": 0.019475,
+      "as_measured_cer_median": 0.0,
+      "gap_preserving_cer_mean": 0.019475,
+      "gap_preserving_cer_median": 0.0,
+      "artifact_pp": 0.0,
+      "per_image": [
+        {
+          "id": "syn_zh_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_zh_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_zh_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_zh_04",
+          "as_measured": 0.05,
+          "gap_preserving": 0.05
+        },
+        {
+          "id": "syn_en_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_en_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_en_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_en_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_mx_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_mx_02",
+          "as_measured": 0.071429,
+          "gap_preserving": 0.071429
+        },
+        {
+          "id": "syn_mx_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_mx_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_code_01",
+          "as_measured": 0.0375,
+          "gap_preserving": 0.0375
+        },
+        {
+          "id": "syn_code_02",
+          "as_measured": 0.027778,
+          "gap_preserving": 0.027778
+        },
+        {
+          "id": "syn_code_03",
+          "as_measured": 0.037037,
+          "gap_preserving": 0.037037
+        },
+        {
+          "id": "syn_code_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_sm_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_sm_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_sm_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_sm_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_lc_01",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_lc_02",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_lc_03",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_lc_04",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "syn_ui_01",
+          "as_measured": 0.023256,
+          "gap_preserving": 0.023256
+        },
+        {
+          "id": "syn_ui_02",
+          "as_measured": 0.083333,
+          "gap_preserving": 0.083333
+        },
+        {
+          "id": "syn_ui_03",
+          "as_measured": 0.023256,
+          "gap_preserving": 0.023256
+        },
+        {
+          "id": "syn_ui_04",
+          "as_measured": 0.133333,
+          "gap_preserving": 0.133333
+        },
+        {
+          "id": "real_nvidia_smi",
+          "as_measured": 0.024194,
+          "gap_preserving": 0.024194
+        },
+        {
+          "id": "real_git_log",
+          "as_measured": 0.04266,
+          "gap_preserving": 0.04266
+        },
+        {
+          "id": "real_pip_paddle",
+          "as_measured": 0.0,
+          "gap_preserving": 0.0
+        },
+        {
+          "id": "real_server_py",
+          "as_measured": 0.014085,
+          "gap_preserving": 0.014085
+        },
+        {
+          "id": "real_local_fast_yaml",
+          "as_measured": 0.039669,
+          "gap_preserving": 0.039669
+        },
+        {
+          "id": "real_local_ocr_md",
+          "as_measured": 0.054616,
+          "gap_preserving": 0.054616
+        }
+      ]
+    }
+  },
+  "conclusion": {
+    "as_measured_gap_pp": 0.0,
+    "gap_preserving_gap_pp": 0.0,
+    "selection_unchanged": "the pre-registered rule is applied to the as-measured figures and is NOT recalculated; the gap-preserving figures are reported alongside for interpretation"
+  }
+}

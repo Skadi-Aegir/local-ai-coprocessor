@@ -1,0 +1,270 @@
+{
+  "base": "http://127.0.0.1:8115",
+  "scenarios": {
+    "health": {
+      "http": 200,
+      "body": {
+        "status": "ok",
+        "index_version": "259fae05785b433c",
+        "index_dir": "D:\\MultiAgent\\vector\\qa\\current",
+        "index_working_tree_dirty": true,
+        "manifest_present": true,
+        "manifest_error": null,
+        "embedding_service": "http://127.0.0.1:8113",
+        "retrieval": "dense",
+        "reranker": "disabled",
+        "limits": {
+          "max_question_chars": 1000,
+          "max_concurrency": 2,
+          "max_body_bytes": 65536
+        },
+        "inflight": {
+          "current": 0,
+          "peak": 0
+        }
+      },
+      "elapsed_s": 0.021
+    },
+    "normal_answer": {
+      "http": 200,
+      "body": {
+        "question": "What port does the local-fast service listen on, and what context size does it use by default?",
+        "outcome": "answered",
+        "answer": "The local-fast service listens on port **8111** and uses a default context size of **8192**.\n\n*   **Port:** SOURCE 3 states the server binds to `127.0.0.1:8111` [SOURCE 3].\n*   **Context Size:** SOURCE 3 lists the Context value as `8192 (default)` [SOURCE 3].",
+        "reason": null,
+        "citations": [
+          {
+            "source": 3,
+            "source_path": "docs/models/local-fast.md",
+            "start_line": 132,
+            "end_line": 148,
+            "verification": "verified"
+          }
+        ],
+        "index_version": "259fae05785b433c",
+        "index_working_tree_dirty": true,
+        "elapsed_s": 5.598,
+        "pipeline": {
+          "retrieve_s": 4.564,
+          "generate_s": 0.942,
+          "n_candidates": 5,
+          "n_above_floor": 5,
+          "max_score": 0.633,
+          "retrieval": "dense",
+          "reranker": "disabled"
+        },
+        "server_elapsed_s": 5.598
+      },
+      "elapsed_s": 5.599
+    },
+    "answer_absent": {
+      "http": 200,
+      "body": {
+        "question": "What is the monthly monetary cost of running local-fast on this machine?",
+        "outcome": "refused",
+        "answer": "I could not find enough evidence in the local corpus to answer this.",
+        "reason": null,
+        "citations": [],
+        "index_version": "259fae05785b433c",
+        "index_working_tree_dirty": true,
+        "elapsed_s": 0.522,
+        "pipeline": {
+          "retrieve_s": 0.079,
+          "generate_s": 0.324,
+          "n_candidates": 5,
+          "n_above_floor": 5,
+          "max_score": 0.5973,
+          "retrieval": "dense",
+          "reranker": "disabled"
+        },
+        "server_elapsed_s": 0.522
+      },
+      "elapsed_s": 0.547
+    },
+    "index_override_rejected": {
+      "http": 400,
+      "body": {
+        "error": {
+          "kind": "index_override_rejected",
+          "message": "'index' is not accepted: the index is server-side configuration and cannot be chosen by a client"
+        }
+      },
+      "elapsed_s": 0.002
+    },
+    "stale_index": {
+      "http": 200,
+      "body": {
+        "question": "What port does the local-fast service listen on, and what context size does it use by default?",
+        "outcome": "refused",
+        "answer": "I cannot give a confirmed answer: I could not find enough evidence in the local corpus to answer this.",
+        "reason": "one or more cited sources could not be verified against the indexed version; the index may be stale",
+        "citations": [
+          {
+            "source": 3,
+            "source_path": "docs/models/local-fast.md",
+            "start_line": 132,
+            "end_line": 148,
+            "verification": "stale"
+          }
+        ],
+        "index_version": "259fae05785b433c",
+        "index_working_tree_dirty": true,
+        "elapsed_s": 1.072,
+        "pipeline": {
+          "retrieve_s": 0.045,
+          "generate_s": 0.919,
+          "n_candidates": 5,
+          "n_above_floor": 5,
+          "max_score": 0.633,
+          "retrieval": "dense",
+          "reranker": "disabled"
+        },
+        "server_elapsed_s": 1.072
+      },
+      "elapsed_s": 1.093
+    },
+    "stale_index_summary": {
+      "outcome": "refused",
+      "reason": "one or more cited sources could not be verified against the indexed version; the index may be stale",
+      "citations": [
+        {
+          "source": 3,
+          "source_path": "docs/models/local-fast.md",
+          "start_line": 132,
+          "end_line": 148,
+          "verification": "stale"
+        }
+      ]
+    },
+    "service_unavailable": {
+      "http": 500,
+      "body": {
+        "error": {
+          "kind": "pipeline_error",
+          "message": "URLError: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>"
+        }
+      },
+      "elapsed_s": 2.125
+    },
+    "recovery_after_unavailable": {
+      "restored_in_s": 10.13,
+      "health_status": "ok",
+      "probing_question": "answered"
+    },
+    "question_too_long": {
+      "http": 413,
+      "kind": "question_too_long"
+    },
+    "concurrency": {
+      "requests": 6,
+      "results": [
+        {
+          "i": 0,
+          "http": 429,
+          "kind": "too_many_requests",
+          "elapsed_s": 0.015
+        },
+        {
+          "i": 1,
+          "http": 200,
+          "kind": null,
+          "elapsed_s": 1.832
+        },
+        {
+          "i": 2,
+          "http": 200,
+          "kind": null,
+          "elapsed_s": 3.539
+        },
+        {
+          "i": 3,
+          "http": 429,
+          "kind": "too_many_requests",
+          "elapsed_s": 0.014
+        },
+        {
+          "i": 4,
+          "http": 429,
+          "kind": "too_many_requests",
+          "elapsed_s": 0.003
+        },
+        {
+          "i": 5,
+          "http": 429,
+          "kind": "too_many_requests",
+          "elapsed_s": 0.013
+        }
+      ],
+      "http_codes": [
+        429,
+        429,
+        429,
+        429,
+        200,
+        200
+      ],
+      "n_429": 4,
+      "n_200": 2
+    }
+  },
+  "vram": {
+    "health": {
+      "n": 1,
+      "free_min": 5424,
+      "free_max": 5424,
+      "margin_mb": 2048,
+      "margin_held": true
+    },
+    "normal_answer": {
+      "n": 23,
+      "free_min": 5376,
+      "free_max": 5435,
+      "margin_mb": 2048,
+      "margin_held": true
+    },
+    "answer_absent": {
+      "n": 3,
+      "free_min": 5379,
+      "free_max": 5387,
+      "margin_mb": 2048,
+      "margin_held": true
+    },
+    "stale_index": {
+      "n": 5,
+      "free_min": 5375,
+      "free_max": 5387,
+      "margin_mb": 2048,
+      "margin_held": true
+    },
+    "service_unavailable": {
+      "n": 9,
+      "free_min": 6742,
+      "free_max": 6745,
+      "margin_mb": 2048,
+      "margin_held": true
+    },
+    "concurrency": {
+      "n": 15,
+      "free_min": 5375,
+      "free_max": 5388,
+      "margin_mb": 2048,
+      "margin_held": true
+    },
+    "end": {
+      "free": 5377
+    }
+  },
+  "limits_verified": {
+    "max_concurrency_enforced": true,
+    "observed_max_simultaneous_200": 2,
+    "question_length_enforced": true,
+    "index_override_rejected": true
+  },
+  "vram_overall": {
+    "min_across_scenarios": 5375
+  },
+  "inflight_peak": {
+    "current": 0,
+    "peak": 2
+  }
+}

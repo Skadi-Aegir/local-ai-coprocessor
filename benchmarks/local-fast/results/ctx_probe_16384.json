@@ -1,0 +1,11 @@
+{
+  "ctx": 16384,
+  "ok": true,
+  "error": "",
+  "prompt_tokens": 816,
+  "completion_tokens": 249,
+  "prompt_tps": 2405.9,
+  "gen_tps": 72.94,
+  "ttft_s": 0.39,
+  "total_s": 3.79
+}

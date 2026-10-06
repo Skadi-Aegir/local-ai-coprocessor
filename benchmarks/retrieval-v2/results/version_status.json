@@ -1,0 +1,49 @@
+{
+  "total_chunks": 186,
+  "by_status": {
+    "historical": {
+      "files": 4,
+      "chunks": 66,
+      "paths": [
+        "benchmarks/llama-cpp-baseline.md",
+        "benchmarks/local-fast-results.md",
+        "benchmarks/local-smart-results.md",
+        "docs/environment-report.md"
+      ]
+    },
+    "current": {
+      "files": 26,
+      "chunks": 120,
+      "paths": [
+        "config/local-embedding.yaml",
+        "config/local-fast.yaml",
+        "config/local-reranker.yaml",
+        "config/local-smart.yaml",
+        "docs/escalation-policy.md",
+        "docs/local-fast-api.md",
+        "docs/models/local-embedding.md",
+        "docs/models/local-fast.md",
+        "docs/models/local-smart.md",
+        "docs/retrieval-architecture.md",
+        "scripts/check-local-embedding.ps1",
+        "scripts/check-local-fast.ps1",
+        "scripts/check-local-reranker.ps1",
+        "scripts/coresidency.ps1",
+        "scripts/lf_config.py",
+        "scripts/llama_bench_suite.ps1",
+        "scripts/phase2_sweep.ps1",
+        "scripts/phase3_coresidency.ps1",
+        "scripts/start-local-embedding.ps1",
+        "scripts/start-local-fast.ps1",
+        "scripts/start-local-reranker.ps1",
+        "scripts/stop-local-embedding.ps1",
+        "scripts/stop-local-fast.ps1",
+        "scripts/stop-local-reranker.ps1",
+        "scripts/test_lifecycle_gates.ps1",
+        "scripts/vram_watch.ps1"
+      ]
+    }
+  },
+  "chunk_level_superseded": 0,
+  "policy_note": "file mtime is NOT used as a validity signal; status is an explicit, reviewable claim per file or per content marker"
+}

@@ -1,0 +1,162 @@
+{
+  "mode": "C",
+  "margin_mb": 2048,
+  "rounds": [
+    {
+      "round": 1,
+      "results": [
+        {
+          "request_id": "r0-gen",
+          "job_class": "interactive",
+          "requires": [
+            "local-fast"
+          ],
+          "allowed": true,
+          "queue_s": 4.147,
+          "required_mb": 900,
+          "reason": "4164 MiB usable >= 900 MiB required (free 6212 - reserved 0 - margin 2048)",
+          "exec_s": 0.374,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 4.147,
+          "ok": true,
+          "gen_tps": 103.5,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-embed",
+          "job_class": "background",
+          "requires": [
+            "local-embedding"
+          ],
+          "allowed": true,
+          "queue_s": 6.165,
+          "required_mb": 2096,
+          "reason": "4171 MiB usable >= 2096 MiB required (free 6219 - reserved 0 - margin 2048)",
+          "load": {
+            "local-embedding": {
+              "healthy": true,
+              "seconds": 8.015
+            }
+          },
+          "exec_s": 0.388,
+          "load_s": 8.015,
+          "health_gate_s": 8.015,
+          "first_inference_s": 14.18,
+          "ok": true,
+          "vectors": 32,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-rag",
+          "job_class": "background",
+          "requires": [
+            "local-embedding",
+            "local-reranker",
+            "local-fast"
+          ],
+          "allowed": false,
+          "queue_s": 4.113,
+          "required_mb": 3560,
+          "reason": "insufficient margin: 2791 MiB usable < 3560 MiB required (free 4839 - reserved 0 - margin 2048)",
+          "status": "refused"
+        },
+        {
+          "request_id": "r0-bg2",
+          "job_class": "background",
+          "requires": [
+            "local-embedding"
+          ],
+          "allowed": true,
+          "queue_s": 2.158,
+          "required_mb": 600,
+          "reason": "2795 MiB usable >= 600 MiB required (free 4843 - reserved 0 - margin 2048)",
+          "exec_s": 0.074,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 2.158,
+          "ok": true,
+          "vectors": 32,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-int2",
+          "job_class": "interactive",
+          "requires": [
+            "local-fast"
+          ],
+          "allowed": true,
+          "queue_s": 6.392,
+          "required_mb": 900,
+          "reason": "2802 MiB usable >= 900 MiB required (free 4850 - reserved 0 - margin 2048)",
+          "exec_s": 0.349,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 6.392,
+          "ok": true,
+          "gen_tps": 106.7,
+          "status": "completed",
+          "released": true
+        }
+      ],
+      "round_s": 32.05,
+      "completed": 4,
+      "refused": 1,
+      "failed": 0,
+      "vram": {
+        "n": 159,
+        "used_min": 5995,
+        "used_max": 7388,
+        "free_min": 4557,
+        "free_max": 5950,
+        "margin_breached": false
+      }
+    }
+  ],
+  "vram": {
+    "cold_start": [
+      6027,
+      5918
+    ],
+    "after_warmup": [
+      6015,
+      5930
+    ],
+    "after_run": [
+      7376,
+      4569
+    ],
+    "after_idle": [
+      7394,
+      4551
+    ],
+    "task_peak": 7388
+  },
+  "resident_at_start": [
+    "local-fast"
+  ],
+  "margin_check": {
+    "breached_rounds": [],
+    "statement": "no margin breach observed within the sampling window",
+    "caveat": "sampling cannot establish a continuous-time guarantee"
+  },
+  "sampler": {
+    "samples": 159,
+    "interval_s": 0.15
+  },
+  "health_vs_first_inference": {
+    "service": "local-reranker",
+    "health_gate_s": 8.127,
+    "first_inference_s": 0.429,
+    "note": "health passing is NOT used as a proxy for inference readiness"
+  },
+  "summary": {
+    "requests": 5,
+    "completed": 4,
+    "completion_rate_pct": 80.0
+  },
+  "verdict": "FAIL - the supported workload did not complete"
+}

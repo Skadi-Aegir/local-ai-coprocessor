@@ -1,0 +1,110 @@
+{
+  "model": "local-fast",
+  "grammar": false,
+  "fixtures": [
+    {
+      "fixture": "review1_limiter",
+      "json_ok": true,
+      "n_issues_reported": 6,
+      "true_positives": 3,
+      "planted_total": 5,
+      "recall": 60.0,
+      "found": [
+        {
+          "id": "burst_raised_10x",
+          "severity_at_least": "medium",
+          "desc": "DEFAULT_BURST raised 20 -> 200, silently weakening the rate limit by 10x."
+        },
+        {
+          "id": "retry_after_zero",
+          "severity_at_least": "medium",
+          "desc": "RETRY_AFTER_SECONDS = 0 tells clients to retry immediately, causing a tight retry loop against a rate limiter."
+        },
+        {
+          "id": "swallowed_exception",
+          "severity_at_least": "high",
+          "desc": "except Exception: pass swallows all errors and returns None, hiding failures and returning a wrong response to the caller."
+        }
+      ],
+      "missed": [
+        {
+          "id": "lock_never_acquired",
+          "severity_at_least": "high",
+          "desc": "A threading.Lock is created but allow() never acquires it, so the critical section is still racy."
+        },
+        {
+          "id": "n_plus_one_ttl",
+          "severity_at_least": "low",
+          "desc": "get_or_load_many re-evaluates time.time() per key and re-implements get_or_load inline; duplicated logic that can drift, and it is not atomic against concurrent callers."
+        }
+      ],
+      "false_positives": [],
+      "top_severity": "critical",
+      "needs_cloud_review": true,
+      "latency_s": 3.45,
+      "gen_tps": 116.24,
+      "leak": null,
+      "raw": "{\n  \"issues\": [\n    {\"title\": \"Rate limiter logic is not thread-safe\", \"file\": \"limiter.py\", \"severity\": \"critical\", \"detail\": \"The TokenBucket.allow() method modifies shared state (self.tokens, self.updated) without any locking mechanism, making it unsafe for concurrent access.\"},\n    {\"title\": \"Retry-After header is always zero\", \"file\": \"api.py\", \"severity\": \"high\", \"detail\": \"The Retry-After header is set to the constant RETRY_AFTER_SECONDS which is 0 in config.py, providing no useful guidance to clients on when to retry.\"},\n    {\"title\": \"Silent exception swallowing in API handler\", \"file\": \"api.py\", \"severity\": \"high\", \"detail\": \"The except Exception: pass block silently swallows all exceptions, making debugging impossible and potentially hiding critical failures.\"},\n    {\"title\": \"Unnecessary change to config defaults\", \"file\": \"config.py\", \"severity\": \"medium\", \"detail\": \"The burst size was increased from 20 to 200 without context, which may alter system behavior unexpectedly.\"},\n    {\"title\": \"Unnecessary change to config defaults\", \"file\": \"config.py\", \"severity\": \"medium\", \"detail\": \"The RETRY_AFTER_SECONDS was set to 0, which is likely unintended and provides no value.\"},\n    {\"title\": \"Unnecessary change to config defaults\", \"file\": \"config.py\", \"severity\": \"medium\", \"detail\": \"The RETRY_AFTER_SECONDS was set to 0, which is likely unintended and provides no value.\"}\n  ],\n  \"severity\": \"critical\",\n  \"needs_cloud_review\": true\n}"
+    },
+    {
+      "fixture": "review2_orders",
+      "json_ok": true,
+      "n_issues_reported": 5,
+      "true_positives": 4,
+      "planted_total": 7,
+      "recall": 57.1,
+      "found": [
+        {
+          "id": "off_by_one_range",
+          "severity_at_least": "critical",
+          "desc": "range(len(items) + 1) iterates one past the end -> IndexError on every call with a non-empty list."
+        },
+        {
+          "id": "sql_injection",
+          "severity_at_least": "critical",
+          "desc": "f-string interpolation of order_id into SQL -> SQL injection. The parameterised query was replaced with string formatting."
+        },
+        {
+          "id": "timeout_zero",
+          "severity_at_least": "high",
+          "desc": "TIMEOUT_SECONDS = 0 makes every request time out immediately (or disables the timeout entirely, depending on the client)."
+        },
+        {
+          "id": "audit_log_disabled",
+          "severity_at_least": "medium",
+          "desc": "ENABLE_AUDIT_LOG = False silently disables auditing, which is usually a compliance requirement for order processing."
+        }
+      ],
+      "missed": [
+        {
+          "id": "lock_removed",
+          "severity_at_least": "high",
+          "desc": "The lock around _items.pop(0) was removed, making pop() racy and list.pop(0) unsafe under concurrent access."
+        },
+        {
+          "id": "drain_swallows_indexerror",
+          "severity_at_least": "medium",
+          "desc": "drain() uses IndexError for control flow, so a genuine IndexError inside pop() would silently terminate the drain early."
+        },
+        {
+          "id": "discount_plus_one",
+          "severity_at_least": "high",
+          "desc": "+1 added to every discounted total, a silent one-cent overcharge on every order."
+        }
+      ],
+      "false_positives": [],
+      "top_severity": "critical",
+      "needs_cloud_review": true,
+      "latency_s": 2.46,
+      "gen_tps": 121.12,
+      "leak": null,
+      "raw": "{\n  \"issues\": [\n    {\"title\": \"IndexError in total_cents due to off-by-one loop\", \"file\": \"orders.py\", \"severity\": \"critical\", \"detail\": \"The loop iterates range(len(items) + 1), causing an IndexError when accessing items[len(items)].\"},\n    {\"title\": \"SQL injection vulnerability in fetch_order\", \"file\": \"db.py\", \"severity\": \"critical\", \"detail\": \"Uses f-string formatting with user-supplied order_id instead of parameterized queries.\"},\n    {\"title\": \"Infinite loop risk in drain\", \"file\": \"queue.py\", \"severity\": \"high\", \"detail\": \"If pop() raises an exception other than IndexError, the while True loop never terminates.\"},\n    {\"title\": \"Dangerous timeout setting\", \"file\": \"settings.py\", \"severity\": \"high\", \"detail\": \"TIMEOUT_SECONDS = 0 disables timeouts, risking indefinite hangs.\"},\n    {\"title\": \"Audit logging disabled\", \"file\": \"settings.py\", \"severity\": \"medium\", \"detail\": \"ENABLE_AUDIT_LOG = False removes critical compliance and debugging capabilities.\"}\n  ],\n  \"severity\": \"critical\",\n  \"needs_cloud_review\": true\n}"
+    }
+  ],
+  "true_positives": 7,
+  "planted_total": 12,
+  "recall_pct": 58.3,
+  "false_positives": 0,
+  "precision_pct": 100.0,
+  "json_ok": 2
+}

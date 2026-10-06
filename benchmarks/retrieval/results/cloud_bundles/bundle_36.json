@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: docs/models/local-fast.md\nlines: 149-157\nscore: 0.5834\nchunk_id: d85e30830831b64f38eb\nsymbol: Thinking mode is not optional\ncontent:\n### Thinking mode is not optional\n\nThe Qwen3.5 chat template emits `<think>` unless `enable_thinking` is explicitly `false`.\nA reasoning trace before every answer would multiply token count and destroy the Fast Worker's\nlatency target for mechanical tasks. All deterministic call paths **must** pass\n`enable_thinking: false`.\n\n---\n\n\nSOURCE 2\npath: benchmarks/local-smart-results.md\nlines: 187-202\nscore: 0.5545\nchunk_id: b545edc01322ed721006\nsymbol: 8. Thinking vs non-thinking\ncontent:\n## 8. Thinking vs non-thinking\n\n| Task | non-think | think |\n|---|---|---|\n| Structured extraction | **0.57 s**, 36 tokens, correct | 9.79 s, 710 tokens, correct |\n| Hard root-cause analysis | **10.48 s**, 742 tokens, **4/4** | 16.36 s, 1200 tokens (cap), **0/4** |\n\n- **17× latency and 20× token cost on a trivial task for zero quality gain.**\n- On the hard task, thinking consumed the entire budget and produced **no scored answer**.\n- No reasoning leakage in either mode.\n\n**Conclusion:** thinking must never be auto-enabled. It is available as the opt-in `reasoning`\npreset for genuinely hard debugging, but the default is off, and the measured evidence does not\nsupport the two-preset `local-smart-fast` / `local-smart-reason` split being used routinely —\nnon-thinking won both tasks.\n\n\nSOURCE 3\npath: benchmarks/local-fast/test_thinking_detector.py\nlines: 1-1\nscore: 0.5467\nchunk_id: 03efa98a1692ac85d9ec\ncontent:\n\"\"\"Offline check for the thinking-mode leak detector.\"\"\"\n\nSOURCE 4\npath: docs/local-fast-api.md\nlines: 40-56\nscore: 0.5302\nchunk_id: 76d8506f5726eb66f1f0\nsymbol: 3. Mandatory parameter: disable thinking\ncontent:\n## 3. Mandatory parameter: disable thinking\n\nQwen3.5 defaults to emitting a `<think>` reasoning block **before** its answer. For a fast\nworker handling mechanical tasks that is pure latency and it breaks structured output.\n\nAlways send:\n\n```jsonc\n\"chat_template_kwargs\": { \"enable_thinking\": false }\n```\n\nIf you omit it you will get prose before your JSON, inflated token counts and much higher\nlatency. The benchmark suite detects this condition explicitly and reports it as\n`thinking_leaks_total`; treat any non-zero value as a configuration bug, not a model weakness.\n\n---\n\n\nSOURCE 5\npath: docs/models/local-smart.md\nlines: 86-98\nscore: 0.5135\nchunk_id: 157ada6aff267a872300\nsymbol: On thinking mode\ncontent:\n### On thinking mode\n\nMeasured on this hardware (`benchmarks/local-smart/results/think_ab.json`):\n\n| Task | non-think | think |\n|---|---|---|\n| Structured extraction | 0.57 s, 36 tokens, correct | 9.79 s, 710 tokens, correct |\n| Hard root-cause analysis | 10.48 s, 742 tokens, **4/4** | 16.36 s, 1200 tokens (cap hit), **0/4** |\n\nThinking cost **17× the latency and 20× the tokens on a trivial extraction task for zero gain**,\nand on the hard task it spent its whole budget reasoning and never produced a scored answer.\n**Reasoning must never be auto-enabled.** It remains available as the opt-in `reasoning` preset.\n\n\nTASK: Where is thinking mode switched off, in configuration and in code?"
+    }
+  ],
+  "meta": {
+    "question": "Where is thinking mode switched off, in configuration and in code?",
+    "query_type": "mixed_config",
+    "sources": 5,
+    "source_paths": [
+      "docs/models/local-fast.md",
+      "benchmarks/local-smart-results.md",
+      "benchmarks/local-fast/test_thinking_detector.py",
+      "docs/local-fast-api.md",
+      "docs/models/local-smart.md"
+    ],
+    "top_score": 0.583447,
+    "context_tokens": 978,
+    "prompt_tokens": 1044,
+    "within_budget": true
+  }
+}

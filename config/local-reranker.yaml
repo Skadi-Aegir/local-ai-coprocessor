@@ -1,0 +1,93 @@
+# =============================================================================
+# local-reranker worker configuration  (Phase 5)
+#
+# Single source of truth for the reranker service and the two-stage retrieval
+# pipeline. Read by scripts/start-local-reranker.ps1.
+#
+# Parser note: parsed by scripts/lf_config.py, a deliberately small stdlib
+# YAML-subset loader - scalars, simple lists, simple nested maps only.
+# =============================================================================
+
+model: local-reranker
+
+# ---------------------------------------------------------------- model source
+source:
+  upstream_repo: Qwen/Qwen3-Reranker-0.6B
+  upstream_revision: e61197ed45024b0ed8a2d74b80b4d909f1255473
+  license: apache-2.0
+  parameters: 0.6B
+  architecture: qwen3
+  model_type: CrossEncoder (LogitScore over a causal LM)
+  modalities: text
+  # Sequence length from config.json: max_position_embeddings
+  max_context: 40960
+  instruction_aware: true
+  # Scoring is softmax over the yes/no logits at the final position. Recorded here
+  # because it is the contract the implementation must honour.
+  scoring: softmax([logit(no), logit(yes)])[1]
+  yes_token_id: 9693
+  no_token_id: 2152
+  prefix_tokens: 39
+  suffix_tokens: 9
+
+model_path: ${REPO}\models\reranker\Qwen3-Reranker-0.6B
+# Verified against the Hub's LFS oid at download time AND recomputed locally.
+model_sha256: 27cd75a405b9c1b46b59abfd88aaa209e6fed2a1972cde9b70e7659537c5e65b
+tokenizer_sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+
+# ---------------------------------------------------------------- runtime
+runtime:
+  host: 127.0.0.1
+  port: 8114
+  device: cuda
+  dtype: bfloat16
+  # Body budget = max_length - 39 prefix - 9 suffix. 2048 gives 2000 usable tokens,
+  # which exceeds the chunker's 900-token ceiling, so documents are not truncated in
+  # normal operation. Chosen on data (see benchmarks/reranker-results.md), not assumed.
+  max_length: 2048
+  # A top-20 pool is the documented default candidate size.
+  batch_size: 20
+  # rows x padded length per forward pass. Attention cost grows with the square of
+  # sequence length, so this bound is what keeps a batch of long documents from
+  # exhausting memory.
+  max_batch_tokens: 8192
+  # VRAM measured on this machine; the steady state is modest but forward passes spike.
+  expected_vram_mb: 2400
+
+paths:
+  venv_python: ${REPO}\services\reranker\venv\Scripts\python.exe
+  server: ${REPO}\services\reranker\server.py
+  logs_dir: ${REPO}\logs
+  pid_file: ${REPO}\logs\local-reranker.pid
+  stdout_log: ${REPO}\logs\local-reranker.stdout.log
+  stderr_log: ${REPO}\logs\local-reranker.stderr.log
+  health_url: http://127.0.0.1:8114/health
+  models_url: http://127.0.0.1:8114/v1/models
+  stats_url: http://127.0.0.1:8114/stats
+
+# ---------------------------------------------------------------- instructions
+# English instructions, per the model card's advice that training instructions were
+# written in English. "none" disables the Instruct line entirely, which the A/B
+# test needs in order to measure what the instruction is worth.
+instructions:
+  default: Given a web search query, retrieve relevant passages that answer the query
+  general: Given the user query, determine whether the document contains information useful for answering the query.
+  code: Given a programming question, determine whether the code or documentation is relevant to solving it.
+  none: null
+
+# ---------------------------------------------------------------- pipeline
+pipeline:
+  # Two-stage retrieval: dense candidates, then rerank, then pack.
+  candidate_top_n: 20
+  final_top_k: 5
+  # Upstream retrieval service that owns FAISS and metadata mapping.
+  retrieval_url: http://127.0.0.1:8113
+  # If the reranker is unreachable the retrieval service falls back to dense Top-5
+  # and reports reranker_used=false rather than failing the whole request.
+  fallback_to_dense: true
+
+# ---------------------------------------------------------------- measured facts
+# Filled in from benchmarks/reranker-results.md; kept here so scheduling decisions
+# do not have to re-derive them.
+measured:
+  load_s: 1.43

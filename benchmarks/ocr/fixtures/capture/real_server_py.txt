@@ -1,0 +1,15 @@
+            "projects": out,
+        }
+
+    def close(self) -> None:
+        for st in self._stores.values():
+            try:
+                st.close()
+            except Exception:
+                pass
+
+
+def make_handler(svc: Service):
+    class Handler(BaseHTTPRequestHandler):
+        protocol_version = "HTTP/1.1"
+        server_version = "local-embedding/0.1"

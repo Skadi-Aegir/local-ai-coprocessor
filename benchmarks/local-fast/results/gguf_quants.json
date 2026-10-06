@@ -1,0 +1,76 @@
+[
+  {
+    "file": "Qwen3.5-4B-Q4_K_M.gguf",
+    "file_size_mb": 2740.9,
+    "gguf_version": 3,
+    "n_tensors": 426,
+    "n_metadata_kv": 46,
+    "architecture": "qwen35",
+    "model_name": "Qwen3.5-4B",
+    "quantisation_version": null,
+    "parameter_count": null,
+    "context_length": 262144,
+    "n_layers": 32,
+    "n_heads": 16,
+    "n_kv_heads": 4,
+    "embedding_length": 2560,
+    "feed_forward_length": 9216,
+    "total_weight_bytes": 2729969664,
+    "weight_bytes_mb": 2730.0,
+    "non_weight_overhead_mb": 11.0,
+    "overhead_pct": 0.4,
+    "tensor_type_counts": {
+      "F32": 177,
+      "Q6_K": 22,
+      "Q4_K": 131,
+      "Q5_K": 48,
+      "Q8_0": 48
+    },
+    "tensor_bytes_by_type": {
+      "Q4_K": 1361018880,
+      "Q6_K": 841881600,
+      "Q5_K": 519045120,
+      "Q8_0": 4177920,
+      "F32": 3846144
+    },
+    "tensor_bytes_by_type_pct": {
+      "Q4_K": 49.85,
+      "Q6_K": 30.84,
+      "Q5_K": 19.01,
+      "Q8_0": 0.15,
+      "F32": 0.14
+    },
+    "full_precision_bytes_mb": 3.8,
+    "full_precision_pct": 0.14,
+    "bits_per_weight": 5.193,
+    "quantized_by": "Unsloth",
+    "size_label": "4B",
+    "license": "apache-2.0",
+    "base_model_repo": "https://huggingface.co/Qwen/Qwen3.5-4B",
+    "imatrix": {
+      "file": "Qwen3.5-4B-GGUF/imatrix_unsloth.gguf",
+      "dataset": "unsloth_calibration_Qwen3.5-4B.txt",
+      "entries_count": 248,
+      "chunks_count": 80
+    },
+    "key_length": 256,
+    "value_length": 256,
+    "full_attention_interval": 4,
+    "ssm_state_size": 128,
+    "ssm_inner_size": 4096,
+    "ssm_conv_kernel": 4,
+    "ssm_group_count": 16,
+    "rope_freq_base": 10000000.0,
+    "n_full_attention_layers": 8,
+    "kv_bytes_per_token_f16": 32768,
+    "kv_formula": "8 layers x 4 kv_heads x 256 width x 2 (K,V) x 2 bytes",
+    "kv_cache_mb": {
+      "4K": 134.2,
+      "8K": 268.4,
+      "16K": 536.9,
+      "32K": 1073.7
+    },
+    "kv_saving_vs_all_attention": 4.0,
+    "parameter_count_tensors": 4205751296
+  }
+]

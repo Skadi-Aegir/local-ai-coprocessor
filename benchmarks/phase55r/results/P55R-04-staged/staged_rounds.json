@@ -1,0 +1,148 @@
+{
+  "experiment": "P55R-04 staged five-item workload (ISOLATED PATH)",
+  "not_production": "the production routing is NOT changed; this script builds the staged pipeline itself",
+  "budgets_unchanged": {
+    "margin_mb": 2048,
+    "reranker_peak_extra_mb": 1800,
+    "candidate_1361_written_to_default": false,
+    "candidate_881_written_to_default": false
+  },
+  "provenance": {
+    "commit": "4ba1c6c225682355f53dc5b292a34a774dd1c4a6",
+    "dirty": true,
+    "branch": "master",
+    "registry": {
+      "local-fast": {
+        "port": 8111,
+        "vram_mb": 2981,
+        "peak_extra_mb": 0,
+        "essential": true
+      },
+      "local-embedding": {
+        "port": 8113,
+        "vram_mb": 1246,
+        "peak_extra_mb": 250,
+        "essential": false
+      },
+      "local-reranker": {
+        "port": 8114,
+        "vram_mb": 1160,
+        "peak_extra_mb": 1800,
+        "essential": false
+      }
+    }
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "requests": 5,
+      "completed": 2,
+      "refused": 2,
+      "failed": 1,
+      "oom": false,
+      "vram_window": {
+        "n_samples": 17,
+        "interval_mean_s": 0.156,
+        "used_min": 8836,
+        "used_max": 10082,
+        "free_min": 1863,
+        "free_max": 3109,
+        "margin_mb": 2048,
+        "margin_breached": true,
+        "n_sub_margin_samples": 7
+      },
+      "vram_free_min_mb": 1863,
+      "margin_mb": 2048,
+      "margin_held": false,
+      "wall_s": 2.54,
+      "results": [
+        {
+          "request_id": "r1-1-gen",
+          "item": "1 interactive generation",
+          "status": "completed",
+          "wait_s": 0.171,
+          "exec_s": 0.445,
+          "gen_tps": 98.6
+        },
+        {
+          "request_id": "r1-2-embed",
+          "item": "2 embedding background task",
+          "status": "completed",
+          "wait_s": 0.131,
+          "exec_s": 0.084,
+          "vectors": 32
+        },
+        {
+          "request_id": "r1-3-rag",
+          "item": "3 full RAG (staged)",
+          "stages": [
+            {
+              "stage": "1 embed+retrieve",
+              "ok": true,
+              "wait_s": null,
+              "reason": "",
+              "wall_s": 0.386
+            },
+            {
+              "stage": "3 swap (unload embedding, admit reranker)",
+              "ok": true,
+              "wait_s": 0.134,
+              "unloaded": [],
+              "reason": "1343 MiB usable >= 600 MiB required (free 3391 - reserved 0 - margin 2048)",
+              "wall_s": 0.134
+            },
+            {
+              "stage": "4 rerank",
+              "ok": true,
+              "exec_s": 0.911,
+              "n_reranked": 5,
+              "reason": "",
+              "wall_s": 0.911
+            },
+            {
+              "stage": "5 generate",
+              "ok": false,
+              "exec_s": null,
+              "reason": "insufficient margin: 97 MiB usable < 900 MiB required (free 2145 - reserved 0 - margin 2048)",
+              "wall_s": 0.11
+            }
+          ],
+          "n_sources": 5,
+          "pack_chars": 6814,
+          "answer_has_8192": null,
+          "total_wall_s": 1.541,
+          "status": "failed",
+          "error": "insufficient margin: 97 MiB usable < 900 MiB required (free 2145 - reserved 0 - margin 2048)"
+        },
+        {
+          "request_id": "r1-4a-bg",
+          "item": "4 interactive during background",
+          "status": "refused",
+          "wait_s": 0.108,
+          "reason": "insufficient margin: 97 MiB usable < 600 MiB required (free 2145 - reserved 0 - margin 2048)"
+        },
+        {
+          "request_id": "r1-4b-int",
+          "item": "4 interactive during background",
+          "status": "refused",
+          "wait_s": 0.12,
+          "reason": "insufficient margin: 97 MiB usable < 900 MiB required (free 2145 - reserved 0 - margin 2048)"
+        }
+      ],
+      "passed": false
+    }
+  ],
+  "stopped": {
+    "after_round": 1,
+    "reason": "first round did not meet the gate; not repeating",
+    "completed": 2,
+    "oom": false,
+    "margin_held": false,
+    "free_min": 1863
+  },
+  "summary": {
+    "rounds_run": 1,
+    "rounds_passed": 0,
+    "verdict": "FAIL"
+  }
+}

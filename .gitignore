@@ -1,0 +1,109 @@
+# ---------------------------------------------------------------------------
+# Local AI Coprocessor - repository hygiene
+#
+# Spec §5: model files and source code must be kept separate, and model
+# weights must NEVER be committed to git. Binary toolchains are likewise
+# excluded so the repo stays reviewable and small.
+# ---------------------------------------------------------------------------
+
+# --- model weights (never commit) ------------------------------------------
+models/**/*.gguf
+models/**/*.safetensors
+models/**/*.bin
+models/**/*.ckpt
+models/**/*.pth
+models/**/*.onnx
+models/**/*.pt
+*.gguf
+*.safetensors
+
+# keep the directory structure, ignore the payloads
+!models/.gitkeep
+!models/**/.gitkeep
+
+# --- OCR models (PaddleOCR, Phase 6) ---------------------------------------
+# The suffix list above does NOT cover these. PaddleOCR ships inference.json,
+# inference.pdmodel and inference.pdiparams, plus .yml/.txt dictionaries - none
+# of which match *.gguf/*.safetensors/*.bin/*.onnx/*.pt. Without the rule below
+# a downloaded OCR model WOULD be staged by `git add models/ocr` and committed.
+# Measured with `git check-ignore -v` before any download: exit 1 (not ignored).
+# So ignore the whole subtree and re-admit only the placeholder, exactly as the
+# weights rule above does for models/.
+models/ocr/**
+!models/ocr/.gitkeep
+
+# --- downloaded archives / third-party binaries ----------------------------
+tools/downloads/
+tools/llama.cpp/
+tools/bin/
+*.zip
+*.tar.gz
+*.7z
+
+# --- vector stores and caches ----------------------------------------------
+vector/*.faiss
+vector/*.index
+vector/*.db
+vector/**/*.sqlite*
+cache/
+*.pyc
+__pycache__/
+.pytest_cache/
+*.egg-info/
+
+# --- python virtual environments -------------------------------------------
+# spec §: every Python component gets its own isolated venv; none are committed
+.venv/
+venv/
+services/**/venv/
+services/**/.venv/
+env/
+
+# --- logs (structure kept, contents ignored) -------------------------------
+logs/*.log
+logs/*.csv
+logs/*.txt
+
+# --- benchmark raw captures are kept, but bulky dumps are not --------------
+benchmarks/*.tmp
+
+# --- editor / OS noise -----------------------------------------------------
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# lifecycle gate test scratch output
+logs/_gate_tests/
+logs/_tmp_gate*.yaml
+
+
+# llama-server runtime log (jsonl)
+logs/*.jsonl
+
+
+# scratch logs are not deliverables
+logs/
+!logs/.gitkeep
+
+
+# retrieval indexes (rebuildable artefacts, not source)
+services/retrieval/indexes/
+*.faiss
+*.npy
+
+
+# served retrieval corpus (materialised copy of project files)
+vector/embedding/corpus/
+
+
+# reranker venv (torch is junctioned from the retrieval venv; not source)
+services/reranker/venv/
+
+
+# --- Hugging Face models -----------------------------------------------------
+# Not redistributed: fetch them at the pinned revisions with scripts/fetch_models.py.
+models/embedding/*/
+models/reranker/*/

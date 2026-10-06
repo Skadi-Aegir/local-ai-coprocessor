@@ -1,0 +1,38 @@
+{
+  "probe": "D:\\MultiAgent\\benchmarks\\ocr\\results\\OCR-01-env\\b1_probe.png",
+  "models": {
+    "mobile": {
+      "load_s": 0.89,
+      "predict_s": 0.256,
+      "rec_texts": [
+        "local-ocr smoke test 8116"
+      ],
+      "rec_scores": [
+        0.9821504950523376
+      ],
+      "joined": "local-ocr smoke test 8116",
+      "matched_truth": true
+    },
+    "server": {
+      "load_s": 0.48,
+      "predict_s": 1.191,
+      "rec_texts": [
+        "local-ocr smoke test 8116"
+      ],
+      "rec_scores": [
+        0.9919419288635254
+      ],
+      "joined": "local-ocr smoke test 8116",
+      "matched_truth": true
+    }
+  },
+  "preprocessing_disabled": {
+    "doc_orientation": false,
+    "unwarping": false,
+    "textline_orientation": false
+  },
+  "device": "cpu",
+  "cache_home": "D:\\MultiAgent\\models\\ocr\\_rt_cache",
+  "rt_cache_removed": true,
+  "c_user_paddlex_files": 0
+}

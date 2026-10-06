@@ -1,0 +1,12 @@
+# local-embedding service (8113), index builder, QA CLI (cli/ask.py) and retrieval benchmarks.
+# Python 3.13. Versions are the ones the recorded results were measured with.
+# CUDA 12.8 build of PyTorch; drop the index line for a CPU-only install.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+transformers==5.17.0
+sentence-transformers==6.1.0
+tokenizers==0.23.2
+safetensors==0.8.0
+numpy==2.5.3
+scipy==1.18.1
+faiss-cpu==1.15.1

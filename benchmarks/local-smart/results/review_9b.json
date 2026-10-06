@@ -1,0 +1,110 @@
+{
+  "model": "local-smart",
+  "grammar": false,
+  "fixtures": [
+    {
+      "fixture": "review1_limiter",
+      "json_ok": true,
+      "n_issues_reported": 3,
+      "true_positives": 1,
+      "planted_total": 5,
+      "recall": 20.0,
+      "found": [
+        {
+          "id": "swallowed_exception",
+          "severity_at_least": "high",
+          "desc": "except Exception: pass swallows all errors and returns None, hiding failures and returning a wrong response to the caller."
+        }
+      ],
+      "missed": [
+        {
+          "id": "lock_never_acquired",
+          "severity_at_least": "high",
+          "desc": "A threading.Lock is created but allow() never acquires it, so the critical section is still racy."
+        },
+        {
+          "id": "burst_raised_10x",
+          "severity_at_least": "medium",
+          "desc": "DEFAULT_BURST raised 20 -> 200, silently weakening the rate limit by 10x."
+        },
+        {
+          "id": "retry_after_zero",
+          "severity_at_least": "medium",
+          "desc": "RETRY_AFTER_SECONDS = 0 tells clients to retry immediately, causing a tight retry loop against a rate limiter."
+        },
+        {
+          "id": "n_plus_one_ttl",
+          "severity_at_least": "low",
+          "desc": "get_or_load_many re-evaluates time.time() per key and re-implements get_or_load inline; duplicated logic that can drift, and it is not atomic against concurrent callers."
+        }
+      ],
+      "false_positives": [],
+      "top_severity": "critical",
+      "needs_cloud_review": true,
+      "latency_s": 5.22,
+      "gen_tps": 70.66,
+      "leak": null,
+      "raw": "{\n  \"issues\": [\n    {\n      \"title\": \"Silent exception swallowing in API handler\",\n      \"file\": \"api.py\",\n      \"severity\": \"critical\",\n      \"detail\": \"The patch wraps the request handling logic in a bare `try...except Exception: pass` block. This silently swallows all exceptions (including bugs, database errors, or logic errors), causing the request to be dropped without any response sent to the client. This leads to silent failures and makes debugging impossible.\"\n    },\n    {\n      \"title\": \"Unsafe shared mutable state in cache\",\n      \"file\": \"cache.py\",\n      \"severity\": \"high\",\n      \"detail\": \"The new `get_or_load_many` function iterates over keys and updates the shared `_store` dictionary without any locking mechanism. If multiple threads call this function simultaneously, they will race to read/write `_store`, leading to data corruption, lost updates, or inconsistent cache states.\"\n    },\n    {\n      \"title\": \"Missing lock in TokenBucket initialization\",\n      \"file\": \"limiter.py\",\n      \"severity\": \"medium\",\n      \"detail\": \"The patch adds `self._lock = threading.Lock()` in `__init__`, but the `allow` method (which accesses and modifies `self.tokens` and `self.updated`) does not acquire this lock. This renders the lock useless and leaves the token bucket vulnerable to race conditions in multi-threaded environments.\"\n    }\n  ],\n  \"severity\": \"critical\",\n  \"needs_cloud_review\": true\n}"
+    },
+    {
+      "fixture": "review2_orders",
+      "json_ok": true,
+      "n_issues_reported": 6,
+      "true_positives": 4,
+      "planted_total": 7,
+      "recall": 57.1,
+      "found": [
+        {
+          "id": "off_by_one_range",
+          "severity_at_least": "critical",
+          "desc": "range(len(items) + 1) iterates one past the end -> IndexError on every call with a non-empty list."
+        },
+        {
+          "id": "sql_injection",
+          "severity_at_least": "critical",
+          "desc": "f-string interpolation of order_id into SQL -> SQL injection. The parameterised query was replaced with string formatting."
+        },
+        {
+          "id": "lock_removed",
+          "severity_at_least": "high",
+          "desc": "The lock around _items.pop(0) was removed, making pop() racy and list.pop(0) unsafe under concurrent access."
+        },
+        {
+          "id": "timeout_zero",
+          "severity_at_least": "high",
+          "desc": "TIMEOUT_SECONDS = 0 makes every request time out immediately (or disables the timeout entirely, depending on the client)."
+        }
+      ],
+      "missed": [
+        {
+          "id": "drain_swallows_indexerror",
+          "severity_at_least": "medium",
+          "desc": "drain() uses IndexError for control flow, so a genuine IndexError inside pop() would silently terminate the drain early."
+        },
+        {
+          "id": "discount_plus_one",
+          "severity_at_least": "high",
+          "desc": "+1 added to every discounted total, a silent one-cent overcharge on every order."
+        },
+        {
+          "id": "audit_log_disabled",
+          "severity_at_least": "medium",
+          "desc": "ENABLE_AUDIT_LOG = False silently disables auditing, which is usually a compliance requirement for order processing."
+        }
+      ],
+      "false_positives": [],
+      "top_severity": "critical",
+      "needs_cloud_review": true,
+      "latency_s": 8.48,
+      "gen_tps": 71.99,
+      "leak": null,
+      "raw": "{\n  \"issues\": [\n    {\n      \"title\": \"Index out of range vulnerability in total_cents\",\n      \"file\": \"orders.py\",\n      \"severity\": \"critical\",\n      \"detail\": \"The loop iterates up to len(items) + 1, causing an IndexError when items is non-empty, which will crash the application or cause undefined behavior depending on the runtime.\"\n    },\n    {\n      \"title\": \"SQL injection vulnerability in fetch_order\",\n      \"file\": \"db.py\",\n      \"severity\": \"critical\",\n      \"detail\": \"The patch replaces parameterized queries with string formatting (f-string), allowing attackers to inject arbitrary SQL code via the order_id parameter.\"\n    },\n    {\n      \"title\": \"Infinite loop or incorrect logic in count_orders_by_status\",\n      \"file\": \"db.py\",\n      \"severity\": \"high\",\n      \"detail\": \"The function iterates over all rows returned by a GROUP BY query to find a specific status. If the database returns multiple rows for the same status (unlikely with GROUP BY but possible with bad data or different DB behaviors) or if the logic is intended to be more robust, this is inefficient. More critically, if the query returns no rows at all (empty result set), the loop never runs and returns 0, which might be correct, but the implementation is fragile compared to a direct query or using a dictionary.\"\n    },\n    {\n      \"title\": \"Race condition in OrderQueue.pop\",\n      \"file\": \"queue.py\",\n      \"severity\": \"high\",\n      \"detail\": \"The 'with self._lock' block is removed. This allows multiple threads to pop items simultaneously, leading to data loss or corruption in the queue.\"\n    },\n    {\n      \"title\": \"Infinite loop in OrderQueue.drain\",\n      \"file\": \"queue.py\",\n      \"severity\": \"high\",\n      \"detail\": \"The drain method calls pop() in a loop. Since pop() no longer holds the lock, if the underlying list modification is not atomic or if there's a race condition where the list shrinks between the check and the pop, the IndexError exception handling might not be sufficient to prevent an infinite loop if the list state is manipulated concurrently by other threads.\"\n    },\n    {\n      \"title\": \"Zero timeout setting in settings.py\",\n      \"file\": \"settings.py\",\n      \"severity\": \"medium\",\n      \"detail\": \"Setting TIMEOUT_SECONDS to 0 will likely cause network operations to hang indefinitely or behave unexpectedly, as most libraries treat 0 as 'no timeout'.\"\n    }\n  ],\n  \"severity\": \"critical\",\n  \"needs_cloud_review\": true\n}"
+    }
+  ],
+  "true_positives": 5,
+  "planted_total": 12,
+  "recall_pct": 41.7,
+  "false_positives": 0,
+  "precision_pct": 100.0,
+  "json_ok": 2
+}

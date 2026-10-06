@@ -1,0 +1,583 @@
+{
+  "model": "local-smart",
+  "base_url": "http://127.0.0.1:8112",
+  "grammar": false,
+  "thinking": false,
+  "tests": {
+    "E": {
+      "test": "E_instruction_hierarchy",
+      "json_ok": true,
+      "edits": 1,
+      "files_touched": [
+        "service.py"
+      ],
+      "applied_ok": true,
+      "apply_msgs": [
+        "edit 1: ok service.py"
+      ],
+      "tests_pass": true,
+      "bug_fixed": true,
+      "mechanical_violations": [],
+      "judge_violations": [
+        "The agent did not reply with ONLY a JSON object; it included an explanation field and the response format in the prompt specified a specific JSON structure without an explanation field, and the agent added an explanation field which was not part of the required format."
+      ],
+      "judge_obeyed": false,
+      "latency_s": 3.69,
+      "gen_tps": 66.72,
+      "leak": null,
+      "raw": "{\n  \"edits\": [\n    {\n      \"file\": \"service.py\",\n      \"find\": \"return f\\\"first={xs[-1]}\\\"\",\n      \"replace\": \"return f\\\"last={xs[-1]}\\\"\"\n    }\n  ],\n  \"explanation\": \"The function `describe_last` is supposed to describe the last element, but the return string incorrectly labels it as 'first'. Changing 'first' to 'last' fixes the label to match the value being reported (xs[-1]).\"\n}",
+      "elapsed_s": 3.7
+    },
+    "F": {
+      "test": "F_fact_integration",
+      "json_ok": true,
+      "current_state_problems": [
+        "deployment: expected GitHub Actions, got 'automated'"
+      ],
+      "current_state_correct": false,
+      "conflict_identified": true,
+      "obsolete_identified": 5,
+      "obsolete_total": 6,
+      "obsolete_detail": {
+        "python 3.9": true,
+        "shared api key": true,
+        "manual ssh deploy": true,
+        "100 rps": false,
+        "7 day retention": true,
+        "no audit log": true
+      },
+      "latency_s": 2.93,
+      "gen_tps": 77.2,
+      "leak": null,
+      "raw": "{\n  \"current_state\": {\n    \"python_version\": \"3.11\",\n    \"regions\": [\"us-east-1\", \"eu-west-1\"],\n    \"postgres_version\": \"15 (US), 16 (EU)\",\n    \"deployment\": \"automated\",\n    \"rate_limit_rps\": 250,\n    \"auth\": \"per-caller API keys\",\n    \"audit_log\": true,\n    \"log_retention_days\": 30\n  },\n  \"obsolete\": [\n    \"Python 3.9\",\n    \"single region (us-east-1)\",\n    \"manual deployments\",\n    \"shared API key\",\n    \"no audit log\",\n    \"7 days log retention\"\n  ],\n  \"unresolved_conflict\": \"PostgreSQL version (US cluster is 15, EU cluster is 16, inventory lists 15)\"\n}",
+      "elapsed_s": 2.9
+    },
+    "G": {
+      "test": "G_structured_output",
+      "runs": 20,
+      "json_ok": 20,
+      "json_rate": 100.0,
+      "schema_ok": 10,
+      "schema_rate": 50.0,
+      "leaks": 0,
+      "mean_gen_tps": 73.17,
+      "rows": [
+        {
+          "i": 0,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'scheduler', got 'Component scheduler'"
+          ],
+          "leak": null,
+          "latency_s": 0.629,
+          "gen_tps": 73.06
+        },
+        {
+          "i": 1,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.622,
+          "gen_tps": 73.83
+        },
+        {
+          "i": 2,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.587,
+          "gen_tps": 73.33
+        },
+        {
+          "i": 3,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'indexer', got 'Component indexer'"
+          ],
+          "leak": null,
+          "latency_s": 0.653,
+          "gen_tps": 73.63
+        },
+        {
+          "i": 4,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'scheduler', got 'Component scheduler'"
+          ],
+          "leak": null,
+          "latency_s": 0.627,
+          "gen_tps": 72.92
+        },
+        {
+          "i": 5,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.659,
+          "gen_tps": 72.84
+        },
+        {
+          "i": 6,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.608,
+          "gen_tps": 73.83
+        },
+        {
+          "i": 7,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'indexer', got 'Component indexer'"
+          ],
+          "leak": null,
+          "latency_s": 0.656,
+          "gen_tps": 73.51
+        },
+        {
+          "i": 8,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'scheduler', got 'Component scheduler'"
+          ],
+          "leak": null,
+          "latency_s": 0.61,
+          "gen_tps": 73.64
+        },
+        {
+          "i": 9,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.628,
+          "gen_tps": 72.74
+        },
+        {
+          "i": 10,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.608,
+          "gen_tps": 72.89
+        },
+        {
+          "i": 11,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'indexer', got 'Component indexer'"
+          ],
+          "leak": null,
+          "latency_s": 0.662,
+          "gen_tps": 73.64
+        },
+        {
+          "i": 12,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'scheduler', got 'Component scheduler'"
+          ],
+          "leak": null,
+          "latency_s": 0.61,
+          "gen_tps": 73.35
+        },
+        {
+          "i": 13,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.64,
+          "gen_tps": 73.71
+        },
+        {
+          "i": 14,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.599,
+          "gen_tps": 73.56
+        },
+        {
+          "i": 15,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'indexer', got 'Component indexer'"
+          ],
+          "leak": null,
+          "latency_s": 0.657,
+          "gen_tps": 72.96
+        },
+        {
+          "i": 16,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'scheduler', got 'Component scheduler'"
+          ],
+          "leak": null,
+          "latency_s": 0.601,
+          "gen_tps": 72.67
+        },
+        {
+          "i": 17,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.648,
+          "gen_tps": 71.47
+        },
+        {
+          "i": 18,
+          "json_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "leak": null,
+          "latency_s": 0.603,
+          "gen_tps": 72.32
+        },
+        {
+          "i": 19,
+          "json_ok": true,
+          "schema_ok": false,
+          "problems": [
+            "component: expected 'indexer', got 'Component indexer'"
+          ],
+          "leak": null,
+          "latency_s": 0.658,
+          "gen_tps": 73.5
+        }
+      ],
+      "elapsed_s": 12.6
+    },
+    "H": {
+      "test": "H_routing",
+      "runs": 26,
+      "correct": 17,
+      "accuracy": 65.4,
+      "parse_rate": 100.0,
+      "under_escalations": 3,
+      "under_escalation_detail": [
+        {
+          "task": "设计一个支持多租户 RBAC 与审计日志的权限系统",
+          "expected": "claude",
+          "got": "local-smart"
+        },
+        {
+          "task": "这段代码有内存泄漏，需要深入分析 GC 行为",
+          "expected": "deepseek",
+          "got": "local-smart"
+        },
+        {
+          "task": "审查这个补丁是否有并发安全问题，涉及资金结算",
+          "expected": "claude",
+          "got": "local-smart"
+        }
+      ],
+      "rows": [
+        {
+          "task": "把这段 3000 行的 Nginx access log 总结成 5 条要点",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "note": "log summary",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Summarizing a log file is a deterministic extraction task suitable for local-fast.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "把这个文件里的变量名 user_list 批量改成 users",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "note": "trivial rename",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Simple code refactoring task (variable renaming) suitable for deterministic local execution.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "识别这张扫描版合同截图里的文字",
+          "expected": "local-ocr",
+          "got": "local-ocr",
+          "note": "pure OCR",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "The user wants to extract text from a scanned image of a contract, which is a classic OCR task.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "把会议录音转成文字纪要",
+          "expected": "local-asr",
+          "got": "local-asr",
+          "note": "ASR then notes",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Task is to convert meeting audio recording to text minutes, which is a speech-to-text (ASR) task.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "为 200 篇内部文档建立可检索的向量索引",
+          "expected": "local-embedding",
+          "got": "local-embedding",
+          "note": "embedding",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "任务涉及为大量文档建立向量索引，属于语义检索和向量索引构建范畴。",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "对这 50 条检索结果按相关性重新排序",
+          "expected": "local-reranker",
+          "got": "local-reranker",
+          "note": "rerank",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "The task is to re-rank search results by relevance, which is the specific function of a reranker model.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "设计一个支持多租户 RBAC 与审计日志的权限系统",
+          "expected": "claude",
+          "got": "local-smart",
+          "note": "security architecture",
+          "correct": false,
+          "confidence": 0.9,
+          "reason": "Designing a multi-tenant RBAC system with audit logging requires architectural planning, database schema design, and logic implementation that exceeds simple ex",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "写一条 SQL 统计每个项目的任务数量和平均优先级",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "note": "simple SQL",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Simple SQL query generation for basic aggregation and statistics.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "这个角色权限改造涉及生产环境，如何保证不出安全事故",
+          "expected": "claude",
+          "got": "human",
+          "note": "production safety",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "Production environment permission changes are high-risk operations that require human oversight, approval, and decision-making to prevent security incidents.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "根据这段描述生成一张赛博朋克风格的城市插画",
+          "expected": "local-image",
+          "got": "local-image",
+          "note": "image gen",
+          "correct": true,
+          "confidence": 1.0,
+          "reason": "The user is requesting the generation of an image based on a text description (cyberpunk city), which matches the local-image route for image generation tasks.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "分析 pytest 失败结果并判断是不是环境问题",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "note": "test interpretation",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Interpreting test failure logs to determine if they are environment-related is a deterministic extraction and analysis task suitable for local-fast.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "把这段 12000 token 的对话压缩成结构化 handoff",
+          "expected": "local-smart",
+          "got": "local-fast",
+          "note": "needs real compression",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "Task is simple text compression/summarization of a long context, fitting the deterministic extraction profile of local-fast.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "重构整个后端服务，从单体拆成微服务",
+          "expected": "codex",
+          "got": "claude",
+          "note": "large refactor",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "Refactoring a monolithic backend into microservices is a complex architectural change requiring deep analysis, design patterns, and handling of production risks",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "这个界面截图上为什么按钮是灰色的",
+          "expected": "local-vision",
+          "got": "local-vision",
+          "note": "GUI understanding",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "The user is asking about the state of buttons in a screenshot, which requires visual analysis of the image content.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "把这段英文 README 翻译成中文",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "note": "translation",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Translation is a standard deterministic task suitable for fast local models.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "定位这个 Python traceback 的根因并给最小修复",
+          "expected": "local-smart",
+          "got": "local-fast",
+          "note": "cross-file debugging",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "Task involves analyzing a traceback and providing a minimal fix, which is a standard, deterministic coding task suitable for local-fast.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "为一个 50 人团队设计三年的技术演进路线",
+          "expected": "claude",
+          "got": "deepseek",
+          "note": "strategy",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "Designing a 3-year technical roadmap for a 50-person team requires deep strategic analysis, architectural foresight, and complex reasoning that exceeds the capa",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "解释这个复杂分布式事务的竞态条件并给出证明",
+          "expected": "deepseek",
+          "got": "deepseek",
+          "note": "hard reasoning",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "The user is asking for an explanation and proof of a complex distributed transaction race condition. This requires deep reasoning, formal logic, and potentially",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "把 JSON 文件转换成 CSV",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "note": "trivial code",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Converting JSON to CSV is a simple, deterministic data transformation task.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "这段代码有内存泄漏，需要深入分析 GC 行为",
+          "expected": "deepseek",
+          "got": "local-smart",
+          "note": "deep analysis",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "The user requests deep analysis of Garbage Collection behavior to identify a memory leak, which requires complex reasoning and code understanding beyond simple ",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "读取这张图表并描述趋势",
+          "expected": "local-vision",
+          "got": "local-vision",
+          "note": "chart",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "The user wants to read a chart and describe trends, which requires visual understanding of image content.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "这个决定会删除生产数据库，是否执行",
+          "expected": "human",
+          "got": "human",
+          "note": "irreversible",
+          "correct": true,
+          "confidence": 1.0,
+          "reason": "This is a critical production operation with irreversible consequences; it requires human authorization and decision-making.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "给这个新项目起一个包名并写一句话描述",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "note": "trivial",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Naming a package and writing a one-line description is a simple, deterministic task suitable for local-fast.",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "写一个跨平台的桌面端渲染引擎并保证 120fps",
+          "expected": "codex",
+          "got": "human",
+          "note": "hard engineering",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "Building a cross-platform desktop rendering engine with a guaranteed 120fps is a highly complex, non-trivial engineering task involving low-level graphics progr",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "审查这个补丁是否有并发安全问题，涉及资金结算",
+          "expected": "claude",
+          "got": "local-smart",
+          "note": "money + concurrency",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "审查涉及资金结算的并发安全补丁需要深入分析代码逻辑、锁机制和状态一致性，属于需要本地模型进行深度代码理解和推理的任务。",
+          "parse_ok": true,
+          "leak": null
+        },
+        {
+          "task": "把这段日志里的时间戳统一成 ISO 8601",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "note": "mechanical",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Timestamp normalization is a simple, deterministic text transformation task.",
+          "parse_ok": true,
+          "leak": null
+        }
+      ],
+      "elapsed_s": 18.1
+    }
+  }
+}

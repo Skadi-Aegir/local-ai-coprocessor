@@ -1,0 +1,41 @@
+{
+  "packs": {
+    "server_pack": {
+      "exists": true,
+      "has_pack_def": false,
+      "max_chars_per_chunk": null,
+      "uses_truncated_marker": false,
+      "header_includes_only_facts": false
+    },
+    "retriever_pack": {
+      "exists": true,
+      "has_pack_def": true,
+      "max_chars_per_chunk": 8000,
+      "uses_truncated_marker": true,
+      "header_includes_only_facts": true
+    },
+    "pipeline_pack": {
+      "exists": true,
+      "has_pack_def": true,
+      "max_chars_per_chunk": null,
+      "uses_truncated_marker": true,
+      "header_includes_only_facts": true
+    }
+  },
+  "truncation": {},
+  "served_corpus_inventory": {
+    "file_count": 99,
+    "areas": {
+      "benchmarks": 59,
+      "config": 3,
+      "docs": 7,
+      "scripts": 13,
+      "services": 17
+    },
+    "harness_or_result_files": [
+      "benchmarks/retrieval-results.md",
+      "services/retrieval/rag_compare.py",
+      "services/retrieval/retrieval_bench.py"
+    ]
+  }
+}

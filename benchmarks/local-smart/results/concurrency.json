@@ -1,0 +1,50 @@
+{
+  "tokens_requested": 800,
+  "conditions": {
+    "c1_fast_alone": {
+      "label": "fourb_alone",
+      "ok": true,
+      "error": "",
+      "wall_s": 6.6,
+      "gen_tps": 123.49,
+      "prompt_tps": 1054.3,
+      "completion_tokens": 800,
+      "ttft_s": 0.114
+    },
+    "c2_smart_alone": {
+      "label": "nineb_alone",
+      "ok": true,
+      "error": "",
+      "wall_s": 10.96,
+      "gen_tps": 73.58,
+      "prompt_tps": 945.8,
+      "completion_tokens": 800,
+      "ttft_s": 0.1
+    },
+    "c3_fast_concurrent": {
+      "label": "fourb_concurrent",
+      "ok": true,
+      "error": "",
+      "wall_s": 13.97,
+      "gen_tps": 57.66,
+      "prompt_tps": 73.3,
+      "completion_tokens": 800,
+      "ttft_s": 0.11
+    },
+    "c3_smart_concurrent": {
+      "label": "nineb_concurrent",
+      "ok": true,
+      "error": "",
+      "wall_s": 17.42,
+      "gen_tps": 46.07,
+      "prompt_tps": 85.9,
+      "completion_tokens": 800,
+      "ttft_s": 0.076
+    }
+  },
+  "concurrent_wall_s": 17.42,
+  "fast_penalty_pct": -53.3,
+  "smart_penalty_pct": -37.4,
+  "fast_retained_pct": 46.7,
+  "smart_retained_pct": 62.6
+}

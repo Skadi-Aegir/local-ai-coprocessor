@@ -1,0 +1,66 @@
+{
+  "functional": {
+    "images": [
+      {
+        "id": "syn_en_01",
+        "category": "english",
+        "http_text": "Local OCR runs on the CPU only.",
+        "b3_inprocess_text": "Local OCR runs on the CPU only.",
+        "identical": true,
+        "n_blocks": 1,
+        "confidence": 0.981515,
+        "wall_s": 0.222,
+        "elapsed_s": 0.2007
+      },
+      {
+        "id": "syn_code_01",
+        "category": "code",
+        "http_text": "Ps D:\\MultiAgent> git log --oneline -1\nb637590 Phase 6 B1: local-ocr environment",
+        "b3_inprocess_text": "Ps D:\\MultiAgent> git log --oneline -1\nb637590 Phase 6 B1: local-ocr environment",
+        "identical": true,
+        "n_blocks": 2,
+        "confidence": 0.974145,
+        "wall_s": 0.637,
+        "elapsed_s": 0.6149
+      },
+      {
+        "id": "real_nvidia_smi",
+        "category": "real/terminal",
+        "http_text": "nvidia-smi memory query\nname, memory.used [MiB], memory.free [MiB]\nNVIDIA GeForce RTX 5070 Ti Laptop GPU, 6558 MiB, 5387 MiB",
+        "b3_inprocess_text": "nvidia-smi memory query\nname, memory.used [MiB], memory .free [MiB]\nNVIDIA GeForce RTX 5070 Ti Laptop GPU, 6558 MiB, 5387 MiB",
+        "identical": false,
+        "n_blocks": 3,
+        "confidence": 0.963527,
+        "wall_s": 1.661,
+        "elapsed_s": 1.6356
+      }
+    ],
+    "all_identical": false,
+    "n": 3
+  },
+  "coexistence": {
+    "vram_used_before_mb": 6547,
+    "vram_free_before_mb": 5398,
+    "qa_smoke": {
+      "question": "What does the escalation policy say about who owns the final review of a change?",
+      "exit": 0,
+      "refused": true,
+      "answer_head": "I could not find enough evidence in the local corpus to answer this.",
+      "citations": 0,
+      "finish_reason": "stop"
+    },
+    "ocr_requests": 20,
+    "ocr_ok": 20,
+    "ocr_latency_min_s": 0.1941,
+    "ocr_latency_max_s": 1.6944,
+    "vram_samples": 118,
+    "vram_free_min_mb": 5341,
+    "vram_free_max_mb": 5403,
+    "margin_mb": 2048,
+    "margin_held": true,
+    "vram_used_after_mb": 6595,
+    "vram_free_after_mb": 5350,
+    "vram_used_delta_mb": 48
+  },
+  "commit_free_mb": 7664
+}

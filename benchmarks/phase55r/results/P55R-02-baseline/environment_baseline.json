@@ -1,0 +1,46 @@
+{
+  "purpose": "P55R-02 environment baseline AFTER the operator closed externally-running high-VRAM programs",
+  "supersedes": "the P1-7 blocking judgement recorded during P55R-02 parts 1-5",
+  "note": "the earlier P1-7 record is NOT withdrawn - it was accurate for the conditions then. This file records the changed conditions.",
+  "captured_at": "P55R-02 part 6",
+  "gpu": {
+    "total_mib": 12227,
+    "used_mib": 6340,
+    "free_mib": 5605,
+    "margin_mib": 2048
+  },
+  "services": [
+    {"name": "local-fast", "port": 8111, "health": "ok", "resident": true},
+    {"name": "local-embedding", "port": 8113, "health": "ok", "resident": true},
+    {"name": "local-reranker", "port": 8114, "health": "ok", "resident": true}
+  ],
+  "change_from_before": {
+    "before": {
+      "external_consumer": "VALORANT-Win64-Shipping, 8250 MB commit",
+      "commit_free_mb": 5485,
+      "embedding_service": "could NOT start - OSError 1455 pagefile too small",
+      "three_service_baseline": "NOT restorable"
+    },
+    "after": {
+      "external_consumer": "closed by the operator",
+      "embedding_service": "starts normally",
+      "three_service_baseline": "RESTORED - all three healthy simultaneously"
+    }
+  },
+  "important_caveat_stated_by_the_operator": "other programs exiting does NOT mean model caches are released automatically; the figures above are the measured post-change state, not an inference",
+  "consequences_for_earlier_findings": {
+    "external_load_may_have_interfered": [
+      "P55R-02 mode A screening (3/5 completed)",
+      "P55R-02 mode B screening (4/5 completed)",
+      "P55R-02 mode C hang",
+      "the failure to restore the three-service baseline (P1-7, ERRATA E11)"
+    ],
+    "NOT attributed to external load": [
+      "the four deterministic verification groups - they use mocks and stubs only, no GPU work",
+      "the request-level dependency defect (chicken-and-egg on on-demand loading)",
+      "the FIFO / independent-deadline / queue-cleanup / reservation double-count defects",
+      "the b4b ordering defect"
+    ],
+    "still_stands_as_a_real_finding": "the reranker's declared 1800 MiB transient vs 262 MiB observed; this is a budget-figure measurement and does not depend on external load. The 2048 MiB margin is NOT lowered and the declared peak is NOT replaced by the 262 MiB figure."
+  }
+}

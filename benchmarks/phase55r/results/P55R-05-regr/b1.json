@@ -1,0 +1,27 @@
+{
+  "note": "drives the real acquire()/release() API; no GPU work",
+  "cases": [
+    {
+      "case": "serial_double_admit",
+      "admitted": 2,
+      "peak_concurrent": 1,
+      "active": {}
+    },
+    {
+      "case": "exclusive_co_admit",
+      "peak_concurrent": 1,
+      "exclusive_admitted": 1
+    },
+    {
+      "case": "interactive_overlap_background",
+      "peak_concurrent": 1
+    },
+    {
+      "case": "budget_double_spend",
+      "admitted": 1,
+      "peak_concurrent": 1,
+      "usable_mb": 700,
+      "each_mb": 600
+    }
+  ]
+}

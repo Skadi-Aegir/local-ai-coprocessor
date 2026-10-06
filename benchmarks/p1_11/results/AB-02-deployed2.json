@@ -1,0 +1,74 @@
+{
+  "run_id": "AB-02-deployed2",
+  "port": 8113,
+  "started_here": false,
+  "embed_seconds": 1.05,
+  "docs": 8,
+  "longest_chars": 6456,
+  "vectors_returned": 8,
+  "stats_before": {
+    "model": "local-embedding",
+    "dimension": 1024,
+    "device": "cuda:0",
+    "vram_mb": 2360.6,
+    "memory": {
+      "device_used_mb": 2360.6,
+      "device_free_mb": 9866.0,
+      "torch_allocated_mb": 1136.4,
+      "torch_reserved_mb": 1160.0,
+      "torch_peak_reserved_mb": 1160.0,
+      "cache_releases": 0,
+      "released_mb_total": 0.0,
+      "release_threshold_mb": 256
+    },
+    "max_seq_length": 8192,
+    "native_dimension": 1024,
+    "uptime_s": 9.6,
+    "projects": {
+      "local-ai": {
+        "vectors_in_index": 1173,
+        "chunks_in_metadata": 1173,
+        "projects": [
+          "local-ai"
+        ],
+        "dimension": 1024,
+        "consistent": true
+      }
+    }
+  },
+  "stats_after": {
+    "model": "local-embedding",
+    "dimension": 1024,
+    "device": "cuda:0",
+    "vram_mb": 2402.6,
+    "memory": {
+      "device_used_mb": 2402.6,
+      "device_free_mb": 9824.0,
+      "torch_allocated_mb": 1144.5,
+      "torch_reserved_mb": 1160.0,
+      "torch_peak_reserved_mb": 3030.0,
+      "cache_releases": 1,
+      "released_mb_total": 1885.5,
+      "release_threshold_mb": 256
+    },
+    "max_seq_length": 8192,
+    "native_dimension": 1024,
+    "uptime_s": 10.7,
+    "projects": {
+      "local-ai": {
+        "vectors_in_index": 1173,
+        "chunks_in_metadata": 1173,
+        "projects": [
+          "local-ai"
+        ],
+        "dimension": 1024,
+        "consistent": true
+      }
+    }
+  },
+  "memory_field_present": true,
+  "peak_above_weights_mb": 1893.6,
+  "retained_mb": 0.0,
+  "cache_releases_during_embed": 1,
+  "verdict": "released"
+}

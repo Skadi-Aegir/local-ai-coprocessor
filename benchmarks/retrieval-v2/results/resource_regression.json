@@ -1,0 +1,36 @@
+{
+  "services": {
+    "local_fast": true,
+    "local_embedding": true,
+    "local_reranker": true
+  },
+  "models_resident": 3,
+  "samples": 81,
+  "vram_peak_mb": 9923.0,
+  "vram_median_mb": 9891,
+  "vram_peak_delta_mb": 98.0,
+  "free_at_peak_mb": 2304.0,
+  "margin_mb": 2048,
+  "margin_held_pct": 100.0,
+  "margin_breaches": 0,
+  "system": {
+    "ram_total_mb": 32213,
+    "ram_free_mb": 15748,
+    "pagefile_allocated_mb": 38400,
+    "pagefile_peak_mb": 32016,
+    "vram_used_mb": 9891.0,
+    "vram_free_mb": 2054.0,
+    "vram_total_mb": 12227.0,
+    "note": "Windows shared GPU memory is not exposed by nvidia-smi on this driver"
+  },
+  "workload": {
+    "gen": 29,
+    "embed": 29,
+    "rerank": 29
+  },
+  "ttft_s_median": 0.0362,
+  "gen_tps_median": 135.21,
+  "rerank_s_median": 0.0722,
+  "embed_chunks_per_s_median": 463.2,
+  "seconds": 20.0
+}

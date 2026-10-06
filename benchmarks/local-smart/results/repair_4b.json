@@ -1,0 +1,120 @@
+{
+  "model": "local-fast",
+  "base_url": "http://127.0.0.1:8111",
+  "grammar": false,
+  "fixtures": [
+    {
+      "fixture": "proj1_pagination",
+      "attempts": [
+        {
+          "attempt": 1,
+          "latency_s": 1.44,
+          "gen_tps": 126.33,
+          "raw": "{\n  \"files\": [\"pagination.py\"],\n  \"edits\": [\n    {\"file\": \"pagination.py\", \"find\": \"start = page * per_page\", \"replace\": \"start = (page - 1) * per_page\"}\n  ],\n  \"explanation\": \"The bug occurs because the code treats the 1-based `page` parameter as a 0-based index, causing the first page (page=1) to start at index `per_page` instead of 0. Subtracting 1 from `page` aligns the calculation with the documented 1-based API contract.\"\n}",
+          "leak": null,
+          "error": "",
+          "json_ok": true,
+          "files_declared": [
+            "pagination.py"
+          ],
+          "explanation": "The bug occurs because the code treats the 1-based `page` parameter as a 0-based index, causing the first page (page=1) to start at index `per_page` instead of 0. Subtracting 1 from `page` aligns the calculation with the documented 1-based API contract.",
+          "applied": true,
+          "apply_msgs": [
+            "edit 1: applied to pagination.py"
+          ],
+          "files_touched": [
+            "pagination.py"
+          ],
+          "undeclared_touches": [],
+          "out_of_scope": [],
+          "tests_pass": true,
+          "bug_fixed": true,
+          "tests_tail": "3 passed in 0.02s",
+          "demo_tail": "page beyond range: start=10 len=25",
+          "success": true
+        }
+      ],
+      "pass_at_1": true,
+      "pass_at_2": true,
+      "tests_pass": true,
+      "bug_fixed": true
+    },
+    {
+      "fixture": "proj2_importer",
+      "attempts": [
+        {
+          "attempt": 1,
+          "latency_s": 2.29,
+          "gen_tps": 126.71,
+          "raw": "{\n  \"files\": [\"reader.py\"],\n  \"edits\": [\n    {\n      \"file\": \"reader.py\",\n      \"find\": \"    fh = open(path, \\\"r\\\", encoding=\\\"utf-8\\\")\\n    raw = fh.read()\\n    data = json.loads(raw)\\n    if not isinstance(data, dict):\\n        raise ValueError(f\\\"expected a JSON object in {path}\\\")\\n    fh.close()\",\n      \"replace\": \"    with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as fh:\\n        raw = fh.read()\\n        data = json.loads(raw)\\n        if not isinstance(data, dict):\\n            raise ValueError(f\\\"expected a JSON object in {path}\\\")\"\n    }\n  ],\n  \"explanation\": \"The file descriptor leak occurs because `read_record` opens the file without a context manager and only closes it after successfully parsing the JSON; if parsing fails, the file handle is never released. Wrapping the file open in a `with` statement ensures the handle is closed immediately upon any exception.\"\n}",
+          "leak": null,
+          "error": "",
+          "json_ok": true,
+          "files_declared": [
+            "reader.py"
+          ],
+          "explanation": "The file descriptor leak occurs because `read_record` opens the file without a context manager and only closes it after successfully parsing the JSON; if parsing fails, the file handle is never released. Wrapping the file open in a `with` statement ensures the handle is closed immediately upon any exception.",
+          "applied": true,
+          "apply_msgs": [
+            "edit 1: applied to reader.py"
+          ],
+          "files_touched": [
+            "reader.py"
+          ],
+          "undeclared_touches": [],
+          "out_of_scope": [],
+          "tests_pass": true,
+          "bug_fixed": true,
+          "tests_tail": "1 passed in 0.02s",
+          "demo_tail": "failed to read C:\\Users\\<user>\\AppData\\Local\\Temp\\tmprwuou6qr\\bad399.json: expected a JSON object in C:\\Users\\<user>\\AppData\\Local\\Temp\\tmprwuou6qr\\bad399.json",
+          "success": true
+        }
+      ],
+      "pass_at_1": true,
+      "pass_at_2": true,
+      "tests_pass": true,
+      "bug_fixed": true
+    },
+    {
+      "fixture": "proj3_report",
+      "attempts": [
+        {
+          "attempt": 1,
+          "latency_s": 1.29,
+          "gen_tps": 124.05,
+          "raw": "{\n  \"files\": [\"report.py\"],\n  \"edits\": [\n    {\n      \"file\": \"report.py\",\n      \"find\": \"by_customer[customer] = cents\",\n      \"replace\": \"by_customer[customer] = by_customer.get(customer, 0) + cents\"\n    }\n  ],\n  \"explanation\": \"The bug occurs because the code overwrites the customer's total instead of accumulating it when a customer appears in multiple regions; changing the assignment to an addition with a default of zero fixes this.\"\n}",
+          "leak": null,
+          "error": "",
+          "json_ok": true,
+          "files_declared": [
+            "report.py"
+          ],
+          "explanation": "The bug occurs because the code overwrites the customer's total instead of accumulating it when a customer appears in multiple regions; changing the assignment to an addition with a default of zero fixes this.",
+          "applied": true,
+          "apply_msgs": [
+            "edit 1: applied to report.py"
+          ],
+          "files_touched": [
+            "report.py"
+          ],
+          "undeclared_touches": [],
+          "out_of_scope": [],
+          "tests_pass": true,
+          "bug_fixed": true,
+          "tests_tail": "1 passed in 0.01s",
+          "demo_tail": "PASS",
+          "success": true
+        }
+      ],
+      "pass_at_1": true,
+      "pass_at_2": true,
+      "tests_pass": true,
+      "bug_fixed": true
+    }
+  ],
+  "pass_at_1": 3,
+  "pass_at_1_rate": 100.0,
+  "pass_at_2": 3,
+  "pass_at_2_rate": 100.0,
+  "scope_creep_count": 0
+}

@@ -1,0 +1,1030 @@
+{
+  "tag": "q4km_8k",
+  "base_url": "http://127.0.0.1:8111",
+  "model": "local-fast",
+  "params": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "seed": 20260401,
+    "thinking": false,
+    "grammar": false,
+    "json_schema": false
+  },
+  "started": "2026-09-30T01:09:23",
+  "tests": {
+    "A": {
+      "test": "A_zh_summary",
+      "ok": true,
+      "error": "",
+      "ttft_s": 0.1928583000008075,
+      "total_s": 1.886,
+      "prompt_tokens": 4,
+      "completion_tokens": 190,
+      "gen_tps": 111.61,
+      "prompt_tps": 88.71,
+      "output": "1. 新架构将推理调度层重构为三层结构，通过引入优先级队列和异步任务机制，解决了旧架构中请求排队延迟高及慢请求拖垮整体吞吐的问题。\n2. 向量检索改用 pgvector 扩展以复用现有数据库体系，虽导致检索延迟从 12 毫秒上升至 35 毫秒，但仍在可接受范围内。\n3. 缓存策略仅针对完全相同的查询进行缓存，明确放弃语义缓存以避免客服场景中意图错误匹配的高代价风险。\n4. 针对 GPU 显存被长上下文请求占满的问题，通过限制单请求最大上下文为 16K 并在超时路径清空缓存，使显存稳定在 9.2GB。\n5. 尽管基础设施成本因新增组件上升约 21%，但由于慢请求不再拖垮整体吞吐，单位请求的平均成本实际下降了 8%。",
+      "grade": {
+        "bullet_points": 5,
+        "bullet_count_ok": true,
+        "facts_hit": 7,
+        "facts_total": 10,
+        "facts_detail": {
+          "新旧架构": true,
+          "延迟问题": true,
+          "pgvector": true,
+          "缓存策略": true,
+          "显存问题": true,
+          "日志量": false,
+          "灰度状态": false,
+          "未解决问题": true,
+          "成本": true,
+          "回滚": false
+        },
+        "hallucination_markers": [],
+        "numbers_not_in_source": [],
+        "chars": 310
+      },
+      "elapsed_s": 1.89
+    },
+    "B": {
+      "test": "B_json_extraction",
+      "runs": 20,
+      "parse_ok": 20,
+      "parse_rate": 100.0,
+      "schema_ok": 20,
+      "schema_rate": 100.0,
+      "field_errors": {},
+      "thinking_leaks": 0,
+      "thinking_leak_rate": 0.0,
+      "mean_ttft_s": 0.12,
+      "mean_gen_tps": 119.86,
+      "rows": [
+        {
+          "i": 1,
+          "input": "任务 T-200 属于 billing-api 项目，优先级 40，不需要 GPU，预计由 local-smart 处理，目前状态 done。",
+          "gold": {
+            "task_id": "T-200",
+            "project": "billing-api",
+            "priority": 40,
+            "requires_gpu": false,
+            "worker": "local-smart",
+            "status": "done"
+          },
+          "output": "{\"task_id\": \"T-200\", \"project\": \"billing-api\", \"priority\": 40, \"requires_gpu\": false, \"worker\": \"local-smart\", \"status\": \"done\"}",
+          "parsed": {
+            "task_id": "T-200",
+            "project": "billing-api",
+            "priority": 40,
+            "requires_gpu": false,
+            "worker": "local-smart",
+            "status": "done"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.14616640000167536,
+          "total_s": 0.554,
+          "gen_tps": 110.27,
+          "error": ""
+        },
+        {
+          "i": 2,
+          "input": "任务 T-207 属于 civ6-mod 项目，优先级 55，不需要 GPU，预计由 deepseek 处理，目前状态 running。",
+          "gold": {
+            "task_id": "T-207",
+            "project": "civ6-mod",
+            "priority": 55,
+            "requires_gpu": false,
+            "worker": "deepseek",
+            "status": "running"
+          },
+          "output": "{\"task_id\": \"T-207\", \"project\": \"civ6-mod\", \"priority\": 55, \"requires_gpu\": false, \"worker\": \"deepseek\", \"status\": \"running\"}",
+          "parsed": {
+            "task_id": "T-207",
+            "project": "civ6-mod",
+            "priority": 55,
+            "requires_gpu": false,
+            "worker": "deepseek",
+            "status": "running"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.10320570000112639,
+          "total_s": 0.511,
+          "gen_tps": 112.87,
+          "error": ""
+        },
+        {
+          "i": 3,
+          "input": "任务 T-214 属于 eye-tracking 项目，优先级 10，不需要 GPU，预计由 claude 处理，目前状态 done。",
+          "gold": {
+            "task_id": "T-214",
+            "project": "eye-tracking",
+            "priority": 10,
+            "requires_gpu": false,
+            "worker": "claude",
+            "status": "done"
+          },
+          "output": "{\"task_id\": \"T-214\", \"project\": \"eye-tracking\", \"priority\": 10, \"requires_gpu\": false, \"worker\": \"claude\", \"status\": \"done\"}",
+          "parsed": {
+            "task_id": "T-214",
+            "project": "eye-tracking",
+            "priority": 10,
+            "requires_gpu": false,
+            "worker": "claude",
+            "status": "done"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.11053140000149142,
+          "total_s": 0.503,
+          "gen_tps": 112.13,
+          "error": ""
+        },
+        {
+          "i": 4,
+          "input": "任务 T-221 属于 eye-tracking 项目，优先级 70，不需要 GPU，预计由 claude 处理，目前状态 pending。",
+          "gold": {
+            "task_id": "T-221",
+            "project": "eye-tracking",
+            "priority": 70,
+            "requires_gpu": false,
+            "worker": "claude",
+            "status": "pending"
+          },
+          "output": "{\"task_id\": \"T-221\", \"project\": \"eye-tracking\", \"priority\": 70, \"requires_gpu\": false, \"worker\": \"claude\", \"status\": \"pending\"}",
+          "parsed": {
+            "task_id": "T-221",
+            "project": "eye-tracking",
+            "priority": 70,
+            "requires_gpu": false,
+            "worker": "claude",
+            "status": "pending"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.1105981000000611,
+          "total_s": 0.507,
+          "gen_tps": 110.9,
+          "error": ""
+        },
+        {
+          "i": 5,
+          "input": "任务 T-228 属于 agent-platform 项目，优先级 55，需要 GPU，预计由 codex 处理，目前状态 blocked。",
+          "gold": {
+            "task_id": "T-228",
+            "project": "agent-platform",
+            "priority": 55,
+            "requires_gpu": true,
+            "worker": "codex",
+            "status": "blocked"
+          },
+          "output": "{\"task_id\": \"T-228\", \"project\": \"agent-platform\", \"priority\": 55, \"requires_gpu\": true, \"worker\": \"codex\", \"status\": \"blocked\"}",
+          "parsed": {
+            "task_id": "T-228",
+            "project": "agent-platform",
+            "priority": 55,
+            "requires_gpu": true,
+            "worker": "codex",
+            "status": "blocked"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.12037209999834886,
+          "total_s": 0.513,
+          "gen_tps": 112.05,
+          "error": ""
+        },
+        {
+          "i": 6,
+          "input": "任务 T-235 属于 eye-tracking 项目，优先级 10，需要 GPU，预计由 local-smart 处理，目前状态 done。",
+          "gold": {
+            "task_id": "T-235",
+            "project": "eye-tracking",
+            "priority": 10,
+            "requires_gpu": true,
+            "worker": "local-smart",
+            "status": "done"
+          },
+          "output": "{\"task_id\": \"T-235\", \"project\": \"eye-tracking\", \"priority\": 10, \"requires_gpu\": true, \"worker\": \"local-smart\", \"status\": \"done\"}",
+          "parsed": {
+            "task_id": "T-235",
+            "project": "eye-tracking",
+            "priority": 10,
+            "requires_gpu": true,
+            "worker": "local-smart",
+            "status": "done"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.11711660000219126,
+          "total_s": 0.52,
+          "gen_tps": 111.78,
+          "error": ""
+        },
+        {
+          "i": 7,
+          "input": "任务 T-242 属于 eye-tracking 项目，优先级 25，不需要 GPU，预计由 local-fast 处理，目前状态 running。",
+          "gold": {
+            "task_id": "T-242",
+            "project": "eye-tracking",
+            "priority": 25,
+            "requires_gpu": false,
+            "worker": "local-fast",
+            "status": "running"
+          },
+          "output": "{\"task_id\": \"T-242\", \"project\": \"eye-tracking\", \"priority\": 25, \"requires_gpu\": false, \"worker\": \"local-fast\", \"status\": \"running\"}",
+          "parsed": {
+            "task_id": "T-242",
+            "project": "eye-tracking",
+            "priority": 25,
+            "requires_gpu": false,
+            "worker": "local-fast",
+            "status": "running"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.1294224999983271,
+          "total_s": 0.524,
+          "gen_tps": 111.39,
+          "error": ""
+        },
+        {
+          "i": 8,
+          "input": "任务 T-249 属于 data-pipeline 项目，优先级 95，不需要 GPU，预计由 claude 处理，目前状态 done。",
+          "gold": {
+            "task_id": "T-249",
+            "project": "data-pipeline",
+            "priority": 95,
+            "requires_gpu": false,
+            "worker": "claude",
+            "status": "done"
+          },
+          "output": "{\"task_id\": \"T-249\", \"project\": \"data-pipeline\", \"priority\": 95, \"requires_gpu\": false, \"worker\": \"claude\", \"status\": \"done\"}",
+          "parsed": {
+            "task_id": "T-249",
+            "project": "data-pipeline",
+            "priority": 95,
+            "requires_gpu": false,
+            "worker": "claude",
+            "status": "done"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.12964179999835324,
+          "total_s": 0.527,
+          "gen_tps": 113.28,
+          "error": ""
+        },
+        {
+          "i": 9,
+          "input": "任务 T-256 属于 eye-tracking 项目，优先级 40，不需要 GPU，预计由 codex 处理，目前状态 pending。",
+          "gold": {
+            "task_id": "T-256",
+            "project": "eye-tracking",
+            "priority": 40,
+            "requires_gpu": false,
+            "worker": "codex",
+            "status": "pending"
+          },
+          "output": "{\"task_id\": \"T-256\", \"project\": \"eye-tracking\", \"priority\": 40, \"requires_gpu\": false, \"worker\": \"codex\", \"status\": \"pending\"}",
+          "parsed": {
+            "task_id": "T-256",
+            "project": "eye-tracking",
+            "priority": 40,
+            "requires_gpu": false,
+            "worker": "codex",
+            "status": "pending"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.1053542000008747,
+          "total_s": 0.485,
+          "gen_tps": 115.78,
+          "error": ""
+        },
+        {
+          "i": 10,
+          "input": "任务 T-263 属于 agent-platform 项目，优先级 80，不需要 GPU，预计由 deepseek 处理，目前状态 blocked。",
+          "gold": {
+            "task_id": "T-263",
+            "project": "agent-platform",
+            "priority": 80,
+            "requires_gpu": false,
+            "worker": "deepseek",
+            "status": "blocked"
+          },
+          "output": "{\"task_id\": \"T-263\", \"project\": \"agent-platform\", \"priority\": 80, \"requires_gpu\": false, \"worker\": \"deepseek\", \"status\": \"blocked\"}",
+          "parsed": {
+            "task_id": "T-263",
+            "project": "agent-platform",
+            "priority": 80,
+            "requires_gpu": false,
+            "worker": "deepseek",
+            "status": "blocked"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.1245753999974113,
+          "total_s": 0.474,
+          "gen_tps": 125.77,
+          "error": ""
+        },
+        {
+          "i": 11,
+          "input": "任务 T-270 属于 data-pipeline 项目，优先级 25，不需要 GPU，预计由 codex 处理，目前状态 pending。",
+          "gold": {
+            "task_id": "T-270",
+            "project": "data-pipeline",
+            "priority": 25,
+            "requires_gpu": false,
+            "worker": "codex",
+            "status": "pending"
+          },
+          "output": "{\"task_id\": \"T-270\", \"project\": \"data-pipeline\", \"priority\": 25, \"requires_gpu\": false, \"worker\": \"codex\", \"status\": \"pending\"}",
+          "parsed": {
+            "task_id": "T-270",
+            "project": "data-pipeline",
+            "priority": 25,
+            "requires_gpu": false,
+            "worker": "codex",
+            "status": "pending"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.1215903000011167,
+          "total_s": 0.474,
+          "gen_tps": 127.61,
+          "error": ""
+        },
+        {
+          "i": 12,
+          "input": "任务 T-277 属于 data-pipeline 项目，优先级 10，需要 GPU，预计由 claude 处理，目前状态 running。",
+          "gold": {
+            "task_id": "T-277",
+            "project": "data-pipeline",
+            "priority": 10,
+            "requires_gpu": true,
+            "worker": "claude",
+            "status": "running"
+          },
+          "output": "{\"task_id\": \"T-277\", \"project\": \"data-pipeline\", \"priority\": 10, \"requires_gpu\": true, \"worker\": \"claude\", \"status\": \"running\"}",
+          "parsed": {
+            "task_id": "T-277",
+            "project": "data-pipeline",
+            "priority": 10,
+            "requires_gpu": true,
+            "worker": "claude",
+            "status": "running"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.11469590000342578,
+          "total_s": 0.476,
+          "gen_tps": 124.59,
+          "error": ""
+        },
+        {
+          "i": 13,
+          "input": "任务 T-284 属于 agent-platform 项目，优先级 55，需要 GPU，预计由 codex 处理，目前状态 done。",
+          "gold": {
+            "task_id": "T-284",
+            "project": "agent-platform",
+            "priority": 55,
+            "requires_gpu": true,
+            "worker": "codex",
+            "status": "done"
+          },
+          "output": "{\"task_id\": \"T-284\", \"project\": \"agent-platform\", \"priority\": 55, \"requires_gpu\": true, \"worker\": \"codex\", \"status\": \"done\"}",
+          "parsed": {
+            "task_id": "T-284",
+            "project": "agent-platform",
+            "priority": 55,
+            "requires_gpu": true,
+            "worker": "codex",
+            "status": "done"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.10178610000002664,
+          "total_s": 0.456,
+          "gen_tps": 124.2,
+          "error": ""
+        },
+        {
+          "i": 14,
+          "input": "任务 T-291 属于 eye-tracking 项目，优先级 40，不需要 GPU，预计由 local-smart 处理，目前状态 blocked。",
+          "gold": {
+            "task_id": "T-291",
+            "project": "eye-tracking",
+            "priority": 40,
+            "requires_gpu": false,
+            "worker": "local-smart",
+            "status": "blocked"
+          },
+          "output": "{\"task_id\": \"T-291\", \"project\": \"eye-tracking\", \"priority\": 40, \"requires_gpu\": false, \"worker\": \"local-smart\", \"status\": \"blocked\"}",
+          "parsed": {
+            "task_id": "T-291",
+            "project": "eye-tracking",
+            "priority": 40,
+            "requires_gpu": false,
+            "worker": "local-smart",
+            "status": "blocked"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.09572100000150385,
+          "total_s": 0.449,
+          "gen_tps": 127.28,
+          "error": ""
+        },
+        {
+          "i": 15,
+          "input": "任务 T-298 属于 data-pipeline 项目，优先级 25，需要 GPU，预计由 claude 处理，目前状态 pending。",
+          "gold": {
+            "task_id": "T-298",
+            "project": "data-pipeline",
+            "priority": 25,
+            "requires_gpu": true,
+            "worker": "claude",
+            "status": "pending"
+          },
+          "output": "{\"task_id\": \"T-298\", \"project\": \"data-pipeline\", \"priority\": 25, \"requires_gpu\": true, \"worker\": \"claude\", \"status\": \"pending\"}",
+          "parsed": {
+            "task_id": "T-298",
+            "project": "data-pipeline",
+            "priority": 25,
+            "requires_gpu": true,
+            "worker": "claude",
+            "status": "pending"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.12502150000000256,
+          "total_s": 0.479,
+          "gen_tps": 126.94,
+          "error": ""
+        },
+        {
+          "i": 16,
+          "input": "任务 T-305 属于 data-pipeline 项目，优先级 10，不需要 GPU，预计由 local-fast 处理，目前状态 pending。",
+          "gold": {
+            "task_id": "T-305",
+            "project": "data-pipeline",
+            "priority": 10,
+            "requires_gpu": false,
+            "worker": "local-fast",
+            "status": "pending"
+          },
+          "output": "{\"task_id\": \"T-305\", \"project\": \"data-pipeline\", \"priority\": 10, \"requires_gpu\": false, \"worker\": \"local-fast\", \"status\": \"pending\"}",
+          "parsed": {
+            "task_id": "T-305",
+            "project": "data-pipeline",
+            "priority": 10,
+            "requires_gpu": false,
+            "worker": "local-fast",
+            "status": "pending"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.11418609999964247,
+          "total_s": 0.475,
+          "gen_tps": 124.86,
+          "error": ""
+        },
+        {
+          "i": 17,
+          "input": "任务 T-312 属于 billing-api 项目，优先级 10，不需要 GPU，预计由 deepseek 处理，目前状态 running。",
+          "gold": {
+            "task_id": "T-312",
+            "project": "billing-api",
+            "priority": 10,
+            "requires_gpu": false,
+            "worker": "deepseek",
+            "status": "running"
+          },
+          "output": "{\"task_id\": \"T-312\", \"project\": \"billing-api\", \"priority\": 10, \"requires_gpu\": false, \"worker\": \"deepseek\", \"status\": \"running\"}",
+          "parsed": {
+            "task_id": "T-312",
+            "project": "billing-api",
+            "priority": 10,
+            "requires_gpu": false,
+            "worker": "deepseek",
+            "status": "running"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.10623869999835733,
+          "total_s": 0.46,
+          "gen_tps": 124.43,
+          "error": ""
+        },
+        {
+          "i": 18,
+          "input": "任务 T-319 属于 civ6-mod 项目，优先级 40，需要 GPU，预计由 local-smart 处理，目前状态 running。",
+          "gold": {
+            "task_id": "T-319",
+            "project": "civ6-mod",
+            "priority": 40,
+            "requires_gpu": true,
+            "worker": "local-smart",
+            "status": "running"
+          },
+          "output": "{\"task_id\": \"T-319\", \"project\": \"civ6-mod\", \"priority\": 40, \"requires_gpu\": true, \"worker\": \"local-smart\", \"status\": \"running\"}",
+          "parsed": {
+            "task_id": "T-319",
+            "project": "civ6-mod",
+            "priority": 40,
+            "requires_gpu": true,
+            "worker": "local-smart",
+            "status": "running"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.10761060000004363,
+          "total_s": 0.47,
+          "gen_tps": 129.6,
+          "error": ""
+        },
+        {
+          "i": 19,
+          "input": "任务 T-326 属于 data-pipeline 项目，优先级 10，需要 GPU，预计由 local-smart 处理，目前状态 blocked。",
+          "gold": {
+            "task_id": "T-326",
+            "project": "data-pipeline",
+            "priority": 10,
+            "requires_gpu": true,
+            "worker": "local-smart",
+            "status": "blocked"
+          },
+          "output": "{\"task_id\": \"T-326\", \"project\": \"data-pipeline\", \"priority\": 10, \"requires_gpu\": true, \"worker\": \"local-smart\", \"status\": \"blocked\"}",
+          "parsed": {
+            "task_id": "T-326",
+            "project": "data-pipeline",
+            "priority": 10,
+            "requires_gpu": true,
+            "worker": "local-smart",
+            "status": "blocked"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.10028059999967809,
+          "total_s": 0.463,
+          "gen_tps": 126.91,
+          "error": ""
+        },
+        {
+          "i": 20,
+          "input": "任务 T-333 属于 billing-api 项目，优先级 95，需要 GPU，预计由 deepseek 处理，目前状态 running。",
+          "gold": {
+            "task_id": "T-333",
+            "project": "billing-api",
+            "priority": 95,
+            "requires_gpu": true,
+            "worker": "deepseek",
+            "status": "running"
+          },
+          "output": "{\"task_id\": \"T-333\", \"project\": \"billing-api\", \"priority\": 95, \"requires_gpu\": true, \"worker\": \"deepseek\", \"status\": \"running\"}",
+          "parsed": {
+            "task_id": "T-333",
+            "project": "billing-api",
+            "priority": 95,
+            "requires_gpu": true,
+            "worker": "deepseek",
+            "status": "running"
+          },
+          "parse_ok": true,
+          "schema_ok": true,
+          "problems": [],
+          "ttft_s": 0.11928979999720468,
+          "total_s": 0.472,
+          "gen_tps": 124.59,
+          "error": ""
+        }
+      ],
+      "grammar": false,
+      "json_schema": false,
+      "temperature": 0.0,
+      "elapsed_s": 9.8
+    },
+    "C": {
+      "test": "C_routing",
+      "runs": 22,
+      "correct": 16,
+      "accuracy": 72.7,
+      "parse_ok": 22,
+      "parse_rate": 100.0,
+      "thinking_leaks": 0,
+      "rows": [
+        {
+          "task": "把这段 3000 行的 Nginx access log 总结成 5 条要点",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "日志摘要，确定性高",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Summarizing a large log file is a deterministic extraction task suitable for fast local processing.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "把这个文件里的变量名 user_list 批量改成 users",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "简单重命名",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Simple text replacement task suitable for fast local processing.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "识别这张扫描版合同截图里的文字",
+          "expected": "local-ocr",
+          "got": "local-ocr",
+          "why": "纯 OCR",
+          "correct": true,
+          "confidence": 1.0,
+          "reason": "The user is asking to extract text from a scanned image (OCR), which falls under the specific category of image-to-text tasks.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "设计一个支持多租户 RBAC 与审计日志的权限系统",
+          "expected": "claude",
+          "got": "local-smart",
+          "why": "安全关键 + 架构设计",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "设计多租户 RBAC 与审计日志系统涉及复杂的逻辑推理、架构权衡及数据模型设计，属于中等难度的推理任务，适合本地智能模型处理。",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "写一条 SQL 统计每个项目的任务数量和平均优先级",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "简单 SQL",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "SQL 查询生成属于简单代码任务，适合本地快速处理。",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "这个角色权限改造涉及生产环境，如何保证不出安全事故",
+          "expected": "claude",
+          "got": "human",
+          "why": "生产安全关键",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "涉及生产环境的权限改造属于高风险操作，可能导致不可逆的数据泄露或系统中断，必须由具备安全审计权限的人类专家进行决策和审批。",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "根据这段描述生成一张赛博朋克风格的城市插画",
+          "expected": "local-image",
+          "got": "local-image",
+          "why": "图像生成",
+          "correct": true,
+          "confidence": 1.0,
+          "reason": "The user is requesting the generation of an image based on a description, which falls under the category of image generation tasks.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "分析 pytest 失败结果并判断是不是环境问题",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "测试结果解释",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "分析 pytest 失败结果属于典型的代码调试和 traceback 排查工作，符合简单代码分析和错误定位的特征。",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "把这段 12000 token 的对话压缩成结构化 handoff",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "上下文压缩",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Summarization and structured extraction from text are cheap, deterministic tasks suitable for local-fast.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "重构整个后端服务，从单体拆成微服务",
+          "expected": "codex",
+          "got": "codex",
+          "why": "大规模重构",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Refactoring a monolithic backend into microservices is a complex software engineering task involving architectural design, database migration, and system integration, which requires advanced capabilities best suited for Codex or Claude.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "这个界面截图上为什么按钮是灰色的",
+          "expected": "local-vision",
+          "got": "local-vision",
+          "why": "GUI 视觉理解",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "The user is asking about a visual element (a gray button) in a screenshot, which requires image analysis to determine the reason.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "把这段英文 README 翻译成中文",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "简单翻译",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Translation is a cheap, deterministic task suitable for fast local processing.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "定位这个 Python traceback 的根因并给最小修复",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "traceback 初判",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Traceback triage and minimal code fix are cheap, deterministic tasks suitable for local-fast.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "为一个 50 人团队设计三年的技术演进路线",
+          "expected": "claude",
+          "got": "local-smart",
+          "why": "战略级架构问题",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "需要综合技术趋势、团队规模及长期规划进行中等复杂度的推理和策略制定。",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "解释这个复杂分布式事务的竞态条件并给出证明",
+          "expected": "deepseek",
+          "got": "local-smart",
+          "why": "中高难度推理",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "该任务涉及复杂的分布式系统理论（ACID、CAP 定理、一致性协议）和数学证明，需要中等深度的推理能力，但尚未达到需要大型模型进行复杂软件重构或深度代码生成的程度。",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "把 JSON 文件转换成 CSV",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "简单代码",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Data format conversion is a simple, deterministic task suitable for local processing.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "这段代码有内存泄漏，需要深入分析 GC 行为",
+          "expected": "deepseek",
+          "got": "local-smart",
+          "why": "需要深入分析",
+          "correct": false,
+          "confidence": 0.9,
+          "reason": "分析内存泄漏和垃圾回收（GC）行为需要中等深度的推理能力，涉及理解对象生命周期、引用计数或可达性分析等复杂逻辑，适合使用本地智能模型处理。",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "读取这张图表并描述趋势",
+          "expected": "local-vision",
+          "got": "local-vision",
+          "why": "图表理解",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Task requires interpreting a visual chart, which falls under vision capabilities.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "这个决定会删除生产数据库，是否执行",
+          "expected": "human",
+          "got": "human",
+          "why": "危险操作需人工决策",
+          "correct": true,
+          "confidence": 1.0,
+          "reason": "This request involves irreversible and dangerous actions (deleting a production database) that require human oversight and authorization.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "给这个新项目起一个包名并写一句话描述",
+          "expected": "local-fast",
+          "got": "local-fast",
+          "why": "极简生成任务",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Naming a package and writing a short description are simple, deterministic tasks that do not require complex reasoning or large models.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "写一个跨平台的桌面端渲染引擎并保证 120fps",
+          "expected": "codex",
+          "got": "codex",
+          "why": "高难度工程实现",
+          "correct": true,
+          "confidence": 0.95,
+          "reason": "Building a cross-platform desktop rendering engine is a complex software engineering task requiring advanced graphics programming, memory management, and optimization strategies that exceed the scope of simple code generation.",
+          "parse_ok": true,
+          "raw": null
+        },
+        {
+          "task": "把会议录音转成文字纪要",
+          "expected": "local-fast",
+          "got": "local-ocr",
+          "why": "转录后处理（ASR 已由 local-asr 完成）",
+          "correct": false,
+          "confidence": 0.95,
+          "reason": "Audio-to-text transcription is a speech recognition task, which falls under the vision/audio processing category handled by local-ocr/vision routes in this schema, as it requires processing raw media input rather than simple text manipulation or code execution.",
+          "parse_ok": true,
+          "raw": null
+        }
+      ],
+      "elapsed_s": 9.68
+    },
+    "D": {
+      "test": "D_traceback",
+      "ok": true,
+      "error": "",
+      "ttft_s": 0.12110980000215932,
+      "total_s": 0.922,
+      "gen_tps": 127.37,
+      "output": "Exception: json.decoder.JSONDecodeError\nLocation: /srv/app/config.py:27\nCause: The file pointed to by `config_path` is empty or contains non-JSON data, causing `json.loads` to fail immediately.\nFix: Add a check to ensure the file is not empty before parsing:\n```python\nif not Path(path).read_text():\n    raise FileNotFoundError(f\"Config file is empty: {path}\")\nreturn json.loads(Path(path).read_text())\n```",
+      "grade": {
+        "exception_ok": true,
+        "origin_file_ok": true,
+        "origin_line_ok": true,
+        "cause_ok": true
+      },
+      "elapsed_s": 0.92
+    },
+    "E": {
+      "test": "E_code",
+      "rows": [
+        {
+          "name": "python_json_to_csv",
+          "kind": "python",
+          "ok": true,
+          "error": "",
+          "ttft_s": 0.11890499999935855,
+          "total_s": 0.712,
+          "gen_tps": 126.48,
+          "code": "import csv\n\ndef to_csv(records, path):\n    if not records:\n        return\n    with open(path, 'w', newline='', encoding='utf-8') as f:\n        writer = csv.DictWriter(f, fieldnames=next(iter(records)).keys())\n        writer.writeheader()\n        writer.writerows(records)",
+          "output": "```python\nimport csv\n\ndef to_csv(records, path):\n    if not records:\n        return\n    with open(path, 'w', newline='', encoding='utf-8') as f:\n        writer = csv.DictWriter(f, fieldnames=next(iter(records)).keys())\n        writer.writeheader()\n        writer.writerows(records)\n```",
+          "exec_pass": true,
+          "exec_detail": "PASS"
+        },
+        {
+          "name": "shell_batch_rename",
+          "kind": "shell",
+          "ok": true,
+          "error": "",
+          "ttft_s": 0.12016210000001593,
+          "total_s": 0.861,
+          "gen_tps": 126.9,
+          "code": "#!/bin/bash\n\nfor file in *.jpeg; do\n    [ -e \"$file\" ] || continue\n    target=\"${file%.jpeg}.jpg\"\n    if [ -e \"$target\" ]; then\n        echo \"Skipping '$file': target '$target' already exists.\"\n    else\n        mv \"$file\" \"$target\"\n        echo \"Renamed '$file' to '$target'.\"\n    fi\ndone",
+          "output": "```bash\n#!/bin/bash\n\nfor file in *.jpeg; do\n    [ -e \"$file\" ] || continue\n    target=\"${file%.jpeg}.jpg\"\n    if [ -e \"$target\" ]; then\n        echo \"Skipping '$file': target '$target' already exists.\"\n    else\n        mv \"$file\" \"$target\"\n        echo \"Renamed '$file' to '$target'.\"\n    fi\ndone\n```",
+          "exec_pass": null,
+          "exec_detail": "",
+          "structural": [
+            {
+              "check": "has_shebang_or_set",
+              "pass": true
+            },
+            {
+              "check": "loops_or_glob",
+              "pass": true
+            },
+            {
+              "check": "guards_existing",
+              "pass": true
+            },
+            {
+              "check": "does_not_overwrite",
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "sql_group_by",
+          "kind": "sql",
+          "ok": true,
+          "error": "",
+          "ttft_s": 0.11869799999840325,
+          "total_s": 0.45,
+          "gen_tps": 126.88,
+          "code": "SELECT project, COUNT(*) AS task_count, AVG(priority) AS avg_priority\nFROM tasks\nGROUP BY project\nHAVING COUNT(*) > 1\nORDER BY task_count DESC;",
+          "output": "```sql\nSELECT project, COUNT(*) AS task_count, AVG(priority) AS avg_priority\nFROM tasks\nGROUP BY project\nHAVING COUNT(*) > 1\nORDER BY task_count DESC;\n```",
+          "exec_pass": true,
+          "exec_detail": "PASS"
+        },
+        {
+          "name": "python_pytest",
+          "kind": "python",
+          "ok": true,
+          "error": "",
+          "ttft_s": 0.1135327000010875,
+          "total_s": 0.911,
+          "gen_tps": 126.57,
+          "code": "import pytest\n\ndef test_parse_duration_seconds():\n    assert parse_duration(\"45s\") == 45\n\ndef test_parse_duration_minutes_seconds():\n    assert parse_duration(\"1h30m\") == 3600 + 30\n\ndef test_parse_duration_hours_minutes():\n    assert parse_duration(\"2m\") == 120\n\ndef test_parse_duration_invalid():\n    with pytest.raises(ValueError):\n        parse_duration(\"invalid\")",
+          "output": "```python\nimport pytest\n\ndef test_parse_duration_seconds():\n    assert parse_duration(\"45s\") == 45\n\ndef test_parse_duration_minutes_seconds():\n    assert parse_duration(\"1h30m\") == 3600 + 30\n\ndef test_parse_duration_hours_minutes():\n    assert parse_duration(\"2m\") == 120\n\ndef test_parse_duration_invalid():\n    with pytest.raises(ValueError):\n        parse_duration(\"invalid\")\n```",
+          "exec_pass": null,
+          "exec_detail": "",
+          "structural": [
+            {
+              "check": "imports_pytest",
+              "pass": true
+            },
+            {
+              "check": "uses_raises",
+              "pass": true
+            },
+            {
+              "check": "has_tests",
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "elapsed_s": 3.12
+    },
+    "F": {
+      "test": "F_handoff_compression",
+      "ok": true,
+      "error": "",
+      "ttft_s": 0.15329320000091684,
+      "total_s": 15.749,
+      "prompt_tokens": 4,
+      "completion_tokens": 1675,
+      "gen_tps": 107.34,
+      "prompt_tps": 102.93,
+      "input_chars": 10622,
+      "output_chars": 3308,
+      "compression_ratio": 0.311,
+      "sections_present": {
+        "Goal": true,
+        "Current state": true,
+        "Completed": true,
+        "Failed": true,
+        "Important files": true,
+        "Important decisions": true,
+        "Tests": true,
+        "Open questions": true,
+        "Next step": true
+      },
+      "sections_ok": 9,
+      "sections_total": 9,
+      "anchors_hit": [
+        "ivt.py",
+        "scheduler.py",
+        "calibrate.py",
+        "pipeline.yaml",
+        "Parquet",
+        "seed"
+      ],
+      "truncated": false,
+      "output": "## Goal\n重建眼球追踪数据处理管线为可重复运行的批处理系统，满足以下核心指标：\n1.  **可复现性**：同一批输入重复运行三次，输出必须逐字节一致（通过 `verify` 子命令验证）。\n2.  **自动化**：一条命令处理整日数据（约 40 组被试），替代手动脚本。\n3.  **鲁棒性**：支持断点恢复（基于 `meta.json` 和阶段标记），失败自动重试。\n4.  **标准化**：中间产物使用 Parquet 格式，最终输出固定格式 CSV 及质量报告。\n\n## Current state\n*   **整体进度**：管线主体已跑通，预处理阶段稳定，注视点检测阶段存在随机波动（约 15% 被试受影响，集中在高眨眼片段）。\n*   **代码位置**：\n    *   入口：`src/eyetrack/cli.py`\n    *   配置：`config/pipeline.yaml`\n    *   数据源：`/data/eyetrack/raw/YYYY-MM-DD/<subject_id>/`\n    *   中间产物：`/data/eyetrack/work/<date>/<subject_id>/<stage>/`\n    *   最终结果：`/data/eyetrack/out/<date>/`\n*   **阻塞点**：注视点检测阶段的非确定性导致无法达到“逐字节一致”验收标准。\n*   **环境依赖**：需 Python 3.11/3.12（3.13 社区 wheel 支持不稳定），依赖 `numpy` 特定版本以防浮点误差。\n\n## Completed\n*   **预处理同步 (`sync.py`)**：实现基于屏幕录制帧计数的主时钟对齐，容差 16ms。失败样本写入 `sync_fail.json` 而非抛异常。\n*   **校准解析 (`calibrate.py`)**：自动识别坐标系原点（`top-left`/`bottom-left`），动态翻转 Y 轴。\n*   **面部检测 (`face.py`)**：改用按需解码 MediaPipe，解决内存溢出问题（原方案占用 30GB）。\n*   **调度器 (`scheduler.py`)**：实现进程池调度、失败重试（2 次）、重试前清理工作目录、结构化 JSON 日志。\n*   **质量报告 (`quality.py`)**：生成包含有效采样率、剔除时长、注视点统计的被试级报告及汇总段落。\n\n## Failed\n*   **注视点检测算法迭代**：\n    *   *失败 1 (IDT)*：固定时间阈值导致采样率敏感（60Hz-200Hz 波动），结果不可比。代码保留于 `src/eyetrack/detect/idt_legacy.py`。\n    *   *失败 2 (IVT 旧版)*：固定帧数平滑窗口（5 帧）导致采样率耦合。\n    *   *当前状态 (IVT 新版)*：改用时间窗口（20ms），波动降至 15%，但仍不稳定。\n*   **GPU 加速尝试**：MediaPipe GPU 路径与 Triton 冲突，且收益（12 秒/组）不足以抵消复杂度，已放弃（记录于 `docs/decisions/0003-no-gpu-face-detect.md`）。\n*   **增量执行尝试**：基于文件哈希的增量执行因共享文件系统元数据（修改时间戳）干扰而失效，最终放弃，改用基于 `meta.json` 的粗粒度恢复。\n\n## Important files\n*   `src/eyetrack/cli.py` (入口)\n*   `src/eyetrack/scheduler.py` (调度与恢复)\n*   `src/eyetrack/preprocess/sync.py` (时间对齐)\n*   `src/eyetrack/preprocess/calibrate.py` (坐标系处理)\n*   `src/eyetrack/preprocess/face.py` (面部裁剪)\n*   `src/eyetrack/detect/ivt.py` (当前检测逻辑)\n*   `src/eyetrack/detect/idt_legacy.py` (废弃参考)\n*   `src/eyetrack/report/quality.py` (报告生成)\n*   `config/pipeline.yaml` (参数配置)\n*   `tests/test_ivt.py` (不稳定测试)\n*   `docs/decisions/0001-0003.md` (决策记录)\n\n## Important decisions\n1.  **中间格式**：强制使用 **Parquet** 而非 CSV，以消除文本往返精度损失，确保逐字节可复现 (`docs/decisions/0001-parquet-intermediate.md`)。\n2.  **随机性控制**：所有随机步骤必须从 `config/pipeline.yaml` 的 `seed` 字段显式播种，默认值 `20260401`。\n3.  **无全局状态**：禁止模块级变量缓存配置，所有配置通过 `cli.py` 显式参数传递，防止跨被试污染。\n4.  **无 GPU**：因环境共享冲突及收益不足，明确放弃 GPU 加速。\n5.  **排序策略**：最终输出 CSV 排序规则定义为 `(subject_id, frame_index)` 全序，不依赖排序算法稳定性。\n\n## Tests\n*   `tests/test_sync.py`：覆盖正常/边界/失败对齐，全部通过。\n*   `tests/test_calibrate.py`：覆盖坐标系差异，存在一个用例因缺乏真实样本（左下原点 + 旋转）而跳过。\n*   `tests/test_ivt.py`：**不稳定**，CI 上约 20% 失败率。怀疑原因：浮点累加顺序受进程池返回顺序影响。\n*   **覆盖率**：整体 71%，`report/quality.py` 格式化分支未覆盖。\n\n## Open questions\n1.  **逐字节不一致根因**：\n    *   疑似 `detect/ivt.py` 中注视点排序键不稳定（仅时间戳，缺次级键）。\n    *   疑似 `scheduler.py` 结果收集按完成顺序而非被试 ID 顺序写入。\n    *   *待验证*：这两点是否同时导致不一致。\n2.  **校准文件支持**：是否需要支持“左下原点 + 旋转”的校准文件？（实验室下月可能到货，需评估旋转矩阵工作量）。\n3.  **质量报告定义**：“有效采样率”是否应改为时间加权计算？（导师建议，但会增加解释难度）。\n4.  **遗留代码**：是否保留 `idt_legacy.py` 以支持论文方法对比？\n5.  **依赖锁定**：是否引入 `pip-tools` 或 `uv` 锁定 `numpy` 版本以彻底消除浮点差异？\n\n## Next step\n1.  **验证排序根因**：\n    *   修改 `scheduler.py`：收集阶段改为按 `subject_id` 排序后写文件。\n    *   修改 `detect/ivt.py`：排序键增加次级键（帧索引）。\n    *   执行 `python -m eyetrack.cli verify --date 2026-09-20 --repeat 3`。\n2.  **定位差异**：若仍不一致，对每一步 Parquet 输出计算哈希并逐步对比，定位首次差异阶段。\n3.  **修复测试**：若上述步骤解决不一致问题，同步排查 `test_ivt.py` 的不稳定问题。\n4.  **后续清理**：更新 README、清理 `io.py` 遗留函数、考虑依赖锁定。",
+      "elapsed_s": 15.75
+    }
+  },
+  "elapsed_s": 41.16,
+  "thinking_leaks_total": 0,
+  "thinking_enabled": false
+}

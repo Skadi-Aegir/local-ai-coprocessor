@@ -1,0 +1,300 @@
+{
+  "set": "phaseA/heldout_v1",
+  "frozen_sha256_lf": "fa1cf6d5871af15f4db00aaf7c2c835f07f1b1499e7c018e6ce82007af812084",
+  "index_version": "488f54d755224c5b",
+  "counts_by_category": {
+    "answerable": {
+      "answered_needs_support_review": 6
+    },
+    "cross_document": {
+      "answered_needs_support_review": 2
+    },
+    "version_conflict": {
+      "answered_needs_support_review": 1
+    },
+    "answer_absent": {
+      "correct_refusal": 3
+    }
+  },
+  "questions": [
+    {
+      "id": "h01",
+      "category": "answerable",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "docs/environment-report.md"
+      ],
+      "evidence_shown": [
+        "docs/environment-report.md"
+      ],
+      "evidence_cited": [
+        "docs/environment-report.md"
+      ],
+      "cited_range_overlaps_expected": true,
+      "citation_status": [
+        "verified",
+        "verified",
+        "verified"
+      ],
+      "other_files_cited": [],
+      "key_fact_groups_present": "2/2",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h02",
+      "category": "answerable",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "docs/environment-report.md"
+      ],
+      "evidence_shown": [
+        "docs/environment-report.md"
+      ],
+      "evidence_cited": [
+        "docs/environment-report.md"
+      ],
+      "cited_range_overlaps_expected": true,
+      "citation_status": [
+        "verified"
+      ],
+      "other_files_cited": [],
+      "key_fact_groups_present": "2/2",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h03",
+      "category": "answerable",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "docs/models/local-reranker.md"
+      ],
+      "evidence_shown": [
+        "docs/models/local-reranker.md"
+      ],
+      "evidence_cited": [],
+      "cited_range_overlaps_expected": false,
+      "citation_status": [
+        "verified",
+        "verified"
+      ],
+      "other_files_cited": [
+        "config/local-reranker.yaml",
+        "docs/reranking-architecture.md"
+      ],
+      "key_fact_groups_present": "4/4",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h04",
+      "category": "answerable",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "docs/local-fast-api.md"
+      ],
+      "evidence_shown": [
+        "docs/local-fast-api.md"
+      ],
+      "evidence_cited": [
+        "docs/local-fast-api.md"
+      ],
+      "cited_range_overlaps_expected": true,
+      "citation_status": [
+        "verified"
+      ],
+      "other_files_cited": [],
+      "key_fact_groups_present": "2/2",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h05",
+      "category": "answerable",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "docs/production-integration-design.md"
+      ],
+      "evidence_shown": [
+        "docs/production-integration-design.md"
+      ],
+      "evidence_cited": [
+        "docs/production-integration-design.md"
+      ],
+      "cited_range_overlaps_expected": true,
+      "citation_status": [
+        "verified"
+      ],
+      "other_files_cited": [],
+      "key_fact_groups_present": "6/6",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h06",
+      "category": "answerable",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "docs/escalation-policy.md"
+      ],
+      "evidence_shown": [
+        "docs/escalation-policy.md"
+      ],
+      "evidence_cited": [
+        "docs/escalation-policy.md"
+      ],
+      "cited_range_overlaps_expected": true,
+      "citation_status": [
+        "verified"
+      ],
+      "other_files_cited": [],
+      "key_fact_groups_present": "5/5",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h07",
+      "category": "cross_document",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "docs/gpu-scheduling.md"
+      ],
+      "evidence_shown": [
+        "docs/gpu-scheduling.md"
+      ],
+      "evidence_cited": [
+        "docs/gpu-scheduling.md"
+      ],
+      "cited_range_overlaps_expected": true,
+      "citation_status": [
+        "verified",
+        "verified"
+      ],
+      "other_files_cited": [
+        "docs/retrieval-hardening.md"
+      ],
+      "key_fact_groups_present": "3/3",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h08",
+      "category": "cross_document",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "docs/phase55r-evidence-consolidation.md",
+        "docs/staged-lifecycle-design.md"
+      ],
+      "evidence_shown": [
+        "docs/phase55r-evidence-consolidation.md",
+        "docs/staged-lifecycle-design.md"
+      ],
+      "evidence_cited": [
+        "docs/phase55r-evidence-consolidation.md",
+        "docs/staged-lifecycle-design.md"
+      ],
+      "cited_range_overlaps_expected": true,
+      "citation_status": [
+        "verified",
+        "verified"
+      ],
+      "other_files_cited": [],
+      "key_fact_groups_present": "3/3",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h09",
+      "category": "version_conflict",
+      "expected": "answer",
+      "outcome": "answered",
+      "error_kind": null,
+      "evidence_retrieved": [
+        "services/retrieval/retriever.py"
+      ],
+      "evidence_shown": [
+        "services/retrieval/retriever.py"
+      ],
+      "evidence_cited": [
+        "services/retrieval/retriever.py"
+      ],
+      "cited_range_overlaps_expected": true,
+      "citation_status": [
+        "verified"
+      ],
+      "other_files_cited": [],
+      "key_fact_groups_present": "3/3",
+      "key_fact_groups_missing": [],
+      "superseded_value_present": [],
+      "verdict": "answered_needs_support_review"
+    },
+    {
+      "id": "h10",
+      "category": "answer_absent",
+      "expected": "refuse",
+      "outcome": "refused",
+      "error_kind": null,
+      "evidence_retrieved": [],
+      "evidence_shown": [],
+      "evidence_cited": [],
+      "cited_range_overlaps_expected": false,
+      "citation_status": [],
+      "other_files_cited": [],
+      "verdict": "correct_refusal"
+    },
+    {
+      "id": "h11",
+      "category": "answer_absent",
+      "expected": "refuse",
+      "outcome": "refused",
+      "error_kind": null,
+      "evidence_retrieved": [],
+      "evidence_shown": [],
+      "evidence_cited": [],
+      "cited_range_overlaps_expected": false,
+      "citation_status": [],
+      "other_files_cited": [],
+      "verdict": "correct_refusal"
+    },
+    {
+      "id": "h12",
+      "category": "answer_absent",
+      "expected": "refuse",
+      "outcome": "refused",
+      "error_kind": null,
+      "evidence_retrieved": [],
+      "evidence_shown": [],
+      "evidence_cited": [],
+      "cited_range_overlaps_expected": false,
+      "citation_status": [],
+      "other_files_cited": [],
+      "verdict": "correct_refusal"
+    }
+  ],
+  "note": "mechanical audit only; the support verdict is human (review.md)"
+}

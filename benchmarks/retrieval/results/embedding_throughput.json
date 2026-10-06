@@ -1,0 +1,79 @@
+{
+  "service": {
+    "status": "ok",
+    "model": "local-embedding",
+    "device": "cuda:0",
+    "dimension": 1024,
+    "uptime_s": 31.7
+  },
+  "gpu_used_with_embedding_mb": 5973.0,
+  "batches": [
+    {
+      "batch_size": 1,
+      "rounds": 5,
+      "median_seconds": 0.0908,
+      "min_seconds": 0.0871,
+      "chunks_per_s": 11.0,
+      "ms_per_chunk": 90.85,
+      "vram_peak_mb": 5996.0,
+      "gpu_util_peak": 86.0,
+      "dimension": 1024
+    },
+    {
+      "batch_size": 8,
+      "rounds": 5,
+      "median_seconds": 0.1376,
+      "min_seconds": 0.1219,
+      "chunks_per_s": 58.1,
+      "ms_per_chunk": 17.2,
+      "vram_peak_mb": 6030.0,
+      "gpu_util_peak": 92.0,
+      "dimension": 1024
+    },
+    {
+      "batch_size": 32,
+      "rounds": 5,
+      "median_seconds": 0.1792,
+      "min_seconds": 0.1683,
+      "chunks_per_s": 178.6,
+      "ms_per_chunk": 5.6,
+      "vram_peak_mb": 6267.0,
+      "gpu_util_peak": 92.0,
+      "dimension": 1024
+    },
+    {
+      "batch_size": 64,
+      "rounds": 5,
+      "median_seconds": 0.3318,
+      "min_seconds": 0.3094,
+      "chunks_per_s": 192.9,
+      "ms_per_chunk": 5.18,
+      "vram_peak_mb": 6262.0,
+      "gpu_util_peak": 98.0,
+      "dimension": 1024
+    }
+  ],
+  "coresident": null,
+  "best_batch_size": 64,
+  "best_chunks_per_s": 192.9,
+  "stats": {
+    "model": "local-embedding",
+    "dimension": 1024,
+    "device": "cuda:0",
+    "vram_mb": 2772.6,
+    "max_seq_length": 8192,
+    "native_dimension": 1024,
+    "uptime_s": 40.8,
+    "projects": {
+      "local-ai": {
+        "vectors_in_index": 150,
+        "chunks_in_metadata": 150,
+        "projects": [
+          "local-ai"
+        ],
+        "dimension": 1024,
+        "consistent": true
+      }
+    }
+  }
+}

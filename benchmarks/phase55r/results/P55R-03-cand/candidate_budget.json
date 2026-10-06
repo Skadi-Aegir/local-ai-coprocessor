@@ -1,0 +1,145 @@
+{
+  "margin_mb": 2048,
+  "default_policy_unchanged": {
+    "registry_peak_extra_mb": 1800,
+    "note": "gpu_scheduler.REGISTRY is NOT modified; the candidate is an isolated copy"
+  },
+  "candidate_derivation": {
+    "observed_peak_mb": 881,
+    "sampling_allowance_factor": 1.4,
+    "sampling_allowance_reason": "sampler interval was 0.02 s, so a short allocation spike can fall between two samples",
+    "fixed_measurement_margin_mb": 128,
+    "candidate_mb": 1361,
+    "headroom_under_declared_mb": 439,
+    "observed_plus_allowance_mb": 1233
+  },
+  "reflects_prior_rejection": "the 262 MiB hot-sample figure is NOT used anywhere in this derivation; it was rejected as too thin a basis",
+  "rounds": [
+    {
+      "round": 1,
+      "requests": 5,
+      "completed": 4,
+      "refused": 1,
+      "failed": 0,
+      "oom": false,
+      "vram_free_min_mb": 4696,
+      "margin_mb": 2048,
+      "margin_held": true,
+      "vram_window": {
+        "n": 111,
+        "used_min": 7107,
+        "used_max": 7249,
+        "free_min": 4696,
+        "free_max": 4838,
+        "margin_breached": false
+      },
+      "results": [
+        {
+          "request_id": "r0-gen",
+          "job_class": "interactive",
+          "requires": [
+            "local-fast"
+          ],
+          "allowed": true,
+          "queue_s": 2.18,
+          "required_mb": 900,
+          "reason": "3060 MiB usable >= 900 MiB required (free 5108 - reserved 0 - margin 2048)",
+          "exec_s": 0.975,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 2.18,
+          "ok": true,
+          "gen_tps": 91.9,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-embed",
+          "job_class": "background",
+          "requires": [
+            "local-embedding"
+          ],
+          "allowed": true,
+          "queue_s": 2.161,
+          "required_mb": 600,
+          "reason": "2996 MiB usable >= 600 MiB required (free 5044 - reserved 0 - margin 2048)",
+          "exec_s": 0.448,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 2.161,
+          "ok": true,
+          "vectors": 32,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-rag",
+          "job_class": "background",
+          "requires": [
+            "local-embedding",
+            "local-reranker",
+            "local-fast"
+          ],
+          "allowed": false,
+          "queue_s": 4.067,
+          "required_mb": 3121,
+          "reason": "insufficient margin: 2933 MiB usable < 3121 MiB required (free 4981 - reserved 0 - margin 2048)",
+          "status": "refused"
+        },
+        {
+          "request_id": "r0-bg2",
+          "job_class": "background",
+          "requires": [
+            "local-embedding"
+          ],
+          "allowed": true,
+          "queue_s": 2.154,
+          "required_mb": 600,
+          "reason": "2930 MiB usable >= 600 MiB required (free 4978 - reserved 0 - margin 2048)",
+          "exec_s": 0.081,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 2.154,
+          "ok": true,
+          "vectors": 32,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-int2",
+          "job_class": "interactive",
+          "requires": [
+            "local-fast"
+          ],
+          "allowed": true,
+          "queue_s": 6.378,
+          "required_mb": 900,
+          "reason": "2931 MiB usable >= 900 MiB required (free 4979 - reserved 0 - margin 2048)",
+          "exec_s": 0.412,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 6.378,
+          "ok": true,
+          "gen_tps": 89.5,
+          "status": "completed",
+          "released": true
+        }
+      ],
+      "round_s": 16.72,
+      "passed": false
+    }
+  ],
+  "stopped": {
+    "after_round": 1,
+    "reason": "first round did not pass; not repeating",
+    "completed": 4,
+    "of": 5,
+    "oom": false,
+    "margin_held": true
+  },
+  "summary": {
+    "rounds_run": 1,
+    "rounds_passed": 0,
+    "verdict": "FAIL"
+  }
+}

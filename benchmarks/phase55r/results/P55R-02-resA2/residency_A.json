@@ -1,0 +1,159 @@
+{
+  "mode": "A",
+  "margin_mb": 2048,
+  "rounds": [
+    {
+      "round": 1,
+      "results": [
+        {
+          "request_id": "r0-gen",
+          "job_class": "interactive",
+          "requires": [
+            "local-fast"
+          ],
+          "allowed": true,
+          "queue_s": 0.156,
+          "required_mb": 900,
+          "reason": "2108 MiB usable >= 900 MiB required (free 4156 - reserved 0 - margin 2048)",
+          "exec_s": 0.447,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 0.156,
+          "ok": true,
+          "gen_tps": 81.7,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-embed",
+          "job_class": "background",
+          "requires": [
+            "local-embedding"
+          ],
+          "allowed": true,
+          "queue_s": 0.16,
+          "required_mb": 600,
+          "reason": "2108 MiB usable >= 600 MiB required (free 4156 - reserved 0 - margin 2048)",
+          "exec_s": 0.072,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 0.16,
+          "ok": true,
+          "vectors": 32,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-rag",
+          "job_class": "background",
+          "requires": [
+            "local-embedding",
+            "local-reranker",
+            "local-fast"
+          ],
+          "allowed": true,
+          "queue_s": 0.217,
+          "required_mb": 600,
+          "reason": "2108 MiB usable >= 600 MiB required (free 4156 - reserved 0 - margin 2048)",
+          "exec_s": 2.572,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 0.217,
+          "ok": true,
+          "retrieve_s": 0.102,
+          "rerank_s": 1.131,
+          "generate_s": 1.317,
+          "n_sources": 5,
+          "pack_chars": 6814,
+          "used_reranker": true,
+          "answer_has_8192": true,
+          "answer_head": "Based on **Source 1** (the test task definition) and **Source 3** (the configuration file), the local-fast worker uses a default context size of **8192** tokens",
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-bg2",
+          "job_class": "background",
+          "requires": [
+            "local-embedding"
+          ],
+          "allowed": true,
+          "queue_s": 0.161,
+          "required_mb": 600,
+          "reason": "821 MiB usable >= 600 MiB required (free 2869 - reserved 0 - margin 2048)",
+          "exec_s": 0.071,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 0.161,
+          "ok": true,
+          "vectors": 32,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-int2",
+          "job_class": "interactive",
+          "requires": [
+            "local-fast"
+          ],
+          "allowed": false,
+          "queue_s": 0.382,
+          "required_mb": 900,
+          "reason": "insufficient margin: 821 MiB usable < 900 MiB required (free 2869 - reserved 0 - margin 2048)",
+          "status": "refused"
+        }
+      ],
+      "round_s": 4.12,
+      "completed": 4,
+      "refused": 1,
+      "failed": 0,
+      "vram": {
+        "n": 21,
+        "used_min": 8071,
+        "used_max": 9358,
+        "free_min": 2587,
+        "free_max": 3874,
+        "margin_breached": false
+      }
+    }
+  ],
+  "vram": {
+    "cold_start": [
+      6274,
+      5671
+    ],
+    "after_warmup": [
+      8071,
+      3874
+    ],
+    "after_run": [
+      9358,
+      2587
+    ],
+    "after_idle": [
+      9360,
+      2585
+    ],
+    "task_peak": 9358
+  },
+  "resident_at_start": [
+    "local-fast",
+    "local-embedding",
+    "local-reranker"
+  ],
+  "margin_check": {
+    "breached_rounds": [],
+    "statement": "no margin breach observed within the sampling window",
+    "caveat": "sampling cannot establish a continuous-time guarantee"
+  },
+  "sampler": {
+    "samples": 21,
+    "interval_s": 0.15
+  },
+  "summary": {
+    "requests": 5,
+    "completed": 4,
+    "completion_rate_pct": 80.0
+  },
+  "verdict": "FAIL - the supported workload did not complete"
+}

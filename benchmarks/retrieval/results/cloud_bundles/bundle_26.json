@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: scripts/lf_config.py\nlines: 118-124\nscore: 0.5950\nchunk_id: a1f519f1fc4558e23199\nsymbol: dig()\ncontent:\ndef dig(cfg: dict[str, Any], dotted: str, default: Any = None) -> Any:\n    cur: Any = cfg\n    for part in dotted.split(\".\"):\n        if not isinstance(cur, dict) or part not in cur:\n            return default\n        cur = cur[part]\n    return cur\n\nSOURCE 2\npath: scripts/lf_config.py\nlines: 155-172\nscore: 0.5875\nchunk_id: 76d23f2cee536541eaf3\nsymbol: main()\ncontent:\ndef main() -> int:\n    \"\"\"CLI: print a config value (used by the shell scripts).\"\"\"\n    import argparse\n\n    ap = argparse.ArgumentParser(description=\"read a value from local-fast.yaml\")\n    ap.add_argument(\"key\", help=\"dotted key, e.g. runtime.port\")\n    ap.add_argument(\"--config\", default=None)\n    args = ap.parse_args()\n    cfg = load_config(args.config)\n    val = dig(cfg, args.key)\n    if val is None:\n        print(\"\", end=\"\")\n        return 1\n    if isinstance(val, bool):\n        print(\"true\" if val else \"false\")\n    else:\n        print(val)\n    return 0\n\nSOURCE 3\npath: scripts/lf_config.py\nlines: 2-12\nscore: 0.4633\nchunk_id: 60d49c9d2616499ed5f0\ncontent:\n\"\"\"\nlf_config.py - minimal YAML-subset loader + shared helpers for the local-fast worker.\n\nWhy not PyYAML: the LLM service venv is intentionally dependency-free so the\nworker can start on a clean machine without a package install. The config file\nuses only the subset implemented here (nested maps, scalars, simple lists,\ncomments, `key: value`, `- item`).\n\nAlso hosts the tiny HTTP helper used by check-local-fast, for the same reason.\nStdlib only.\n\"\"\"\n\nSOURCE 4\npath: benchmarks/local-fast/mock_server.py\nlines: 31-40\nscore: 0.4524\nchunk_id: 662d4820ebbf4bea8aa4\ncontent:\nTRACEBACK_REPLY = \"\"\"Exception: json.decoder.JSONDecodeError\nLocation: /srv/app/config.py:27\nCause: the config file read at that path is empty or is not valid JSON, so the\nparser failed on the very first character.\nFix: guard the load and surface a useful error instead of letting JSONDecodeError escape:\n\n    text = Path(path).read_text()\n    if not text.strip():\n        raise ValueError(f\"config file is empty: {path}\")\n    return json.loads(text)\"\"\"\n\nSOURCE 5\npath: benchmarks/local-fast/inspect_gguf.py\nlines: 93-130\nscore: 0.4505\nchunk_id: 6a98b1b7cebb6552cce6\nsymbol: read_value()\ncontent:\ndef read_value(r: Reader, vtype: int):\n    \"\"\"Read one metadata value. Arrays are returned as (type, [values]) and may be huge.\"\"\"\n    if vtype == UINT8:\n        return r.unpack(\"<B\")[0]\n    if vtype == INT8:\n        return r.unpack(\"<b\")[0]\n    if vtype == UINT16:\n        return r.unpack(\"<H\")[0]\n    if vtype == INT16:\n        return r.unpack(\"<h\")[0]\n    if vtype == UINT32:\n        return r.u32()\n    if vtype == INT32:\n        return r.i32()\n    if vtype == FLOAT32:\n        return r.unpack(\"<f\")[0]\n    if vtype == BOOL:\n        return bool(r.unpack(\"<B\")[0])\n    if vtype == STRING:\n        return r.string()\n    if vtype == ARRAY:\n        elem_type = r.u32()\n        count = r.u64()\n        # token arrays in the vocab can be enormous; summarise them instead of\n        # materialising hundreds of thousands of strings\n        if elem_type == STRING and count > 1000:\n            for _ in range(count):\n                r.string()\n            return (\"array<string>\", count)\n        vals = [read_value(r, elem_type) for _ in range(count)]\n        return (f\"array<{elem_type}>\", vals)\n    if vtype == UINT64:\n        return r.u64()\n    if vtype == INT64:\n        return r.unpack(\"<q\")[0]\n    if vtype == FLOAT64:\n        return r.unpack(\"<d\")[0]\n    raise ValueError(f\"unknown metadata value type {vtype}\")\n\nTASK: a helper that reads one value out of a config by dotted key path"
+    }
+  ],
+  "meta": {
+    "question": "a helper that reads one value out of a config by dotted key path",
+    "query_type": "paraphrase",
+    "sources": 5,
+    "source_paths": [
+      "scripts/lf_config.py",
+      "scripts/lf_config.py",
+      "scripts/lf_config.py",
+      "benchmarks/local-fast/mock_server.py",
+      "benchmarks/local-fast/inspect_gguf.py"
+    ],
+    "top_score": 0.595032,
+    "context_tokens": 1107,
+    "prompt_tokens": 1174,
+    "within_budget": true
+  }
+}

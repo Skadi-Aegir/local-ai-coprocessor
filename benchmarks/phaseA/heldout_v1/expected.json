@@ -1,0 +1,394 @@
+{
+  "set": "phaseA/heldout_v1",
+  "n_questions": 12,
+  "frozen_file": "benchmarks/phaseA/heldout_v1/frozen_questions.txt",
+  "frozen_sha256_lf": "fa1cf6d5871af15f4db00aaf7c2c835f07f1b1499e7c018e6ce82007af812084",
+  "hash_note": "sha256 of the LF-normalised bytes (scheme sha256-lf-v1); a CRLF checkout differs only in line endings",
+  "line_ranges_note": "line ranges are those of the working tree on 2026-10-05, after the corpus corrections made the same day; the index must be rebuilt from that tree before this set is run",
+  "questions": [
+    {
+      "id": "h01",
+      "category": "answerable",
+      "evidence_type": "single_file",
+      "expected_outcome": "answer",
+      "answer": "Driver 591.86, CUDA 13.1 (driver-reported); no CUDA toolkit - nvcc is absent.",
+      "key_facts": [
+        [
+          "591.86"
+        ],
+        [
+          "13.1"
+        ]
+      ],
+      "human_check": "the answer must say the toolkit / nvcc is NOT installed",
+      "sources": [
+        {
+          "path": "docs/environment-report.md",
+          "lines": [
+            15,
+            17
+          ]
+        },
+        {
+          "path": "docs/environment-report.md",
+          "lines": [
+            67,
+            83
+          ]
+        }
+      ],
+      "question": "Which NVIDIA driver version and CUDA version did the Phase 0 environment check find, and was a CUDA toolkit installed?"
+    },
+    {
+      "id": "h02",
+      "category": "answerable",
+      "evidence_type": "single_file",
+      "expected_outcome": "answer",
+      "answer": "Disk storage, not VRAM; roughly 15-25 GB of weights before caches and indices (later downgraded from blocker to watch item once D: had ~72 GB free).",
+      "key_facts": [
+        [
+          "disk",
+          "storage"
+        ],
+        [
+          "15",
+          "25"
+        ]
+      ],
+      "human_check": "naming VRAM as the binding constraint is wrong",
+      "sources": [
+        {
+          "path": "docs/environment-report.md",
+          "lines": [
+            125,
+            141
+          ]
+        }
+      ],
+      "question": "What did Phase 0 expect to be the binding resource constraint for this project, and how much weight storage did it estimate the planned model pool would need?"
+    },
+    {
+      "id": "h03",
+      "category": "answerable",
+      "evidence_type": "alternative_sources",
+      "expected_outcome": "answer",
+      "answer": "It reads the logits of the 'no' and 'yes' tokens at the final position and takes softmax([logit(no), logit(yes)])[1], i.e. the probability of 'yes' (token ids yes=9693, no=2152).",
+      "key_facts": [
+        [
+          "yes"
+        ],
+        [
+          "no"
+        ],
+        [
+          "softmax",
+          "probab"
+        ],
+        [
+          "final position",
+          "last position",
+          "last token",
+          "final token"
+        ]
+      ],
+      "sources": [
+        {
+          "path": "docs/models/local-reranker.md",
+          "lines": [
+            67,
+            93
+          ]
+        },
+        {
+          "path": "services/reranker/reranker.py",
+          "lines": [
+            275,
+            299
+          ]
+        }
+      ],
+      "question": "How does the local reranker turn the model's output into a relevance score?"
+    },
+    {
+      "id": "h04",
+      "category": "answerable",
+      "evidence_type": "single_file",
+      "expected_outcome": "answer",
+      "answer": "The logical alias local-fast - never a GGUF filename, a HuggingFace repo id or a quantisation label - so the weights or quantisation underneath can change without any upstream agent noticing.",
+      "key_facts": [
+        [
+          "local-fast"
+        ],
+        [
+          "quantisation",
+          "quantization",
+          "filename",
+          "file name",
+          "weights"
+        ]
+      ],
+      "sources": [
+        {
+          "path": "docs/local-fast-api.md",
+          "lines": [
+            10,
+            22
+          ]
+        }
+      ],
+      "question": "According to the local-fast integration guide, what must a caller put in the model field of a request, and why?"
+    },
+    {
+      "id": "h05",
+      "category": "answerable",
+      "evidence_type": "single_file",
+      "expected_outcome": "answer",
+      "answer": "Any of six: a free-VRAM sample below 2048 MiB in a staged cycle; an unload not verified on both prongs (port free AND free VRAM rose); a reload failure or a reload beyond a ceiling; latency beyond the agreed budget; two processes driving the services without a shared ledger; any OOM.",
+      "key_facts": [
+        [
+          "2048"
+        ],
+        [
+          "unload"
+        ],
+        [
+          "reload"
+        ],
+        [
+          "latency"
+        ],
+        [
+          "cross-process",
+          "two processes",
+          "ledger"
+        ],
+        [
+          "OOM",
+          "out of memory"
+        ]
+      ],
+      "human_check": "a partial list is a PARTIAL answer; record which conditions are missing",
+      "sources": [
+        {
+          "path": "docs/production-integration-design.md",
+          "lines": [
+            99,
+            118
+          ]
+        }
+      ],
+      "question": "Which observable conditions would trigger a rollback of the proposed staged two-unload RAG integration?"
+    },
+    {
+      "id": "h06",
+      "category": "answerable",
+      "evidence_type": "single_file",
+      "expected_outcome": "answer",
+      "answer": "Architecture and cross-system design, large refactors, security-critical code, production-affecting changes and anything with a large blast radius. Local models support rather than author: gather context, retrieve files, run tests, verify the patch, compress history into a handoff.",
+      "key_facts": [
+        [
+          "architecture"
+        ],
+        [
+          "refactor"
+        ],
+        [
+          "security"
+        ],
+        [
+          "production"
+        ],
+        [
+          "support",
+          "not authorship"
+        ]
+      ],
+      "sources": [
+        {
+          "path": "docs/escalation-policy.md",
+          "lines": [
+            91,
+            100
+          ]
+        }
+      ],
+      "question": "Which kinds of work does the escalation policy send straight to Claude or Codex, and what role do local models keep for that work?"
+    },
+    {
+      "id": "h07",
+      "category": "cross_document",
+      "evidence_type": "alternative_sources",
+      "expected_outcome": "answer",
+      "answer": "Yes. Without preemption it waits for background units that are already running; while it waits no new background unit is admitted, and background work is admitted in bounded units (max_background_units), which bounds the wait.",
+      "key_facts": [
+        [
+          "already running",
+          "already-running",
+          "running background"
+        ],
+        [
+          "no new background",
+          "not admitted",
+          "is admitted"
+        ],
+        [
+          "max_background_units",
+          "bounded units",
+          "bounded"
+        ]
+      ],
+      "superseded": [
+        "never waits"
+      ],
+      "version_note": "docs/gpu-scheduling.md said 'never waits behind background work' until 2026-10-05; that policy was replaced in P55R-01 (AD-9). An answer that says an interactive request never waits is WRONG. The index built before 2026-10-05 still holds the old wording.",
+      "sources": [
+        {
+          "path": "services/gpu_scheduler/gpu_scheduler.py",
+          "lines": [
+            37,
+            47
+          ]
+        },
+        {
+          "path": "services/gpu_scheduler/gpu_scheduler.py",
+          "lines": [
+            107,
+            111
+          ]
+        },
+        {
+          "path": "docs/gpu-scheduling.md",
+          "lines": [
+            40,
+            60
+          ]
+        }
+      ],
+      "question": "Can an interactive request in the GPU scheduler end up waiting for background work, and what bounds that wait?"
+    },
+    {
+      "id": "h08",
+      "category": "cross_document",
+      "evidence_type": "alternative_sources",
+      "expected_outcome": "answer",
+      "answer": "Embedding unload +1368 to +1392 MiB, reranker unload +2591 to +2595 MiB; a full RAG cycle ~22-24 s (24.4 s in P55R-05), dominated by the model reloads (~8 s per service under light load, up to 44.6 s / 22.4 s under heavier load).",
+      "key_facts": [
+        [
+          "1368",
+          "1392"
+        ],
+        [
+          "2591",
+          "2595"
+        ],
+        [
+          "22",
+          "24"
+        ]
+      ],
+      "superseded": [
+        "2.54"
+      ],
+      "version_note": "docs/staged-lifecycle-design.md gave '2.54 s wall' for a whole round until 2026-10-05 - a P55R-04 figure from a run in which no unload happened. Reporting 2.54 s as the cycle time is WRONG.",
+      "sources": [
+        {
+          "path": "docs/staged-lifecycle-design.md",
+          "lines": [
+            8,
+            15
+          ]
+        },
+        {
+          "path": "docs/phase55r-evidence-consolidation.md",
+          "lines": [
+            75,
+            88
+          ]
+        }
+      ],
+      "question": "On the isolated staged two-unload RAG path, how much free VRAM did each required unload return, and how long does a full RAG cycle take?"
+    },
+    {
+      "id": "h09",
+      "category": "version_conflict",
+      "evidence_type": "single_file",
+      "expected_outcome": "answer",
+      "answer": "8000 characters (RetrieveConfig.max_chars_per_chunk), which effectively never truncates; the earlier 2000-character cap cut the `context:` line out of config/local-fast.yaml, so a correctly retrieved chunk read as 'answer absent'.",
+      "key_facts": [
+        [
+          "8000",
+          "8,000"
+        ],
+        [
+          "2000",
+          "2,000"
+        ],
+        [
+          "context"
+        ]
+      ],
+      "human_check": "stating 2000 as the CURRENT limit is wrong (the same comment names both)",
+      "sources": [
+        {
+          "path": "services/retrieval/retriever.py",
+          "lines": [
+            30,
+            37
+          ]
+        }
+      ],
+      "question": "What per-chunk character limit does the retrieval layer apply when it packs context for a model, and why was the earlier limit dropped?"
+    },
+    {
+      "id": "h10",
+      "category": "answer_absent",
+      "evidence_type": "absent",
+      "expected_outcome": "refuse",
+      "absent_reason": "Whisper is not deployed and no ASR measurement exists. The corpus names 'Whisper turbo' only inside the planned model pool.",
+      "tempting": [
+        {
+          "path": "docs/environment-report.md",
+          "lines": [
+            133,
+            133
+          ]
+        }
+      ],
+      "question": "What word error rate does the Whisper speech worker achieve on Chinese audio in this project?"
+    },
+    {
+      "id": "h11",
+      "category": "answer_absent",
+      "evidence_type": "absent",
+      "expected_outcome": "refuse",
+      "absent_reason": "OCR is not deployed and no OCR measurement exists. PaddleOCR appears only inside the planned model pool.",
+      "tempting": [
+        {
+          "path": "docs/environment-report.md",
+          "lines": [
+            133,
+            133
+          ]
+        }
+      ],
+      "question": "What text-recognition accuracy did PaddleOCR reach on terminal screenshots in this project?"
+    },
+    {
+      "id": "h12",
+      "category": "answer_absent",
+      "evidence_type": "absent",
+      "expected_outcome": "refuse",
+      "absent_reason": "No TLS endpoint and no supervisor connection exist. The corpus mentions mTLS only as one possible future access layer.",
+      "tempting": [
+        {
+          "path": "docs/local-fast-api.md",
+          "lines": [
+            35,
+            35
+          ]
+        }
+      ],
+      "question": "Which certificate authority issues the TLS certificate that secures the MacBook supervisor's connection to this machine?"
+    }
+  ]
+}

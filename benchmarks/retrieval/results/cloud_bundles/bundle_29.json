@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: benchmarks/local-smart/fixtures/projects/proj2_importer/reader.py\nlines: 1-1\nscore: 0.5145\nchunk_id: 1a4f1dcbaba4b93c89b5\ncontent:\n\"\"\"Per-file parsing.\"\"\"\n\nSOURCE 2\npath: services/retrieval/benchmark_data.py\nlines: 89-126\nscore: 0.4023\nchunk_id: 39d0c444d24452fee0c9\ncontent:\nCODE_QUERIES: list[dict] = [\n    # --- exact\n    dict(q=\"vram_watch.ps1\", file=\"scripts/vram_watch.ps1\", type=\"exact\"),\n    dict(q=\"What does start-local-fast.ps1 refuse to run without?\",\n         file=\"scripts/start-local-fast.ps1\", type=\"exact\"),\n\n    # --- code concept: never names the file or symbol\n    dict(q=\"Where is GPU memory sampled repeatedly while a job is running?\",\n         file=\"scripts/vram_watch.ps1\", type=\"code_concept\"),\n    dict(q=\"Which code parses the YAML configuration file into nested values?\",\n         file=\"scripts/lf_config.py\", type=\"code_concept\"),\n    dict(q=\"What checks that the service is reachable and answering before declaring success?\",\n         file=\"scripts/check-local-fast.ps1\", type=\"code_concept\"),\n    dict(q=\"Where are the refusal paths of the launcher tested without needing a GPU?\",\n         file=\"scripts/test_lifecycle_gates.ps1\", type=\"code_concept\"),\n    dict(q=\"Which script measures how long a model takes to load and unload?\",\n         file=\"scripts/phase3_coresidency.ps1\", type=\"code_concept\"),\n    dict(q=\"Where is the code that stops a running model and frees its port?\",\n         file=\"scripts/stop-local-fast.ps1\", type=\"code_concept\"),\n\n    # --- semantic\n    dict(q=\"How does the project decide whether free graphics memory is sufficient?\",\n         file=\"scripts/start-local-fast.ps1\", type=\"semantic\"),\n    dict(q=\"Code that measures prompt processing and generation speed separately\",\n         file=\"scripts/llama_bench_suite.ps1\", type=\"semantic\"),\n\n    # --- paraphrase\n    dict(q=\"a helper that reads one value out of a config by dotted key path\",\n         file=\"scripts/lf_config.py\", type=\"paraphrase\"),\n    dict(q=\"Kill the worker, wait for the socket to close, report what is left\",\n         file=\"scripts/stop-local-fast.ps1\", type=\"paraphrase\"),\n\n    # --- cross language\n    dict(q=\"哪个脚本负责在负载运行时持续采样显存？\",\n         file=\"scripts/vram_watch.ps1\", type=\"cross_lang\"),\n    dict(q=\"配置文件的解析逻辑写在哪里？\",\n         file=\"scripts/lf_config.py\", type=\"cross_lang\"),\n]\n\nSOURCE 3\npath: benchmarks/local-fast/quant-analysis.md\nlines: 30-31\nscore: 0.3885\nchunk_id: a8d6358494102315bac5\nsymbol: 2. Where the bits actually went\ncontent:\n## 2. Where the bits actually went\n\n\nSOURCE 4\npath: benchmarks/local-fast/test_grading.py\nlines: 218-228\nscore: 0.3847\nchunk_id: f6d6b87c1789d6716154\ncontent:\nif _cfg_path.exists():\n    _spec = _ilu.spec_from_file_location(\"lf_config\", r\"D:\\MultiAgent\\scripts\\lf_config.py\")\n    _mod = _ilu.module_from_spec(_spec)\n    _spec.loader.exec_module(_mod)\n    _cfg = _mod.load_config(_cfg_path)\n    check(\"config runtime.parallel == 1\",\n          _mod.dig(_cfg, \"runtime.parallel\") == 1,\n          str(_mod.dig(_cfg, \"runtime.parallel\")))\n    check(\"config context == 8192\",\n          _mod.dig(_cfg, \"runtime.context\") == 8192,\n          str(_mod.dig(_cfg, \"runtime.context\")))\n\nSOURCE 5\npath: benchmarks/local-fast/mock_server.py\nlines: 31-40\nscore: 0.3811\nchunk_id: 662d4820ebbf4bea8aa4\ncontent:\nTRACEBACK_REPLY = \"\"\"Exception: json.decoder.JSONDecodeError\nLocation: /srv/app/config.py:27\nCause: the config file read at that path is empty or is not valid JSON, so the\nparser failed on the very first character.\nFix: guard the load and surface a useful error instead of letting JSONDecodeError escape:\n\n    text = Path(path).read_text()\n    if not text.strip():\n        raise ValueError(f\"config file is empty: {path}\")\n    return json.loads(text)\"\"\"\n\nTASK: 配置文件的解析逻辑写在哪里？"
+    }
+  ],
+  "meta": {
+    "question": "配置文件的解析逻辑写在哪里？",
+    "query_type": "cross_lang",
+    "sources": 5,
+    "source_paths": [
+      "benchmarks/local-smart/fixtures/projects/proj2_importer/reader.py",
+      "services/retrieval/benchmark_data.py",
+      "benchmarks/local-fast/quant-analysis.md",
+      "benchmarks/local-fast/test_grading.py",
+      "benchmarks/local-fast/mock_server.py"
+    ],
+    "top_score": 0.514502,
+    "context_tokens": 1103,
+    "prompt_tokens": 1166,
+    "within_budget": true
+  }
+}

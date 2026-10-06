@@ -1,0 +1,2 @@
+name, memory.used [MiB], memory.free [MiB]
+NVIDIA GeForce RTX 5070 Ti Laptop GPU, 6558 MiB, 5387 MiB

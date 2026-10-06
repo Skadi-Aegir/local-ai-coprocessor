@@ -1,0 +1,203 @@
+{
+  "checks": [
+    {
+      "name": "stage1 admits and produces candidates",
+      "passed": true,
+      "detail": "{'ok': True, 'candidates': [{'chunk_id': 'c0', 'source_path': 'f0.md',"
+    },
+    {
+      "name": "stage1 closes its reservation before the swap",
+      "passed": true,
+      "detail": "live=0"
+    },
+    {
+      "name": "state after stage1 is CANDIDATES_ON_CPU",
+      "passed": true,
+      "detail": "CANDIDATES_ON_CPU"
+    },
+    {
+      "name": "swap succeeds",
+      "passed": true,
+      "detail": "27952 MiB usable >= 3560 MiB required (free 30000 - reserved 0 - margin 2048)"
+    },
+    {
+      "name": "no unload is needed when the budget already suffices",
+      "passed": true,
+      "detail": "unloaded=[]"
+    },
+    {
+      "name": "stage4 reranks the CPU candidates",
+      "passed": true,
+      "detail": "{'ok': True, 'reranked': [{'chunk_id': 'c0', 'source_path': "
+    },
+    {
+      "name": "stage4 closed its reservation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "stage5 generates",
+      "passed": true,
+      "detail": "{'ok': True, 'exec_s': 0.01, 'answer_has_8192': True}"
+    },
+    {
+      "name": "final state is DONE",
+      "passed": true,
+      "detail": "DONE"
+    },
+    {
+      "name": "no reservation left after cleanup",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "stage1-style request admitted",
+      "passed": true,
+      "detail": "27952 MiB usable >= 600 MiB required (free 30000 - reserved "
+    },
+    {
+      "name": "unload is REFUSED while the embedding reservation is live",
+      "passed": true,
+      "detail": "returned False"
+    },
+    {
+      "name": "unload SUCCEEDS once that reservation is closed",
+      "passed": true,
+      "detail": "returned True"
+    },
+    {
+      "name": "this is the contradiction resolved: protection ends at RELEASE, not at unload",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "a concurrent background request still gets an answer",
+      "passed": true,
+      "detail": "thread returned"
+    },
+    {
+      "name": "a concurrent interactive request still gets an answer",
+      "passed": true,
+      "detail": "thread returned"
+    },
+    {
+      "name": "the swap still completes after concurrent traffic",
+      "passed": true,
+      "detail": "27952 MiB usable >= 3560 MiB required (free 30000 - reserved 0 - margi"
+    },
+    {
+      "name": "swap reports failure when the unload fails",
+      "passed": true,
+      "detail": "unload did not succeed for ['local-embedding']; refusing admission rather than loading anyway"
+    },
+    {
+      "name": "the refusal names the unload as the cause",
+      "passed": true,
+      "detail": "unload did not succeed for ['local-embedding']; refusing admission rather than loading anyway"
+    },
+    {
+      "name": "no reservation leaked after the failed unload",
+      "passed": true,
+      "detail": "live=0 reserved=0"
+    },
+    {
+      "name": "candidates SURVIVE the failed swap (invariant I5)",
+      "passed": true,
+      "detail": "n=5"
+    },
+    {
+      "name": "state returns to CANDIDATES_ON_CPU so the swap can be retried",
+      "passed": true,
+      "detail": "CANDIDATES_ON_CPU"
+    },
+    {
+      "name": "the SAME budget admits once the unload succeeds (proves the cause)",
+      "passed": true,
+      "detail": "can meet 3560 MiB by unloading ['local-embedding'] (reclaims ~1246 MiB)"
+    },
+    {
+      "name": "ledger clean after the retry",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "stage1 succeeds at this budget (precondition for testing the swap)",
+      "passed": true,
+      "detail": "{'ok': True, 'candidates': [{'chunk_id': 'c0', 'source_path': 'f0.md', 'content'"
+    },
+    {
+      "name": "swap reports failure when the reranker cannot be admitted",
+      "passed": true,
+      "detail": "cannot satisfy 3560 MiB even after unloading ['local-embedding']: usable 2152 + reclaimabl"
+    },
+    {
+      "name": "the refusal states it cannot satisfy the requirement",
+      "passed": true,
+      "detail": "cannot satisfy 3560 MiB even after unloading ['local-embedding']: usable 2152 + reclaimabl"
+    },
+    {
+      "name": "no reservation leaked",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "candidates survived",
+      "passed": true,
+      "detail": "n=5"
+    },
+    {
+      "name": "stage1 times out rather than hanging",
+      "passed": true,
+      "detail": "{'ok': False, 'reason': 'timed out after 0.4s (ticket 2)', 'waited_s': 0.405}"
+    },
+    {
+      "name": "the timeout is reported",
+      "passed": true,
+      "detail": "timed out after 0.4s (ticket 2)"
+    },
+    {
+      "name": "nothing left behind by the cancelled stage",
+      "passed": true,
+      "detail": "live=0"
+    },
+    {
+      "name": "the occupying job's own reservation is untouched",
+      "passed": true,
+      "detail": "reserved=3881"
+    },
+    {
+      "name": "stage4 refuses to run before the swap",
+      "passed": true,
+      "detail": "stage4 entered in state IDLE"
+    },
+    {
+      "name": "stage5 still runs on its own dependency (it does not need the swap)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ledger clean at the end",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "second write succeeded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "the previous complete JSON was preserved",
+      "passed": true,
+      "detail": "prev exists"
+    },
+    {
+      "name": "no .tmp left behind",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": 39,
+  "failed": 0,
+  "outer_timeout_s": 30.0,
+  "note": "mocks/barriers only; no GPU work, no service started or stopped"
+}

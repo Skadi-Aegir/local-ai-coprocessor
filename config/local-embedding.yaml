@@ -1,0 +1,94 @@
+# =============================================================================
+# local-embedding worker configuration  (Phase 4)
+#
+# Single source of truth for the embedding service and the retrieval layer.
+# Read by scripts/start-local-embedding.ps1 and by services/retrieval/build_index.py.
+#
+# Parser note: this project uses a deliberately small stdlib YAML-subset loader
+# (scripts/lf_config.py) - scalars, simple lists, simple nested maps only.
+# =============================================================================
+
+model: local-embedding
+
+# ---------------------------------------------------------------- model source
+source:
+  upstream_repo: Qwen/Qwen3-Embedding-0.6B
+  upstream_revision: 97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3
+  license: apache-2.0
+  parameters: 0.6B
+  architecture: qwen3
+  modalities: text
+  pooling: last_token
+  similarity: cosine
+  native_dimension: 1024
+  max_context: 32768
+  mrl: true
+  instruction_aware: true
+
+model_path: ${REPO}\models\embedding\Qwen3-Embedding-0.6B
+model_sha256: 0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd
+
+# ---------------------------------------------------------------- runtime
+runtime:
+  host: 127.0.0.1
+  port: 8113
+  # Matryoshka output dimension. 1024 measured best for retrieval quality;
+  # 256 is the practical floor (128 loses the correct top result).
+  dimension: 1024
+  # Batch 32 is the throughput knee: 178.6 chunks/s. Batch 64 adds only ~8% more
+  # throughput for ~85% more wall latency, so 32 is the default.
+  batch_size: 32
+  max_seq_length: 8192
+  device: cuda
+  # VRAM the service needs on top of the desktop baseline. Measured delta 1246 MiB;
+  # torch's own attribution is ~2361 MiB. Keep both in mind for scheduling.
+  expected_vram_mb: 2400
+  measured_vram_delta_mb: 1246
+
+paths:
+  venv_python: ${REPO}\services\retrieval\venv\Scripts\python.exe
+  server: ${REPO}\services\retrieval\server.py
+  build_index: ${REPO}\services\retrieval\build_index.py
+  index_root: ${REPO}\vector\embedding
+  logs_dir: ${REPO}\logs
+  pid_file: ${REPO}\logs\local-embedding.pid
+  stdout_log: ${REPO}\logs\local-embedding.stdout.log
+  stderr_log: ${REPO}\logs\local-embedding.stderr.log
+  health_url: http://127.0.0.1:8113/health
+  models_url: http://127.0.0.1:8113/v1/models
+  stats_url: http://127.0.0.1:8113/stats
+
+# ---------------------------------------------------------------- retrieval
+retrieval:
+  # Project name used by index_builder and the /v1/retrieve API.
+  default_project: local-ai
+  # Corpus the served index is built from. A materialised copy of project files.
+  corpus_root: ${REPO}\vector\embedding\corpus
+  # structured = AST for Python, headings for Markdown, paragraphs otherwise,
+  # falling back to fixed windows when parsing fails. Measured better than fixed.
+  strategy: structured
+  # Retrieved chunk count handed to the model.
+  top_k: 5
+  # chunk sizing for the fixed strategy and as the structured fallback
+  size_tokens: 400
+  overlap_tokens: 60
+  max_tokens: 900
+  # Instructions are applied to QUERIES ONLY. The model card is explicit that
+  # retrieval documents take no instruction.
+  instruction_query: "Given a web search query, retrieve relevant passages that answer the query"
+  instruction_code: "Given a programming question, retrieve code or documentation relevant to solving it"
+
+# ---------------------------------------------------------------- measured facts
+# Recorded here so scheduling decisions do not have to re-derive them.
+measured:
+  throughput_batch1_chunks_per_s: 11.0
+  throughput_batch8_chunks_per_s: 58.1
+  throughput_batch32_chunks_per_s: 178.6
+  throughput_batch64_chunks_per_s: 192.9
+  retrieval_recall_at_5_pct: 74.4
+  retrieval_recall_at_1_pct: 46.2
+  token_reduction_pct: 96.57
+  coresident_4b_free_vram_mb: 3015
+  coresident_9b_free_vram_mb: 720
+  concurrent_embedding_loss_pct: 29
+  concurrent_fast_worker_loss_pct: 65

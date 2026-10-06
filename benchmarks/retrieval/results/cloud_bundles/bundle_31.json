@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: benchmarks/embedding-results.md\nlines: 74-86\nscore: 0.5685\nchunk_id: 2ade6f122456d52c545f\nsymbol: 5. VRAM co-residency\ncontent:\n## 5. VRAM co-residency\n\n| Configuration | GPU used | **Free** | Verdict |\n|---|---:|---:|---|\n| embedding alone | ~5760 MiB | 6185 MiB | ✅ |\n| **local-fast (4B) + embedding** | **8930 MiB** | **3015 MiB** | ✅ **meets the ≥2 GB target** |\n| local-smart (9B) + embedding | 11225 MiB | **720 MiB** | ❌ **fails the ≥2 GB target** |\n\n**4B + embedding is a viable default pairing; the 9B still should not be resident.**\n\nThis is consistent with Phase 3, where 4B + 9B left ~1.0 GB free. Adding the embedding\nservice to the 9B pushes free VRAM down to ~0.7 GB, well below the safety target.\n\n\nSOURCE 2\npath: docs/environment-report.md\nlines: 52-66\nscore: 0.5451\nchunk_id: fc10d8eb16aeca4c9ac3\nsymbol: Two GPU-specific caveats for later phases\ncontent:\n### Two GPU-specific caveats for later phases\n\n1. **Usable VRAM is not 12 GB.** Windows/WDDM reserves memory for the desktop. Even with\n   `nvidia-smi` showing `Compute Mode: Default` and nothing heavy running, only ~11.0 GB was\n   allocatable. Budget **~10.5–11.0 GB usable**, not 12227 MiB.\n2. **WDDM shared-memory spill is a real benchmarking hazard.** `nvidia-smi -q` reports a\n   16384 MiB \"shared\" pool of which only 28 MiB was free. Under WDDM, CUDA can silently\n   spill into system RAM instead of failing with OOM, which would make benchmark numbers look\n   plausible while actually running far slower. **All later benchmarks must record VRAM\n   alongside tokens/s** so a spill is detectable.\n3. Per-process VRAM attribution is unavailable under WDDM (\"Not available in WDDM driver\n   model\"), so VRAM accounting must be done as a global delta, not per process.\n\n---\n\n\nSOURCE 3\npath: benchmarks/embedding-results.md\nlines: 10-24\nscore: 0.5196\nchunk_id: 8779c0958f59e284e645\nsymbol: 1. Load and footprint\ncontent:\n## 1. Load and footprint\n\n| Metric | Value |\n|---|---|\n| Load time | 1.7 s |\n| Device | `cuda:0` |\n| **VRAM delta over desktop baseline** | **1246 MiB** |\n| VRAM attribution reported by torch | 2360.6 MiB |\n| Output | float32 `(n, 1024)`, L2-normalised |\n| Deployed max sequence length | 8192 (model supports 32768) |\n\nThe two VRAM figures differ because torch reports its own reserved pool while the\nnvidia-smi delta measures what the card actually lost. **1246 MiB is the number to\nbudget with**; 2400 MiB is the conservative figure used in config.\n\n\nSOURCE 4\npath: docs/environment-report.md\nlines: 238-254\nscore: 0.5169\nchunk_id: 4fca90539fbab081a229\nsymbol: 9. Constraints and recommendations carried into Phase 1+\ncontent:\n## 9. Constraints and recommendations carried into Phase 1+\n\n1. **Disk headroom recovered during the session** (D: 31.5 → ~72 GB free, external to this\n   work). The full planned model pool now fits. Keep C: (~34 GB) clear of weights and re-check\n   free space before each download in Phases 2–8.\n2. **Budget ~10.5–11.0 GB usable VRAM**, not 12 GB, and always record VRAM with throughput to\n   catch WDDM shared-memory spill.\n3. **No `nvcc`.** Either add the CUDA toolkit (matching the existing 13.x driver) or stay on\n   official prebuilt binaries.\n4. **Qwen-Image-2.1 is under a non-commercial research license** — relevant to §19's KPI\n   framing if any generated media is used commercially.\n5. **No Linux/WSL present**, so the specification's `/opt/local-ai` layout is not applicable;\n   this project uses `D:\\MultiAgent` with the same logical structure.\n\n---\n\n*Phase 0 complete. No environment was modified.*\n\nSOURCE 5\npath: benchmarks/local-smart-results.md\nlines: 230-235\nscore: 0.5092\nchunk_id: e72b4f81d046cece4052\nsymbol: Strategy 1 — unload/reload\ncontent:\n### Strategy 1 — unload/reload\n- Switch cost **~7 s** round trip\n- Peak VRAM = whichever model is resident alone (max 6055 MiB `self`)\n- Keeps ≥4 GB free at all times\n- **Best for: VRAM safety and headroom-critical work.** The 7 s cost is paid only on switch.\n\n\nTASK: Which document and which script both mention the VRAM safety margin?"
+    }
+  ],
+  "meta": {
+    "question": "Which document and which script both mention the VRAM safety margin?",
+    "query_type": "mixed_doc",
+    "sources": 5,
+    "source_paths": [
+      "benchmarks/embedding-results.md",
+      "docs/environment-report.md",
+      "benchmarks/embedding-results.md",
+      "docs/environment-report.md",
+      "benchmarks/local-smart-results.md"
+    ],
+    "top_score": 0.568492,
+    "context_tokens": 1333,
+    "prompt_tokens": 1399,
+    "within_budget": true
+  }
+}

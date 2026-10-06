@@ -1,0 +1,580 @@
+{
+  "index_version": "3cd2dcda4eeb5555",
+  "packet_sha256_note": "chunk text fetched from the fixed index; each chunk's sha256 is in the packet",
+  "questions": {
+    "v01": {
+      "question": "Which components does a question pass through before reaching local-fast, and which ports do they use?",
+      "by_k": {
+        "5": {
+          "_refusal": true,
+          "fast_port": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "Supplied chunks are the local-fast integration guide header, the model-record header, two escalation-policy sections and config/local-fast.yaml. The answer is a bare refusal with no reasoning. Port 8111 is not stated anywhere in the supplied text."
+          },
+          "embed_port": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "Port 8113 appears in none of the five supplied chunks; the nearest carriers (config/local-embedding.yaml, docs/reranking-architecture.md, services/retrieval/server.py) are absent. The answer is a bare refusal."
+          },
+          "verdict": "incorrect_refusal",
+          "n_supplied": 5,
+          "citations": []
+        },
+        "8": {
+          "_refusal": true,
+          "fast_port": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "Same five chunks plus docs/local-fast-api.md:113-124 and :144-161 and docs/models/local-fast.md:132-148. Answer is a refusal carrying reasoning; the reasoning itself says the sources give port 8111 only via SOURCE 5, i.e. the port is NOT in what the model was given. Not stated."
+          },
+          "embed_port": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "The three added chunks are local-fast-api.md:113-124, local-fast-api.md:144-161 and models/local-fast.md:132-148 - none mentions 8113. Answer is a refusal."
+          },
+          "verdict": "incorrect_refusal",
+          "n_supplied": 8,
+          "citations": [
+            {
+              "source": 5,
+              "source_path": "config/local-fast.yaml",
+              "start_line": 1,
+              "end_line": 119,
+              "verification": "verified"
+            }
+          ]
+        },
+        "10": {
+          "_refusal": true,
+          "fast_port": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "no",
+            "citation_supports": "no",
+            "reason": "config/local-fast.yaml:1-119 IS supplied and states the bind address 127.0.0.1:8111, and docs/models/local-fast.md:132-148 states the runtime contract 127.0.0.1:8111. So the chunk contains the fact. BUT the answer is a REFUSAL whose reasoning asserts 'do not contain information about ... the network path (other than the loopback address 127.0.0.1)', i.e. it denies having the port while holding it. The answer does NOT state 8111. The answer cites local-fast-api.md:1-9 and start-local-fast.ps1 but not the two chunks that carry the port, so the citations do not support a statement of the port - there is no such statement to support."
+          },
+          "embed_port": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "no",
+            "reason": "Ten chunks supplied; none contains 8113. The two chunks that were added at k=10 (scripts/check-local-fast.ps1, scripts/start-local-fast.ps1) are local-fast scripts and speak about 8111. The fact is absent from the pack at every k, which is why no bounded k reaches it - a RANKING failure, with carriers at ranks 38/51/52/58."
+          },
+          "verdict": "incorrect_refusal",
+          "n_supplied": 10,
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 1,
+              "end_line": 9,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 10,
+              "end_line": 25,
+              "verification": "verified"
+            },
+            {
+              "source": 6,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 113,
+              "end_line": 124,
+              "verification": "verified"
+            },
+            {
+              "source": 10,
+              "source_path": "scripts/start-local-fast.ps1",
+              "start_line": 1,
+              "end_line": 109,
+              "verification": "verified"
+            }
+          ]
+        }
+      }
+    },
+    "v02": {
+      "question": "How do the embedding service memory figures and the scheduler margin relate to each other?",
+      "by_k": {
+        "5": {
+          "_refusal": false,
+          "torch_reserved_meaning": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "None of the five supplied chunks mentions torch_reserved, reserved_mb, vram_mb, cudaMemGetInfo, attribution or 'VRAM delta'. The chunks are co-residency peak tables (gpu-scheduling, retrieval-architecture, reranking-architecture), a scheduler self-test, and the gpu-scheduling safety properties. The answer discusses only the margin; it states no memory figure and explains none."
+          },
+          "margin_policy": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "docs/gpu-scheduling.md:62-80 states '2 GiB VRAM margin before every admission, measured with nvidia-smi rather than estimated from a table. A request that would breach it is refused, not queued forever.' The answer states this and cites [SOURCE 5], which is exactly that chunk. Chunk contains / answer states / citation supports: all three yes, and they line up."
+          },
+          "verdict": "partial",
+          "n_supplied": 5,
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 101,
+              "end_line": 116,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "verification": "verified"
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "verification": "verified"
+            }
+          ]
+        },
+        "8": {
+          "_refusal": false,
+          "torch_reserved_meaning": {
+            "chunk_contains_fact": "uncertain",
+            "answer_states_fact": "uncertain",
+            "citation_supports": "uncertain",
+            "reason": "config/local-embedding.yaml:1-94 IS supplied and contains the comment 'Measured delta 1246 MiB; # torch's own attribution is ~2361 MiB. Keep both in mind for scheduling' plus expected_vram_mb: 2400 and measured_vram_delta_mb: 1246. That DISTINGUISHES two figures, which is part of what the fact is about, but it is a config-file comment: it does not explain what the /stats vram_mb field IS (the passages in docs/models/local-embedding.md:90-112 that say it is 'cudaMemGetInfo total - free, not PyTorch's attribution to this process' were NOT supplied). The answer states 'a configured expected_vram_mb of 2400 MiB and a measured delta of 1246 MiB [SOURCE 7]' - it relays the config VALUES but does not explain the meaning. Judged UNCERTAIN rather than passed: a config value plus one distinguishing comment is not the explanation, but it is also not nothing, and the task forbids forcing this either way."
+          },
+          "margin_policy": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "The same chunk is supplied and cited. The answer repeats the rule and the refusal behaviour and attributes it to [SOURCE 5]. Verified alignment."
+          },
+          "verdict": "partial",
+          "n_supplied": 8,
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "docs/retrieval-architecture.md",
+              "start_line": 206,
+              "end_line": 216,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "verification": "verified"
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "verification": "verified"
+            },
+            {
+              "source": 7,
+              "source_path": "config/local-embedding.yaml",
+              "start_line": 1,
+              "end_line": 94,
+              "verification": "verified"
+            }
+          ]
+        },
+        "10": {
+          "_refusal": false,
+          "torch_reserved_meaning": {
+            "chunk_contains_fact": "uncertain",
+            "answer_states_fact": "uncertain",
+            "citation_supports": "uncertain",
+            "reason": "The same config comment is supplied, and k=10 adds services/retrieval/embedder.py, which is a carrier of this fact. The answer is materially the same as k=8 and still reports values rather than explaining the field. Split verdict avoided; UNCERTAIN for the same reason as k=8, with the added note that the fact's own canonical carrier (docs/models/local-embedding.md:90-112, the passage that actually explains it) was never supplied at any k."
+          },
+          "margin_policy": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same chunk supplied and cited; the answer states the rule and the refusal logic. Verified alignment."
+          },
+          "verdict": "partial",
+          "n_supplied": 10,
+          "citations": [
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "verification": "verified"
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "verification": "verified"
+            },
+            {
+              "source": 7,
+              "source_path": "config/local-embedding.yaml",
+              "start_line": 1,
+              "end_line": 94,
+              "verification": "verified"
+            }
+          ]
+        }
+      }
+    },
+    "v03": {
+      "question": "What are the two unload figures on the staged RAG path, and what latency does a full cycle take?",
+      "by_k": {
+        "5": {
+          "_refusal": false,
+          "unload_figures": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "docs/phase55r-evidence-consolidation.md:75-89 states 'Verified deltas: embedding +1368 to +1392 MiB, reranker +2591 to +2595 MiB'. The answer gives both ranges and cites the chunk. Aligned."
+          },
+          "cycle_latency": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "The same chunk states 'a full RAG cycle measured 24.4 s (P55R-05) and ~22-24 s in the re-run'. The answer gives the cycle latency and cites the chunk. Aligned."
+          },
+          "verdict": "complete",
+          "n_supplied": 5,
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "verification": "verified"
+            },
+            {
+              "source": 2,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 75,
+              "end_line": 89,
+              "verification": "verified"
+            }
+          ]
+        },
+        "8": {
+          "_refusal": false,
+          "unload_figures": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same source supplied and cited; answer gives both ranges."
+          },
+          "cycle_latency": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same source supplied and cited."
+          },
+          "verdict": "complete",
+          "n_supplied": 8,
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "verification": "verified"
+            },
+            {
+              "source": 2,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 75,
+              "end_line": 89,
+              "verification": "verified"
+            },
+            {
+              "source": 4,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 125,
+              "end_line": 141,
+              "verification": "verified"
+            }
+          ]
+        },
+        "10": {
+          "_refusal": false,
+          "unload_figures": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same source supplied and cited; answer gives both ranges."
+          },
+          "cycle_latency": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same source supplied and cited."
+          },
+          "verdict": "complete",
+          "n_supplied": 10,
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "verification": "verified"
+            }
+          ]
+        }
+      }
+    },
+    "v04": {
+      "question": "What per-chunk character cap does the pack apply, and why was it raised?",
+      "by_k": {
+        "5": {
+          "_refusal": true,
+          "char_cap": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "services/retrieval/retriever.py not supplied at all; answer is a bare refusal."
+          },
+          "why_raised": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "Not supplied; bare refusal."
+          },
+          "verdict": "incorrect_refusal",
+          "n_supplied": 5,
+          "citations": []
+        },
+        "8": {
+          "_refusal": true,
+          "char_cap": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "retriever.py still not supplied at k=8; answer is a bare refusal."
+          },
+          "why_raised": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "Not supplied; bare refusal."
+          },
+          "verdict": "incorrect_refusal",
+          "n_supplied": 8,
+          "citations": []
+        },
+        "10": {
+          "_refusal": false,
+          "char_cap": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "services/retrieval/retriever.py:25-40 IS supplied and states 'max_chars_per_chunk: int = 8000'. The answer states 8000 and cites it. Aligned."
+          },
+          "why_raised": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "The same chunk states 'Raised from 2000 to 8000 (the chunker's own maximum is ~900 tokens, so 8000 chars effectively never truncates): a 2000-char cap was cutting the answer out of otherwise well-retrieved chunks', so the chunk contains the reason. The answer states it too: 'It was raised from 2000 to prevent **silent truncation** of answers within retrieved chunks, which previously converted retrieval successes into misses.' Citation is to the chunk that carries it. Aligned. NOTE: my first pass at this adjudication recorded 'no' for answer_states_fact on the strength of a phrase search rather than reading the answer; corrected after reading the full text."
+          },
+          "verdict": "complete",
+          "n_supplied": 10,
+          "citations": [
+            {
+              "source": 10,
+              "source_path": "services/retrieval/retriever.py",
+              "start_line": 25,
+              "end_line": 40,
+              "verification": "verified"
+            }
+          ]
+        }
+      }
+    },
+    "v05": {
+      "question": "Which ports are reserved for the reranker and the OCR service?",
+      "by_k": {
+        "5": {
+          "_refusal": true,
+          "reranker_port": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "no",
+            "citation_supports": "no",
+            "reason": "config/local-reranker.yaml:1-93 IS supplied and states port 8114, so the chunk contains the fact. The answer is a bare refusal - it does not state it. No citations, so nothing supports a statement that was not made. A depth case that k=8 fixes."
+          },
+          "ocr_port": {
+            "chunk_contains_fact": "no",
+            "answer_states_fact": "no",
+            "citation_supports": "n/a",
+            "reason": "config/local-ocr.yaml not supplied; bare refusal."
+          },
+          "verdict": "incorrect_refusal",
+          "n_supplied": 5,
+          "citations": []
+        },
+        "8": {
+          "_refusal": false,
+          "reranker_port": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "config/local-reranker.yaml:1-93 supplied; the answer states 8114 and cites it. Aligned."
+          },
+          "ocr_port": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "config/local-ocr.yaml:1-93 supplied; the answer states 8116 and cites it. Aligned."
+          },
+          "verdict": "complete",
+          "n_supplied": 8,
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            },
+            {
+              "source": 8,
+              "source_path": "config/local-ocr.yaml",
+              "start_line": 1,
+              "end_line": 105,
+              "verification": "verified"
+            }
+          ]
+        },
+        "10": {
+          "_refusal": false,
+          "reranker_port": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same source supplied and cited."
+          },
+          "ocr_port": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same source supplied and cited."
+          },
+          "verdict": "complete",
+          "n_supplied": 10,
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            },
+            {
+              "source": 8,
+              "source_path": "config/local-ocr.yaml",
+              "start_line": 1,
+              "end_line": 105,
+              "verification": "verified"
+            }
+          ]
+        }
+      }
+    },
+    "v06": {
+      "question": "How does the reranker turn the model's output into a relevance score?",
+      "by_k": {
+        "5": {
+          "_refusal": false,
+          "score_method": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "docs/reranking-architecture.md and config/local-reranker.yaml supplied; the answer describes softmax over the yes/no logits at the final position and cites them."
+          },
+          "verdict": "complete",
+          "n_supplied": 5,
+          "citations": [
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            },
+            {
+              "source": 5,
+              "source_path": "services/reranker/reranker.py",
+              "start_line": 1,
+              "end_line": 33,
+              "verification": "verified"
+            }
+          ]
+        },
+        "8": {
+          "_refusal": false,
+          "score_method": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same sources supplied and cited."
+          },
+          "verdict": "complete",
+          "n_supplied": 8,
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 52,
+              "end_line": 82,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            }
+          ]
+        },
+        "10": {
+          "_refusal": false,
+          "score_method": {
+            "chunk_contains_fact": "yes",
+            "answer_states_fact": "yes",
+            "citation_supports": "yes",
+            "reason": "Same sources supplied and cited."
+          },
+          "verdict": "complete",
+          "n_supplied": 10,
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 52,
+              "end_line": 82,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

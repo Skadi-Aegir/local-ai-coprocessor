@@ -1,0 +1,182 @@
+{
+  "note": "carriers of each ungarnered fact, and their rank for that question",
+  "facts": {
+    "d01": {
+      "fact": "embed_port 8113",
+      "question": "Which components does a question pass through before reaching local-fast, and which ports do they use?",
+      "n_carrier_chunks": 15,
+      "carriers": {
+        "68a817ee6b9d71bcd8ab": {
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 9,
+          "end_line": 35
+        },
+        "485baf2ff408b738b6ad": {
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 36,
+          "end_line": 51
+        },
+        "48e042118b4fd38e929f": {
+          "source_path": "docs/retrieval-architecture.md",
+          "start_line": 191,
+          "end_line": 205
+        },
+        "cad33164c27da571306f": {
+          "source_path": "docs/models/local-embedding.md",
+          "start_line": 128,
+          "end_line": 138
+        },
+        "b3928e6f759f05955051": {
+          "source_path": "config/local-embedding.yaml",
+          "start_line": 1,
+          "end_line": 94
+        },
+        "4e3431cd496c70e55229": {
+          "source_path": "config/local-reranker.yaml",
+          "start_line": 1,
+          "end_line": 93
+        },
+        "5d9c76f1966a1e39eeeb": {
+          "source_path": "scripts/check-local-embedding.ps1",
+          "start_line": 1,
+          "end_line": 101
+        },
+        "27222d2feec84bdc625f": {
+          "source_path": "scripts/start-local-embedding.ps1",
+          "start_line": 1,
+          "end_line": 111
+        },
+        "ced52eaafaa1f7ecdeb7": {
+          "source_path": "scripts/stop-local-embedding.ps1",
+          "start_line": 1,
+          "end_line": 95
+        },
+        "6ae93ec7cb4509abc8d6": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 90,
+          "end_line": 99
+        },
+        "518901e269272044a37c": {
+          "source_path": "services/gpu_scheduler/scheduler_cli.py",
+          "start_line": 221,
+          "end_line": 295
+        },
+        "eb947e8e3401374cee19": {
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "start_line": 37,
+          "end_line": 37
+        },
+        "03c8d1000ebdc6a831b4": {
+          "source_path": "services/retrieval/rerank_pipeline.py",
+          "start_line": 1,
+          "end_line": 24
+        },
+        "0a5d70cb74cd66bcc497": {
+          "source_path": "services/retrieval/server.py",
+          "start_line": 1,
+          "end_line": 22
+        },
+        "471e6c16f2a88395223d": {
+          "source_path": "services/retrieval/server.py",
+          "start_line": 298,
+          "end_line": 343
+        }
+      },
+      "rank_of_carriers": {
+        "4e3431cd496c70e55229": 38,
+        "b3928e6f759f05955051": 51,
+        "485baf2ff408b738b6ad": 52,
+        "68a817ee6b9d71bcd8ab": 58
+      },
+      "appears_in_top": 58
+    },
+    "d02": {
+      "fact": "torch_reserved meaning",
+      "question": "How do the embedding service memory figures and the scheduler margin relate to each other?",
+      "n_carrier_chunks": 13,
+      "carriers": {
+        "d4318e9908902794db33": {
+          "source_path": "docs/models/local-embedding.md",
+          "start_line": 90,
+          "end_line": 112
+        },
+        "0f19dd6c8c31a371bfa3": {
+          "source_path": "services/retrieval/embedder.py",
+          "start_line": 100,
+          "end_line": 112
+        },
+        "b84eb0bb16eb83f4a393": {
+          "source_path": "services/retrieval/embedder.py",
+          "start_line": 114,
+          "end_line": 129
+        },
+        "2e4137b0b557cde6aa1b": {
+          "source_path": "services/retrieval/server.py",
+          "start_line": 47,
+          "end_line": 114
+        },
+        "471e6c16f2a88395223d": {
+          "source_path": "services/retrieval/server.py",
+          "start_line": 298,
+          "end_line": 343
+        },
+        "1812da95a4ac13f3db34": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 144,
+          "end_line": 170
+        },
+        "874dbc11b89d04c9118d": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 270,
+          "end_line": 304
+        },
+        "16e767b4930b4da1b131": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 369,
+          "end_line": 482
+        },
+        "d9e4d3704ad79900cb72": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 485,
+          "end_line": 499
+        },
+        "2d0623b2abcb46d08e4f": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 502,
+          "end_line": 598
+        },
+        "f724c8dbcba3e022c4c2": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 600,
+          "end_line": 694
+        },
+        "6bc57964f0d6b297231c": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 706,
+          "end_line": 740
+        },
+        "fdaed209118687cdac75": {
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "start_line": 804,
+          "end_line": 832
+        }
+      },
+      "rank_of_carriers": {
+        "d4318e9908902794db33": 15,
+        "874dbc11b89d04c9118d": 32,
+        "16e767b4930b4da1b131": 36,
+        "d9e4d3704ad79900cb72": 55,
+        "2e4137b0b557cde6aa1b": 60
+      },
+      "appears_in_top": 60
+    },
+    "d03": {
+      "fact": "escalation threshold 0.30 / evidence floor",
+      "question": "What does the escalation policy require when local retrieval is weak, and where is that threshold configured?",
+      "n_carrier_chunks": 0,
+      "carriers": {},
+      "rank_of_carriers": {},
+      "appears_in_top": null
+    }
+  }
+}

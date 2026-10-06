@@ -1,0 +1,8 @@
+b637590 Phase 6 B1: local-ocr environment and models - CPU-only, nothing on C:, models not in git
+d29d2dc Part A: QA hardening - truncation fix (AD-22), management decisions (AD-21), errata E30
+5989730 ERRATA E29: antivirus removed a DSH runtime file mid-call; one tool call did not run
+94f95f2 Phase A/B acceptance round complete: B re-verified, report and management files, offline tests re-run
+568799d Phase A acceptance run: heldout_v1 run1, audit, per-question review, P56 regression
+8b5f00d P55R/Phase A-B acceptance, checkpoint 1: review fixes deployed, P1-11 verified on the deployed 8113, QA index rebuilt
+4166fdd Merge branch 'claude/workspace-content-review-be429a'
+a83efe9 R-1005 follow-up: two more checks made independent of which index is current

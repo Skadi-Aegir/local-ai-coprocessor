@@ -1,0 +1,20 @@
+{
+  "rounds": 4,
+  "reps_per_round": 4,
+  "serialized": {
+    "embedding_s": 0.52,
+    "rerank_s": 0.74,
+    "wall_s": 1.257,
+    "sum_of_parts_s": 1.26
+  },
+  "concurrent": {
+    "embedding_s": 0.88,
+    "rerank_s": 1.075,
+    "wall_s": 1.076,
+    "embedding_slowdown_pct": 69.3,
+    "rerank_slowdown_pct": 45.3,
+    "wall_change_pct": -14.4
+  },
+  "wall_time_gain_pct": 14.4,
+  "verdict": "concurrent wins on wall time"
+}

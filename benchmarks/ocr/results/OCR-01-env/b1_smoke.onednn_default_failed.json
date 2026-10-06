@@ -1,0 +1,22 @@
+{
+  "probe": "D:\\MultiAgent\\benchmarks\\ocr\\results\\OCR-01-env\\b1_probe.png",
+  "models": {
+    "mobile": {
+      "load_s": 0.96,
+      "predict_error": "NotImplementedError: (Unimplemented) ConvertPirAttribute2RuntimeAttribute not support [pir::ArrayAttribute<pir::DoubleAttribute>]  (at ..\\paddle\\fluid\\framework\\new_executor\\instruction\\onednn\\onednn_instruction.cc:118)\n"
+    },
+    "server": {
+      "load_s": 1.56,
+      "predict_error": "NotImplementedError: (Unimplemented) ConvertPirAttribute2RuntimeAttribute not support [pir::ArrayAttribute<pir::DoubleAttribute>]  (at ..\\paddle\\fluid\\framework\\new_executor\\instruction\\onednn\\onednn_instruction.cc:118)\n"
+    }
+  },
+  "preprocessing_disabled": {
+    "doc_orientation": false,
+    "unwarping": false,
+    "textline_orientation": false
+  },
+  "device": "cpu",
+  "cache_home": "D:\\MultiAgent\\models\\ocr\\_rt_cache",
+  "rt_cache_removed": true,
+  "c_user_paddlex_files": 0
+}

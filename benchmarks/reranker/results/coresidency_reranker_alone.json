@@ -1,0 +1,21 @@
+{
+  "services": {
+    "reranker": true,
+    "embedding": false,
+    "local_fast": false
+  },
+  "at_rest_mb": 3454,
+  "peak_mb": 5248,
+  "peak_delta_mb": 1794,
+  "median_mb": 5244,
+  "p95_mb": 5248,
+  "samples": 60,
+  "free_at_peak_mb": 6979,
+  "meets_2gb_target": true,
+  "workload": {
+    "rerank_calls": 773,
+    "embed_calls": 0,
+    "fast_calls": 0
+  },
+  "seconds": 12.0
+}

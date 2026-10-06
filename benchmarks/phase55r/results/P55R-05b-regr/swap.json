@@ -1,0 +1,194 @@
+{
+  "checks": [
+    {
+      "name": "stage1 admits",
+      "passed": true,
+      "detail": "{'ok': True, 'candidates': [{'chunk_id': 'c0', 'source_path'"
+    },
+    {
+      "name": "stage1 closed its reservation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "swap ok",
+      "passed": true,
+      "detail": "29452 MiB usable >= 600 MiB required (free 31500 - reserved 0 - margin 2048)"
+    },
+    {
+      "name": "swap ACTUALLY unloaded embedding (verified, not assumed)",
+      "passed": true,
+      "detail": "unloaded=['local-embedding'] port_free=True"
+    },
+    {
+      "name": "free VRAM rose across the unload",
+      "passed": true,
+      "detail": "30000 -> 31500"
+    },
+    {
+      "name": "embedding is no longer running",
+      "passed": true,
+      "detail": "['local-reranker']"
+    },
+    {
+      "name": "stage4 reranks",
+      "passed": true,
+      "detail": "{'ok': True, 'reranked': [{'chunk_id': 'c0', 'source_path': "
+    },
+    {
+      "name": "state is RERANKED_ON_CPU (results retained for the next stage)",
+      "passed": true,
+      "detail": "RERANKED_ON_CPU"
+    },
+    {
+      "name": "the SECOND required unload succeeds",
+      "passed": true,
+      "detail": "local-reranker unloaded and verified"
+    },
+    {
+      "name": "reranker actually unloaded",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "name": "stage6 generates",
+      "passed": true,
+      "detail": "{'ok': True, 'exec_s': 0.01, 'answer_has_8192': True}"
+    },
+    {
+      "name": "final state DONE",
+      "passed": true,
+      "detail": "DONE"
+    },
+    {
+      "name": "no reservation left",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "a request naming embedding is admitted",
+      "passed": true,
+      "detail": "27952 MiB usable >= 600 MiB required (free 30000 - reserved "
+    },
+    {
+      "name": "unload is REFUSED while it is live",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unload_required reports the refusal rather than skipping it",
+      "passed": true,
+      "detail": "the scheduler refused to unload local-embedding"
+    },
+    {
+      "name": "after release it becomes unloadable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "concurrent background gets an answer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "concurrent interactive gets an answer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ledger is clean before the swap",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "an unload that frees no memory is reported as FAILED",
+      "passed": true,
+      "detail": "memory_not_returned: local-embedding port freed but free VRAM did not rise (20000 -> 20000)"
+    },
+    {
+      "name": "the failure is not silently treated as success",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "a still-bound port is reported as FAILED",
+      "passed": true,
+      "detail": "port_still_bound: local-embedding still listening after unload"
+    },
+    {
+      "name": "swap fails when the unload fails",
+      "passed": true,
+      "detail": "the scheduler refused to unload local-embedding"
+    },
+    {
+      "name": "no reservation leaked",
+      "passed": true,
+      "detail": "reserved=0 live=0"
+    },
+    {
+      "name": "candidates retained (I5)",
+      "passed": true,
+      "detail": "n=5"
+    },
+    {
+      "name": "state returns to CANDIDATES_ON_CPU for retry",
+      "passed": true,
+      "detail": "CANDIDATES_ON_CPU"
+    },
+    {
+      "name": "first swap ok",
+      "passed": true,
+      "detail": "29452 MiB usable >= 600 MiB required (free 31500 - reserved "
+    },
+    {
+      "name": "the second unload failure is reported",
+      "passed": true,
+      "detail": "the scheduler refused to unload local-reranker"
+    },
+    {
+      "name": "RERANKED results are retained for a retry",
+      "passed": true,
+      "detail": "n=3"
+    },
+    {
+      "name": "no reservation leaked after the second failure",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "stage1 times out rather than hanging",
+      "passed": true,
+      "detail": "{'ok': False, 'reason': 'timed out after 0.4s (ticket 2)', 'waited_s':"
+    },
+    {
+      "name": "timeout is reported",
+      "passed": true,
+      "detail": "timed out after 0.4s (ticket 2)"
+    },
+    {
+      "name": "nothing left behind",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ledger clean",
+      "passed": true,
+      "detail": "0"
+    },
+    {
+      "name": "I2 blocks a required unload while this pipeline holds a reservation",
+      "passed": true,
+      "detail": "I2: unload_required entered with a live reservation"
+    },
+    {
+      "name": "cleanup cleared it",
+      "passed": true,
+      "detail": "0"
+    }
+  ],
+  "passed": 37,
+  "failed": 0,
+  "outer_timeout_s": 30.0,
+  "margin_mb": 2048,
+  "note": "mocks/barriers only; no GPU work, no service started or stopped"
+}

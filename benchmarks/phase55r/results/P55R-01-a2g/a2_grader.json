@@ -1,0 +1,236 @@
+{
+  "cases": [
+    {
+      "name": "denies a quoted wrong number",
+      "answer": "The context size is not 4096; the correct value is 8192.",
+      "original_grader": {
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 1,
+        "refused": false
+      },
+      "corrected_grader": {
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "mode": "and",
+        "hallucination_flags": 0,
+        "hallucination_detail": [],
+        "refused": false,
+        "unsupported_numbers": [
+          "4096"
+        ]
+      },
+      "expected_corrected": {
+        "all_facts": true,
+        "hallucination_flags": 0
+      },
+      "matched_expectation": true,
+      "note": "must NOT be a hallucination: the wrong value is being denied"
+    },
+    {
+      "name": "explains why another answer is wrong",
+      "answer": "It is 8192. Some sources say 4096, but that applies to a different model.",
+      "original_grader": {
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 1,
+        "refused": false
+      },
+      "corrected_grader": {
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "mode": "and",
+        "hallucination_flags": 0,
+        "hallucination_detail": [],
+        "refused": false,
+        "unsupported_numbers": [
+          "4096"
+        ]
+      },
+      "expected_corrected": {
+        "all_facts": true,
+        "hallucination_flags": 0
+      },
+      "matched_expectation": true,
+      "note": "mentioning a wrong value while correcting it is not an error"
+    },
+    {
+      "name": "asserts the wrong number (must still be flagged)",
+      "answer": "The context size is 4096.",
+      "original_grader": {
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 1,
+        "refused": false
+      },
+      "corrected_grader": {
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "mode": "and",
+        "hallucination_flags": 1,
+        "hallucination_detail": [
+          [
+            "4096"
+          ]
+        ],
+        "refused": false,
+        "unsupported_numbers": [
+          "4096"
+        ]
+      },
+      "expected_corrected": {
+        "all_facts": false,
+        "hallucination_flags": 1
+      },
+      "matched_expectation": true,
+      "note": "the corrected grader must not become blind to real errors"
+    },
+    {
+      "name": "all required facts plus an invented one",
+      "answer": "It uses 8192 tokens and occupies 2981 MiB and runs at 999 tokens/s.",
+      "original_grader": {
+        "fact_hits": 2,
+        "fact_total": 2,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      },
+      "corrected_grader": {
+        "fact_hits": 2,
+        "fact_total": 2,
+        "all_facts": true,
+        "mode": "and",
+        "hallucination_flags": 0,
+        "hallucination_detail": [],
+        "refused": false,
+        "unsupported_numbers": [
+          "999"
+        ]
+      },
+      "expected_corrected": {
+        "all_facts": true
+      },
+      "matched_expectation": true,
+      "note": "ALL_FACTS is true, but unsupported_numbers must expose the fabrication"
+    },
+    {
+      "name": "correct refusal when evidence is absent",
+      "answer": "NOT IN SOURCES",
+      "original_grader": {
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "corrected_grader": {
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "mode": "and",
+        "hallucination_flags": 0,
+        "hallucination_detail": [],
+        "refused": true,
+        "unsupported_numbers": []
+      },
+      "expected_corrected": {
+        "refused": true,
+        "all_facts": false
+      },
+      "matched_expectation": true,
+      "note": "refusing is correct here"
+    },
+    {
+      "name": "incorrect refusal when the evidence WAS provided",
+      "answer": "I do not know.",
+      "original_grader": {
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "corrected_grader": {
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "mode": "and",
+        "hallucination_flags": 0,
+        "hallucination_detail": [],
+        "refused": true,
+        "unsupported_numbers": []
+      },
+      "expected_corrected": {
+        "refused": true,
+        "all_facts": false
+      },
+      "matched_expectation": true,
+      "note": "identical to the previous case under both graders - the grader cannot tell them apart, which is why refusal rate alone is never evidence of improvement"
+    },
+    {
+      "name": "OR semantics: either value is acceptable",
+      "answer": "Roughly 130 tokens per second.",
+      "original_grader": {
+        "fact_hits": 1,
+        "fact_total": 2,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": false
+      },
+      "corrected_grader": {
+        "fact_hits": 1,
+        "fact_total": 2,
+        "all_facts": true,
+        "mode": "or",
+        "hallucination_flags": 0,
+        "hallucination_detail": [],
+        "refused": false,
+        "unsupported_numbers": []
+      },
+      "expected_corrected": {
+        "all_facts": true
+      },
+      "matched_expectation": true,
+      "note": "with mode='or' one acceptable answer suffices"
+    },
+    {
+      "name": "AND semantics: same text, both required",
+      "answer": "Roughly 130 tokens per second.",
+      "original_grader": {
+        "fact_hits": 1,
+        "fact_total": 2,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": false
+      },
+      "corrected_grader": {
+        "fact_hits": 1,
+        "fact_total": 2,
+        "all_facts": false,
+        "mode": "and",
+        "hallucination_flags": 0,
+        "hallucination_detail": [],
+        "refused": false,
+        "unsupported_numbers": []
+      },
+      "expected_corrected": {
+        "all_facts": false
+      },
+      "matched_expectation": true,
+      "note": "with mode='and' the same text fails - the encoding of the requirement, not the answer, decides the score"
+    }
+  ],
+  "note": "offline; historical grader preserved unchanged",
+  "implications": {
+    "direction_of_error": "the original grader can only OVER-count hallucinations (it flags denied values) and can only OVER-count correctness (fabricated extras are invisible)",
+    "consequence": "published hallucination counts are upper bounds and published accuracy is an upper bound. Neither is retracted; both are now labelled.",
+    "refusal_not_evidence": "correct and incorrect refusals are indistinguishable under both graders, which is why a falling refusal rate must never be read as improving accuracy",
+    "historical_scoring": "preserved and reported separately; not overwritten"
+  }
+}

@@ -1,0 +1,3851 @@
+{
+  "minutes_requested": 6.0,
+  "minutes_actual": 6.03,
+  "iterations": 43,
+  "steps_total": 344,
+  "crashes": 0,
+  "errors": [],
+  "thinking_leaks": 0,
+  "step_failures": [],
+  "ok_rate": 100.0,
+  "latency_mean_s": 1.052,
+  "latency_first_quartile_s": 1.068,
+  "latency_last_quartile_s": 1.033,
+  "latency_drift_pct": -3.3,
+  "gen_tps_mean": 73.87,
+  "vram_samples": 340,
+  "vram_min_mb": 10881,
+  "vram_max_mb": 10917,
+  "vram_first_mb": 10917,
+  "vram_last_mb": 10894,
+  "vram_growth_mb": -23,
+  "iterations_detail": [
+    {
+      "iter": 1,
+      "elapsed_s": 9.3,
+      "cycle_s": 9.314,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.387,
+          "ok": true,
+          "gen_tps": 73.55,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.779,
+          "ok": true,
+          "gen_tps": 73.46,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.798,
+          "ok": true,
+          "gen_tps": 73.56,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.747,
+          "ok": true,
+          "gen_tps": 74.2,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.758,
+          "ok": true,
+          "gen_tps": 73.99,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.808,
+          "ok": true,
+          "gen_tps": 74.37,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.7,
+          "ok": true,
+          "gen_tps": 73.73,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.338,
+          "ok": true,
+          "gen_tps": 73.53,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 2,
+      "elapsed_s": 17.9,
+      "cycle_s": 8.537,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.062,
+          "ok": true,
+          "gen_tps": 73.51,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.731,
+          "ok": true,
+          "gen_tps": 74.21,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.732,
+          "ok": true,
+          "gen_tps": 73.99,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.721,
+          "ok": true,
+          "gen_tps": 74.02,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.736,
+          "ok": true,
+          "gen_tps": 73.89,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.639,
+          "ok": true,
+          "gen_tps": 73.95,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.683,
+          "ok": true,
+          "gen_tps": 73.92,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.234,
+          "ok": true,
+          "gen_tps": 73.48,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 3,
+      "elapsed_s": 26.4,
+      "cycle_s": 8.572,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.056,
+          "ok": true,
+          "gen_tps": 73.46,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.726,
+          "ok": true,
+          "gen_tps": 73.84,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.733,
+          "ok": true,
+          "gen_tps": 74.39,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.717,
+          "ok": true,
+          "gen_tps": 73.65,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.755,
+          "ok": true,
+          "gen_tps": 73.77,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.656,
+          "ok": true,
+          "gen_tps": 73.85,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.681,
+          "ok": true,
+          "gen_tps": 74.1,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.248,
+          "ok": true,
+          "gen_tps": 73.03,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 4,
+      "elapsed_s": 34.9,
+      "cycle_s": 8.466,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.021,
+          "ok": true,
+          "gen_tps": 73.48,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.74,
+          "ok": true,
+          "gen_tps": 72.32,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.763,
+          "ok": true,
+          "gen_tps": 72.25,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.726,
+          "ok": true,
+          "gen_tps": 73.34,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.714,
+          "ok": true,
+          "gen_tps": 73.71,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.621,
+          "ok": true,
+          "gen_tps": 74.2,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.655,
+          "ok": true,
+          "gen_tps": 73.82,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.226,
+          "ok": true,
+          "gen_tps": 73.41,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 5,
+      "elapsed_s": 43.3,
+      "cycle_s": 8.376,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.037,
+          "ok": true,
+          "gen_tps": 73.37,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.713,
+          "ok": true,
+          "gen_tps": 73.98,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.729,
+          "ok": true,
+          "gen_tps": 73.87,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 74.12,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.715,
+          "ok": true,
+          "gen_tps": 73.86,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.629,
+          "ok": true,
+          "gen_tps": 73.84,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.649,
+          "ok": true,
+          "gen_tps": 74.08,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.194,
+          "ok": true,
+          "gen_tps": 73.8,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 6,
+      "elapsed_s": 51.8,
+      "cycle_s": 8.497,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.044,
+          "ok": true,
+          "gen_tps": 73.36,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 73.85,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.734,
+          "ok": true,
+          "gen_tps": 74.31,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 71.42,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.791,
+          "ok": true,
+          "gen_tps": 67.78,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.621,
+          "ok": true,
+          "gen_tps": 73.82,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.664,
+          "ok": true,
+          "gen_tps": 74.0,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.214,
+          "ok": true,
+          "gen_tps": 73.16,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 7,
+      "elapsed_s": 60.2,
+      "cycle_s": 8.399,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.041,
+          "ok": true,
+          "gen_tps": 73.49,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.706,
+          "ok": true,
+          "gen_tps": 73.82,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.721,
+          "ok": true,
+          "gen_tps": 73.63,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 74.23,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.717,
+          "ok": true,
+          "gen_tps": 73.75,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.596,
+          "ok": true,
+          "gen_tps": 74.23,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.68,
+          "ok": true,
+          "gen_tps": 73.83,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.218,
+          "ok": true,
+          "gen_tps": 73.73,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 8,
+      "elapsed_s": 68.5,
+      "cycle_s": 8.349,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.038,
+          "ok": true,
+          "gen_tps": 73.53,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.705,
+          "ok": true,
+          "gen_tps": 73.75,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.717,
+          "ok": true,
+          "gen_tps": 73.91,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.702,
+          "ok": true,
+          "gen_tps": 74.26,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.718,
+          "ok": true,
+          "gen_tps": 74.01,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.601,
+          "ok": true,
+          "gen_tps": 73.22,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.671,
+          "ok": true,
+          "gen_tps": 74.24,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.196,
+          "ok": true,
+          "gen_tps": 73.74,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 9,
+      "elapsed_s": 76.9,
+      "cycle_s": 8.416,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.039,
+          "ok": true,
+          "gen_tps": 73.48,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.715,
+          "ok": true,
+          "gen_tps": 73.59,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.705,
+          "ok": true,
+          "gen_tps": 73.96,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.714,
+          "ok": true,
+          "gen_tps": 73.81,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.73,
+          "ok": true,
+          "gen_tps": 73.67,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.628,
+          "ok": true,
+          "gen_tps": 73.9,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.669,
+          "ok": true,
+          "gen_tps": 73.71,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.217,
+          "ok": true,
+          "gen_tps": 73.49,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 10,
+      "elapsed_s": 85.4,
+      "cycle_s": 8.461,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.108,
+          "ok": true,
+          "gen_tps": 71.67,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.699,
+          "ok": true,
+          "gen_tps": 73.59,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.708,
+          "ok": true,
+          "gen_tps": 73.63,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 74.2,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.729,
+          "ok": true,
+          "gen_tps": 74.05,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.615,
+          "ok": true,
+          "gen_tps": 73.97,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.668,
+          "ok": true,
+          "gen_tps": 74.09,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.223,
+          "ok": true,
+          "gen_tps": 73.65,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 11,
+      "elapsed_s": 93.8,
+      "cycle_s": 8.451,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.03,
+          "ok": true,
+          "gen_tps": 73.38,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.72,
+          "ok": true,
+          "gen_tps": 73.72,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.705,
+          "ok": true,
+          "gen_tps": 73.69,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.717,
+          "ok": true,
+          "gen_tps": 72.52,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.72,
+          "ok": true,
+          "gen_tps": 74.16,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.6,
+          "ok": true,
+          "gen_tps": 73.6,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.665,
+          "ok": true,
+          "gen_tps": 73.93,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.295,
+          "ok": true,
+          "gen_tps": 67.67,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 12,
+      "elapsed_s": 101.9,
+      "cycle_s": 8.037,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.042,
+          "ok": true,
+          "gen_tps": 73.23,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.713,
+          "ok": true,
+          "gen_tps": 73.41,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.707,
+          "ok": true,
+          "gen_tps": 75.5,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.642,
+          "ok": true,
+          "gen_tps": 83.13,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.662,
+          "ok": true,
+          "gen_tps": 83.41,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.556,
+          "ok": true,
+          "gen_tps": 83.56,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.592,
+          "ok": true,
+          "gen_tps": 82.71,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.121,
+          "ok": true,
+          "gen_tps": 80.8,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 13,
+      "elapsed_s": 110.2,
+      "cycle_s": 8.342,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.022,
+          "ok": true,
+          "gen_tps": 73.5,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.709,
+          "ok": true,
+          "gen_tps": 73.68,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.704,
+          "ok": true,
+          "gen_tps": 74.23,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.72,
+          "ok": true,
+          "gen_tps": 73.91,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.702,
+          "ok": true,
+          "gen_tps": 74.17,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.6,
+          "ok": true,
+          "gen_tps": 73.66,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.667,
+          "ok": true,
+          "gen_tps": 74.21,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.218,
+          "ok": true,
+          "gen_tps": 73.44,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 14,
+      "elapsed_s": 118.7,
+      "cycle_s": 8.492,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.027,
+          "ok": true,
+          "gen_tps": 73.53,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.691,
+          "ok": true,
+          "gen_tps": 74.12,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.753,
+          "ok": true,
+          "gen_tps": 71.37,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.776,
+          "ok": true,
+          "gen_tps": 67.86,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.732,
+          "ok": true,
+          "gen_tps": 73.9,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.615,
+          "ok": true,
+          "gen_tps": 74.14,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.676,
+          "ok": true,
+          "gen_tps": 73.47,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.221,
+          "ok": true,
+          "gen_tps": 73.66,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 15,
+      "elapsed_s": 127.1,
+      "cycle_s": 8.358,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.014,
+          "ok": true,
+          "gen_tps": 73.56,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.697,
+          "ok": true,
+          "gen_tps": 73.58,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.718,
+          "ok": true,
+          "gen_tps": 73.89,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.705,
+          "ok": true,
+          "gen_tps": 74.04,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.702,
+          "ok": true,
+          "gen_tps": 74.02,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.619,
+          "ok": true,
+          "gen_tps": 73.88,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.672,
+          "ok": true,
+          "gen_tps": 74.31,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.231,
+          "ok": true,
+          "gen_tps": 73.43,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 16,
+      "elapsed_s": 135.1,
+      "cycle_s": 8.018,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.021,
+          "ok": true,
+          "gen_tps": 73.59,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.739,
+          "ok": true,
+          "gen_tps": 73.67,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.698,
+          "ok": true,
+          "gen_tps": 76.72,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.637,
+          "ok": true,
+          "gen_tps": 83.5,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.655,
+          "ok": true,
+          "gen_tps": 83.72,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.554,
+          "ok": true,
+          "gen_tps": 83.74,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.604,
+          "ok": true,
+          "gen_tps": 83.1,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.11,
+          "ok": true,
+          "gen_tps": 81.06,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 17,
+      "elapsed_s": 143.5,
+      "cycle_s": 8.406,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.036,
+          "ok": true,
+          "gen_tps": 73.41,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 73.85,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.721,
+          "ok": true,
+          "gen_tps": 74.0,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.702,
+          "ok": true,
+          "gen_tps": 73.99,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 74.14,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.63,
+          "ok": true,
+          "gen_tps": 73.74,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.678,
+          "ok": true,
+          "gen_tps": 73.94,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.209,
+          "ok": true,
+          "gen_tps": 73.73,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 18,
+      "elapsed_s": 151.9,
+      "cycle_s": 8.439,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.043,
+          "ok": true,
+          "gen_tps": 73.48,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.726,
+          "ok": true,
+          "gen_tps": 73.58,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.721,
+          "ok": true,
+          "gen_tps": 73.56,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.703,
+          "ok": true,
+          "gen_tps": 73.9,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.721,
+          "ok": true,
+          "gen_tps": 73.9,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.621,
+          "ok": true,
+          "gen_tps": 73.15,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.68,
+          "ok": true,
+          "gen_tps": 72.24,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.223,
+          "ok": true,
+          "gen_tps": 73.46,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 19,
+      "elapsed_s": 160.3,
+      "cycle_s": 8.365,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.033,
+          "ok": true,
+          "gen_tps": 73.21,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.696,
+          "ok": true,
+          "gen_tps": 73.43,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.731,
+          "ok": true,
+          "gen_tps": 73.63,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.71,
+          "ok": true,
+          "gen_tps": 74.04,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.726,
+          "ok": true,
+          "gen_tps": 73.73,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.613,
+          "ok": true,
+          "gen_tps": 73.94,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.661,
+          "ok": true,
+          "gen_tps": 74.05,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.194,
+          "ok": true,
+          "gen_tps": 73.77,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 20,
+      "elapsed_s": 168.8,
+      "cycle_s": 8.495,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.033,
+          "ok": true,
+          "gen_tps": 73.51,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.716,
+          "ok": true,
+          "gen_tps": 73.58,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.772,
+          "ok": true,
+          "gen_tps": 69.5,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.753,
+          "ok": true,
+          "gen_tps": 69.57,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.727,
+          "ok": true,
+          "gen_tps": 74.26,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.613,
+          "ok": true,
+          "gen_tps": 73.49,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.661,
+          "ok": true,
+          "gen_tps": 74.04,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.222,
+          "ok": true,
+          "gen_tps": 73.46,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 21,
+      "elapsed_s": 177.2,
+      "cycle_s": 8.386,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.032,
+          "ok": true,
+          "gen_tps": 73.5,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.717,
+          "ok": true,
+          "gen_tps": 73.85,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.727,
+          "ok": true,
+          "gen_tps": 73.89,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.702,
+          "ok": true,
+          "gen_tps": 74.2,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.725,
+          "ok": true,
+          "gen_tps": 73.83,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.605,
+          "ok": true,
+          "gen_tps": 74.31,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.665,
+          "ok": true,
+          "gen_tps": 73.75,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.213,
+          "ok": true,
+          "gen_tps": 73.68,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 22,
+      "elapsed_s": 185.5,
+      "cycle_s": 8.353,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.039,
+          "ok": true,
+          "gen_tps": 73.56,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.712,
+          "ok": true,
+          "gen_tps": 73.84,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.704,
+          "ok": true,
+          "gen_tps": 73.84,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.709,
+          "ok": true,
+          "gen_tps": 73.78,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.714,
+          "ok": true,
+          "gen_tps": 74.14,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.618,
+          "ok": true,
+          "gen_tps": 73.67,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.658,
+          "ok": true,
+          "gen_tps": 74.19,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.198,
+          "ok": true,
+          "gen_tps": 73.72,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 23,
+      "elapsed_s": 193.9,
+      "cycle_s": 8.372,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.013,
+          "ok": true,
+          "gen_tps": 73.5,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.726,
+          "ok": true,
+          "gen_tps": 73.49,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.707,
+          "ok": true,
+          "gen_tps": 73.74,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.713,
+          "ok": true,
+          "gen_tps": 73.79,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.728,
+          "ok": true,
+          "gen_tps": 74.12,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.613,
+          "ok": true,
+          "gen_tps": 73.9,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.676,
+          "ok": true,
+          "gen_tps": 73.85,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.196,
+          "ok": true,
+          "gen_tps": 73.65,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 24,
+      "elapsed_s": 202.3,
+      "cycle_s": 8.383,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.02,
+          "ok": true,
+          "gen_tps": 73.4,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.713,
+          "ok": true,
+          "gen_tps": 73.84,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.721,
+          "ok": true,
+          "gen_tps": 73.59,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.7,
+          "ok": true,
+          "gen_tps": 74.01,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 73.92,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.625,
+          "ok": true,
+          "gen_tps": 73.62,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.668,
+          "ok": true,
+          "gen_tps": 73.92,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.218,
+          "ok": true,
+          "gen_tps": 73.54,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 25,
+      "elapsed_s": 210.8,
+      "cycle_s": 8.472,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.033,
+          "ok": true,
+          "gen_tps": 73.52,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.715,
+          "ok": true,
+          "gen_tps": 73.62,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.703,
+          "ok": true,
+          "gen_tps": 73.87,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.709,
+          "ok": true,
+          "gen_tps": 73.98,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.741,
+          "ok": true,
+          "gen_tps": 69.79,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.671,
+          "ok": true,
+          "gen_tps": 67.45,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.674,
+          "ok": true,
+          "gen_tps": 73.72,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.225,
+          "ok": true,
+          "gen_tps": 73.44,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 26,
+      "elapsed_s": 219.2,
+      "cycle_s": 8.411,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.036,
+          "ok": true,
+          "gen_tps": 73.27,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 73.91,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.724,
+          "ok": true,
+          "gen_tps": 73.64,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.71,
+          "ok": true,
+          "gen_tps": 74.26,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.73,
+          "ok": true,
+          "gen_tps": 73.74,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.612,
+          "ok": true,
+          "gen_tps": 74.25,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.661,
+          "ok": true,
+          "gen_tps": 73.48,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.218,
+          "ok": true,
+          "gen_tps": 73.57,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 27,
+      "elapsed_s": 227.5,
+      "cycle_s": 8.34,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.037,
+          "ok": true,
+          "gen_tps": 73.47,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.696,
+          "ok": true,
+          "gen_tps": 73.64,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.708,
+          "ok": true,
+          "gen_tps": 73.44,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.703,
+          "ok": true,
+          "gen_tps": 73.97,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.717,
+          "ok": true,
+          "gen_tps": 74.03,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.599,
+          "ok": true,
+          "gen_tps": 73.44,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.671,
+          "ok": true,
+          "gen_tps": 74.33,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.21,
+          "ok": true,
+          "gen_tps": 73.42,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 28,
+      "elapsed_s": 235.9,
+      "cycle_s": 8.38,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.042,
+          "ok": true,
+          "gen_tps": 73.44,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.71,
+          "ok": true,
+          "gen_tps": 73.7,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.718,
+          "ok": true,
+          "gen_tps": 73.89,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.705,
+          "ok": true,
+          "gen_tps": 73.74,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.721,
+          "ok": true,
+          "gen_tps": 73.99,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.598,
+          "ok": true,
+          "gen_tps": 73.77,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.665,
+          "ok": true,
+          "gen_tps": 73.82,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.219,
+          "ok": true,
+          "gen_tps": 73.4,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 29,
+      "elapsed_s": 244.3,
+      "cycle_s": 8.454,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.04,
+          "ok": true,
+          "gen_tps": 73.37,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.706,
+          "ok": true,
+          "gen_tps": 73.93,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.767,
+          "ok": true,
+          "gen_tps": 69.06,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.745,
+          "ok": true,
+          "gen_tps": 69.49,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.723,
+          "ok": true,
+          "gen_tps": 73.8,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.608,
+          "ok": true,
+          "gen_tps": 73.87,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.667,
+          "ok": true,
+          "gen_tps": 73.89,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.198,
+          "ok": true,
+          "gen_tps": 73.64,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 30,
+      "elapsed_s": 252.7,
+      "cycle_s": 8.382,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.039,
+          "ok": true,
+          "gen_tps": 73.47,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.697,
+          "ok": true,
+          "gen_tps": 73.54,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.722,
+          "ok": true,
+          "gen_tps": 73.96,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.715,
+          "ok": true,
+          "gen_tps": 73.91,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.714,
+          "ok": true,
+          "gen_tps": 74.24,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.615,
+          "ok": true,
+          "gen_tps": 73.59,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.662,
+          "ok": true,
+          "gen_tps": 74.2,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.217,
+          "ok": true,
+          "gen_tps": 73.47,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 31,
+      "elapsed_s": 261.1,
+      "cycle_s": 8.392,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.04,
+          "ok": true,
+          "gen_tps": 73.29,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 73.99,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.731,
+          "ok": true,
+          "gen_tps": 73.76,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.701,
+          "ok": true,
+          "gen_tps": 74.24,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.716,
+          "ok": true,
+          "gen_tps": 73.9,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.611,
+          "ok": true,
+          "gen_tps": 74.13,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.664,
+          "ok": true,
+          "gen_tps": 73.59,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.217,
+          "ok": true,
+          "gen_tps": 73.59,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 32,
+      "elapsed_s": 269.5,
+      "cycle_s": 8.362,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.017,
+          "ok": true,
+          "gen_tps": 73.41,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 73.6,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.728,
+          "ok": true,
+          "gen_tps": 74.2,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.707,
+          "ok": true,
+          "gen_tps": 73.6,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.713,
+          "ok": true,
+          "gen_tps": 74.3,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.609,
+          "ok": true,
+          "gen_tps": 73.76,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.648,
+          "ok": true,
+          "gen_tps": 74.37,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.221,
+          "ok": true,
+          "gen_tps": 73.4,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 33,
+      "elapsed_s": 277.9,
+      "cycle_s": 8.419,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.027,
+          "ok": true,
+          "gen_tps": 73.5,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.724,
+          "ok": true,
+          "gen_tps": 73.52,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.738,
+          "ok": true,
+          "gen_tps": 73.61,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.71,
+          "ok": true,
+          "gen_tps": 73.95,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.714,
+          "ok": true,
+          "gen_tps": 73.88,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.616,
+          "ok": true,
+          "gen_tps": 74.04,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.675,
+          "ok": true,
+          "gen_tps": 73.72,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.216,
+          "ok": true,
+          "gen_tps": 73.72,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 34,
+      "elapsed_s": 286.3,
+      "cycle_s": 8.354,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.038,
+          "ok": true,
+          "gen_tps": 73.4,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.713,
+          "ok": true,
+          "gen_tps": 74.1,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.715,
+          "ok": true,
+          "gen_tps": 73.46,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.692,
+          "ok": true,
+          "gen_tps": 73.82,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.71,
+          "ok": true,
+          "gen_tps": 73.79,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.606,
+          "ok": true,
+          "gen_tps": 73.66,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.674,
+          "ok": true,
+          "gen_tps": 74.23,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.206,
+          "ok": true,
+          "gen_tps": 73.44,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 35,
+      "elapsed_s": 294.7,
+      "cycle_s": 8.424,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.039,
+          "ok": true,
+          "gen_tps": 73.38,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.715,
+          "ok": true,
+          "gen_tps": 73.45,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.73,
+          "ok": true,
+          "gen_tps": 73.96,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 73.55,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.726,
+          "ok": true,
+          "gen_tps": 74.31,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.605,
+          "ok": true,
+          "gen_tps": 73.36,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.673,
+          "ok": true,
+          "gen_tps": 73.76,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.216,
+          "ok": true,
+          "gen_tps": 73.3,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 36,
+      "elapsed_s": 303.1,
+      "cycle_s": 8.466,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.051,
+          "ok": true,
+          "gen_tps": 73.27,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.718,
+          "ok": true,
+          "gen_tps": 73.95,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.729,
+          "ok": true,
+          "gen_tps": 73.73,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.715,
+          "ok": true,
+          "gen_tps": 74.1,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.739,
+          "ok": true,
+          "gen_tps": 73.68,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.623,
+          "ok": true,
+          "gen_tps": 74.33,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.686,
+          "ok": true,
+          "gen_tps": 73.48,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.205,
+          "ok": true,
+          "gen_tps": 73.6,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 37,
+      "elapsed_s": 311.6,
+      "cycle_s": 8.441,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.046,
+          "ok": true,
+          "gen_tps": 73.39,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 73.4,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.723,
+          "ok": true,
+          "gen_tps": 73.85,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 74.06,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.721,
+          "ok": true,
+          "gen_tps": 73.91,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.614,
+          "ok": true,
+          "gen_tps": 73.51,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.675,
+          "ok": true,
+          "gen_tps": 74.19,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.23,
+          "ok": true,
+          "gen_tps": 73.42,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 38,
+      "elapsed_s": 320.0,
+      "cycle_s": 8.431,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.042,
+          "ok": true,
+          "gen_tps": 73.25,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.724,
+          "ok": true,
+          "gen_tps": 73.66,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.729,
+          "ok": true,
+          "gen_tps": 74.09,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 73.58,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 73.95,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.62,
+          "ok": true,
+          "gen_tps": 73.46,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.674,
+          "ok": true,
+          "gen_tps": 73.45,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.219,
+          "ok": true,
+          "gen_tps": 73.34,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 39,
+      "elapsed_s": 328.4,
+      "cycle_s": 8.409,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.042,
+          "ok": true,
+          "gen_tps": 73.29,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.71,
+          "ok": true,
+          "gen_tps": 73.88,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.725,
+          "ok": true,
+          "gen_tps": 73.72,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.71,
+          "ok": true,
+          "gen_tps": 74.02,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.712,
+          "ok": true,
+          "gen_tps": 73.59,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.607,
+          "ok": true,
+          "gen_tps": 73.94,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.68,
+          "ok": true,
+          "gen_tps": 73.92,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.222,
+          "ok": true,
+          "gen_tps": 73.56,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 40,
+      "elapsed_s": 336.9,
+      "cycle_s": 8.473,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.047,
+          "ok": true,
+          "gen_tps": 73.24,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.716,
+          "ok": true,
+          "gen_tps": 73.73,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.726,
+          "ok": true,
+          "gen_tps": 73.97,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.711,
+          "ok": true,
+          "gen_tps": 73.83,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.733,
+          "ok": true,
+          "gen_tps": 74.65,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.624,
+          "ok": true,
+          "gen_tps": 73.33,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.679,
+          "ok": true,
+          "gen_tps": 73.67,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.237,
+          "ok": true,
+          "gen_tps": 73.14,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 41,
+      "elapsed_s": 345.3,
+      "cycle_s": 8.389,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.036,
+          "ok": true,
+          "gen_tps": 73.44,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.712,
+          "ok": true,
+          "gen_tps": 73.71,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.706,
+          "ok": true,
+          "gen_tps": 73.74,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.712,
+          "ok": true,
+          "gen_tps": 74.15,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.728,
+          "ok": true,
+          "gen_tps": 73.57,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.614,
+          "ok": true,
+          "gen_tps": 73.78,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.666,
+          "ok": true,
+          "gen_tps": 73.74,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.215,
+          "ok": true,
+          "gen_tps": 73.47,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 42,
+      "elapsed_s": 353.6,
+      "cycle_s": 8.366,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.043,
+          "ok": true,
+          "gen_tps": 73.51,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.702,
+          "ok": true,
+          "gen_tps": 74.1,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.733,
+          "ok": true,
+          "gen_tps": 73.9,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.692,
+          "ok": true,
+          "gen_tps": 73.56,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.731,
+          "ok": true,
+          "gen_tps": 74.03,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.599,
+          "ok": true,
+          "gen_tps": 73.64,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.658,
+          "ok": true,
+          "gen_tps": 74.05,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.207,
+          "ok": true,
+          "gen_tps": 73.62,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "iter": 43,
+      "elapsed_s": 362.0,
+      "cycle_s": 8.395,
+      "ok": 8,
+      "total": 8,
+      "steps": [
+        {
+          "step": "summary",
+          "latency_s": 3.03,
+          "ok": true,
+          "gen_tps": 73.44,
+          "completion_tokens": 216,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_0",
+          "latency_s": 0.725,
+          "ok": true,
+          "gen_tps": 73.57,
+          "completion_tokens": 45,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_1",
+          "latency_s": 0.702,
+          "ok": true,
+          "gen_tps": 73.91,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_2",
+          "latency_s": 0.706,
+          "ok": true,
+          "gen_tps": 73.94,
+          "completion_tokens": 46,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "json_3",
+          "latency_s": 0.719,
+          "ok": true,
+          "gen_tps": 74.22,
+          "completion_tokens": 47,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        },
+        {
+          "step": "routing",
+          "latency_s": 0.625,
+          "ok": true,
+          "gen_tps": 73.82,
+          "completion_tokens": 39,
+          "leak": null,
+          "error": "",
+          "detail": "got local-fast"
+        },
+        {
+          "step": "code_sql",
+          "latency_s": 0.676,
+          "ok": true,
+          "gen_tps": 73.55,
+          "completion_tokens": 43,
+          "leak": null,
+          "error": "",
+          "detail": "sql shape"
+        },
+        {
+          "step": "traceback",
+          "latency_s": 1.211,
+          "ok": true,
+          "gen_tps": 73.64,
+          "completion_tokens": 83,
+          "leak": null,
+          "error": "",
+          "detail": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "sources": {},
+  "note": "offline recompute; no model calls",
+  "metric_naming": {
+    "harness_labels_it": "r@1 / r@3 / r@5",
+    "what_it_computes": "1 if the FIRST valid source appears within K, else 0 - averaged over queries. That is Hit@K (a.k.a. success@K), NOT recall.",
+    "hit_at_5_pct": 82.0,
+    "mean_source_recall_at_5_pct": 57.4,
+    "distinct_queries": 61,
+    "verdict": "MISNAMED: the figure is Hit@K. Consequence: a query with 3 valid sources of which the system returns 1 scores identically to one that returns all 3, so multi-source completeness is invisible."
+  },
+  "multi_source": {
+    "queries_with_multiple_valid_sources": 51,
+    "queries_with_one": 9,
+    "multi_hit_at_5_pct": 84.3,
+    "multi_ALL_sources_present_pct": 33.3,
+    "verdict": "any ONE valid source satisfies the metric; requiring every evidence group would score lower. Both are reported so the choice is explicit rather than hidden in the metric name."
+  },
+  "ndcg": {
+    "discount": "1/log2(rank+2), i.e. the standard log2 discount",
+    "ideal": "built from the number of relevant documents in the window, not a fixed 1",
+    "checked": 60,
+    "mismatches": 0,
+    "examples": [],
+    "verdict": "recomputation agrees with the stored values"
+  },
+  "split_distribution": {
+    "historical_39": {
+      "ok": 35,
+      "candidate_miss": 4
+    },
+    "new_test": {
+      "ok": 15,
+      "rank_miss": 2,
+      "candidate_miss": 5
+    }
+  },
+  "conflation": {
+    "queries_whose_sources_are_not_indexed": [
+      {
+        "id": "c04",
+        "q": "Why does the reranker need a token budget instead of a fixed",
+        "sources": [
+          "docs/models/local-reranker.md",
+          "docs/reranking-architecture.md"
+        ]
+      },
+      {
+        "id": "c05",
+        "q": "Why was a candidate pool of ten chosen over twenty?",
+        "sources": [
+          "docs/reranking-architecture.md",
+          "benchmarks/reranker-results.md"
+        ]
+      },
+      {
+        "id": "c07",
+        "q": "Why must the reranker not manage the FAISS index itself?",
+        "sources": [
+          "docs/reranking-architecture.md",
+          "docs/models/local-reranker.md"
+        ]
+      },
+      {
+        "id": "c13",
+        "q": "Why is a reranker needed at all when dense retrieval already",
+        "sources": [
+          "docs/reranking-architecture.md",
+          "benchmarks/reranker-results.md"
+        ]
+      },
+      {
+        "id": "c14",
+        "q": "Why does the reranker score for a higher VRAM peak when runn",
+        "sources": [
+          "docs/models/local-reranker.md",
+          "benchmarks/reranker-results.md"
+        ]
+      },
+      {
+        "id": "x02",
+        "q": "How is VRAM shared between the generative worker and the ret",
+        "sources": [
+          "benchmarks/embedding-results.md",
+          "benchmarks/reranker-results.md",
+          "docs/reranking-architecture.md"
+        ]
+      },
+      {
+        "id": "x09",
+        "q": "What evidence exists that retrieval actually improved final ",
+        "sources": [
+          "benchmarks/reranker-results.md",
+          "benchmarks/retrieval-results.md"
+        ]
+      },
+      {
+        "id": "v04",
+        "q": "What is the current strict Recall@5 for dense retrieval?",
+        "sources": [
+          "benchmarks/retrieval-results.md"
+        ]
+      },
+      {
+        "id": "n03",
+        "q": "What load time does the reranker have?",
+        "sources": [
+          "docs/models/local-reranker.md",
+          "benchmarks/reranker-results.md"
+        ]
+      },
+      {
+        "id": "n06",
+        "q": "What is the throughput of the reranker in pairs per second?",
+        "sources": [
+          "benchmarks/reranker-results.md"
+        ]
+      }
+    ],
+    "count": 10
+  },
+  "pool_effect": [
+    {
+      "label": "dense_pool10",
+      "candidate_recall_pct": 68.2,
+      "r@5_pct": 63.6,
+      "r@1_pct": 27.3,
+      "mrr": 0.4011
+    },
+    {
+      "label": "dense_pool20",
+      "candidate_recall_pct": 68.2,
+      "r@5_pct": 63.6,
+      "r@1_pct": 27.3,
+      "mrr": 0.4011
+    },
+    {
+      "label": "dense_pool50",
+      "candidate_recall_pct": 72.7,
+      "r@5_pct": 63.6,
+      "r@1_pct": 27.3,
+      "mrr": 0.4026
+    },
+    {
+      "label": "rerank10_general",
+      "candidate_recall_pct": 68.2,
+      "r@5_pct": 59.1,
+      "r@1_pct": 27.3,
+      "mrr": 0.4088
+    },
+    {
+      "label": "rerank20_general",
+      "candidate_recall_pct": 68.2,
+      "r@5_pct": 59.1,
+      "r@1_pct": 27.3,
+      "mrr": 0.3894
+    },
+    {
+      "label": "rerank50_general",
+      "candidate_recall_pct": 72.7,
+      "r@5_pct": 59.1,
+      "r@1_pct": 27.3,
+      "mrr": 0.398
+    }
+  ],
+  "pool_effect_verdict": {
+    "candidate_recall_pool10": 68.2,
+    "candidate_recall_pool50": 72.7,
+    "candidate_recall_improved": true,
+    "statement": "Candidate recall DOES improve with a larger pool while the final Top-5 does NOT. The earlier claim that no metric improved is therefore wrong and is corrected here."
+  }
+}

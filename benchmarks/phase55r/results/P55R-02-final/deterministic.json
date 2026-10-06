@@ -1,0 +1,184 @@
+{
+  "phase": "post",
+  "checks": [
+    {
+      "group": "1a",
+      "name": "acquire() accepts a per-request `requires` argument",
+      "passed": true,
+      "detail": "reservation=background-1",
+      "phase": "post"
+    },
+    {
+      "group": "1a",
+      "name": "an embedding task's dependency is recorded on its reservation",
+      "passed": true,
+      "detail": "background-1",
+      "phase": "post"
+    },
+    {
+      "group": "1a",
+      "name": "a reranker task's dependency is recorded on its reservation",
+      "passed": true,
+      "detail": "background-2",
+      "phase": "post"
+    },
+    {
+      "group": "1a",
+      "name": "neither dependency can be unloaded while both are active",
+      "passed": true,
+      "detail": "embedding_protected=True reranker_protected=True",
+      "phase": "post"
+    },
+    {
+      "group": "1a",
+      "name": "releasing one task frees only its own service protection",
+      "passed": true,
+      "detail": "embedding now unloadable=True, reranker still protected=True",
+      "phase": "post"
+    },
+    {
+      "group": "1a",
+      "name": "a task declaring NO dependencies is still admissible",
+      "passed": true,
+      "detail": "27952 MiB usable >= 600 MiB required (free 30000 - reserved ",
+      "phase": "post"
+    },
+    {
+      "group": "1a",
+      "name": "an unhealthy dependency blocks the request even when budget allows",
+      "passed": true,
+      "detail": "declared dependency not usable: ['local-embedding']; refusing rather than sending inference to a service that ",
+      "phase": "post"
+    },
+    {
+      "group": "1a",
+      "name": "the refusal is attributed to the dependency, not to the budget",
+      "passed": true,
+      "detail": "declared dependency not usable: ['local-embedding']; refusing rather than sending inference to a service that ",
+      "phase": "post"
+    },
+    {
+      "group": "1a",
+      "name": "a request with no declared dependencies is not blocked by the check",
+      "passed": true,
+      "detail": "27952 MiB usable >= 600 MiB required (free 30000 - reserved 0 - margin",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "each request keeps its OWN deadline (short times out, long does not inherit it)",
+      "passed": true,
+      "detail": "short=refused long=refused",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "a timeout decision leaves no queued/ticket residue",
+      "passed": true,
+      "detail": "queued={} open_tickets=set() deadlines={}",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "the timed-out request left no reservation of its own",
+      "passed": true,
+      "detail": "reservations=['interactive-1'] (1 = only the occupying interactive job)",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "a later request can still make progress after a timeout",
+      "passed": true,
+      "detail": "allowed=False",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "after the occupier releases, the ledger is empty",
+      "passed": true,
+      "detail": "reserved=0 reservations=[]",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "head background and later interactive do not deadlock each other",
+      "passed": true,
+      "detail": "bg=returned int=returned",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "time control uses a monotonic clock",
+      "passed": true,
+      "detail": "monotonic=present; wall-clock comparisons on deadlines=0",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "reserved memory is not deducted twice once it appears in live VRAM",
+      "passed": true,
+      "detail": "reserved=600 live_fell_by=600 usable_after=17352",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "a reservation ledger still exists (not deleted to fix double counting)",
+      "passed": true,
+      "detail": "entries=1",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "the reservation reports what is materialised vs still charged",
+      "passed": true,
+      "detail": "[{'reservation_id': 'background-1', 'job_class': 'background', 'mb': 600, 'requires': [], 'materialised_mb': 600, 'still_charged_mb': 0}]",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "reserved_detail exposes each request's declared dependencies",
+      "passed": true,
+      "detail": "[{'reservation_id': 'background-1', 'job_class': 'background', 'mb': 600, 'requires': [], 'materialised_mb': 600, 'still_charged_mb': 0}]",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "before the memory materialises the reservation still charges in full",
+      "passed": true,
+      "detail": "charged=600 required=600",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "the reservation is not wildly larger than the stated requirement",
+      "passed": true,
+      "detail": "reserved=600 required=600 (conservatism=0 MiB)",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "release returns the ledger to zero",
+      "passed": true,
+      "detail": "0",
+      "phase": "post"
+    },
+    {
+      "group": "1d",
+      "name": "b4b orders unload BEFORE start and start BEFORE the real request",
+      "passed": true,
+      "detail": "unload@2910 start@5309 request@5925",
+      "phase": "post"
+    },
+    {
+      "group": "1d",
+      "name": "b4b asserts a successful execution, not just plan().allowed",
+      "passed": true,
+      "detail": "looks for an execution result marker",
+      "phase": "post"
+    }
+  ],
+  "passed": 25,
+  "failed": 0,
+  "outer_timeout_s": 30.0,
+  "note": "mocks/barriers only; no GPU work, no service started or stopped"
+}

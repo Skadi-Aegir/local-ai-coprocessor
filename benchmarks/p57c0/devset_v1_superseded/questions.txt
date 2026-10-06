@@ -1,0 +1,9 @@
+Which components does a question pass through before reaching local-fast, and which ports do they use?
+How do the embedding service memory figures and the scheduler margin relate to each other?
+What are the two unload figures on the staged RAG path, and what latency does a full cycle take?
+What per-chunk character cap does the pack apply, and why was it raised?
+Which ports are reserved for the reranker and the OCR service?
+How does the reranker turn the model's output into a relevance score?
+What numeric evidence-floor value does the QA path use to reject weak retrieval, and where is it configured?
+What monthly cost in RMB does running local-fast incur on this machine?
+Which certificate authority issues the TLS certificate for the OCR service?

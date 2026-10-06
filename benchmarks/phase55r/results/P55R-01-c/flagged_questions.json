@@ -1,0 +1,186 @@
+{
+  "What context size does the local-fast worker use by default?": {
+    "phase4_k5/rag": {
+      "answer": "The provided sources do not contain the specific default context size for the `local-fast` worker.\n\n*   **SOURCE 1** (`config/local-fast.yaml`) lists the model configuration for `local-fast` but truncates the `runtime` section before showing the `context` value.\n*   **SOURCE 5** (`config/local-smart.yaml`) explicitly states a context size of `16384` for the `local-smart` worker, noting that the KV geometry is identical to the 4B model, but this is for a different worker.\n*   **SOURCE 4** (`benchmarks/local-fast-results.md`) mentions the worker runs on `127.0.0.1:8111` but does not list the context size.\n\nTherefore, based strictly on the provided sources, the default context size for `local-fast` is **NOT IN SOURCES**.",
+      "fact_hits": 0,
+      "hallucination_flags": 1,
+      "sources": null
+    },
+    "phase4_after_fix/rag": {
+      "answer": "The local-fast worker uses a context size of **8192** tokens by default.\n\nThis is confirmed in **SOURCE 1** (`config/local-fast.yaml`), line 32, under the `runtime` section:\n```yaml\ncontext: 8192\n```\n\nAdditionally, **SOURCE 2** (`services/retrieval/rag_compare.py`), line 39, explicitly lists this fact in its test cases:\n```python\ndict(q=\"What context size does the local-fast worker use by default?\",\n     facts=[[\"8192\", \"8k\"]], bad=[[\"4096\"], [\"16384\"]]),\n```",
+      "fact_hits": 1,
+      "hallucination_flags": 2,
+      "sources": null
+    }
+  },
+  "Which pooling method does the Qwen3 embedding model use?": {
+    "phase4_k5/no_rag": {
+      "answer": "I do not know.\n\nAs an AI model, I do not have access to the internal implementation details or specific architectural parameters of the **Qwen3** embedding model (such as the exact pooling method used), as this information is not part of my training data or publicly disclosed specifications in my current knowledge base.\n\nHowever, based on general practices in modern large language model embedding architectures (like those used in BERT, RoBERTa, or similar transformer-based models), pooling methods typically include:\n*   **Mean Pooling**: Averaging the token embeddings.\n*   **Max Pooling**: Taking the maximum value across dimensions.\n*   **CLS Token Pooling**: Using the output of the special [CLS] token (common in BERT).\n*   **Attention-based Pooling**: Using attention weights to aggregate token representations (common in models like BART or T5).\n\nTo get the definitive answer for Qwen3, you would need to consult the official Qwen documentation, the specific paper introducing the model, or the source code repository if it is open-sourced.",
+      "fact_hits": 0,
+      "hallucination_flags": 1,
+      "sources": null
+    },
+    "phase4_k10/no_rag": {
+      "answer": "I do not know.\n\nAs an AI model, I do not have access to the internal implementation details or specific architectural parameters of the **Qwen3** embedding model (such as the exact pooling method used), as this information is not part of my training data or publicly disclosed specifications in my current knowledge base.\n\nHowever, based on general practices in modern large language model embedding architectures (like those used in BERT, RoBERTa, or similar transformer-based models), pooling methods typically include:\n*   **Mean Pooling**: Averaging the token embeddings.\n*   **Max Pooling**: Taking the maximum value across dimensions.\n*   **CLS Token Pooling**: Using the output of the special [CLS] token (common in BERT).\n*   **Attention-based Pooling**: Using attention weights to aggregate token representations (common in models like BART or T5).\n\nTo get the definitive answer for Qwen3, you would need to consult the official Qwen documentation, the specific paper introducing the model, or the source code repository if it is open-sourced.",
+      "fact_hits": 0,
+      "hallucination_flags": 1,
+      "sources": null
+    },
+    "phase4_after_fix/no_rag": {
+      "answer": "I do not know.\n\nAs an AI model, I do not have access to the internal implementation details or specific architectural parameters of the **Qwen3** embedding model (such as the exact pooling method used), as this information is not part of my training data or publicly disclosed specifications in my current knowledge base.\n\nHowever, based on general practices in modern large language model embedding architectures (like those used in BERT, RoBERTa, or similar transformer-based models), pooling methods typically include:\n*   **Mean Pooling**: Averaging the token embeddings.\n*   **Max Pooling**: Taking the maximum value across dimensions.\n*   **CLS Token Pooling**: Using the output of the special [CLS] token (common in BERT).\n*   **Attention-based Pooling**: Using attention weights to aggregate token representations (common in models like BART or T5).\n\nTo get the definitive answer for Qwen3, you would need to consult the official Qwen documentation, the specific paper introducing the model, or the source code repository if it is open-sourced.",
+      "fact_hits": 0,
+      "hallucination_flags": 1,
+      "sources": null
+    },
+    "phase5_pool10/no_rag": {
+      "answer": "I do not know.\n\nAs an AI model, I do not have access to the internal implementation details or specific architectural parameters of the **Qwen3** embedding model (such as the exact pooling method used), as this information is not part of my training data or publicly disclosed specifications in my current knowledge base.\n\nHowever, based on general practices in modern large language model embedding architectures (like those used in BERT, RoBERTa, or similar transformer-based models), pooling methods typically include:\n*   **Mean Pooling**: Averaging the token embeddings.\n*   **Max Pooling**: Taking the maximum value across dimensions.\n*   **CLS Token Pooling**: Using the output of the special [CLS] token (common in BERT).\n*   **Attention-based Pooling**: Using attention weights to aggregate token representations (common in models like BART or T5).\n\nTo get the definitive answer for Qwen3, you would need to consult the official Qwen documentation, the specific paper introducing the model, or the source code repository if it is open-sourced.",
+      "fact_hits": 0,
+      "hallucination_flags": 1,
+      "sources": null
+    },
+    "phase5_pool10/dense_rag": {
+      "answer": "The Qwen3 embedding model uses **last-token pooling**.\n\nAccording to **SOURCE 1** (`docs/models/local-embedding.md`), the configuration specifies:\n- **Pooling**: `pooling_mode_lasttoken: true`\n- **Why it matters**: \"Not mean pooling. Using mean pooling would degrade every vector.\"\n\nThis is confirmed in **SOURCE 3** (`docs/models/local-embedding.md`), which states that the chosen inference backend (`sentence-transformers`) is packaged to support \"Last-token pooling\" and that the official prompts work out of the box with this setting.",
+      "fact_hits": 1,
+      "hallucination_flags": 1,
+      "sources": [
+        "docs/models/local-embedding.md",
+        "benchmarks/local-fast-results.md",
+        "docs/models/local-embedding.md",
+        "benchmarks/local-smart-results.md",
+        "docs/models/local-embedding.md"
+      ]
+    },
+    "phase5_pool10/reranked_rag": {
+      "answer": "The Qwen3 embedding model uses **last-token pooling**.\n\nAccording to **SOURCE 3** (`docs/models/local-embedding.md`), the inference configuration specifies:\n- **Pooling**: `pooling_mode_lasttoken: true`\n- **Reason**: \"Not mean pooling. Using mean pooling would degrade every vector.\"\n\nThis is further confirmed in **SOURCE 5** (`docs/models/local-embedding.md`), which states that the model is packaged for the `sentence-transformers` library and relies on \"Last-token pooling\" to work out of the box.",
+      "fact_hits": 1,
+      "hallucination_flags": 1,
+      "sources": [
+        "docs/models/local-embedding.md",
+        "benchmarks/local-smart-results.md",
+        "docs/models/local-embedding.md",
+        "docs/models/local-fast.md",
+        "docs/models/local-embedding.md"
+      ]
+    },
+    "phase5_pool20/no_rag": {
+      "answer": "I do not know.\n\nAs an AI model, I do not have access to the internal implementation details or specific architectural parameters of the **Qwen3** embedding model (such as the exact pooling method used), as this information is not part of my training data or publicly disclosed specifications in my current knowledge base.\n\nHowever, based on general practices in modern large language model embedding architectures (like those used in BERT, RoBERTa, or similar transformer-based models), pooling methods typically include:\n*   **Mean Pooling**: Averaging the token embeddings.\n*   **Max Pooling**: Taking the maximum value across dimensions.\n*   **CLS Token Pooling**: Using the output of the special [CLS] token (common in BERT).\n*   **Attention-based Pooling**: Using attention weights to aggregate token representations (common in models like BART or T5).\n\nTo get the definitive answer for Qwen3, you would need to consult the official Qwen documentation, the specific paper introducing the model, or the source code repository if it is open-sourced.",
+      "fact_hits": 0,
+      "hallucination_flags": 1,
+      "sources": null
+    },
+    "phase5_pool20/dense_rag": {
+      "answer": "The Qwen3 embedding model uses **last-token pooling**.\n\nAccording to **SOURCE 1** (`docs/models/local-embedding.md`), the configuration specifies:\n- **Pooling**: `pooling_mode_lasttoken: true`\n- **Why it matters**: \"Not mean pooling. Using mean pooling would degrade every vector.\"\n\nThis is confirmed in **SOURCE 3** (`docs/models/local-embedding.md`), which states that the chosen inference backend (`sentence-transformers`) is packaged to support \"Last-token pooling\" and that the official prompts work out of the box with this setting.",
+      "fact_hits": 1,
+      "hallucination_flags": 1,
+      "sources": [
+        "docs/models/local-embedding.md",
+        "benchmarks/local-fast-results.md",
+        "docs/models/local-embedding.md",
+        "benchmarks/local-smart-results.md",
+        "docs/models/local-embedding.md"
+      ]
+    },
+    "phase5_pool20/reranked_rag": {
+      "answer": "The Qwen3 embedding model uses **last token pooling**.\n\nThis is confirmed by the configuration in `config/local-embedding.yaml` (line 15):\n> `pooling: last_token`\n\nAdditionally, `docs/models/local-embedding.md` (lines 48-64) explicitly states:\n> `Pooling | **`pooling_mode_lasttoken: true`** | Not mean pooling. Using mean pooling would degrade every vector.`",
+      "fact_hits": 1,
+      "hallucination_flags": 1,
+      "sources": [
+        "config/local-embedding.yaml",
+        "docs/models/local-embedding.md",
+        "benchmarks/local-smart-results.md",
+        "docs/models/local-embedding.md",
+        "docs/models/local-fast.md"
+      ]
+    }
+  },
+  "What is the recommended batch size for embedding, and why?": {
+    "phase4_k5/no_rag": {
+      "answer": "There is no single \"recommended\" batch size for embedding that applies universally, as the optimal value depends heavily on the specific model architecture, the hardware available (GPU/CPU), the dataset size, and the training objective. However, there are general guidelines and reasons behind these choices.\n\n### General Guidelines\n\n*   **For Large Language Models (LLMs) and Transformers:**\n    *   **Training:** Common batch sizes range from **16 to 256**, with **32** being a very popular default for many fine-tuning tasks.\n    *   **Inference (Generation):** Batch sizes are often smaller (e.g., **1 to 4**) to manage memory constraints, though modern GPUs can handle much larger batches (up to hundreds) if the context window is small.\n    *   **Embedding Models (e.g., Sentence Transformers):** Since these models often process entire sequences at once to generate a single vector, the batch size is limited primarily by the **context window size** and **GPU memory**. A common starting point is **32 to 128** items per batch.\n\n*   **For Standard Neural Networks (e.g., MLPs, CNNs):**\n    *   Batch sizes typically range from **32 to 512**, with **64** or **128** being frequent defaults.\n\n### Why Batch Size Matters\n\nThe choice of batch size is driven by a trade-off between **memory efficiency**, **training stability**, and **convergence speed**.\n\n1.  **Memory Constraints (The Hard Limit):**\n    *   The batch size is directly proportional to the memory required during the forward and backward passes.\n    *   Formula: $Memory \\propto Batch Size \\times Model Parameters \\times Context Length$.\n    *   If the batch size is too large, the GPU will run out of VRAM, causing the training to crash. This is the most immediate",
+      "fact_hits": 1,
+      "hallucination_flags": 2,
+      "sources": null
+    },
+    "phase4_k10/no_rag": {
+      "answer": "There is no single \"recommended\" batch size for embedding that applies universally, as the optimal value depends heavily on the specific model architecture, the hardware available (GPU/CPU), the dataset size, and the training objective. However, there are general guidelines and reasons behind these choices.\n\n### General Guidelines\n\n*   **For Large Language Models (LLMs) and Transformers:**\n    *   **Training:** Common batch sizes range from **16 to 256**, with **32** being a very popular default for many fine-tuning tasks.\n    *   **Inference (Generation):** Batch sizes are often smaller (e.g., **1 to 4**) to manage memory constraints, though modern GPUs can handle much larger batches (up to hundreds) if the context window is small.\n    *   **Embedding Models (e.g., Sentence Transformers):** Since these models often process entire sequences at once to generate a single vector, the batch size is limited primarily by the **context window size** and **GPU memory**. A common starting point is **32 to 128** items per batch.\n\n*   **For Standard Neural Networks (e.g., MLPs, CNNs):**\n    *   Batch sizes typically range from **32 to 512**, with **64** or **128** being frequent defaults.\n\n### Why Batch Size Matters\n\nThe choice of batch size is driven by a trade-off between **memory efficiency**, **training stability**, and **convergence speed**.\n\n1.  **Memory Constraints (The Hard Limit):**\n    *   The batch size is directly proportional to the memory required during the forward and backward passes.\n    *   Formula: $Memory \\propto Batch Size \\times Model Parameters \\times Context Length$.\n    *   If the batch size is too large, the GPU will run out of VRAM, causing the training to crash. This is the most immediate",
+      "fact_hits": 1,
+      "hallucination_flags": 2,
+      "sources": null
+    },
+    "phase4_after_fix/no_rag": {
+      "answer": "There is no single \"recommended\" batch size for embedding that applies universally, as the optimal value depends heavily on the specific model architecture, the hardware available (GPU/CPU), the dataset size, and the training objective. However, there are general guidelines and reasons behind these choices.\n\n### General Guidelines\n\n*   **For Large Language Models (LLMs) and Transformers:**\n    *   **Training:** Common batch sizes range from **16 to 256**, with **32** being a very popular default for many fine-tuning tasks.\n    *   **Inference (Generation):** Batch sizes are often smaller (e.g., **1 to 4**) to manage memory constraints, though modern GPUs can handle much larger batches (up to hundreds) if the context window is small.\n    *   **Embedding Models (e.g., Sentence Transformers):** Since these models often process entire sequences at once to generate a single vector, the batch size is limited primarily by the **context window size** and **GPU memory**. A common starting point is **32 to 128** items per batch.\n\n*   **For Standard Neural Networks (e.g., MLPs, CNNs):**\n    *   Batch sizes typically range from **32 to 512**, with **64** or **128** being frequent defaults.\n\n### Why Batch Size Matters\n\nThe choice of batch size is driven by a trade-off between **memory efficiency**, **training stability**, and **convergence speed**.\n\n1.  **Memory Constraints (The Hard Limit):**\n    *   The batch size is directly proportional to the memory required during the forward and backward passes.\n    *   Formula: $Memory \\propto Batch Size \\times Model Parameters \\times Context Length$.\n    *   If the batch size is too large, the GPU will run out of VRAM, causing the training to crash. This is the most immediate",
+      "fact_hits": 1,
+      "hallucination_flags": 2,
+      "sources": null
+    },
+    "phase5_pool10/no_rag": {
+      "answer": "There is no single \"recommended\" batch size for embedding that applies universally, as the optimal value depends heavily on the specific model architecture, the hardware available (GPU/CPU), the dataset size, and the training objective. However, there are general guidelines and reasons behind these choices.\n\n### General Guidelines\n\n*   **For Large Language Models (LLMs) and Transformers:**\n    *   **Training:** Common batch sizes range from **16 to 256**, with **32** being a very popular default for many fine-tuning tasks.\n    *   **Inference (Generation):** Batch sizes are often smaller (e.g., **1 to 4**) to manage memory constraints, though modern GPUs can handle much larger batches (up to hundreds) if the context window is small.\n    *   **Embedding Models (e.g., Sentence Transformers):** Since these models often process entire sequences at once to generate a single vector, the batch size is limited primarily by the **context window size** and **GPU memory**. A common starting point is **32 to 128** items per batch.\n\n*   **For Standard Neural Networks (e.g., MLPs, CNNs):**\n    *   Batch sizes typically range from **32 to 512**, with **64** or **128** being frequent defaults.\n\n### Why Batch Size Matters\n\nThe choice of batch size is driven by a trade-off between **memory efficiency**, **training stability**, and **convergence speed**.\n\n1.  **Memory Constraints (The Hard Limit):**\n    *   The batch size is directly proportional to the memory required during the forward and backward passes.\n    *   Formula: $Memory \\propto Batch Size \\times Model Parameters \\times Context Length$.\n    *   If the batch size is too large, the GPU will run out of VRAM, causing the training to crash. This is the most immediate",
+      "fact_hits": 1,
+      "hallucination_flags": 2,
+      "sources": null
+    },
+    "phase5_pool20/no_rag": {
+      "answer": "There is no single \"recommended\" batch size for embedding that applies universally, as the optimal value depends heavily on the specific model architecture, the hardware available (GPU/CPU), the dataset size, and the training objective. However, there are general guidelines and reasons behind these choices.\n\n### General Guidelines\n\n*   **For Large Language Models (LLMs) and Transformers:**\n    *   **Training:** Common batch sizes range from **16 to 256**, with **32** being a very popular default for many fine-tuning tasks.\n    *   **Inference (Generation):** Batch sizes are often smaller (e.g., **1 to 4**) to manage memory constraints, though modern GPUs can handle much larger batches (up to hundreds) if the context window is small.\n    *   **Embedding Models (e.g., Sentence Transformers):** Since these models often process entire sequences at once to generate a single vector, the batch size is limited primarily by the **context window size** and **GPU memory**. A common starting point is **32 to 128** items per batch.\n\n*   **For Standard Neural Networks (e.g., MLPs, CNNs):**\n    *   Batch sizes typically range from **32 to 512**, with **64** or **128** being frequent defaults.\n\n### Why Batch Size Matters\n\nThe choice of batch size is driven by a trade-off between **memory efficiency**, **training stability**, and **convergence speed**.\n\n1.  **Memory Constraints (The Hard Limit):**\n    *   The batch size is directly proportional to the memory required during the forward and backward passes.\n    *   Formula: $Memory \\propto Batch Size \\times Model Parameters \\times Context Length$.\n    *   If the batch size is too large, the GPU will run out of VRAM, causing the training to crash. This is the most immediate",
+      "fact_hits": 1,
+      "hallucination_flags": 2,
+      "sources": null
+    }
+  },
+  "What generation speed did local-fast reach in its benchmark?": {
+    "phase4_after_fix/rag": {
+      "answer": "According to **SOURCE 3** (`services/retrieval/rag_compare.py`), the generation speed that local-fast reached in its benchmark is **130** tokens per second.\n\nSpecifically, the source states:\n> `dict(q=\"What generation speed did local-fast reach in its benchmark?\", facts=[[\"130\"]], bad=[[\"500 tok\"], [\"50 tok\"]])`\n\nThis is further confirmed by **SOURCE 5** (`benchmarks/local-smart/compare_models.py`), which lists \"local-fast (4B)\" as a test subject in a comparison table for generation speed.",
+      "fact_hits": 1,
+      "hallucination_flags": 2,
+      "sources": null
+    }
+  },
+  "What is the maximum embedding dimension of the embedding model?": {
+    "phase5_pool10/dense_rag": {
+      "answer": "Based on the provided sources, the maximum embedding dimension of the embedding model is **1024**.\n\nThis is explicitly stated in **SOURCE 2** (`config/local-embedding.yaml`), which defines the model configuration:\n- `native_dimension: 1024`\n- `dimension: 1024` (under the `runtime` section)\n\nAdditionally, **SOURCE 4** (`docs/models/local-embedding.md`) confirms that while truncation is possible down to 256 dimensions, the deployment default remains **1024** until further benchmarks dictate otherwise.\n\n**Answer:** 1024",
+      "fact_hits": 1,
+      "hallucination_flags": 1,
+      "sources": [
+        "docs/models/local-embedding.md",
+        "config/local-embedding.yaml",
+        "docs/retrieval-architecture.md",
+        "docs/models/local-embedding.md",
+        "docs/models/local-embedding.md"
+      ]
+    },
+    "phase5_pool10/reranked_rag": {
+      "answer": "Based on the provided sources, the maximum embedding dimension of the embedding model is **1024**.\n\nThis is confirmed by the following sources:\n- **SOURCE 1** (lines 34-47): In the table under \"Official specifications\", the \"Embedding dimension\" is declared as \"up to 1024\" and verified from `config.json`: `hidden_size: 1024`.\n- **SOURCE 2** (lines 1-79): The YAML configuration file specifies `native_dimension: 1024` and sets the runtime `dimension: 1024`.\n- **SOURCE 5** (lines 105-119): Mentions that while truncating to fewer dimensions (down to 256) preserves the top result, the \"deployment default remains **1024**\".\n\nAnswer: **1024**",
+      "fact_hits": 1,
+      "hallucination_flags": 1,
+      "sources": [
+        "docs/models/local-embedding.md",
+        "config/local-embedding.yaml",
+        "scripts/start-local-embedding.ps1",
+        "docs/models/local-embedding.md",
+        "docs/models/local-embedding.md"
+      ]
+    },
+    "phase5_pool20/dense_rag": {
+      "answer": "Based on the provided sources, the maximum embedding dimension of the embedding model is **1024**.\n\nThis is explicitly stated in **SOURCE 2** (`config/local-embedding.yaml`), which defines the model configuration:\n- `native_dimension: 1024`\n- `dimension: 1024` (under the `runtime` section)\n\nAdditionally, **SOURCE 4** (`docs/models/local-embedding.md`) confirms that while truncation is possible down to 256 dimensions, the deployment default remains **1024** until further benchmarks dictate otherwise.\n\n**Answer:** 1024",
+      "fact_hits": 1,
+      "hallucination_flags": 1,
+      "sources": [
+        "docs/models/local-embedding.md",
+        "config/local-embedding.yaml",
+        "docs/retrieval-architecture.md",
+        "docs/models/local-embedding.md",
+        "docs/models/local-embedding.md"
+      ]
+    },
+    "phase5_pool20/reranked_rag": {
+      "answer": "Based on the provided sources, the maximum embedding dimension of the embedding model is **1024**.\n\nThis is confirmed by the following sources:\n- **SOURCE 1** (lines 34-47): In the table under \"Official specifications\", the \"Embedding dimension\" is declared as \"up to 1024\" and verified from `config.json`: `hidden_size: 1024`.\n- **SOURCE 2** (lines 1-79): The YAML configuration file specifies `native_dimension: 1024` and sets the runtime `dimension: 1024`.\n- **SOURCE 5** (lines 105-119): The \"Matryoshka behaviour\" section states that the model supports dimensions up to 1024, noting that truncating to fewer dimensions (down to 256) preserves the top result, but breaking occurs at 128.\n\nAnswer: **1024**",
+      "fact_hits": 1,
+      "hallucination_flags": 1,
+      "sources": [
+        "docs/models/local-embedding.md",
+        "config/local-embedding.yaml",
+        "scripts/start-local-embedding.ps1",
+        "docs/models/local-embedding.md",
+        "docs/models/local-embedding.md"
+      ]
+    }
+  }
+}

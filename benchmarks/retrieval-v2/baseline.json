@@ -1,0 +1,108 @@
+{
+  "frozen_at": "2026-09-30T11:04:11+00:00",
+  "phase": "end of Phase 5 / start of Phase 5.5",
+  "git_commit": "15a1f842f1de54eae6694919bd530700763e73aa",
+  "git_commit_subject": "Phase 5 (part 11): record the measured serialized-vs-concurrent policy in the architecture doc",
+  "git_dirty": true,
+  "models": {
+    "local-fast": {
+      "repo": "Qwen/Qwen3.5-4B-GGUF",
+      "quant": "Q4_K_M",
+      "port": "8111",
+      "impl": "llama.cpp b11254 cuda13.4",
+      "path": "D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q4_K_M.gguf",
+      "exists": true,
+      "size_mb": 2613.96,
+      "healthy": true
+    },
+    "local-embedding": {
+      "repo": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "license": "apache-2.0",
+      "port": "8113",
+      "impl": "sentence-transformers 6.1.0 / torch 2.11.0+cu128",
+      "path": "D:\\MultiAgent\\models\\embedding\\Qwen3-Embedding-0.6B\\model.safetensors",
+      "exists": true,
+      "size_mb": 1136.39,
+      "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd",
+      "healthy": false
+    },
+    "local-reranker": {
+      "repo": "Qwen/Qwen3-Reranker-0.6B",
+      "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+      "license": "apache-2.0",
+      "port": "8114",
+      "impl": "transformers 5.17.0 / torch 2.11.0+cu128",
+      "path": "D:\\MultiAgent\\models\\reranker\\Qwen3-Reranker-0.6B\\model.safetensors",
+      "exists": true,
+      "size_mb": 1136.39,
+      "sha256": "27cd75a405b9c1b46b59abfd88aaa209e6fed2a1972cde9b70e7659537c5e65b",
+      "healthy": true
+    }
+  },
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.17.0",
+    "sentence_transformers": "6.1.0",
+    "faiss": "1.15.1",
+    "numpy": "2.5.3",
+    "cuda_available": true,
+    "cuda_version": "12.8"
+  },
+  "retrieval_baseline": {
+    "dimensions": 1024,
+    "instruction": "ON (query side only)",
+    "chunking": "structure-aware",
+    "candidate_pool": 10,
+    "final_top_k": 5,
+    "max_length": 2048,
+    "batch_size": 20,
+    "max_batch_tokens": 8192
+  },
+  "historical_results": {
+    "phase4": {
+      "retrieval_strict_R@5": 74.4,
+      "retrieval_strict_R@1": 46.2,
+      "rag_accuracy_pct": 91.7,
+      "rag_questions": 12,
+      "rag_index": "served 'local-ai' index, 1173 chunks",
+      "rag_arm": "dense top-5",
+      "token_reduction_pct": 99.02
+    },
+    "phase5": {
+      "candidate_recall_at_20_multi_pct": 92.3,
+      "dense_strict_R@1": 35.9,
+      "dense_strict_R@5": 66.7,
+      "dense_strict_MRR": 0.4882,
+      "rerank20_strict_R@5": 71.8,
+      "rerank20_multi_R@5": 87.2,
+      "rerank50_strict_MRR": 0.6239,
+      "rag_accuracy_dense_pool10_pct": 66.7,
+      "rag_accuracy_reranked_pool10_pct": 83.3,
+      "rag_index": "benchmark index, 186 chunks",
+      "hard_negative_strict_pct": 87.5,
+      "duplicate_stale_current_wins": "1/5"
+    }
+  },
+  "indexes": {
+    "served_local_ai": {
+      "vectors_in_index": 1173,
+      "chunks_in_metadata": 1173,
+      "projects": [
+        "local-ai"
+      ],
+      "dimension": 1024,
+      "consistent": true
+    },
+    "bench_d1024_structured": {
+      "vectors_in_index": 186,
+      "chunks_in_metadata": 186,
+      "projects": [
+        "local-ai"
+      ],
+      "dimension": 1024,
+      "consistent": true
+    }
+  }
+}

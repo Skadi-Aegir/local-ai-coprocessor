@@ -1,0 +1,105 @@
+# =============================================================================
+# local-ocr worker configuration  (Phase 6)
+#
+# Single source of truth for the OCR service. Read by scripts/start-local-ocr.ps1
+# and by services/ocr/server.py.
+#
+# CPU ONLY. This service deliberately occupies no VRAM: under AD-21 a new service
+# must either hold the 2048 MiB margin beyond the resident pair, or be CPU-only,
+# or be scheduler-loaded on demand. This one is CPU-only, so it does not
+# participate in the residency budget at all.
+#
+# Parser note: same deliberately small stdlib YAML-subset loader as the other
+# configs (scripts/lf_config.py) - scalars, simple lists, simple nested maps only.
+# =============================================================================
+
+model: local-ocr
+
+# ---------------------------------------------------------------- model source
+source:
+  upstream_project: PaddleOCR
+  model_family: PP-OCRv5
+  package_paddlepaddle: 3.3.1
+  package_paddleocr: 3.7.0
+  package_paddlex: 3.7.2
+  license: apache-2.0
+  distribution: huggingface
+  # PP-OCRv6 (tiny/small/medium) also exists in this paddlex build and is newer;
+  # PP-OCRv5 is used because the task names it and its two tiers are the intended
+  # comparison. See docs/models/local-ocr.md and benchmarks/ocr-results.md.
+
+# Tier in use. B3 measured both on the frozen 34-image set: median CER was exactly
+# 0.0000 for BOTH, so the pre-registered rule fell to its latency branch and
+# `mobile` won on p95 (6.294 s vs 12.484 s). `server` is retained, not deleted, so
+# the comparison can be re-run without re-downloading.
+tier: mobile
+
+# ---------------------------------------------------------------- runtime
+runtime:
+  host: 127.0.0.1
+  port: 8116
+  device: cpu
+  # oneDNN MUST stay off. With it on, this paddlepaddle build raises
+  #   NotImplementedError: ConvertPirAttribute2RuntimeAttribute not support
+  #   [pir::ArrayAttribute<pir::DoubleAttribute>]  (onednn_instruction.cc:118)
+  # at predict time. Both tiers load fine and only fail once oneDNN is used.
+  enable_mkldnn: false
+  # Explicit rather than left to Paddle's default. 8 of 24 logical cores.
+  threads: 8
+  # Document orientation classification, document unwarping and text-line
+  # orientation classification are OFF: they serve photographed or scanned pages,
+  # whereas Phase 6 targets screenshots, terminal screenshots and software UI,
+  # which are already upright and undistorted. Disabling them also avoids
+  # downloading three further models.
+  use_doc_orientation_classify: false
+  use_doc_unwarping: false
+  use_textline_orientation: false
+
+# ---------------------------------------------------------------- limits
+# Body size is enforced from Content-Length BEFORE the body is read.
+limits:
+  max_body_bytes: 12582912          # 12 MiB
+  max_side_px: 10000
+  max_executing: 1                  # one inference at a time (CPU-bound)
+  max_admitted: 2                   # one executing + one queued; the rest get 429
+  read_timeout_s: 30
+
+# ---------------------------------------------------------------- paths
+paths:
+  venv_python: ${REPO}\services\ocr\venv\Scripts\python.exe
+  server: ${REPO}\services\ocr\server.py
+  model_root: ${REPO}\models\ocr
+  logs_dir: ${REPO}\logs
+  log_file: ${REPO}\logs\local-ocr.log
+  pid_file: ${REPO}\logs\local-ocr.pid
+  stdout_log: ${REPO}\logs\local-ocr.stdout.log
+  stderr_log: ${REPO}\logs\local-ocr.stderr.log
+  health_url: http://127.0.0.1:8116/health
+  stats_url: http://127.0.0.1:8116/stats
+
+# ---------------------------------------------------------------- logging
+# The recognised text is NOT logged by default: the log records time, request_id,
+# image size, block count, latency and success only (spec section 14).
+logging:
+  log_recognised_text: false
+
+# ---------------------------------------------------------------- measured facts
+# Recorded so later rounds do not have to re-derive them. Source:
+# benchmarks/ocr-results.md (frozen 34-image set, CPU, oneDNN off, 8 threads).
+measured:
+  bench_median_cer_mobile: 0.0
+  bench_median_cer_server: 0.0
+  bench_mean_cer_mobile: 0.0104
+  bench_mean_cer_server: 0.0195
+  bench_p95_s_mobile: 6.294
+  bench_p95_s_server: 12.484
+  bench_p50_s_mobile: 0.404
+  bench_p50_s_server: 0.868
+  model_load_s_mobile: 0.48
+  rss_peak_mb_mobile: 450
+  rss_peak_mb_server: 650
+  vram_delta_mb: 0
+  # Thresholds as pre-registered; two were missed and are reported as missed.
+  threshold_clear_text_median_cer_pct: 2.0
+  threshold_missed_mobile_mixed_cer: 0.0317
+  threshold_missed_server_ui_cer: 0.0533

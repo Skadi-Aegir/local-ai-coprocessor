@@ -1,0 +1,53 @@
+{
+  "set_id": "p57c0_devset_v1",
+  "results": {
+    "v07": {
+      "question": "What numeric evidence-floor value does the QA path use to reject weak retrieval, and where is it configured?",
+      "expected": "refuse",
+      "refused": true,
+      "correct": true,
+      "answer": "I could not find enough evidence in the local corpus to answer this.",
+      "reason": null,
+      "n_citations": 0,
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "vram_free_before": 5137,
+      "vram_free_after": 5171
+    },
+    "v08": {
+      "question": "What monthly cost in RMB does running local-fast incur on this machine?",
+      "expected": "refuse",
+      "refused": true,
+      "correct": true,
+      "answer": "I could not find enough evidence in the local corpus to answer this.",
+      "reason": null,
+      "n_citations": 0,
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "vram_free_before": 5171,
+      "vram_free_after": 5182
+    },
+    "v09": {
+      "question": "Which certificate authority issues the TLS certificate for the OCR service?",
+      "expected": "refuse",
+      "refused": true,
+      "correct": true,
+      "answer": "I could not find enough evidence in the local corpus to answer this.",
+      "reason": null,
+      "n_citations": 0,
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "vram_free_before": 5182,
+      "vram_free_after": 5188
+    }
+  },
+  "summary": {
+    "n_answer_absent": 3,
+    "n_correct_refusals": 3,
+    "all_correct": true
+  },
+  "vram": {
+    "min_free_mb": 5137,
+    "margin_held": true
+  }
+}

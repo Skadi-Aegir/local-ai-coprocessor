@@ -1,0 +1,1042 @@
+[
+  {
+    "question": "﻿What port does the local-fast service listen on, and what context size does it use by default?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 4.045,
+    "candidates": [
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.6395,
+        "chunk_id": "37e6acc88550be7f88b3"
+      },
+      {
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "score": 0.6373,
+        "chunk_id": "8b981462f118e4915edf"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 132,
+        "end_line": 148,
+        "score": 0.613,
+        "chunk_id": "026840eff6be8eabee88"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.5902,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "scripts/start-local-fast.ps1",
+        "start_line": 1,
+        "end_line": 109,
+        "score": 0.5704,
+        "chunk_id": "0b14e73be6663f1c9ab9"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6395,
+    "rerank_used": false,
+    "generate_s": 0.981,
+    "usage": {
+      "completion_tokens": 90,
+      "prompt_tokens": 1858,
+      "total_tokens": 1948,
+      "prompt_tokens_details": {
+        "cached_tokens": 1854
+      }
+    },
+    "citation_verification": [
+      "verified"
+    ],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 5.078,
+    "e2e_s": 5.078,
+    "free_vram_before_mb": 5106,
+    "free_vram_after_mb": 5201,
+    "refused": false,
+    "answer": "The local-fast service listens on port **8111** and uses a default context size of **8192**.\n\n*   **Port:** SOURCE 3 states the server binds to `127.0.0.1:8111` [SOURCE 3].\n*   **Context Size:** SOURCE 3 lists the Context value as `8192 (default)` [SOURCE 3].",
+    "citations": [
+      {
+        "source": 3,
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 132,
+        "end_line": 148,
+        "verification": {
+          "source_path": "docs/models/local-fast.md",
+          "start_line": 132,
+          "end_line": 148,
+          "indexed_hash": "6205b6da96dfb4d8",
+          "current_hash": "6205b6da96dfb4d8",
+          "current_lines": 179,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      3
+    ],
+    "reported_source_numbers": [
+      3
+    ],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 5821
+  },
+  {
+    "question": "Which pooling method and output dimension does the embedding service use?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.069,
+    "candidates": [
+      {
+        "source_path": "config/local-embedding.yaml",
+        "start_line": 1,
+        "end_line": 94,
+        "score": 0.6261,
+        "chunk_id": "b3928e6f759f05955051"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 191,
+        "end_line": 205,
+        "score": 0.6173,
+        "chunk_id": "48e042118b4fd38e929f"
+      },
+      {
+        "source_path": "services/retrieval/embedder.py",
+        "start_line": 69,
+        "end_line": 69,
+        "score": 0.6004,
+        "chunk_id": "90ae22f6de697607302c"
+      },
+      {
+        "source_path": "docs/reranking-architecture.md",
+        "start_line": 9,
+        "end_line": 35,
+        "score": 0.5972,
+        "chunk_id": "68a817ee6b9d71bcd8ab"
+      },
+      {
+        "source_path": "services/retrieval/embedder.py",
+        "start_line": 1,
+        "end_line": 18,
+        "score": 0.5861,
+        "chunk_id": "96680aee67c1b3dce809"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6261,
+    "rerank_used": false,
+    "generate_s": 1.448,
+    "usage": {
+      "completion_tokens": 161,
+      "prompt_tokens": 1463,
+      "total_tokens": 1624,
+      "prompt_tokens_details": {
+        "cached_tokens": 1459
+      }
+    },
+    "citation_verification": [
+      "verified",
+      "verified",
+      "verified"
+    ],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 1.579,
+    "e2e_s": 1.579,
+    "free_vram_before_mb": 5202,
+    "free_vram_after_mb": 5205,
+    "refused": false,
+    "answer": "The embedding service uses the **last_token** pooling method and an output dimension of **1024**.\n\n*   **Pooling Method**: The configuration in SOURCE 1 specifies `pooling: last_token` under the `model` section [SOURCE 1]. This is further confirmed in SOURCE 5, which states that \"pooling is LAST-TOKEN\" based on verification of the model's config.json [SOURCE 5].\n*   **Output Dimension**: SOURCE 1 lists `native_dimension: 1024` under the `model` section and `dimension: 1024` under the `runtime` section [SOURCE 1]. SOURCE 2 also references the service as using a \"1024-d\" embedding model [SOURCE 2].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "config/local-embedding.yaml",
+        "start_line": 1,
+        "end_line": 94,
+        "verification": {
+          "source_path": "config/local-embedding.yaml",
+          "start_line": 1,
+          "end_line": 94,
+          "indexed_hash": "6d562163d5752b6a",
+          "current_hash": "6d562163d5752b6a",
+          "current_lines": 94,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 191,
+        "end_line": 205,
+        "verification": {
+          "source_path": "docs/retrieval-architecture.md",
+          "start_line": 191,
+          "end_line": 205,
+          "indexed_hash": "06f618a10195c7b2",
+          "current_hash": "06f618a10195c7b2",
+          "current_lines": 230,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      },
+      {
+        "source": 5,
+        "source_path": "services/retrieval/embedder.py",
+        "start_line": 1,
+        "end_line": 18,
+        "verification": {
+          "source_path": "services/retrieval/embedder.py",
+          "start_line": 1,
+          "end_line": 18,
+          "indexed_hash": "6b76976eda68aa02",
+          "current_hash": "6b76976eda68aa02",
+          "current_lines": 267,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "reported_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 4365
+  },
+  {
+    "question": "What chunking strategy does the index builder record for python code, and what does the strategy name signify?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.046,
+    "candidates": [
+      {
+        "source_path": "services/retrieval/index_builder.py",
+        "start_line": 42,
+        "end_line": 80,
+        "score": 0.6036,
+        "chunk_id": "bf3ab35539de02f8eeee"
+      },
+      {
+        "source_path": "services/retrieval/chunker.py",
+        "start_line": 1,
+        "end_line": 20,
+        "score": 0.6035,
+        "chunk_id": "8cc5f0c9704fae23fe01"
+      },
+      {
+        "source_path": "services/retrieval/index_builder.py",
+        "start_line": 1,
+        "end_line": 50,
+        "score": 0.5979,
+        "chunk_id": "4a3ad6b5d5c2bc3c5a94"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 87,
+        "end_line": 109,
+        "score": 0.587,
+        "chunk_id": "7dbe7afaec05a051049b"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 135,
+        "end_line": 153,
+        "score": 0.5714,
+        "chunk_id": "76e86beba6189e69c9da"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6036,
+    "rerank_used": false,
+    "generate_s": 0.958,
+    "usage": {
+      "completion_tokens": 104,
+      "prompt_tokens": 1736,
+      "total_tokens": 1840,
+      "prompt_tokens_details": {
+        "cached_tokens": 1732
+      }
+    },
+    "citation_verification": [
+      "verified"
+    ],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 1.066,
+    "e2e_s": 1.066,
+    "free_vram_before_mb": 5205,
+    "free_vram_after_mb": 5206,
+    "refused": false,
+    "answer": "The index builder records the strategy name **\"structured\"** for Python code. This strategy signifies that the chunking is performed via Python's `ast` (Abstract Syntax Tree) to identify module-level statements, functions, and classes, ensuring that a class that fits is kept whole and an oversized class splits into methods while still carrying the class name in the `symbol` field [SOURCE 4]. If parsing fails, it falls back to fixed windows and records the strategy as `fixed(fallback)` [SOURCE 4].",
+    "citations": [
+      {
+        "source": 4,
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 87,
+        "end_line": 109,
+        "verification": {
+          "source_path": "docs/retrieval-architecture.md",
+          "start_line": 87,
+          "end_line": 109,
+          "indexed_hash": "06f618a10195c7b2",
+          "current_hash": "06f618a10195c7b2",
+          "current_lines": 230,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      4
+    ],
+    "reported_source_numbers": [
+      4
+    ],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 6300
+  },
+  {
+    "question": "What is the retrieval service health endpoint expected to return, and on which port does it serve?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.067,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-embedding.md",
+        "start_line": 120,
+        "end_line": 130,
+        "score": 0.6288,
+        "chunk_id": "f9109dd0da98f96a5285"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 26,
+        "end_line": 39,
+        "score": 0.5937,
+        "chunk_id": "dd2aad327a1e06b546be"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 191,
+        "end_line": 205,
+        "score": 0.5615,
+        "chunk_id": "48e042118b4fd38e929f"
+      },
+      {
+        "source_path": "scripts/check-local-embedding.ps1",
+        "start_line": 103,
+        "end_line": 135,
+        "score": 0.5494,
+        "chunk_id": "ef10104e5b3ae0996fb0"
+      },
+      {
+        "source_path": "services/retrieval/server.py",
+        "start_line": 1,
+        "end_line": 22,
+        "score": 0.5314,
+        "chunk_id": "0a5d70cb74cd66bcc497"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6288,
+    "rerank_used": false,
+    "generate_s": 1.256,
+    "usage": {
+      "completion_tokens": 136,
+      "prompt_tokens": 1572,
+      "total_tokens": 1708,
+      "prompt_tokens_details": {
+        "cached_tokens": 1568
+      }
+    },
+    "citation_verification": [
+      "verified",
+      "verified",
+      "verified"
+    ],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 1.387,
+    "e2e_s": 1.387,
+    "free_vram_before_mb": 5206,
+    "free_vram_after_mb": 5203,
+    "refused": false,
+    "answer": "The retrieval service health endpoint is `GET /health` and it serves on port **8113**.\n\nThe service returns the following endpoints as part of its health and status checks: `GET /health`, `GET /v1/models`, and `GET /stats` [SOURCE 1]. The service binds to `127.0.0.1:8113` and is designed to be loopback only, not reachable from the LAN [SOURCE 2]. The server implementation confirms it listens on `127.0.0.1:8113` and exposes the `/health` endpoint [SOURCE 5].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "docs/models/local-embedding.md",
+        "start_line": 120,
+        "end_line": 130,
+        "verification": {
+          "source_path": "docs/models/local-embedding.md",
+          "start_line": 120,
+          "end_line": 130,
+          "indexed_hash": "589373c4a2099dba",
+          "current_hash": "589373c4a2099dba",
+          "current_lines": 142,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 26,
+        "end_line": 39,
+        "verification": {
+          "source_path": "docs/local-fast-api.md",
+          "start_line": 26,
+          "end_line": 39,
+          "indexed_hash": "05d16237fe3876ca",
+          "current_hash": "05d16237fe3876ca",
+          "current_lines": 173,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      },
+      {
+        "source": 5,
+        "source_path": "services/retrieval/server.py",
+        "start_line": 1,
+        "end_line": 22,
+        "verification": {
+          "source_path": "services/retrieval/server.py",
+          "start_line": 1,
+          "end_line": 22,
+          "indexed_hash": "d56a82319003a3c5",
+          "current_hash": "d56a82319003a3c5",
+          "current_lines": 334,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "reported_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 4657
+  },
+  {
+    "question": "Trace how a question reaches the local-fast model: which components are involved, in what order, and what ports do they use?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.045,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.6031,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.5744,
+        "chunk_id": "37e6acc88550be7f88b3"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 26,
+        "end_line": 45,
+        "score": 0.5365,
+        "chunk_id": "3933fb0e9cf320e13caa"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 10,
+        "end_line": 25,
+        "score": 0.5234,
+        "chunk_id": "44bf367c93fec8c77592"
+      },
+      {
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "score": 0.5146,
+        "chunk_id": "8b981462f118e4915edf"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6031,
+    "rerank_used": false,
+    "generate_s": 0.265,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 1372,
+      "total_tokens": 1387,
+      "prompt_tokens_details": {
+        "cached_tokens": 1368
+      }
+    },
+    "citation_verification": [],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 0.388,
+    "e2e_s": 0.388,
+    "free_vram_before_mb": 5203,
+    "free_vram_after_mb": 5202,
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 4348
+  },
+  {
+    "question": "If the local-fast model cannot answer well enough, what does the escalation policy say should happen, and which model is the escalation target?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.071,
+    "candidates": [
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 123,
+        "end_line": 128,
+        "score": 0.5598,
+        "chunk_id": "30ce721bd3f92463256a"
+      },
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 84,
+        "end_line": 101,
+        "score": 0.5585,
+        "chunk_id": "fe5f328c37f0846d36ef"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.557,
+        "chunk_id": "33e445791f460c50acab"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.5213,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 1,
+        "end_line": 21,
+        "score": 0.4999,
+        "chunk_id": "1082c551fb253580b04e"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.5598,
+    "rerank_used": false,
+    "generate_s": 1.651,
+    "usage": {
+      "completion_tokens": 183,
+      "prompt_tokens": 993,
+      "total_tokens": 1176,
+      "prompt_tokens_details": {
+        "cached_tokens": 989
+      }
+    },
+    "citation_verification": [
+      "verified",
+      "verified",
+      "verified"
+    ],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 1.774,
+    "e2e_s": 1.774,
+    "free_vram_before_mb": 5202,
+    "free_vram_after_mb": 5205,
+    "refused": false,
+    "answer": "The escalation policy states that if local handling is insufficient (specifically when the best retrieval score is weak or the expected source is absent, indicating uncertainty), the task should be escalated to the **cloud**. The policy explicitly notes that hard work goes to models such as **DeepSeek**, **Claude**, or **Codex**, which are the upstream models used for these calls [SOURCE 1][SOURCE 5].\n\nThe specific logic for triggering this escalation is found in the `classify_escalation` function: if the top retrieval score is below 0.60 and the expected file is not retrieved, or if the score is below 0.45 without the expected file, the function returns \"cloud\" [SOURCE 2].\n\nTherefore, the escalation target is the **cloud** (using models like DeepSeek, Claude, or Codex) [SOURCE 1][SOURCE 5].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 123,
+        "end_line": 128,
+        "verification": {
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 123,
+          "end_line": 128,
+          "indexed_hash": "6ff6fb57f8f40b53",
+          "current_hash": "6ff6fb57f8f40b53",
+          "current_lines": 135,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 84,
+        "end_line": 101,
+        "verification": {
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "start_line": 84,
+          "end_line": 101,
+          "indexed_hash": "1a9e797a1ad7c70a",
+          "current_hash": "1a9e797a1ad7c70a",
+          "current_lines": 221,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      },
+      {
+        "source": 5,
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 1,
+        "end_line": 21,
+        "verification": {
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "start_line": 1,
+          "end_line": 21,
+          "indexed_hash": "1a9e797a1ad7c70a",
+          "current_hash": "1a9e797a1ad7c70a",
+          "current_lines": 221,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "reported_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 3241
+  },
+  {
+    "question": "How does the index store keep FAISS vector positions and chunk metadata consistent with each other?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.066,
+    "candidates": [
+      {
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 1,
+        "end_line": 17,
+        "score": 0.8137,
+        "chunk_id": "79d082d7cac4b6a575fe"
+      },
+      {
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 369,
+        "end_line": 412,
+        "score": 0.7619,
+        "chunk_id": "5d0187cacb8ebe43e8d2"
+      },
+      {
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 285,
+        "end_line": 310,
+        "score": 0.7609,
+        "chunk_id": "ca12d88432622ffc377a"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 110,
+        "end_line": 134,
+        "score": 0.73,
+        "chunk_id": "ce0a9c8b017a3607834e"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 76,
+        "end_line": 86,
+        "score": 0.7189,
+        "chunk_id": "248aa735c585f22047d7"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.8137,
+    "rerank_used": false,
+    "generate_s": 2.455,
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 1873,
+      "total_tokens": 2129,
+      "prompt_tokens_details": {
+        "cached_tokens": 1869
+      }
+    },
+    "citation_verification": [
+      "verified",
+      "verified",
+      "verified"
+    ],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 2.571,
+    "e2e_s": 2.571,
+    "free_vram_before_mb": 5205,
+    "free_vram_after_mb": 5202,
+    "refused": false,
+    "answer": "The index store maintains consistency between FAISS vector positions and chunk metadata through a design where metadata lives outside FAISS in SQLite, while FAISS holds only vectors and integer IDs. Specifically:\n\n- Metadata (including project filtering, file removal, and incremental updates) is stored in SQLite, which serves as the authority for these operations [SOURCE 1].\n- FAISS holds only vectors and integer IDs, and these IDs are assigned by the index store and mapped 1:1 to FAISS IDs, ensuring that any FAISS hit can always be resolved back to a chunk [SOURCE 1].\n- During rebuilds, the system reconstructs vectors from the live index or a saved `vectors.npy` file, matching them to chunk row order exactly. If the live index holds fewer vectors than the metadata, it raises an error to prevent silent corruption [SOURCE 2].\n- The `faiss_id` column in the SQLite `chunks` table is used to join with the vector index, and during rebuilds, IDs are renumbered so that `faiss_id` corresponds to the row position in the reconstructed index [SOURCE 3].\n- The metadata schema includes a `faiss_id` column that links to the vector, along with other fields",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 1,
+        "end_line": 17,
+        "verification": {
+          "source_path": "services/retrieval/index_store.py",
+          "start_line": 1,
+          "end_line": 17,
+          "indexed_hash": "af3466fedaba6ed0",
+          "current_hash": "af3466fedaba6ed0",
+          "current_lines": 565,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 369,
+        "end_line": 412,
+        "verification": {
+          "source_path": "services/retrieval/index_store.py",
+          "start_line": 369,
+          "end_line": 412,
+          "indexed_hash": "af3466fedaba6ed0",
+          "current_hash": "af3466fedaba6ed0",
+          "current_lines": 565,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      },
+      {
+        "source": 3,
+        "source_path": "services/retrieval/index_store.py",
+        "start_line": 285,
+        "end_line": 310,
+        "verification": {
+          "source_path": "services/retrieval/index_store.py",
+          "start_line": 285,
+          "end_line": 310,
+          "indexed_hash": "af3466fedaba6ed0",
+          "current_hash": "af3466fedaba6ed0",
+          "current_lines": 565,
+          "status": "verified",
+          "detail": "file hash matches the index and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2,
+      3
+    ],
+    "reported_source_numbers": [
+      1,
+      2,
+      3
+    ],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 6725
+  },
+  {
+    "question": "What is the monthly monetary cost of running local-fast on this machine?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.068,
+    "candidates": [
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.5973,
+        "chunk_id": "37e6acc88550be7f88b3"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.5877,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "score": 0.5309,
+        "chunk_id": "8b981462f118e4915edf"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 26,
+        "end_line": 45,
+        "score": 0.5229,
+        "chunk_id": "3933fb0e9cf320e13caa"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 144,
+        "end_line": 161,
+        "score": 0.512,
+        "chunk_id": "2f7ee755d2e323af14c7"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.5973,
+    "rerank_used": false,
+    "generate_s": 0.244,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 1476,
+      "total_tokens": 1491,
+      "prompt_tokens_details": {
+        "cached_tokens": 1472
+      }
+    },
+    "citation_verification": [],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 0.358,
+    "e2e_s": 0.358,
+    "free_vram_before_mb": 5202,
+    "free_vram_after_mb": 5202,
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 4832
+  },
+  {
+    "question": "What is the exact GPU die temperature in degrees Celsius while local-fast is generating?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.069,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.518,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 27,
+        "end_line": 51,
+        "score": 0.5142,
+        "chunk_id": "87f816d15a58d3c434e3"
+      },
+      {
+        "source_path": "config/local-fast.yaml",
+        "start_line": 1,
+        "end_line": 119,
+        "score": 0.5011,
+        "chunk_id": "8b981462f118e4915edf"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 132,
+        "end_line": 148,
+        "score": 0.4947,
+        "chunk_id": "026840eff6be8eabee88"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 144,
+        "end_line": 161,
+        "score": 0.4863,
+        "chunk_id": "2f7ee755d2e323af14c7"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.518,
+    "rerank_used": false,
+    "generate_s": 0.348,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 1764,
+      "total_tokens": 1779,
+      "prompt_tokens_details": {
+        "cached_tokens": 1760
+      }
+    },
+    "citation_verification": [],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 0.481,
+    "e2e_s": 0.481,
+    "free_vram_before_mb": 5202,
+    "free_vram_after_mb": 5202,
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 5223
+  },
+  {
+    "question": "Which commercial cloud provider hosts the local-smart model?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "retrieve_s": 0.077,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-smart.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.6231,
+        "chunk_id": "da5c32af22a8b0a46af6"
+      },
+      {
+        "source_path": "config/local-smart.yaml",
+        "start_line": 1,
+        "end_line": 104,
+        "score": 0.5864,
+        "chunk_id": "d1ce1bba19053e35a17c"
+      },
+      {
+        "source_path": "docs/models/local-smart.md",
+        "start_line": 72,
+        "end_line": 85,
+        "score": 0.5509,
+        "chunk_id": "f8f3f03105dbe3c66e4b"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 46,
+        "end_line": 57,
+        "score": 0.4965,
+        "chunk_id": "c185b4c3ee97c3987754"
+      },
+      {
+        "source_path": "scripts/coresidency.ps1",
+        "start_line": 1,
+        "end_line": 94,
+        "score": 0.4876,
+        "chunk_id": "d38c8e5be251c28d6e45"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6231,
+    "rerank_used": false,
+    "generate_s": 0.232,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 2053,
+      "total_tokens": 2068,
+      "prompt_tokens_details": {
+        "cached_tokens": 2049
+      }
+    },
+    "citation_verification": [],
+    "index_version": "259fae05785b433c",
+    "index_working_tree_dirty": true,
+    "verified_e2e_s": 0.356,
+    "e2e_s": 0.356,
+    "free_vram_before_mb": 5202,
+    "free_vram_after_mb": 5201,
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "pack_chars": 5657
+  }
+]

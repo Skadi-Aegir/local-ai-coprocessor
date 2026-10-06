@@ -1,0 +1,68 @@
+{
+  "note": "fake registry + stubbed process execution; nothing real stopped",
+  "cases": [
+    {
+      "case": "stop_rc_nonzero",
+      "allowed": false,
+      "state": {
+        "active": {},
+        "reserved": 0,
+        "queued": {},
+        "waiting": 0
+      }
+    },
+    {
+      "case": "port_not_released",
+      "allowed": false,
+      "state": {
+        "active": {},
+        "reserved": 0,
+        "queued": {},
+        "waiting": 0
+      }
+    },
+    {
+      "case": "memory_not_returned",
+      "allowed": false,
+      "state": {
+        "active": {},
+        "reserved": 0,
+        "queued": {},
+        "waiting": 0
+      }
+    },
+    {
+      "case": "service_in_use",
+      "unload_refused": true
+    }
+  ],
+  "stop_scripts": {
+    "stop-local-fast.ps1": {
+      "exists": true,
+      "uses_Stop_Process": true,
+      "force_flag": true,
+      "kill_by_port_owner": true,
+      "waits_for_port_release": true,
+      "reports_vram": true,
+      "validates_pid_numeric": true
+    },
+    "stop-local-embedding.ps1": {
+      "exists": true,
+      "uses_Stop_Process": true,
+      "force_flag": true,
+      "kill_by_port_owner": true,
+      "waits_for_port_release": true,
+      "reports_vram": true,
+      "validates_pid_numeric": true
+    },
+    "stop-local-reranker.ps1": {
+      "exists": true,
+      "uses_Stop_Process": true,
+      "force_flag": true,
+      "kill_by_port_owner": true,
+      "waits_for_port_release": true,
+      "reports_vram": true,
+      "validates_pid_numeric": true
+    }
+  }
+}

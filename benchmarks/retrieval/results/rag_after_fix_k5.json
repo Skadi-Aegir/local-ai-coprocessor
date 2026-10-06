@@ -1,0 +1,405 @@
+{
+  "model": "local-fast",
+  "questions": 12,
+  "no_rag_all_facts_correct": 3,
+  "rag_all_facts_correct": 11,
+  "no_rag_fact_hits": 3,
+  "rag_fact_hits": 14,
+  "fact_total": 15,
+  "no_rag_hallucinations": 2,
+  "rag_hallucinations": 2,
+  "no_rag_refusals": 8,
+  "rag_refusals": 0,
+  "no_rag_median_prompt_tokens": 53,
+  "rag_median_prompt_tokens": 1835,
+  "rows": [
+    {
+      "q": "What context size does the local-fast worker use by default?",
+      "sources": [
+        "config/local-fast.yaml",
+        "services/retrieval/rag_compare.py",
+        "docs/local-fast-api.md",
+        "docs/models/local-fast.md",
+        "benchmarks/local-fast-results.md"
+      ],
+      "no_rag": {
+        "answer": "The local-fast worker in the **llama.cpp** library (which is commonly used for running LLMs locally) uses a default context size of **512 tokens**.\n\nThis default can be overridden by setting the `--ctx-size` command-line argument or by modifying the `llama_context` structure in the C++ code if you are building custom applications. However, for standard usage without specific arguments, 512 is the baseline.",
+        "seconds": 1.38,
+        "prompt_tokens": 4,
+        "gen_tps": 109.9,
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": false
+      },
+      "rag": {
+        "answer": "The local-fast worker uses a context size of **8192** tokens by default.\n\nThis is confirmed in **SOURCE 1** (`config/local-fast.yaml`), line 32, under the `runtime` section:\n```yaml\ncontext: 8192\n```\n\nAdditionally, **SOURCE 2** (`services/retrieval/rag_compare.py`), line 39, explicitly lists this fact in its test cases:\n```python\ndict(q=\"What context size does the local-fast worker use by default?\",\n     facts=[[\"8192\", \"8k\"]], bad=[[\"4096\"], [\"16384\"]]),\n```",
+        "seconds": 1.96,
+        "prompt_tokens": 2702,
+        "gen_tps": 114.9,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 2,
+        "refused": false
+      }
+    },
+    {
+      "q": "How much VRAM does local-fast occupy when resident?",
+      "sources": [
+        "benchmarks/embedding-results.md",
+        "services/retrieval/rag_compare.py",
+        "benchmarks/local-smart-results.md",
+        "docs/models/local-fast.md",
+        "benchmarks/local-smart-results.md"
+      ],
+      "no_rag": {
+        "answer": "I do not know the exact amount of VRAM occupied by \"local-fast\" when resident, as this depends entirely on the specific software or application you are referring to, the version of the software, the model size of any AI components it might be running, and the specific hardware configuration.\n\n\"Local-fast\" is not a standard, universally recognized term for a specific piece of software in the general computing domain. It is most likely a reference to:\n1.  **A specific feature or setting** within a larger application (e.g., a \"local fast\" mode in a game or a specific optimization flag in an AI tool).\n2.  **A custom or internal name** used by a specific developer or organization.\n3.  **A confusion with a similar term**, such as \"Local LLM\" (Large Language Model) running locally, where VRAM usage varies wildly based on the model (e.g., Llama-3-8B might take ~6–8 GB, while Llama-3-70B could require 80+ GB).\n\nTo provide an accurate number, I would need to know:\n*   What specific software or service \"local-fast\" refers to.\n*   What tasks it is performing (e.g., rendering, running a specific AI model, caching data).\n*   The resolution or complexity of the workload.\n\nIf you can clarify what \"local-fast\" refers to in your context, I may be able to give you a more precise estimate based on general knowledge of that technology.",
+        "seconds": 2.63,
+        "prompt_tokens": 53,
+        "gen_tps": 132.1,
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "rag": {
+        "answer": "According to SOURCE 2, the amount of VRAM that `local-fast` occupies when resident is **2981 MiB**.\n\nThis is explicitly stated in the `facts` list for the task: \"How much VRAM does local-fast occupy when resident?\" with the fact `[\"2981\"]`.\n\nAdditionally, SOURCE 3 confirms this figure in the table under \"GPU `self` (llama.cpp attribution)\" for the \"4B alone\" configuration, listing **2981 MiB**.",
+        "seconds": 1.29,
+        "prompt_tokens": 1978,
+        "gen_tps": 131.3,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "What generation speed did local-fast reach in its benchmark?",
+      "sources": [
+        "benchmarks/local-fast-results.md",
+        "docs/local-fast-api.md",
+        "services/retrieval/rag_compare.py",
+        "docs/models/local-fast.md",
+        "benchmarks/local-smart/compare_models.py"
+      ],
+      "no_rag": {
+        "answer": "I do not know.\n\nAs an AI, I do not have access to real-time benchmark results or specific performance metrics for the \"local-fast\" model unless they were explicitly provided in our conversation history or widely documented in my training data up to my knowledge cutoff. \"Local-fast\" appears to be a specific model name or project that may not be a widely recognized standard benchmark result in my current dataset, or it might be a very recent development.\n\nIf you have a specific paper, news article, or dataset where this benchmark was published, please provide those details, and I can try to help analyze or summarize the information based on that context. Otherwise, I cannot confirm the exact generation speed.",
+        "seconds": 1.23,
+        "prompt_tokens": 4,
+        "gen_tps": 134.8,
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "rag": {
+        "answer": "According to **SOURCE 3** (`services/retrieval/rag_compare.py`), the generation speed that local-fast reached in its benchmark is **130** tokens per second.\n\nSpecifically, the source states:\n> `dict(q=\"What generation speed did local-fast reach in its benchmark?\", facts=[[\"130\"]], bad=[[\"500 tok\"], [\"50 tok\"]])`\n\nThis is further confirmed by **SOURCE 5** (`benchmarks/local-smart/compare_models.py`), which lists \"local-fast (4B)\" as a test subject in a comparison table for generation speed.",
+        "seconds": 1.5,
+        "prompt_tokens": 1228,
+        "gen_tps": 121.6,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 2,
+        "refused": false
+      }
+    },
+    {
+      "q": "Why is concurrent inference of two local models not recommended?",
+      "sources": [
+        "benchmarks/local-smart-results.md",
+        "benchmarks/embedding-results.md",
+        "services/retrieval/rag_compare.py",
+        "docs/escalation-policy.md",
+        "benchmarks/local-smart-results.md"
+      ],
+      "no_rag": {
+        "answer": "Concurrent inference of two local models (running them simultaneously on the same device or within the same tight loop) is generally not recommended for several key reasons related to performance, resource management, and system stability:\n\n1.  **Resource Contention**: Running two models concurrently often leads to a race condition for shared hardware resources, such as GPU memory (VRAM), CPU cores, or cache lines. If both models attempt to allocate memory or access the same tensor buffers at the same time, it can cause memory fragmentation, allocation failures, or severe performance degradation due to context switching.\n2.  **Increased Latency**: Inference engines are optimized for sequential execution to maximize throughput. Concurrent execution introduces overhead from synchronization mechanisms (like locks or mutexes) to prevent data corruption. This overhead, combined with the time spent switching contexts between the two models, typically results in higher overall latency compared to running them sequentially or using a single model with dynamic routing.\n3.  **Complexity and Debugging**: Managing the state of two concurrent inference processes increases the complexity of the code. It becomes difficult to track which model is responsible for a specific output, leading to harder-to-debug issues regarding race conditions, deadlocks, or inconsistent model states.\n4.  **Inefficiency in Batch Processing**: Most inference frameworks are designed to process batches of data sequentially. Running two models concurrently often means processing two separate batches simultaneously, which does not necessarily improve the total time-to-first-token or total throughput unless the models are completely independent and the hardware has massive parallelism (which is rare for standard local inference setups).\n\n**Conclusion**:\nConcurrent inference is usually avoided because it introduces **resource contention**, **synchronization overhead**, and **complexity**, often resulting in **lower overall throughput** and **higher latency** compared to a sequential approach or a unified model architecture.",
+        "seconds": 3.12,
+        "prompt_tokens": 53,
+        "gen_tps": 126.8,
+        "fact_hits": 0,
+        "fact_total": 2,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": false
+      },
+      "rag": {
+        "answer": "Concurrent inference of two local models is not recommended because it causes a significant collapse in throughput. Specifically, two parallel requests complete slower in aggregate than sequential ones, resulting in a **~47 %** loss in throughput.\n\nAdditionally, concurrent inference is expensive for both the embedding service and the generative worker, with the generative worker suffering far more. This is because the GPU serializes the work anyway while adding contention.\n\n**Supporting Evidence:**\n*   **SOURCE 1** (`benchmarks/local-smart-results.md`): States \"**Throughput collapses ~47 %**\" and \"**Not recommended**\" for Strategy 3 (dual resident, concurrent inference).\n*   **SOURCE 2** (`benchmarks/embedding-results.md`): Shows that concurrent inference leads to a **−29 %** loss for embedding workloads and a **−65 %** to **−62 %** loss for generative workloads. It explicitly recommends: \"**serialise inference across the embedding service and a generative worker**\" and \"**Do not assume that because they fit in VRAM they can usefully run together**.\"\n*   **SOURCE 3** (`services/retrieval/rag_compare.py`): Lists the fact that concurrent inference is not recommended due to \"**47**, **throughput**\" and \"**half**, **47**\".",
+        "seconds": 2.59,
+        "prompt_tokens": 1679,
+        "gen_tps": 130.7,
+        "fact_hits": 2,
+        "fact_total": 2,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "How long does it take to switch between the two local models?",
+      "sources": [
+        "benchmarks/local-smart-results.md",
+        "benchmarks/local-fast/mock_server.py",
+        "services/retrieval/rag_compare.py",
+        "benchmarks/local-smart/compare_models.py",
+        "docs/escalation-policy.md"
+      ],
+      "no_rag": {
+        "answer": "I do not know. The time it takes to switch between local models depends on several factors specific to your hardware and software setup, such as the number of models installed, the available RAM or VRAM, the speed of your storage (SSD vs. HDD), and whether the switch involves loading a new model into memory or simply changing the active configuration in an application like Ollama, LM Studio, or llama.cpp. Without knowing which specific models you are using and your system specifications, I cannot provide an accurate estimate.",
+        "seconds": 1.04,
+        "prompt_tokens": 4,
+        "gen_tps": 139.2,
+        "fact_hits": 0,
+        "fact_total": 2,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "rag": {
+        "answer": "It takes **7 seconds** to switch between the two local models.\n\n**Source:**\n- **SOURCE 1** (`benchmarks/local-smart-results.md`, lines 161-170): States that switching between models costs roughly **7 s** round trip.\n- **SOURCE 3** (`services/retrieval/rag_compare.py`, lines 39-64): Lists the fact for the question \"How long does it take to switch between the two local models?\" as `[\"7\", \"second\"]`.",
+        "seconds": 1.21,
+        "prompt_tokens": 1235,
+        "gen_tps": 132.8,
+        "fact_hits": 2,
+        "fact_total": 2,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "What is the JSON schema adherence rate reported for local-fast?",
+      "sources": [
+        "docs/escalation-policy.md",
+        "docs/models/local-fast.md",
+        "services/retrieval/rag_compare.py",
+        "benchmarks/local-fast-results.md",
+        "docs/local-fast-api.md"
+      ],
+      "no_rag": {
+        "answer": "I do not know.\n\nThere is no widely recognized model or benchmark specifically named \"local-fast\" in the context of standard Large Language Model (LLM) evaluations (such as those by LMSys, Hugging Face, or academic papers) that reports a specific \"JSON schema adherence rate.\"\n\nIt is possible that:\n1.  **The name is specific to a particular research paper or internal project** not covered in general knowledge bases.\n2.  **The name might be a typo** for a similar model (e.g., \"Llama-3\", \"Gemma\", or a specific fine-tuned version).\n3.  **The metric is from a very recent or niche evaluation** that has not been widely disseminated.\n\nIf you have a specific paper or context in mind where \"local-fast\" is mentioned, please provide more details so I can try to locate the information. Otherwise, based on general public knowledge, this specific statistic is not available.",
+        "seconds": 1.63,
+        "prompt_tokens": 54,
+        "gen_tps": 135.7,
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "rag": {
+        "answer": "The JSON schema adherence rate reported for local-fast is **100%**.\n\nThis is confirmed in **SOURCE 1** (`docs/escalation-policy.md`), which states: \"**JSON 20/20 (100 % parse and schema)** with no grammar constraint, 100 % over 800 calls in the stability run.\"\n\nAdditionally, **SOURCE 3** (`services/retrieval/rag_compare.py`) lists this fact in its test cases:\n- Question: \"What is the JSON schema adherence rate reported for local-fast?\"\n- Facts: `[[\"100\"]]`",
+        "seconds": 1.37,
+        "prompt_tokens": 1516,
+        "gen_tps": 131.9,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "Which pooling method does the Qwen3 embedding model use?",
+      "sources": [
+        "services/retrieval/embedder.py",
+        "benchmarks/local-fast-results.md",
+        "docs/models/local-embedding.md",
+        "docs/models/local-embedding.md",
+        "services/retrieval/probe_embedding.py"
+      ],
+      "no_rag": {
+        "answer": "I do not know.\n\nAs an AI model, I do not have access to the internal implementation details or specific architectural parameters of the **Qwen3** embedding model (such as the exact pooling method used), as this information is not part of my training data or publicly disclosed specifications in my current knowledge base.\n\nHowever, based on general practices in modern large language model embedding architectures (like those used in BERT, RoBERTa, or similar transformer-based models), pooling methods typically include:\n*   **Mean Pooling**: Averaging the token embeddings.\n*   **Max Pooling**: Taking the maximum value across dimensions.\n*   **CLS Token Pooling**: Using the output of the special [CLS] token (common in BERT).\n*   **Attention-based Pooling**: Using attention weights to aggregate token representations (common in models like BART or T5).\n\nTo get the definitive answer for Qwen3, you would need to consult the official Qwen documentation, the specific paper introducing the model, or the source code repository if it is open-sourced.",
+        "seconds": 1.97,
+        "prompt_tokens": 54,
+        "gen_tps": 123.8,
+        "fact_hits": 0,
+        "fact_total": 2,
+        "all_facts": false,
+        "hallucination_flags": 1,
+        "refused": true
+      },
+      "rag": {
+        "answer": "The Qwen3 embedding model uses **LAST-TOKEN** pooling.\n\nThis is confirmed in **SOURCE 1** (`services/retrieval/embedder.py`), which states:\n> \"pooling is LAST-TOKEN (1_Pooling/config.json: pooling_mode_lasttoken = true)\"\n\nAdditionally, **SOURCE 4** (`docs/models/local-embedding.md`) notes that the model relies on \"Last-token pooling\" and that the `sentence-transformers` library handles this configuration out of the box via the `1_Pooling` module.",
+        "seconds": 1.37,
+        "prompt_tokens": 1483,
+        "gen_tps": 121.4,
+        "fact_hits": 1,
+        "fact_total": 2,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "What is the maximum embedding dimension of the embedding model?",
+      "sources": [
+        "services/retrieval/server.py",
+        "docs/models/local-embedding.md",
+        "config/local-embedding.yaml",
+        "services/retrieval/embedder.py",
+        "services/retrieval/embedder.py"
+      ],
+      "no_rag": {
+        "answer": "I do not know.\n\nThe maximum embedding dimension depends entirely on the specific embedding model you are referring to (e.g., Word2Vec, GloVe, BERT, or a custom neural network). Different models and their implementations have different architectural constraints and hyperparameters.\n\nFor example:\n*   **Word2Vec**: The dimension is a hyperparameter set by the user (commonly 100, 300, or 512), but it is not fixed to a single maximum across all versions.\n*   **BERT**: The hidden dimension is fixed by the model architecture (e.g., 768 for BERT-base, 1024 for BERT-large), but this varies by model size.\n*   **Custom Models**: The dimension can be anything the developer chooses, limited only by memory and computational resources.\n\nIf you can specify which model you are asking about, I might be able to provide the specific value or range for that model.",
+        "seconds": 1.81,
+        "prompt_tokens": 53,
+        "gen_tps": 124.4,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "rag": {
+        "answer": "The maximum embedding dimension of the embedding model is **1024**.\n\nThis value is consistently specified across the provided sources:\n- In **SOURCE 1** (`services/retrieval/server.py`), the model alias is defined as `\"local-embedding\"`.\n- In **SOURCE 2** (`docs/models/local-embedding.md`), the model record states: \"**Role:** Text embedding for the Vector Retrieval Layer\" and \"**Phase:** 4\".\n- In **SOURCE 3** (`config/local-embedding.yaml`), under the `model` section, the `native_dimension` is explicitly set to **1024**. Additionally, under the `runtime` section, the `dimension` is set to **1024**, with a comment noting: \"Matryoshka output dimension. 1024 measured best for retrieval quality\".\n- In **SOURCE 4** (`services/retrieval/embedder.py`), the `EmbedderConfig` class defines `dimension: int = 1024`.\n\nThus, the maximum embedding dimension is **1024**.",
+        "seconds": 2.32,
+        "prompt_tokens": 1835,
+        "gen_tps": 124.8,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "How much did retrieval reduce the token count?",
+      "sources": [
+        "benchmarks/retrieval-results.md",
+        "services/retrieval/token_savings.py",
+        "docs/retrieval-architecture.md",
+        "benchmarks/local-fast/test_grading.py",
+        "benchmarks/embedding-results.md"
+      ],
+      "no_rag": {
+        "answer": "I do not know.\n\nThe amount by which retrieval reduces the token count depends entirely on the specific context, such as:\n*   **The dataset size:** How many documents or examples are being retrieved.\n*   **The retrieval method:** Whether it uses keyword search, semantic embedding, or a specific model.\n*   **The baseline:** The original token count without retrieval.\n*   **The specific application:** Different RAG (Retrieval-Augmented Generation) systems and use cases yield different results.\n\nWithout knowing the specific scenario or data you are referring to, I cannot provide a numerical answer.",
+        "seconds": 1.29,
+        "prompt_tokens": 4,
+        "gen_tps": 136.2,
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "rag": {
+        "answer": "Based on the provided sources, retrieval reduced the token count by **96.57%** on average.\n\nSpecifically, the baseline of pasting the whole corpus resulted in **54,699** tokens, while the top-5 retrieval stage reduced this to a mean of **1,874** tokens.\n\n**Source 1 (benchmarks/retrieval-results.md, lines 144-161):**\n> | Stage | Tokens | Reduction |\n> |---|---:|---:|\n> | baseline: whole corpus pasted in | **54,699** (22 files) | — |\n> | retrieved: top-5 packed | **1,874** mean | **96.57 %** |\n\n**Source 2 (services/retrieval/token_savings.py, lines 1-22):**\n> \"reports token counts at each stage plus the reduction.\"",
+        "seconds": 2.09,
+        "prompt_tokens": 1376,
+        "gen_tps": 128.6,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "What port does the embedding service listen on?",
+      "sources": [
+        "services/retrieval/token_savings.py",
+        "services/retrieval/rag_compare.py",
+        "services/retrieval/bench_throughput.py",
+        "scripts/start-local-embedding.ps1",
+        "services/retrieval/server.py"
+      ],
+      "no_rag": {
+        "answer": "I do not know which specific embedding service you are referring to, as there are many different models and services available (such as those provided by OpenAI, Hugging Face, Sentence Transformers, or various cloud providers).\n\nThe port number depends entirely on:\n1.  **The specific model** you are using.\n2.  **The framework** you are using to run it (e.g., `sentence-transformers`, `transformers`, `torch`, `onnxruntime`).\n3.  **The configuration** you have set in your code or environment variables.\n\nFor example:\n*   If you are running a `sentence-transformers` model locally using the default `SentenceTransformer` class, it typically listens on **port 9000** (or sometimes 8000 depending on the version and flags).\n*   If you are using the OpenAI API, you do not run a local port; you make HTTP requests to their servers.\n*   If you are using `transformers` with `AutoModelForSequenceClassification` or similar, you usually run it directly in Python without a dedicated listening port unless you wrap it in a server like `FastAPI` or `Flask`.\n\nIf you can provide the name of the service or a snippet of the code you are using, I can give you a more specific answer.",
+        "seconds": 2.25,
+        "prompt_tokens": 51,
+        "gen_tps": 134.6,
+        "fact_hits": 0,
+        "fact_total": 1,
+        "all_facts": false,
+        "hallucination_flags": 0,
+        "refused": true
+      },
+      "rag": {
+        "answer": "The embedding service listens on port **8113**.\n\nThis is confirmed by the following sources:\n- **SOURCE 1** (`services/retrieval/token_savings.py`, line 38): `EMBED_URL = \"http://127.0.0.1:8113\"`\n- **SOURCE 2** (`services/retrieval/rag_compare.py`, line 36): `EMBED_URL = \"http://127.0.0.1:8113\"`\n- **SOURCE 3** (`services/retrieval/bench_throughput.py`, line 33): `EMBED_URL = \"http://127.0.0.1:8113\"`\n- **SOURCE 4** (`scripts/start-local-embedding.ps1`, lines 1-111): The script starts the service on port 8113 by default (`$Port = if ($Port) { $Port } else { [int](Cfg 'runtime.port' 8113) }`) and binds to `127.0.0.1`.\n- **SOURCE 5** (`services/retrieval/server.py`, lines 1-22): The docstring states: \"server.py - local-embedding HTTP service on 127.0.0.1:8113.\"",
+        "seconds": 2.98,
+        "prompt_tokens": 2300,
+        "gen_tps": 121.2,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "What is the recommended batch size for embedding, and why?",
+      "sources": [
+        "docs/retrieval-architecture.md",
+        "config/local-embedding.yaml",
+        "services/retrieval/embedder.py",
+        "benchmarks/embedding-results.md",
+        "services/retrieval/bench_throughput.py"
+      ],
+      "no_rag": {
+        "answer": "There is no single \"recommended\" batch size for embedding that applies universally, as the optimal value depends heavily on the specific model architecture, the hardware available (GPU/CPU), the dataset size, and the training objective. However, there are general guidelines and reasons behind these choices.\n\n### General Guidelines\n\n*   **For Large Language Models (LLMs) and Transformers:**\n    *   **Training:** Common batch sizes range from **16 to 256**, with **32** being a very popular default for many fine-tuning tasks.\n    *   **Inference (Generation):** Batch sizes are often smaller (e.g., **1 to 4**) to manage memory constraints, though modern GPUs can handle much larger batches (up to hundreds) if the context window is small.\n    *   **Embedding Models (e.g., Sentence Transformers):** Since these models often process entire sequences at once to generate a single vector, the batch size is limited primarily by the **context window size** and **GPU memory**. A common starting point is **32 to 128** items per batch.\n\n*   **For Standard Neural Networks (e.g., MLPs, CNNs):**\n    *   Batch sizes typically range from **32 to 512**, with **64** or **128** being frequent defaults.\n\n### Why Batch Size Matters\n\nThe choice of batch size is driven by a trade-off between **memory efficiency**, **training stability**, and **convergence speed**.\n\n1.  **Memory Constraints (The Hard Limit):**\n    *   The batch size is directly proportional to the memory required during the forward and backward passes.\n    *   Formula: $Memory \\propto Batch Size \\times Model Parameters \\times Context Length$.\n    *   If the batch size is too large, the GPU will run out of VRAM, causing the training to crash. This is the most immediate",
+        "seconds": 3.26,
+        "prompt_tokens": 54,
+        "gen_tps": 129.1,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 2,
+        "refused": false
+      },
+      "rag": {
+        "answer": "The recommended batch size for embedding is **32**.\n\n**Reasoning:**\nAccording to `config/local-embedding.yaml` (lines 30-32), a batch size of 32 is the default because it represents the \"throughput knee.\" The source notes that increasing the batch size to 64 adds only approximately **8%** more throughput while incurring about **85%** more wall latency.\n\nSpecifically, the document states:\n> \"Batch 32 is the throughput knee: 178.6 chunks/s. Batch 64 adds only ~8% more throughput for ~85% more wall latency, so 32 is the default.\"\n\nThis is further supported by `config/local-embedding.yaml` (lines 89-90), which records the measured throughput for batch 32 as **178.6 chunks/s**, compared to **192.9 chunks/s** for batch 64.",
+        "seconds": 2.51,
+        "prompt_tokens": 3557,
+        "gen_tps": 122.6,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    },
+    {
+      "q": "Which chunking strategy performed better, fixed or structure aware?",
+      "sources": [
+        "benchmarks/retrieval-results.md",
+        "services/retrieval/chunker.py",
+        "docs/retrieval-architecture.md",
+        "benchmarks/retrieval-results.md",
+        "benchmarks/retrieval-results.md"
+      ],
+      "no_rag": {
+        "answer": "Research in cognitive psychology and artificial intelligence generally indicates that **structure-aware chunking** outperforms fixed chunking strategies, particularly in complex tasks involving language, reasoning, and problem-solving.\n\nHere is a breakdown of why structure-aware approaches tend to be superior:\n\n*   **Adaptability to Context**: Fixed chunking relies on rigid rules (e.g., always taking the next $N$ tokens or items as a unit). This often fails when the semantic boundaries of a problem do not align with those fixed boundaries. Structure-aware chunking, by contrast, analyzes the internal relationships and dependencies within the data to determine the most logical grouping.\n*   **Efficiency in Representation**: In fields like natural language processing (NLP) and knowledge representation, structure-aware methods (such as those using dependency parsing or graph-based clustering) can identify meaningful sub-problems that fixed methods might miss. This leads to more efficient memory usage and faster retrieval of relevant information.\n*   **Performance in Complex Reasoning**: Studies on human cognition and machine learning models suggest that humans and advanced AI systems perform better when they can group information based on its functional role in a task rather than its arbitrary position. Structure-aware strategies mimic this by creating \"chunks\" that preserve the logical flow of the data.\n\n**Conclusion:**\n**Structure-aware chunking** generally performs better than fixed chunking because it adapts to the specific semantic and logical structure of the data, leading to more accurate representations and improved performance in complex reasoning and language tasks.",
+        "seconds": 2.58,
+        "prompt_tokens": 54,
+        "gen_tps": 127.2,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      },
+      "rag": {
+        "answer": "Based on the provided sources, the **structured** (structure-aware) chunking strategy performed better than the **fixed** strategy.\n\nSpecifically, at 1024 dimensions:\n*   **Structured** achieved an **R@3** score of **71.8**.\n*   **Fixed** achieved an **R@3** score of **64.1**.\n\nThis is confirmed in multiple sources:\n*   **SOURCE 1** (lines 128-143): \"Structured chunking produces *more* chunks... and retrieves better.\" The table shows R@3 (1024 dim) as **71.8** for structured vs **64.1** for fixed.\n*   **SOURCE 3** (lines 47-69): States \"Measured outcome: structured retrieves better (R@3 71.8 vs 64.1 at 1024 dim)\".\n*   **SOURCE 4** (lines 36-48): Explicitly states \"**Structured (AST/heading) chunking beats fixed at 1024**: R@3 71.8 vs 64.1\".\n*   **SOURCE 5** (lines 16-35): The table shows that for **1024** dimensions with instructions ON, **structured** has **R@3 = 71.8**, while **fixed** has **R@3 = 64.1**.\n\n**Answer:** Structured (structure-aware)",
+        "seconds": 3.09,
+        "prompt_tokens": 2029,
+        "gen_tps": 126.1,
+        "fact_hits": 1,
+        "fact_total": 1,
+        "all_facts": true,
+        "hallucination_flags": 0,
+        "refused": false
+      }
+    }
+  ],
+  "accuracy_no_rag_pct": 25.0,
+  "accuracy_rag_pct": 91.7,
+  "fact_recall_no_rag_pct": 20.0,
+  "fact_recall_rag_pct": 93.3
+}

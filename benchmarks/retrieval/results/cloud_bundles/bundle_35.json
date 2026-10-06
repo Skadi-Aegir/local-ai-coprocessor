@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: docs/local-fast-api.md\nlines: 1-9\nscore: 0.5085\nchunk_id: 37e6acc88550be7f88b3\nsymbol: local-fast — upstream integration guide\ncontent:\n# local-fast — upstream integration guide\n\n**Audience:** Codex/Astra, Claude Code, DeepSeek Harness (and later the MacBook Supervisor).\n**Subject:** how to call the Local Fast Worker.\n**Status:** Phase 2. Service verified to start, serve the alias and answer requests; the measured\nquality/throughput numbers land in `../../benchmarks/local-fast-results.md`.\n\n---\n\n\nSOURCE 2\npath: docs/models/local-fast.md\nlines: 1-12\nscore: 0.5051\nchunk_id: 76c8e81593a2b3d64130\nsymbol: local-fast — Model Record (Phase 2)\ncontent:\n# local-fast — Model Record (Phase 2)\n\n**Logical alias:** `local-fast`\n**Role:** Local Fast Worker — high-frequency, low-cost, verifiable tasks\n**Phase:** 2\n**Recorded:** 2026-09-29\n\n> Upper layers must only ever reference the alias **`local-fast`**. GGUF filenames,\n> repository names and quantisation names must never appear in agent code or prompts.\n\n---\n\n\nSOURCE 3\npath: services/retrieval/benchmark_data.py\nlines: 133-154\nscore: 0.4431\nchunk_id: ff49bb43013305b9a47f\ncontent:\nMIXED_QUERIES: list[dict] = [\n    dict(q=\"Where is the fast worker's port configured, and where is it actually bound?\",\n         file=\"config/local-fast.yaml\", type=\"mixed_config\"),\n    dict(q=\"Which document and which script both mention the VRAM safety margin?\",\n         file=\"docs/local-fast-api.md\", type=\"mixed_doc\"),\n    dict(q=\"How is the JSON adherence of the fast worker measured?\",\n         file=\"benchmarks/local-fast-results.md\", type=\"mixed_report\"),\n    dict(q=\"Where would I look to confirm the embedding model is loaded on the GPU rather than the CPU?\",\n         file=\"scripts/check-local-fast.ps1\", type=\"mixed_code\"),\n    dict(q=\"What evidence shows the model really ran on the GPU and not on the CPU?\",\n         file=\"benchmarks/llama-cpp-baseline.md\", type=\"mixed_report\"),\n    dict(q=\"Which file would a new agent read first to learn how to call the fast worker?\",\n         file=\"docs/local-fast-api.md\", type=\"mixed_doc\"),\n    dict(q=\"Where is thinking mode switched off, in configuration and in code?\",\n         file=\"config/local-fast.yaml\", type=\"mixed_config\"),\n    dict(q=\"Where are the retrieval service's own tests kept?\",\n         file=\"scripts/test_lifecycle_gates.ps1\", type=\"mixed_code\"),\n    dict(q=\"Which document lists what the fast worker must never be asked to do?\",\n         file=\"docs/models/local-fast.md\", type=\"mixed_doc\"),\n    dict(q=\"How long does it take to switch between the two local models?\",\n         file=\"benchmarks/local-smart-results.md\", type=\"mixed_report\"),\n]\n\nSOURCE 4\npath: benchmarks/local-fast/tasks.py\nlines: 324-329\nscore: 0.4237\nchunk_id: 73539f1cc34da90a748d\ncontent:\nHANDOFF_SYSTEM = (\n    \"You compress long engineering context into a structured handoff another agent can \"\n    \"resume from. Reply with exactly these sections, each as a markdown heading, in order:\\n\"\n    + \"\\n\".join(f\"## {s}\" for s in HANDOFF_SECTIONS)\n    + \"\\nBe concrete: include file paths, decision reasons and blockers. Do not invent facts.\"\n)\n\nSOURCE 5\npath: docs/models/local-smart.md\nlines: 1-12\nscore: 0.4190\nchunk_id: da5c32af22a8b0a46af6\nsymbol: local-smart — Model Record (Phase 3)\ncontent:\n# local-smart — Model Record (Phase 3)\n\n**Logical alias:** `local-smart`\n**Role:** Local Smart Worker — tasks needing real analysis rather than mechanical speed\n**Phase:** 3\n**Recorded:** 2026-09-30\n\n> Upper layers must only ever reference the alias **`local-smart`**. GGUF filenames,\n> repository names and quantisation names must never appear in agent code or prompts.\n\n---\n\n\nTASK: Which file would a new agent read first to learn how to call the fast worker?"
+    }
+  ],
+  "meta": {
+    "question": "Which file would a new agent read first to learn how to call the fast worker?",
+    "query_type": "mixed_doc",
+    "sources": 5,
+    "source_paths": [
+      "docs/local-fast-api.md",
+      "docs/models/local-fast.md",
+      "services/retrieval/benchmark_data.py",
+      "benchmarks/local-fast/tasks.py",
+      "docs/models/local-smart.md"
+    ],
+    "top_score": 0.508535,
+    "context_tokens": 1053,
+    "prompt_tokens": 1124,
+    "within_budget": true
+  }
+}

@@ -1,0 +1,675 @@
+{
+  "set_id": "p57c0_devset_v1",
+  "manifest_sha256": "aa44a4f870dc10bc831224e500931dbe8544426bcdd0617f32bf1690325e1c51",
+  "index_version": "3cd2dcda4eeb5555",
+  "ks": [
+    5,
+    8,
+    10
+  ],
+  "probes": {
+    "v01": {
+      "question": "Which components does a question pass through before reaching local-fast, and which ports do they use?",
+      "by_k": {
+        "5": {
+          "prompt_tokens": 2279,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "pack_chars": 7157,
+          "facts": {
+            "fast_port": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 11
+            },
+            "embed_port": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 15
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "refused",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [],
+          "search_s": 3.366,
+          "total_s": 4.226,
+          "vram_free_before": 5198,
+          "vram_free_after": 5210,
+          "n_retrieved": 5
+        },
+        "8": {
+          "prompt_tokens": 2981,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "pack_chars": 9447,
+          "facts": {
+            "fast_port": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 11
+            },
+            "embed_port": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 15
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified"
+          ],
+          "search_s": 0.068,
+          "total_s": 2.973,
+          "vram_free_before": 5210,
+          "vram_free_after": 5207,
+          "n_retrieved": 8
+        },
+        "10": {
+          "prompt_tokens": 5767,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "pack_chars": 18336,
+          "facts": {
+            "fast_port": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 11
+            },
+            "embed_port": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 15
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.045,
+          "total_s": 3.435,
+          "vram_free_before": 5207,
+          "vram_free_after": 5190,
+          "n_retrieved": 10
+        }
+      }
+    },
+    "v02": {
+      "question": "How do the embedding service memory figures and the scheduler margin relate to each other?",
+      "by_k": {
+        "5": {
+          "prompt_tokens": 2329,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "pack_chars": 7708,
+          "facts": {
+            "torch_reserved_meaning": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 13
+            },
+            "margin_policy": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 29
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.045,
+          "total_s": 4.81,
+          "vram_free_before": 5190,
+          "vram_free_after": 5155,
+          "n_retrieved": 5
+        },
+        "8": {
+          "prompt_tokens": 4284,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "pack_chars": 14064,
+          "facts": {
+            "torch_reserved_meaning": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 13
+            },
+            "margin_policy": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 29
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.059,
+          "total_s": 4.666,
+          "vram_free_before": 5154,
+          "vram_free_after": 5162,
+          "n_retrieved": 8
+        },
+        "10": {
+          "prompt_tokens": 4756,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "pack_chars": 15712,
+          "facts": {
+            "torch_reserved_meaning": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 13
+            },
+            "margin_policy": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 29
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.068,
+          "total_s": 4.019,
+          "vram_free_before": 5162,
+          "vram_free_after": 5194,
+          "n_retrieved": 10
+        }
+      }
+    },
+    "v03": {
+      "question": "What are the two unload figures on the staged RAG path, and what latency does a full cycle take?",
+      "by_k": {
+        "5": {
+          "prompt_tokens": 1592,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "pack_chars": 5043,
+          "facts": {
+            "unload_figures": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 3
+            },
+            "cycle_latency": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 5
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.046,
+          "total_s": 2.595,
+          "vram_free_before": 5194,
+          "vram_free_after": 5192,
+          "n_retrieved": 5
+        },
+        "8": {
+          "prompt_tokens": 2173,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "pack_chars": 7166,
+          "facts": {
+            "unload_figures": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 3
+            },
+            "cycle_latency": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 5
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.044,
+          "total_s": 2.232,
+          "vram_free_before": 5192,
+          "vram_free_after": 5195,
+          "n_retrieved": 8
+        },
+        "10": {
+          "prompt_tokens": 2640,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "pack_chars": 8759,
+          "facts": {
+            "unload_figures": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 3
+            },
+            "cycle_latency": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 5
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified"
+          ],
+          "search_s": 0.044,
+          "total_s": 1.596,
+          "vram_free_before": 5195,
+          "vram_free_after": 5203,
+          "n_retrieved": 10
+        }
+      }
+    },
+    "v04": {
+      "question": "What per-chunk character cap does the pack apply, and why was it raised?",
+      "by_k": {
+        "5": {
+          "prompt_tokens": 1264,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "pack_chars": 4399,
+          "facts": {
+            "char_cap": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 2
+            },
+            "why_raised": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 1
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "refused",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [],
+          "search_s": 0.045,
+          "total_s": 0.799,
+          "vram_free_before": 5203,
+          "vram_free_after": 5192,
+          "n_retrieved": 5
+        },
+        "8": {
+          "prompt_tokens": 2179,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "pack_chars": 7708,
+          "facts": {
+            "char_cap": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 2
+            },
+            "why_raised": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 1
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "refused",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [],
+          "search_s": 0.067,
+          "total_s": 0.683,
+          "vram_free_before": 5192,
+          "vram_free_after": 5192,
+          "n_retrieved": 8
+        },
+        "10": {
+          "prompt_tokens": 2800,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "pack_chars": 9925,
+          "facts": {
+            "char_cap": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 2
+            },
+            "why_raised": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 1
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified"
+          ],
+          "search_s": 0.068,
+          "total_s": 1.396,
+          "vram_free_before": 5192,
+          "vram_free_after": 5196,
+          "n_retrieved": 10
+        }
+      }
+    },
+    "v05": {
+      "question": "Which ports are reserved for the reranker and the OCR service?",
+      "by_k": {
+        "5": {
+          "prompt_tokens": 2945,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "pack_chars": 9769,
+          "facts": {
+            "reranker_port": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 14
+            },
+            "ocr_port": {
+              "in_pack": false,
+              "retrieved": false,
+              "n_carriers": 9
+            }
+          },
+          "all_facts_in_pack": false,
+          "outcome": "refused",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [],
+          "search_s": 0.061,
+          "total_s": 1.172,
+          "vram_free_before": 5196,
+          "vram_free_after": 5196,
+          "n_retrieved": 5
+        },
+        "8": {
+          "prompt_tokens": 4660,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "pack_chars": 15932,
+          "facts": {
+            "reranker_port": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 14
+            },
+            "ocr_port": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 9
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.044,
+          "total_s": 1.089,
+          "vram_free_before": 5196,
+          "vram_free_after": 5194,
+          "n_retrieved": 8
+        },
+        "10": {
+          "prompt_tokens": 6565,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "pack_chars": 21795,
+          "facts": {
+            "reranker_port": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 14
+            },
+            "ocr_port": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 9
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.045,
+          "total_s": 1.221,
+          "vram_free_before": 5194,
+          "vram_free_after": 5194,
+          "n_retrieved": 10
+        }
+      }
+    },
+    "v06": {
+      "question": "How does the reranker turn the model's output into a relevance score?",
+      "by_k": {
+        "5": {
+          "prompt_tokens": 2190,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "pack_chars": 7532,
+          "facts": {
+            "score_method": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 13
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.045,
+          "total_s": 3.374,
+          "vram_free_before": 5194,
+          "vram_free_after": 5205,
+          "n_retrieved": 5
+        },
+        "8": {
+          "prompt_tokens": 2960,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "pack_chars": 10248,
+          "facts": {
+            "score_method": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 13
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.046,
+          "total_s": 3.291,
+          "vram_free_before": 5194,
+          "vram_free_after": 5196,
+          "n_retrieved": 8
+        },
+        "10": {
+          "prompt_tokens": 3452,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "pack_chars": 12061,
+          "facts": {
+            "score_method": {
+              "in_pack": true,
+              "retrieved": true,
+              "n_carriers": 13
+            }
+          },
+          "all_facts_in_pack": true,
+          "outcome": "answered",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "citation_verification": [
+            "verified",
+            "verified"
+          ],
+          "search_s": 0.045,
+          "total_s": 2.12,
+          "vram_free_before": 5196,
+          "vram_free_after": 5192,
+          "n_retrieved": 10
+        }
+      }
+    }
+  },
+  "summary": {
+    "5": {
+      "complete": [
+        "v03",
+        "v06"
+      ],
+      "incomplete": [
+        "v01",
+        "v02",
+        "v04",
+        "v05"
+      ],
+      "prompt_tokens_max": 2945,
+      "any_omitted": false
+    },
+    "8": {
+      "complete": [
+        "v03",
+        "v05",
+        "v06"
+      ],
+      "incomplete": [
+        "v01",
+        "v02",
+        "v04"
+      ],
+      "prompt_tokens_max": 4660,
+      "any_omitted": false
+    },
+    "10": {
+      "complete": [
+        "v03",
+        "v04",
+        "v05",
+        "v06"
+      ],
+      "incomplete": [
+        "v01",
+        "v02"
+      ],
+      "prompt_tokens_max": 6565,
+      "any_omitted": false
+    }
+  },
+  "squeeze_check": {
+    "complete_at_k5": [
+      "v03",
+      "v06"
+    ],
+    "complete_at_k8": [
+      "v03",
+      "v05",
+      "v06"
+    ],
+    "regressed_by_raising_k": [],
+    "verdict": "NO REGRESSION - raising k displaced no evidence"
+  },
+  "vram": {
+    "min_free_mb": 5154,
+    "margin_mb": 2048,
+    "margin_held": true
+  }
+}

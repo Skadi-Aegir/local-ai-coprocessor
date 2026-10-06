@@ -1,0 +1,81 @@
+{
+  "base_url": "http://127.0.0.1:8112",
+  "tasks": {
+    "hard": {
+      "nothink": {
+        "thinking": false,
+        "ok": true,
+        "error": "",
+        "wall_s": 10.48,
+        "gen_tps": 71.91,
+        "completion_tokens": 742,
+        "ttft_s": 0.178,
+        "leak": null,
+        "reasoning_chars": 2666,
+        "score": {
+          "explains_1based": true,
+          "mentions_offbyone": true,
+          "gives_fix": true,
+          "names_other_function": true
+        },
+        "score_total": 4
+      },
+      "think": {
+        "thinking": true,
+        "ok": true,
+        "error": "",
+        "wall_s": 16.36,
+        "gen_tps": 73.64,
+        "completion_tokens": 1200,
+        "ttft_s": null,
+        "leak": null,
+        "reasoning_chars": 0,
+        "score": {
+          "explains_1based": false,
+          "mentions_offbyone": false,
+          "gives_fix": false,
+          "names_other_function": false
+        },
+        "score_total": 0
+      }
+    },
+    "easy": {
+      "nothink": {
+        "thinking": false,
+        "ok": true,
+        "error": "",
+        "wall_s": 0.57,
+        "gen_tps": 73.96,
+        "completion_tokens": 36,
+        "ttft_s": 0.094,
+        "leak": null,
+        "reasoning_chars": 71,
+        "json_ok": true,
+        "schema_ok": true
+      },
+      "think": {
+        "thinking": true,
+        "ok": true,
+        "error": "",
+        "wall_s": 9.79,
+        "gen_tps": 72.92,
+        "completion_tokens": 710,
+        "ttft_s": 9.314,
+        "leak": null,
+        "reasoning_chars": 71,
+        "json_ok": true,
+        "schema_ok": true
+      }
+    }
+  },
+  "summary": {
+    "hard_latency_ratio": 1.56,
+    "hard_token_ratio": 1.62,
+    "hard_score_gain": -4,
+    "easy_latency_ratio": 17.18,
+    "easy_token_ratio": 19.72,
+    "easy_schema_nothink": true,
+    "easy_schema_think": true,
+    "any_leak": false
+  }
+}

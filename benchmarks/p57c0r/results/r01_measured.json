@@ -1,0 +1,4043 @@
+{
+  "set_id": "p57c0_devset_v1",
+  "manifest_sha256": "aa44a4f870dc10bc831224e500931dbe8544426bcdd0617f32bf1690325e1c51",
+  "set_sha256": "3edeeabff2ca1a034d09b6cb2827f60d90212ea7baf50cb080f0f48f99c2bebf",
+  "index_version": "3cd2dcda4eeb5555",
+  "ks": [
+    5,
+    8,
+    10
+  ],
+  "corrections_applied": {
+    "full_carrier_sets": true,
+    "one_request_per_measurement": true,
+    "full_answer_and_pack_stored": true,
+    "markers_tested_against_pack_and_answer_text": true
+  },
+  "probes": {
+    "v01": {
+      "question": "Which components does a question pass through before reaching local-fast, and which ports do they use?",
+      "required_facts": [
+        "fast_port",
+        "embed_port"
+      ],
+      "by_k": {
+        "5": {
+          "prompt_tokens": 2279,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 1,
+              "end_line": 9,
+              "chunk_id": "37e6acc88550be7f88b3",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/models/local-fast.md",
+              "start_line": 1,
+              "end_line": 12,
+              "chunk_id": "76c8e81593a2b3d64130",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 10,
+              "end_line": 25,
+              "chunk_id": "44bf367c93fec8c77592",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 26,
+              "end_line": 45,
+              "chunk_id": "3933fb0e9cf320e13caa",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "config/local-fast.yaml",
+              "start_line": 1,
+              "end_line": 119,
+              "chunk_id": "8b981462f118e4915edf",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "fast_port": {
+              "in_pack": true,
+              "in_answer": false,
+              "pack_markers_matched": [
+                "8111"
+              ],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 11,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-fast.yaml",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "8b981462f118e4915edf"
+                },
+                {
+                  "source_path": "docs/local-fast-api.md",
+                  "start_line": 26,
+                  "end_line": 39,
+                  "chunk_id": "dd2aad327a1e06b546be"
+                },
+                {
+                  "source_path": "docs/local-fast-api.md",
+                  "start_line": 75,
+                  "end_line": 112,
+                  "chunk_id": "d9a90e2cd5cd24d1cacf"
+                },
+                {
+                  "source_path": "docs/models/local-fast.md",
+                  "start_line": 132,
+                  "end_line": 148,
+                  "chunk_id": "026840eff6be8eabee88"
+                },
+                {
+                  "source_path": "scripts/check-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 112,
+                  "chunk_id": "daa749598f240b614547"
+                },
+                {
+                  "source_path": "scripts/coresidency.ps1",
+                  "start_line": 96,
+                  "end_line": 184,
+                  "chunk_id": "be0cff052e8834f7e766"
+                },
+                {
+                  "source_path": "scripts/coresidency.ps1",
+                  "start_line": 186,
+                  "end_line": 221,
+                  "chunk_id": "22addd47c0f1d7eac4f8"
+                },
+                {
+                  "source_path": "scripts/start-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 109,
+                  "chunk_id": "0b14e73be6663f1c9ab9"
+                },
+                {
+                  "source_path": "scripts/stop-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 106,
+                  "chunk_id": "cde2a59bdce1c983ad58"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                }
+              ]
+            },
+            "embed_port": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 15,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-embedding.yaml",
+                  "start_line": 1,
+                  "end_line": 94,
+                  "chunk_id": "b3928e6f759f05955051"
+                },
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 128,
+                  "end_line": 138,
+                  "chunk_id": "cad33164c27da571306f"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 9,
+                  "end_line": 35,
+                  "chunk_id": "68a817ee6b9d71bcd8ab"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 36,
+                  "end_line": 51,
+                  "chunk_id": "485baf2ff408b738b6ad"
+                },
+                {
+                  "source_path": "docs/retrieval-architecture.md",
+                  "start_line": 191,
+                  "end_line": 205,
+                  "chunk_id": "48e042118b4fd38e929f"
+                },
+                {
+                  "source_path": "scripts/check-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 101,
+                  "chunk_id": "5d9c76f1966a1e39eeeb"
+                },
+                {
+                  "source_path": "scripts/start-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 111,
+                  "chunk_id": "27222d2feec84bdc625f"
+                },
+                {
+                  "source_path": "scripts/stop-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 95,
+                  "chunk_id": "ced52eaafaa1f7ecdeb7"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                },
+                {
+                  "source_path": "services/retrieval/cloud_context_prep.py",
+                  "start_line": 37,
+                  "end_line": 37,
+                  "chunk_id": "eb947e8e3401374cee19"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 1,
+          "facts_in_answer": 0,
+          "facts_undetermined": 0,
+          "outcome": "refused",
+          "verdict_marker_based": "incorrect_refusal",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "I could not find enough evidence in the local corpus to answer this.",
+          "citations": [],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 3.808,
+          "vram_free_before": 5105,
+          "vram_free_after": 5187
+        },
+        "8": {
+          "prompt_tokens": 2981,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 1,
+              "end_line": 9,
+              "chunk_id": "37e6acc88550be7f88b3",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/models/local-fast.md",
+              "start_line": 1,
+              "end_line": 12,
+              "chunk_id": "76c8e81593a2b3d64130",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 10,
+              "end_line": 25,
+              "chunk_id": "44bf367c93fec8c77592",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 26,
+              "end_line": 45,
+              "chunk_id": "3933fb0e9cf320e13caa",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "config/local-fast.yaml",
+              "start_line": 1,
+              "end_line": 119,
+              "chunk_id": "8b981462f118e4915edf",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 113,
+              "end_line": 124,
+              "chunk_id": "db1b606bfb51046f3606",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 144,
+              "end_line": 161,
+              "chunk_id": "2f7ee755d2e323af14c7",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "docs/models/local-fast.md",
+              "start_line": 132,
+              "end_line": 148,
+              "chunk_id": "026840eff6be8eabee88",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "fast_port": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "8111"
+              ],
+              "answer_markers_matched": [
+                "8111"
+              ],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 11,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-fast.yaml",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "8b981462f118e4915edf"
+                },
+                {
+                  "source_path": "docs/local-fast-api.md",
+                  "start_line": 26,
+                  "end_line": 39,
+                  "chunk_id": "dd2aad327a1e06b546be"
+                },
+                {
+                  "source_path": "docs/local-fast-api.md",
+                  "start_line": 75,
+                  "end_line": 112,
+                  "chunk_id": "d9a90e2cd5cd24d1cacf"
+                },
+                {
+                  "source_path": "docs/models/local-fast.md",
+                  "start_line": 132,
+                  "end_line": 148,
+                  "chunk_id": "026840eff6be8eabee88"
+                },
+                {
+                  "source_path": "scripts/check-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 112,
+                  "chunk_id": "daa749598f240b614547"
+                },
+                {
+                  "source_path": "scripts/coresidency.ps1",
+                  "start_line": 96,
+                  "end_line": 184,
+                  "chunk_id": "be0cff052e8834f7e766"
+                },
+                {
+                  "source_path": "scripts/coresidency.ps1",
+                  "start_line": 186,
+                  "end_line": 221,
+                  "chunk_id": "22addd47c0f1d7eac4f8"
+                },
+                {
+                  "source_path": "scripts/start-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 109,
+                  "chunk_id": "0b14e73be6663f1c9ab9"
+                },
+                {
+                  "source_path": "scripts/stop-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 106,
+                  "chunk_id": "cde2a59bdce1c983ad58"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                }
+              ]
+            },
+            "embed_port": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 15,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-embedding.yaml",
+                  "start_line": 1,
+                  "end_line": 94,
+                  "chunk_id": "b3928e6f759f05955051"
+                },
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 128,
+                  "end_line": 138,
+                  "chunk_id": "cad33164c27da571306f"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 9,
+                  "end_line": 35,
+                  "chunk_id": "68a817ee6b9d71bcd8ab"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 36,
+                  "end_line": 51,
+                  "chunk_id": "485baf2ff408b738b6ad"
+                },
+                {
+                  "source_path": "docs/retrieval-architecture.md",
+                  "start_line": 191,
+                  "end_line": 205,
+                  "chunk_id": "48e042118b4fd38e929f"
+                },
+                {
+                  "source_path": "scripts/check-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 101,
+                  "chunk_id": "5d9c76f1966a1e39eeeb"
+                },
+                {
+                  "source_path": "scripts/start-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 111,
+                  "chunk_id": "27222d2feec84bdc625f"
+                },
+                {
+                  "source_path": "scripts/stop-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 95,
+                  "chunk_id": "ced52eaafaa1f7ecdeb7"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                },
+                {
+                  "source_path": "services/retrieval/cloud_context_prep.py",
+                  "start_line": 37,
+                  "end_line": 37,
+                  "chunk_id": "eb947e8e3401374cee19"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 1,
+          "facts_in_answer": 1,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "partial",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "I could not find enough evidence in the local corpus to answer this.\n\n**Reasoning:**\n- The provided sources describe the `local-fast` worker itself (its configuration, model, performance metrics, and how to start/stop it) [SOURCE 1, 2, 5, 8].\n- Source 3 mentions an \"escalation policy\" that routes tasks to `local-fast` and other workers, but it does not describe the network architecture, the specific components (e.g., Gateway, Supervisor, Router) that handle the routing, or the ports they use to communicate with `local-fast`.\n- Source 5 specifies that `local-fast` listens on port `8111` [SOURCE 5], but it does not describe the upstream components that send requests to this port or the ports those components use.\n- Source 7 mentions that `local-fast` is \"not always resident\" and that \"connection refused\" should be treated as the model not being loaded, but it does not detail the routing path or the components involved in that path.\n- No source explicitly lists the components (e.g., \"Gateway\", \"Supervisor\", \"Router\") that a question passes through before reaching `local-fast` or the ports they utilize for communication.",
+          "citations": [
+            {
+              "source": 5,
+              "source_path": "config/local-fast.yaml",
+              "start_line": 1,
+              "end_line": 119,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 2.834,
+          "vram_free_before": 5187,
+          "vram_free_after": 5195
+        },
+        "10": {
+          "prompt_tokens": 5767,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 1,
+              "end_line": 9,
+              "chunk_id": "37e6acc88550be7f88b3",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/models/local-fast.md",
+              "start_line": 1,
+              "end_line": 12,
+              "chunk_id": "76c8e81593a2b3d64130",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 10,
+              "end_line": 25,
+              "chunk_id": "44bf367c93fec8c77592",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 26,
+              "end_line": 45,
+              "chunk_id": "3933fb0e9cf320e13caa",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "config/local-fast.yaml",
+              "start_line": 1,
+              "end_line": 119,
+              "chunk_id": "8b981462f118e4915edf",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 113,
+              "end_line": 124,
+              "chunk_id": "db1b606bfb51046f3606",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 144,
+              "end_line": 161,
+              "chunk_id": "2f7ee755d2e323af14c7",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "docs/models/local-fast.md",
+              "start_line": 132,
+              "end_line": 148,
+              "chunk_id": "026840eff6be8eabee88",
+              "truncated": false
+            },
+            {
+              "source": 9,
+              "source_path": "scripts/check-local-fast.ps1",
+              "start_line": 1,
+              "end_line": 112,
+              "chunk_id": "daa749598f240b614547",
+              "truncated": false
+            },
+            {
+              "source": 10,
+              "source_path": "scripts/start-local-fast.ps1",
+              "start_line": 1,
+              "end_line": 109,
+              "chunk_id": "0b14e73be6663f1c9ab9",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "fast_port": {
+              "in_pack": true,
+              "in_answer": false,
+              "pack_markers_matched": [
+                "8111"
+              ],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 11,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-fast.yaml",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "8b981462f118e4915edf"
+                },
+                {
+                  "source_path": "docs/local-fast-api.md",
+                  "start_line": 26,
+                  "end_line": 39,
+                  "chunk_id": "dd2aad327a1e06b546be"
+                },
+                {
+                  "source_path": "docs/local-fast-api.md",
+                  "start_line": 75,
+                  "end_line": 112,
+                  "chunk_id": "d9a90e2cd5cd24d1cacf"
+                },
+                {
+                  "source_path": "docs/models/local-fast.md",
+                  "start_line": 132,
+                  "end_line": 148,
+                  "chunk_id": "026840eff6be8eabee88"
+                },
+                {
+                  "source_path": "scripts/check-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 112,
+                  "chunk_id": "daa749598f240b614547"
+                },
+                {
+                  "source_path": "scripts/coresidency.ps1",
+                  "start_line": 96,
+                  "end_line": 184,
+                  "chunk_id": "be0cff052e8834f7e766"
+                },
+                {
+                  "source_path": "scripts/coresidency.ps1",
+                  "start_line": 186,
+                  "end_line": 221,
+                  "chunk_id": "22addd47c0f1d7eac4f8"
+                },
+                {
+                  "source_path": "scripts/start-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 109,
+                  "chunk_id": "0b14e73be6663f1c9ab9"
+                },
+                {
+                  "source_path": "scripts/stop-local-fast.ps1",
+                  "start_line": 1,
+                  "end_line": 106,
+                  "chunk_id": "cde2a59bdce1c983ad58"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                }
+              ]
+            },
+            "embed_port": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 15,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-embedding.yaml",
+                  "start_line": 1,
+                  "end_line": 94,
+                  "chunk_id": "b3928e6f759f05955051"
+                },
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 128,
+                  "end_line": 138,
+                  "chunk_id": "cad33164c27da571306f"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 9,
+                  "end_line": 35,
+                  "chunk_id": "68a817ee6b9d71bcd8ab"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 36,
+                  "end_line": 51,
+                  "chunk_id": "485baf2ff408b738b6ad"
+                },
+                {
+                  "source_path": "docs/retrieval-architecture.md",
+                  "start_line": 191,
+                  "end_line": 205,
+                  "chunk_id": "48e042118b4fd38e929f"
+                },
+                {
+                  "source_path": "scripts/check-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 101,
+                  "chunk_id": "5d9c76f1966a1e39eeeb"
+                },
+                {
+                  "source_path": "scripts/start-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 111,
+                  "chunk_id": "27222d2feec84bdc625f"
+                },
+                {
+                  "source_path": "scripts/stop-local-embedding.ps1",
+                  "start_line": 1,
+                  "end_line": 95,
+                  "chunk_id": "ced52eaafaa1f7ecdeb7"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                },
+                {
+                  "source_path": "services/retrieval/cloud_context_prep.py",
+                  "start_line": 37,
+                  "end_line": 37,
+                  "chunk_id": "eb947e8e3401374cee19"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 1,
+          "facts_in_answer": 0,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "incorrect",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "I could not find enough evidence in the local corpus to answer this.\n\n**Reasoning:**\nThe provided sources describe the `local-fast` worker itself (its configuration, startup scripts, API endpoints, and routing rules) but do not contain information about the upstream components or the network path (other than the loopback address `127.0.0.1`) that a question passes through to reach it. Specifically:\n- SOURCE 1 mentions the \"upstream integration guide\" and \"MacBook Supervisor\" but does not detail the components or ports involved in the routing path.\n- SOURCE 3 mentions \"routed local specialists\" and \"Gateway/Supervisor\" in the context of lifecycle management, but does not describe the data flow or ports used to route a question to `local-fast`.\n- SOURCE 6 mentions a routing JSON format but does not list the components or ports in the path.\n- SOURCE 10 mentions the \"Gateway/Supervisor\" will own lifecycle later, but does not describe the components or ports in the current path.\n\nNo source explicitly lists the sequence of components a question passes through (e.g., \"Client -> Gateway -> Supervisor -> local-fast\") or the specific ports used by those intermediate components.",
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 1,
+              "end_line": 9,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 10,
+              "end_line": 25,
+              "verification": "verified"
+            },
+            {
+              "source": 6,
+              "source_path": "docs/local-fast-api.md",
+              "start_line": 113,
+              "end_line": 124,
+              "verification": "verified"
+            },
+            {
+              "source": 10,
+              "source_path": "scripts/start-local-fast.ps1",
+              "start_line": 1,
+              "end_line": 109,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 3.108,
+          "vram_free_before": 5195,
+          "vram_free_after": 5193
+        }
+      }
+    },
+    "v02": {
+      "question": "How do the embedding service memory figures and the scheduler margin relate to each other?",
+      "required_facts": [
+        "torch_reserved_meaning",
+        "margin_policy"
+      ],
+      "by_k": {
+        "5": {
+          "prompt_tokens": 2329,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 101,
+              "end_line": 116,
+              "chunk_id": "d2ed531097e580a8c7a7",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/retrieval-architecture.md",
+              "start_line": 206,
+              "end_line": 216,
+              "chunk_id": "4d5ddb839666508c39fc",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "chunk_id": "7e563ed8419d3b869c72",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 162,
+              "end_line": 177,
+              "chunk_id": "c332008ea04a0b63b3a3",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "chunk_id": "51c41562ad8dc741398f",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "torch_reserved_meaning": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 13,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 90,
+                  "end_line": 112,
+                  "chunk_id": "d4318e9908902794db33"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 144,
+                  "end_line": 170,
+                  "chunk_id": "1812da95a4ac13f3db34"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 270,
+                  "end_line": 304,
+                  "chunk_id": "874dbc11b89d04c9118d"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 369,
+                  "end_line": 482,
+                  "chunk_id": "16e767b4930b4da1b131"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 485,
+                  "end_line": 499,
+                  "chunk_id": "d9e4d3704ad79900cb72"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 502,
+                  "end_line": 598,
+                  "chunk_id": "2d0623b2abcb46d08e4f"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 600,
+                  "end_line": 694,
+                  "chunk_id": "f724c8dbcba3e022c4c2"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 706,
+                  "end_line": 740,
+                  "chunk_id": "6bc57964f0d6b297231c"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 804,
+                  "end_line": 832,
+                  "chunk_id": "fdaed209118687cdac75"
+                },
+                {
+                  "source_path": "services/retrieval/embedder.py",
+                  "start_line": 100,
+                  "end_line": 112,
+                  "chunk_id": "0f19dd6c8c31a371bfa3"
+                },
+                {
+                  "source_path": "services/retrieval/embedder.py",
+                  "start_line": 114,
+                  "end_line": 129,
+                  "chunk_id": "b84eb0bb16eb83f4a393"
+                },
+                {
+                  "source_path": "services/retrieval/server.py",
+                  "start_line": 47,
+                  "end_line": 114,
+                  "chunk_id": "2e4137b0b557cde6aa1b"
+                }
+              ]
+            },
+            "margin_policy": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "2048",
+                "2 GiB",
+                "margin"
+              ],
+              "answer_markers_matched": [
+                "2048",
+                "2 GiB",
+                "margin"
+              ],
+              "detect": "any_of>=2",
+              "undetermined": false,
+              "carrier_count": 29,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-fast.yaml",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "8b981462f118e4915edf"
+                },
+                {
+                  "source_path": "config/local-ocr.yaml",
+                  "start_line": 1,
+                  "end_line": 105,
+                  "chunk_id": "374bb17528575559cf84"
+                },
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "config/local-smart.yaml",
+                  "start_line": 1,
+                  "end_line": 104,
+                  "chunk_id": "d1ce1bba19053e35a17c"
+                },
+                {
+                  "source_path": "docs/environment-report.md",
+                  "start_line": 147,
+                  "end_line": 167,
+                  "chunk_id": "d1f7f05be0153c93fa33"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 113,
+                  "end_line": 127,
+                  "chunk_id": "a874107407c8cc1f53ee"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 158,
+                  "end_line": 177,
+                  "chunk_id": "05d784b580597f541813"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 90,
+                  "end_line": 98,
+                  "chunk_id": "1d87ed03589f1f7ea90e"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 11,
+                  "end_line": 19,
+                  "chunk_id": "97b2d9e3f3e977757f61"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 99,
+                  "end_line": 119,
+                  "chunk_id": "708af2ab026b8f8b2564"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 100,
+                  "end_line": 120,
+                  "chunk_id": "10b9d120259c2f86435e"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 1,
+          "facts_in_answer": 1,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "partial",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The embedding service memory figures and the scheduler margin relate to each other through a strict enforcement rule where a **2 GiB (2048 MiB) VRAM margin** must be maintained before admitting any new work, regardless of whether the total memory usage fits within the physical hardware limits.\n\nSpecifically:\n*   **Margin Requirement:** The scheduler enforces a safety margin of 2 GiB before every admission, measured via `nvidia-smi` rather than estimated tables [SOURCE 5].\n*   **Refusal Logic:** If a request would breach this margin, it is refused immediately rather than queued forever [SOURCE 5].\n*   **Interaction with Embedding Load:** In the measured co-residency data, the \"embedding + reranker\" configuration peaks at 6649 MiB with 5578 MiB free, which satisfies the ≥2 GB target [SOURCE 1]. However, the scheduler logic demonstrates that even if memory appears available, a request is refused if the remaining usable space (after accounting for the 2048 MiB margin) is insufficient to satisfy the request's needs [SOURCE 3].\n*   **Unloading Non-Essential Services:** When memory is short, the scheduler may propose unloading non-essential services (like the embedding service, which is marked as unloadable) to reclaim space, but it will not unload essential services like `local-fast` [SOURCE 3, SOURCE 5].\n*   **Explicit Refusal:** If unloading non-essential services is not enough to meet the margin, the scheduler explicitly refuses the request and reports the shortfall, rather than silently continuing or force-killing a running task [SOURCE 3, SOURCE 5].\n\nIn summary, the embedding service's memory consumption is evaluated against a fixed 2 GiB buffer; if the sum of resident services plus the new request exceeds the total free memory minus this 2 GiB buffer, the request is refused unless non-essential services (potentially including the embedding service) can be unloaded to free up the required margin.",
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 101,
+              "end_line": 116,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "verification": "verified"
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 3.925,
+          "vram_free_before": 5193,
+          "vram_free_after": 5193
+        },
+        "8": {
+          "prompt_tokens": 4284,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 101,
+              "end_line": 116,
+              "chunk_id": "d2ed531097e580a8c7a7",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/retrieval-architecture.md",
+              "start_line": 206,
+              "end_line": 216,
+              "chunk_id": "4d5ddb839666508c39fc",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "chunk_id": "7e563ed8419d3b869c72",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 162,
+              "end_line": 177,
+              "chunk_id": "c332008ea04a0b63b3a3",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "chunk_id": "51c41562ad8dc741398f",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 89,
+              "end_line": 100,
+              "chunk_id": "19ddbdc338fad2869abc",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "config/local-embedding.yaml",
+              "start_line": 1,
+              "end_line": 94,
+              "chunk_id": "b3928e6f759f05955051",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 84,
+              "end_line": 112,
+              "chunk_id": "cfd6a17c1b201abbf64c",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "torch_reserved_meaning": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "vram_mb",
+                "attribution"
+              ],
+              "answer_markers_matched": [
+                "vram_mb"
+              ],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 13,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 90,
+                  "end_line": 112,
+                  "chunk_id": "d4318e9908902794db33"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 144,
+                  "end_line": 170,
+                  "chunk_id": "1812da95a4ac13f3db34"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 270,
+                  "end_line": 304,
+                  "chunk_id": "874dbc11b89d04c9118d"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 369,
+                  "end_line": 482,
+                  "chunk_id": "16e767b4930b4da1b131"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 485,
+                  "end_line": 499,
+                  "chunk_id": "d9e4d3704ad79900cb72"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 502,
+                  "end_line": 598,
+                  "chunk_id": "2d0623b2abcb46d08e4f"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 600,
+                  "end_line": 694,
+                  "chunk_id": "f724c8dbcba3e022c4c2"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 706,
+                  "end_line": 740,
+                  "chunk_id": "6bc57964f0d6b297231c"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 804,
+                  "end_line": 832,
+                  "chunk_id": "fdaed209118687cdac75"
+                },
+                {
+                  "source_path": "services/retrieval/embedder.py",
+                  "start_line": 100,
+                  "end_line": 112,
+                  "chunk_id": "0f19dd6c8c31a371bfa3"
+                },
+                {
+                  "source_path": "services/retrieval/embedder.py",
+                  "start_line": 114,
+                  "end_line": 129,
+                  "chunk_id": "b84eb0bb16eb83f4a393"
+                },
+                {
+                  "source_path": "services/retrieval/server.py",
+                  "start_line": 47,
+                  "end_line": 114,
+                  "chunk_id": "2e4137b0b557cde6aa1b"
+                }
+              ]
+            },
+            "margin_policy": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "2048",
+                "2 GiB",
+                "margin"
+              ],
+              "answer_markers_matched": [
+                "2048",
+                "2 GiB",
+                "margin"
+              ],
+              "detect": "any_of>=2",
+              "undetermined": false,
+              "carrier_count": 29,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-fast.yaml",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "8b981462f118e4915edf"
+                },
+                {
+                  "source_path": "config/local-ocr.yaml",
+                  "start_line": 1,
+                  "end_line": 105,
+                  "chunk_id": "374bb17528575559cf84"
+                },
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "config/local-smart.yaml",
+                  "start_line": 1,
+                  "end_line": 104,
+                  "chunk_id": "d1ce1bba19053e35a17c"
+                },
+                {
+                  "source_path": "docs/environment-report.md",
+                  "start_line": 147,
+                  "end_line": 167,
+                  "chunk_id": "d1f7f05be0153c93fa33"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 113,
+                  "end_line": 127,
+                  "chunk_id": "a874107407c8cc1f53ee"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 158,
+                  "end_line": 177,
+                  "chunk_id": "05d784b580597f541813"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 90,
+                  "end_line": 98,
+                  "chunk_id": "1d87ed03589f1f7ea90e"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 11,
+                  "end_line": 19,
+                  "chunk_id": "97b2d9e3f3e977757f61"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 99,
+                  "end_line": 119,
+                  "chunk_id": "708af2ab026b8f8b2564"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 100,
+                  "end_line": 120,
+                  "chunk_id": "10b9d120259c2f86435e"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 2,
+          "facts_in_answer": 2,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The embedding service memory figures and the scheduler margin relate to each other through a strict enforcement rule where a **2 GiB (2048 MiB) VRAM margin** must be maintained before every service admission, measured via `nvidia-smi` rather than estimated tables [SOURCE 5].\n\nSpecifically:\n*   **Margin Requirement:** A request is refused if it would breach the 2 GiB margin; it is not queued forever [SOURCE 5].\n*   **Embedding Service Footprint:** The `local-embedding` service has a configured `expected_vram_mb` of 2400 MiB and a measured delta of 1246 MiB [SOURCE 7].\n*   **Co-residency Impact:** When the embedding service runs concurrently with other services, its memory usage significantly reduces the available margin:\n    *   With **embedding alone**, 3015 MiB is free at peak, meeting the ≥2 GB target [SOURCE 2].\n    *   With **4B + embedding**, free VRAM drops to 3015 MiB (meeting the target) [SOURCE 2].\n    *   With **9B + embedding**, free VRAM drops to 720 MiB, failing the ≥2 GB target, so the 9B model is not permitted to co-reside [SOURCE 2].\n*   **Scheduling Logic:** The scheduler enforces this margin even when memory appears available; if a request (e.g., `interactive` needing 2981 MiB + 900 MiB headroom) exceeds the usable margin after accounting for resident services, it is refused [SOURCE 3].\n*   **Verification:** The scheduler verifies that unloading non-essential services actually frees the port and increases live free memory readings before admitting new work, ensuring the margin is physically held [SOURCE 5].",
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "docs/retrieval-architecture.md",
+              "start_line": 206,
+              "end_line": 216,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "verification": "verified"
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "verification": "verified"
+            },
+            {
+              "source": 7,
+              "source_path": "config/local-embedding.yaml",
+              "start_line": 1,
+              "end_line": 94,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 4.052,
+          "vram_free_before": 5193,
+          "vram_free_after": 5192
+        },
+        "10": {
+          "prompt_tokens": 4756,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 101,
+              "end_line": 116,
+              "chunk_id": "d2ed531097e580a8c7a7",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/retrieval-architecture.md",
+              "start_line": 206,
+              "end_line": 216,
+              "chunk_id": "4d5ddb839666508c39fc",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "chunk_id": "7e563ed8419d3b869c72",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 162,
+              "end_line": 177,
+              "chunk_id": "c332008ea04a0b63b3a3",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "chunk_id": "51c41562ad8dc741398f",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 89,
+              "end_line": 100,
+              "chunk_id": "19ddbdc338fad2869abc",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "config/local-embedding.yaml",
+              "start_line": 1,
+              "end_line": 94,
+              "chunk_id": "b3928e6f759f05955051",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 84,
+              "end_line": 112,
+              "chunk_id": "cfd6a17c1b201abbf64c",
+              "truncated": false
+            },
+            {
+              "source": 9,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 178,
+              "end_line": 205,
+              "chunk_id": "1c70fe41f9aac04003c5",
+              "truncated": false
+            },
+            {
+              "source": 10,
+              "source_path": "services/retrieval/embedder.py",
+              "start_line": 72,
+              "end_line": 72,
+              "chunk_id": "d6b22bb165c234da2d00",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "torch_reserved_meaning": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "vram_mb",
+                "attribution"
+              ],
+              "answer_markers_matched": [
+                "vram_mb"
+              ],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 13,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 90,
+                  "end_line": 112,
+                  "chunk_id": "d4318e9908902794db33"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 144,
+                  "end_line": 170,
+                  "chunk_id": "1812da95a4ac13f3db34"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 270,
+                  "end_line": 304,
+                  "chunk_id": "874dbc11b89d04c9118d"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 369,
+                  "end_line": 482,
+                  "chunk_id": "16e767b4930b4da1b131"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 485,
+                  "end_line": 499,
+                  "chunk_id": "d9e4d3704ad79900cb72"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 502,
+                  "end_line": 598,
+                  "chunk_id": "2d0623b2abcb46d08e4f"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 600,
+                  "end_line": 694,
+                  "chunk_id": "f724c8dbcba3e022c4c2"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 706,
+                  "end_line": 740,
+                  "chunk_id": "6bc57964f0d6b297231c"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 804,
+                  "end_line": 832,
+                  "chunk_id": "fdaed209118687cdac75"
+                },
+                {
+                  "source_path": "services/retrieval/embedder.py",
+                  "start_line": 100,
+                  "end_line": 112,
+                  "chunk_id": "0f19dd6c8c31a371bfa3"
+                },
+                {
+                  "source_path": "services/retrieval/embedder.py",
+                  "start_line": 114,
+                  "end_line": 129,
+                  "chunk_id": "b84eb0bb16eb83f4a393"
+                },
+                {
+                  "source_path": "services/retrieval/server.py",
+                  "start_line": 47,
+                  "end_line": 114,
+                  "chunk_id": "2e4137b0b557cde6aa1b"
+                }
+              ]
+            },
+            "margin_policy": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "2048",
+                "2 GiB",
+                "margin"
+              ],
+              "answer_markers_matched": [
+                "2048",
+                "2 GiB",
+                "margin"
+              ],
+              "detect": "any_of>=2",
+              "undetermined": false,
+              "carrier_count": 29,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-fast.yaml",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "8b981462f118e4915edf"
+                },
+                {
+                  "source_path": "config/local-ocr.yaml",
+                  "start_line": 1,
+                  "end_line": 105,
+                  "chunk_id": "374bb17528575559cf84"
+                },
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "config/local-smart.yaml",
+                  "start_line": 1,
+                  "end_line": 104,
+                  "chunk_id": "d1ce1bba19053e35a17c"
+                },
+                {
+                  "source_path": "docs/environment-report.md",
+                  "start_line": 147,
+                  "end_line": 167,
+                  "chunk_id": "d1f7f05be0153c93fa33"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 113,
+                  "end_line": 127,
+                  "chunk_id": "a874107407c8cc1f53ee"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 158,
+                  "end_line": 177,
+                  "chunk_id": "05d784b580597f541813"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 90,
+                  "end_line": 98,
+                  "chunk_id": "1d87ed03589f1f7ea90e"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 11,
+                  "end_line": 19,
+                  "chunk_id": "97b2d9e3f3e977757f61"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 99,
+                  "end_line": 119,
+                  "chunk_id": "708af2ab026b8f8b2564"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 100,
+                  "end_line": 120,
+                  "chunk_id": "10b9d120259c2f86435e"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 2,
+          "facts_in_answer": 2,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The embedding service requires a specific amount of VRAM, and the scheduler enforces a safety margin that must be maintained before admitting any new work.\n\n*   **Embedding Service Memory Requirements:** The `local-embedding` service configuration specifies an `expected_vram_mb` of 2400 MiB and a `measured_vram_delta_mb` of 1246 MiB [SOURCE 7]. In concurrent load scenarios, the scheduler considers the memory footprint of the embedding service alongside other services. For example, when the 4B embedding model co-resides with the reranker, the system has 3015 MiB free VRAM [SOURCE 7].\n*   **Scheduler Margin Enforcement:** The GPU scheduler enforces a safety margin of 2048 MiB (2 GiB) before admitting any request [SOURCE 5]. This margin is measured using `nvidia-smi` rather than estimated from tables [SOURCE 5].\n*   **Relationship:** A request is refused if admitting it would breach the 2 GiB margin, even if the total free memory appears sufficient [SOURCE 5]. The scheduler calculates usable memory by subtracting the margin from the free memory; for instance, with 3000 MiB free and a 2048 MiB margin, only 952 MiB is usable, which may be insufficient for a request requiring 2981 MiB [SOURCE 3].\n*   **Verification:** The scheduler verifies that unloading services (if permitted) actually frees the port and increases the live free reading before admitting new work, ensuring the margin is truly held [SOURCE 5]. If the margin cannot be met even after unloading, the request is explicitly refused with a reason explaining the shortfall [SOURCE 5].",
+          "citations": [
+            {
+              "source": 3,
+              "source_path": "services/gpu_scheduler/scheduler_cli.py",
+              "start_line": 126,
+              "end_line": 207,
+              "verification": "verified"
+            },
+            {
+              "source": 5,
+              "source_path": "docs/gpu-scheduling.md",
+              "start_line": 62,
+              "end_line": 80,
+              "verification": "verified"
+            },
+            {
+              "source": 7,
+              "source_path": "config/local-embedding.yaml",
+              "start_line": 1,
+              "end_line": 94,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 3.663,
+          "vram_free_before": 5192,
+          "vram_free_after": 5204
+        }
+      }
+    },
+    "v03": {
+      "question": "What are the two unload figures on the staged RAG path, and what latency does a full cycle take?",
+      "required_facts": [
+        "unload_figures",
+        "cycle_latency"
+      ],
+      "by_k": {
+        "5": {
+          "prompt_tokens": 1592,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "chunk_id": "655a349dda9b233d8054",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 75,
+              "end_line": 89,
+              "chunk_id": "c46633c54cd92f118456",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 1,
+              "end_line": 10,
+              "chunk_id": "7447698a1eed75de2c74",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 125,
+              "end_line": 141,
+              "chunk_id": "2b1b2ebf09c80856b996",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 99,
+              "end_line": 119,
+              "chunk_id": "708af2ab026b8f8b2564",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "unload_figures": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "1368",
+                "1392",
+                "2591",
+                "2595"
+              ],
+              "answer_markers_matched": [
+                "1368",
+                "1392",
+                "2591",
+                "2595"
+              ],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 3,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 13,
+                  "end_line": 33,
+                  "chunk_id": "ba1013ff1be046927cb0"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 1,
+                  "end_line": 19,
+                  "chunk_id": "655a349dda9b233d8054"
+                }
+              ]
+            },
+            "cycle_latency": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "22",
+                "24"
+              ],
+              "answer_markers_matched": [
+                "22",
+                "24"
+              ],
+              "detect": "conjunctive",
+              "undetermined": false,
+              "carrier_count": 5,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 99,
+                  "end_line": 119,
+                  "chunk_id": "708af2ab026b8f8b2564"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 120,
+                  "end_line": 127,
+                  "chunk_id": "8048d5769f1a9bb099f6"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 1,
+                  "end_line": 19,
+                  "chunk_id": "655a349dda9b233d8054"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 125,
+                  "end_line": 141,
+                  "chunk_id": "2b1b2ebf09c80856b996"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 2,
+          "facts_in_answer": 2,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "Based on the provided sources, here are the answers to your question:\n\n**The two unload figures:**\n*   **Embedding:** The verified unload delta is **+1368 to +1392 MiB** [SOURCE 1].\n*   **Reranker:** The verified unload delta is **+2591 to +2595 MiB** [SOURCE 1].\n\n**Latency of a full cycle:**\n*   A full RAG cycle (including both unloads required and verified) takes **~22–24 s** [SOURCE 1].\n*   Specifically, a full RAG cycle measured **24.4 s** in P55R-05 and **~22-24 s** in the re-run [SOURCE 2].\n*   The reloads dominate this time, with service recovery after the cycle measuring **~8 s per service** under light load and up to **44.6 s (embedding) / 22.4 s (reranker)** under heavier machine load [SOURCE 1].",
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "verification": "verified"
+            },
+            {
+              "source": 2,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 75,
+              "end_line": 89,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 2.324,
+          "vram_free_before": 5204,
+          "vram_free_after": 5186
+        },
+        "8": {
+          "prompt_tokens": 2173,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "chunk_id": "655a349dda9b233d8054",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 75,
+              "end_line": 89,
+              "chunk_id": "c46633c54cd92f118456",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 1,
+              "end_line": 10,
+              "chunk_id": "7447698a1eed75de2c74",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 125,
+              "end_line": 141,
+              "chunk_id": "2b1b2ebf09c80856b996",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 99,
+              "end_line": 119,
+              "chunk_id": "708af2ab026b8f8b2564",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 120,
+              "end_line": 127,
+              "chunk_id": "8048d5769f1a9bb099f6",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 11,
+              "end_line": 19,
+              "chunk_id": "97b2d9e3f3e977757f61",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 20,
+              "end_line": 33,
+              "chunk_id": "5001c70395756c584ad1",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "unload_figures": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "1368",
+                "1392",
+                "2591",
+                "2595"
+              ],
+              "answer_markers_matched": [
+                "1368",
+                "1392",
+                "2591",
+                "2595"
+              ],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 3,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 13,
+                  "end_line": 33,
+                  "chunk_id": "ba1013ff1be046927cb0"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 1,
+                  "end_line": 19,
+                  "chunk_id": "655a349dda9b233d8054"
+                }
+              ]
+            },
+            "cycle_latency": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "22",
+                "24"
+              ],
+              "answer_markers_matched": [
+                "22",
+                "24"
+              ],
+              "detect": "conjunctive",
+              "undetermined": false,
+              "carrier_count": 5,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 99,
+                  "end_line": 119,
+                  "chunk_id": "708af2ab026b8f8b2564"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 120,
+                  "end_line": 127,
+                  "chunk_id": "8048d5769f1a9bb099f6"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 1,
+                  "end_line": 19,
+                  "chunk_id": "655a349dda9b233d8054"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 125,
+                  "end_line": 141,
+                  "chunk_id": "2b1b2ebf09c80856b996"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 2,
+          "facts_in_answer": 2,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "Based on the provided sources, here are the answers to your question:\n\n**The Two Unload Figures**\nThe two unloads required on the staged RAG path are for the **embedding** and **reranker** models.\n*   **Embedding Unload:** The verified delta is **+1368 to +1392 MiB** [SOURCE 1][SOURCE 2].\n*   **Reranker Unload:** The verified delta is **+2591 to +2595 MiB** [SOURCE 1][SOURCE 2].\n\n**Full Cycle Latency**\nA full RAG cycle on this staged path takes approximately **22–24 seconds** (specifically measured as **24.4 s** in P55R-05 and **~22-24 s** in the re-run) [SOURCE 1][SOURCE 2]. This latency is dominated by the two model reloads [SOURCE 1][SOURCE 4].",
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "verification": "verified"
+            },
+            {
+              "source": 2,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 75,
+              "end_line": 89,
+              "verification": "verified"
+            },
+            {
+              "source": 4,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 125,
+              "end_line": 141,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 2.109,
+          "vram_free_before": 5186,
+          "vram_free_after": 5192
+        },
+        "10": {
+          "prompt_tokens": 2640,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "chunk_id": "655a349dda9b233d8054",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 75,
+              "end_line": 89,
+              "chunk_id": "c46633c54cd92f118456",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 1,
+              "end_line": 10,
+              "chunk_id": "7447698a1eed75de2c74",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 125,
+              "end_line": 141,
+              "chunk_id": "2b1b2ebf09c80856b996",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 99,
+              "end_line": 119,
+              "chunk_id": "708af2ab026b8f8b2564",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 120,
+              "end_line": 127,
+              "chunk_id": "8048d5769f1a9bb099f6",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 11,
+              "end_line": 19,
+              "chunk_id": "97b2d9e3f3e977757f61",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "docs/production-integration-design.md",
+              "start_line": 20,
+              "end_line": 33,
+              "chunk_id": "5001c70395756c584ad1",
+              "truncated": false
+            },
+            {
+              "source": 9,
+              "source_path": "docs/retrieval-hardening.md",
+              "start_line": 31,
+              "end_line": 43,
+              "chunk_id": "0af9f9cfbcb9c7f289fb",
+              "truncated": false
+            },
+            {
+              "source": 10,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 142,
+              "end_line": 148,
+              "chunk_id": "1988977540c3a25b0985",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "unload_figures": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "1368",
+                "1392",
+                "2591",
+                "2595"
+              ],
+              "answer_markers_matched": [
+                "1368",
+                "1392",
+                "2591",
+                "2595"
+              ],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 3,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/models/local-embedding.md",
+                  "start_line": 13,
+                  "end_line": 33,
+                  "chunk_id": "ba1013ff1be046927cb0"
+                },
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 1,
+                  "end_line": 19,
+                  "chunk_id": "655a349dda9b233d8054"
+                }
+              ]
+            },
+            "cycle_latency": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "22",
+                "24"
+              ],
+              "answer_markers_matched": [
+                "22",
+                "24"
+              ],
+              "detect": "conjunctive",
+              "undetermined": false,
+              "carrier_count": 5,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "docs/phase55r-evidence-consolidation.md",
+                  "start_line": 75,
+                  "end_line": 89,
+                  "chunk_id": "c46633c54cd92f118456"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 99,
+                  "end_line": 119,
+                  "chunk_id": "708af2ab026b8f8b2564"
+                },
+                {
+                  "source_path": "docs/production-integration-design.md",
+                  "start_line": 120,
+                  "end_line": 127,
+                  "chunk_id": "8048d5769f1a9bb099f6"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 1,
+                  "end_line": 19,
+                  "chunk_id": "655a349dda9b233d8054"
+                },
+                {
+                  "source_path": "docs/staged-lifecycle-design.md",
+                  "start_line": 125,
+                  "end_line": 141,
+                  "chunk_id": "2b1b2ebf09c80856b996"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 2,
+          "facts_in_answer": 2,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "On the staged RAG path, the two unload figures are:\n*   **Embedding:** +1368 to +1392 MiB [SOURCE 1]\n*   **Reranker:** +2591 to +2595 MiB [SOURCE 1]\n\nA full RAG cycle takes approximately **22–24 seconds** [SOURCE 1]. Under heavier machine load, service recovery after the cycle can take up to **44.6 seconds (embedding) / 22.4 seconds (reranker)** [SOURCE 1].",
+          "citations": [
+            {
+              "source": 1,
+              "source_path": "docs/staged-lifecycle-design.md",
+              "start_line": 1,
+              "end_line": 19,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 1.436,
+          "vram_free_before": 5192,
+          "vram_free_after": 5199
+        }
+      }
+    },
+    "v04": {
+      "question": "What per-chunk character cap does the pack apply, and why was it raised?",
+      "required_facts": [
+        "char_cap",
+        "why_raised"
+      ],
+      "by_k": {
+        "5": {
+          "prompt_tokens": 1264,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 239,
+              "end_line": 246,
+              "chunk_id": "c7b80af22881f25b945c",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "services/ocr/server.py",
+              "start_line": 51,
+              "end_line": 51,
+              "chunk_id": "c994702d863b6427b43c",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "services/retrieval/chunker.py",
+              "start_line": 1,
+              "end_line": 20,
+              "chunk_id": "8cc5f0c9704fae23fe01",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 53,
+              "end_line": 74,
+              "chunk_id": "d8920facbc358d940c84",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/retrieval-architecture.md",
+              "start_line": 87,
+              "end_line": 109,
+              "chunk_id": "7dbe7afaec05a051049b",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "char_cap": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 2,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 25,
+                  "end_line": 40,
+                  "chunk_id": "253a84ed0f49ee2ac995"
+                },
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 43,
+                  "end_line": 114,
+                  "chunk_id": "1ed66fe052a59e242fbd"
+                }
+              ]
+            },
+            "why_raised": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 1,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 25,
+                  "end_line": 40,
+                  "chunk_id": "253a84ed0f49ee2ac995"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 0,
+          "facts_in_answer": 0,
+          "facts_undetermined": 0,
+          "outcome": "refused",
+          "verdict_marker_based": "incorrect_refusal",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "I could not find enough evidence in the local corpus to answer this.",
+          "citations": [],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 0.512,
+          "vram_free_before": 5199,
+          "vram_free_after": 5186
+        },
+        "8": {
+          "prompt_tokens": 2179,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 239,
+              "end_line": 246,
+              "chunk_id": "c7b80af22881f25b945c",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "services/ocr/server.py",
+              "start_line": 51,
+              "end_line": 51,
+              "chunk_id": "c994702d863b6427b43c",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "services/retrieval/chunker.py",
+              "start_line": 1,
+              "end_line": 20,
+              "chunk_id": "8cc5f0c9704fae23fe01",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 53,
+              "end_line": 74,
+              "chunk_id": "d8920facbc358d940c84",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/retrieval-architecture.md",
+              "start_line": 87,
+              "end_line": 109,
+              "chunk_id": "7dbe7afaec05a051049b",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "services/retrieval/chunker.py",
+              "start_line": 363,
+              "end_line": 413,
+              "chunk_id": "47cc5802d5b0637c7441",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 206,
+              "end_line": 228,
+              "chunk_id": "3a80a7d9b4af732950af",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 129,
+              "end_line": 135,
+              "chunk_id": "e82ff67f1c90ccaf39d6",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "char_cap": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 2,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 25,
+                  "end_line": 40,
+                  "chunk_id": "253a84ed0f49ee2ac995"
+                },
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 43,
+                  "end_line": 114,
+                  "chunk_id": "1ed66fe052a59e242fbd"
+                }
+              ]
+            },
+            "why_raised": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 1,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 25,
+                  "end_line": 40,
+                  "chunk_id": "253a84ed0f49ee2ac995"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 0,
+          "facts_in_answer": 0,
+          "facts_undetermined": 0,
+          "outcome": "refused",
+          "verdict_marker_based": "incorrect_refusal",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "I could not find enough evidence in the local corpus to answer this.",
+          "citations": [],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 0.581,
+          "vram_free_before": 5186,
+          "vram_free_after": 5186
+        },
+        "10": {
+          "prompt_tokens": 2800,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 239,
+              "end_line": 246,
+              "chunk_id": "c7b80af22881f25b945c",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "services/ocr/server.py",
+              "start_line": 51,
+              "end_line": 51,
+              "chunk_id": "c994702d863b6427b43c",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "services/retrieval/chunker.py",
+              "start_line": 1,
+              "end_line": 20,
+              "chunk_id": "8cc5f0c9704fae23fe01",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/phase55r-evidence-consolidation.md",
+              "start_line": 53,
+              "end_line": 74,
+              "chunk_id": "d8920facbc358d940c84",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "docs/retrieval-architecture.md",
+              "start_line": 87,
+              "end_line": 109,
+              "chunk_id": "7dbe7afaec05a051049b",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "services/retrieval/chunker.py",
+              "start_line": 363,
+              "end_line": 413,
+              "chunk_id": "47cc5802d5b0637c7441",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 206,
+              "end_line": 228,
+              "chunk_id": "3a80a7d9b4af732950af",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "docs/escalation-policy.md",
+              "start_line": 129,
+              "end_line": 135,
+              "chunk_id": "e82ff67f1c90ccaf39d6",
+              "truncated": false
+            },
+            {
+              "source": 9,
+              "source_path": "docs/retrieval-hardening.md",
+              "start_line": 204,
+              "end_line": 219,
+              "chunk_id": "83bbe2f3413e0b31f9bb",
+              "truncated": false
+            },
+            {
+              "source": 10,
+              "source_path": "services/retrieval/retriever.py",
+              "start_line": 25,
+              "end_line": 40,
+              "chunk_id": "253a84ed0f49ee2ac995",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "char_cap": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "8000"
+              ],
+              "answer_markers_matched": [
+                "8000"
+              ],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 2,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 25,
+                  "end_line": 40,
+                  "chunk_id": "253a84ed0f49ee2ac995"
+                },
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 43,
+                  "end_line": 114,
+                  "chunk_id": "1ed66fe052a59e242fbd"
+                }
+              ]
+            },
+            "why_raised": {
+              "in_pack": true,
+              "in_answer": false,
+              "pack_markers_matched": [
+                "Raised from 2000 to 8000"
+              ],
+              "answer_markers_matched": [],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 1,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "services/retrieval/retriever.py",
+                  "start_line": 25,
+                  "end_line": 40,
+                  "chunk_id": "253a84ed0f49ee2ac995"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 2,
+          "facts_in_answer": 1,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "partial",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The per-chunk character cap applied by the pack is **8000** characters [SOURCE 10]. It was raised from 2000 to prevent **silent truncation** of answers within retrieved chunks, which previously converted retrieval successes into misses. Specifically, a 2000-character cap was cutting out the `context:` line from otherwise well-retrieved chunks, causing the model to incorrectly report the answer as absent [SOURCE 10].",
+          "citations": [
+            {
+              "source": 10,
+              "source_path": "services/retrieval/retriever.py",
+              "start_line": 25,
+              "end_line": 40,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 1.264,
+          "vram_free_before": 5186,
+          "vram_free_after": 5187
+        }
+      }
+    },
+    "v05": {
+      "question": "Which ports are reserved for the reranker and the OCR service?",
+      "required_facts": [
+        "reranker_port",
+        "ocr_port"
+      ],
+      "by_k": {
+        "5": {
+          "prompt_tokens": 2945,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "services/reranker/server.py",
+              "start_line": 35,
+              "end_line": 36,
+              "chunk_id": "2c2c0fca17fc7e4dfeb9",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "chunk_id": "4e3431cd496c70e55229",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 36,
+              "end_line": 51,
+              "chunk_id": "485baf2ff408b738b6ad",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 229,
+              "end_line": 238,
+              "chunk_id": "b494eecf5c52deade9dd",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "scripts/check-local-reranker.ps1",
+              "start_line": 93,
+              "end_line": 162,
+              "chunk_id": "089569ded57b91e67529",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "reranker_port": {
+              "in_pack": true,
+              "in_answer": false,
+              "pack_markers_matched": [
+                "8114"
+              ],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 14,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 193,
+                  "end_line": 208,
+                  "chunk_id": "b2a2d9ce61516ee6dc67"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 9,
+                  "end_line": 35,
+                  "chunk_id": "68a817ee6b9d71bcd8ab"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 36,
+                  "end_line": 51,
+                  "chunk_id": "485baf2ff408b738b6ad"
+                },
+                {
+                  "source_path": "docs/retrieval-architecture.md",
+                  "start_line": 16,
+                  "end_line": 59,
+                  "chunk_id": "1e0094d1739cf83ea02f"
+                },
+                {
+                  "source_path": "scripts/check-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 91,
+                  "chunk_id": "3911dcdd795a957079ae"
+                },
+                {
+                  "source_path": "scripts/start-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 116,
+                  "chunk_id": "bf4c350e359683eea92c"
+                },
+                {
+                  "source_path": "scripts/stop-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 95,
+                  "chunk_id": "56f3f9fd4e1fbb7a6a16"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                },
+                {
+                  "source_path": "services/reranker/server.py",
+                  "start_line": 1,
+                  "end_line": 20,
+                  "chunk_id": "0301e5ac4b721441708c"
+                },
+                {
+                  "source_path": "services/reranker/server.py",
+                  "start_line": 230,
+                  "end_line": 267,
+                  "chunk_id": "9829453dd19f1a4bed78"
+                }
+              ]
+            },
+            "ocr_port": {
+              "in_pack": false,
+              "in_answer": false,
+              "pack_markers_matched": [],
+              "answer_markers_matched": [],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 9,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-ocr.yaml",
+                  "start_line": 1,
+                  "end_line": 105,
+                  "chunk_id": "374bb17528575559cf84"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 1,
+                  "end_line": 7,
+                  "chunk_id": "a958e02018072ab7b625"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 106,
+                  "end_line": 119,
+                  "chunk_id": "9ed4e4ef5864d8df1ce9"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 120,
+                  "end_line": 130,
+                  "chunk_id": "12fd4937dc8d922b69c8"
+                },
+                {
+                  "source_path": "scripts/check-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 94,
+                  "chunk_id": "23cba1116ece2e45307b"
+                },
+                {
+                  "source_path": "scripts/start-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "78ddf14ebc725d51f9bd"
+                },
+                {
+                  "source_path": "scripts/stop-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 107,
+                  "chunk_id": "04365c5ac994796ff735"
+                },
+                {
+                  "source_path": "services/ocr/server.py",
+                  "start_line": 427,
+                  "end_line": 439,
+                  "chunk_id": "e3a5586b143b47e7f34f"
+                },
+                {
+                  "source_path": "services/ocr/server.py",
+                  "start_line": 442,
+                  "end_line": 473,
+                  "chunk_id": "e2638a8582d2c72bf819"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 1,
+          "facts_in_answer": 0,
+          "facts_undetermined": 0,
+          "outcome": "refused",
+          "verdict_marker_based": "incorrect_refusal",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "I could not find enough evidence in the local corpus to answer this.",
+          "citations": [],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 0.508,
+          "vram_free_before": 5190,
+          "vram_free_after": 5193
+        },
+        "8": {
+          "prompt_tokens": 4660,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "services/reranker/server.py",
+              "start_line": 35,
+              "end_line": 36,
+              "chunk_id": "2c2c0fca17fc7e4dfeb9",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "chunk_id": "4e3431cd496c70e55229",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 36,
+              "end_line": 51,
+              "chunk_id": "485baf2ff408b738b6ad",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 229,
+              "end_line": 238,
+              "chunk_id": "b494eecf5c52deade9dd",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "scripts/check-local-reranker.ps1",
+              "start_line": 93,
+              "end_line": 162,
+              "chunk_id": "089569ded57b91e67529",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "docs/models/local-ocr.md",
+              "start_line": 1,
+              "end_line": 7,
+              "chunk_id": "a958e02018072ab7b625",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "services/retrieval/rerank_pipeline.py",
+              "start_line": 1,
+              "end_line": 24,
+              "chunk_id": "03c8d1000ebdc6a831b4",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "config/local-ocr.yaml",
+              "start_line": 1,
+              "end_line": 105,
+              "chunk_id": "374bb17528575559cf84",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "reranker_port": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "8114"
+              ],
+              "answer_markers_matched": [
+                "8114"
+              ],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 14,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 193,
+                  "end_line": 208,
+                  "chunk_id": "b2a2d9ce61516ee6dc67"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 9,
+                  "end_line": 35,
+                  "chunk_id": "68a817ee6b9d71bcd8ab"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 36,
+                  "end_line": 51,
+                  "chunk_id": "485baf2ff408b738b6ad"
+                },
+                {
+                  "source_path": "docs/retrieval-architecture.md",
+                  "start_line": 16,
+                  "end_line": 59,
+                  "chunk_id": "1e0094d1739cf83ea02f"
+                },
+                {
+                  "source_path": "scripts/check-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 91,
+                  "chunk_id": "3911dcdd795a957079ae"
+                },
+                {
+                  "source_path": "scripts/start-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 116,
+                  "chunk_id": "bf4c350e359683eea92c"
+                },
+                {
+                  "source_path": "scripts/stop-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 95,
+                  "chunk_id": "56f3f9fd4e1fbb7a6a16"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                },
+                {
+                  "source_path": "services/reranker/server.py",
+                  "start_line": 1,
+                  "end_line": 20,
+                  "chunk_id": "0301e5ac4b721441708c"
+                },
+                {
+                  "source_path": "services/reranker/server.py",
+                  "start_line": 230,
+                  "end_line": 267,
+                  "chunk_id": "9829453dd19f1a4bed78"
+                }
+              ]
+            },
+            "ocr_port": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "8116"
+              ],
+              "answer_markers_matched": [
+                "8116"
+              ],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 9,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-ocr.yaml",
+                  "start_line": 1,
+                  "end_line": 105,
+                  "chunk_id": "374bb17528575559cf84"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 1,
+                  "end_line": 7,
+                  "chunk_id": "a958e02018072ab7b625"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 106,
+                  "end_line": 119,
+                  "chunk_id": "9ed4e4ef5864d8df1ce9"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 120,
+                  "end_line": 130,
+                  "chunk_id": "12fd4937dc8d922b69c8"
+                },
+                {
+                  "source_path": "scripts/check-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 94,
+                  "chunk_id": "23cba1116ece2e45307b"
+                },
+                {
+                  "source_path": "scripts/start-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "78ddf14ebc725d51f9bd"
+                },
+                {
+                  "source_path": "scripts/stop-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 107,
+                  "chunk_id": "04365c5ac994796ff735"
+                },
+                {
+                  "source_path": "services/ocr/server.py",
+                  "start_line": 427,
+                  "end_line": 439,
+                  "chunk_id": "e3a5586b143b47e7f34f"
+                },
+                {
+                  "source_path": "services/ocr/server.py",
+                  "start_line": 442,
+                  "end_line": 473,
+                  "chunk_id": "e2638a8582d2c72bf819"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 2,
+          "facts_in_answer": 2,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The reranker service is reserved on port **8114** [SOURCE 2]. The OCR service is reserved on port **8116** [SOURCE 8].",
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            },
+            {
+              "source": 8,
+              "source_path": "config/local-ocr.yaml",
+              "start_line": 1,
+              "end_line": 105,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 0.994,
+          "vram_free_before": 5193,
+          "vram_free_after": 5211
+        },
+        "10": {
+          "prompt_tokens": 6565,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "services/reranker/server.py",
+              "start_line": 35,
+              "end_line": 36,
+              "chunk_id": "2c2c0fca17fc7e4dfeb9",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "chunk_id": "4e3431cd496c70e55229",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 36,
+              "end_line": 51,
+              "chunk_id": "485baf2ff408b738b6ad",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 229,
+              "end_line": 238,
+              "chunk_id": "b494eecf5c52deade9dd",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "scripts/check-local-reranker.ps1",
+              "start_line": 93,
+              "end_line": 162,
+              "chunk_id": "089569ded57b91e67529",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "docs/models/local-ocr.md",
+              "start_line": 1,
+              "end_line": 7,
+              "chunk_id": "a958e02018072ab7b625",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "services/retrieval/rerank_pipeline.py",
+              "start_line": 1,
+              "end_line": 24,
+              "chunk_id": "03c8d1000ebdc6a831b4",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "config/local-ocr.yaml",
+              "start_line": 1,
+              "end_line": 105,
+              "chunk_id": "374bb17528575559cf84",
+              "truncated": false
+            },
+            {
+              "source": 9,
+              "source_path": "docs/retrieval-hardening.md",
+              "start_line": 191,
+              "end_line": 203,
+              "chunk_id": "c5cb69121543d9ec2003",
+              "truncated": false
+            },
+            {
+              "source": 10,
+              "source_path": "scripts/start-local-reranker.ps1",
+              "start_line": 1,
+              "end_line": 116,
+              "chunk_id": "bf4c350e359683eea92c",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "reranker_port": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "8114"
+              ],
+              "answer_markers_matched": [
+                "8114"
+              ],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 14,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 193,
+                  "end_line": 208,
+                  "chunk_id": "b2a2d9ce61516ee6dc67"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 9,
+                  "end_line": 35,
+                  "chunk_id": "68a817ee6b9d71bcd8ab"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 36,
+                  "end_line": 51,
+                  "chunk_id": "485baf2ff408b738b6ad"
+                },
+                {
+                  "source_path": "docs/retrieval-architecture.md",
+                  "start_line": 16,
+                  "end_line": 59,
+                  "chunk_id": "1e0094d1739cf83ea02f"
+                },
+                {
+                  "source_path": "scripts/check-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 91,
+                  "chunk_id": "3911dcdd795a957079ae"
+                },
+                {
+                  "source_path": "scripts/start-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 116,
+                  "chunk_id": "bf4c350e359683eea92c"
+                },
+                {
+                  "source_path": "scripts/stop-local-reranker.ps1",
+                  "start_line": 1,
+                  "end_line": 95,
+                  "chunk_id": "56f3f9fd4e1fbb7a6a16"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+                  "start_line": 90,
+                  "end_line": 99,
+                  "chunk_id": "6ae93ec7cb4509abc8d6"
+                },
+                {
+                  "source_path": "services/gpu_scheduler/scheduler_cli.py",
+                  "start_line": 221,
+                  "end_line": 295,
+                  "chunk_id": "518901e269272044a37c"
+                },
+                {
+                  "source_path": "services/reranker/server.py",
+                  "start_line": 1,
+                  "end_line": 20,
+                  "chunk_id": "0301e5ac4b721441708c"
+                },
+                {
+                  "source_path": "services/reranker/server.py",
+                  "start_line": 230,
+                  "end_line": 267,
+                  "chunk_id": "9829453dd19f1a4bed78"
+                }
+              ]
+            },
+            "ocr_port": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "8116"
+              ],
+              "answer_markers_matched": [
+                "8116"
+              ],
+              "detect": "only_of",
+              "undetermined": false,
+              "carrier_count": 9,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-ocr.yaml",
+                  "start_line": 1,
+                  "end_line": 105,
+                  "chunk_id": "374bb17528575559cf84"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 1,
+                  "end_line": 7,
+                  "chunk_id": "a958e02018072ab7b625"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 106,
+                  "end_line": 119,
+                  "chunk_id": "9ed4e4ef5864d8df1ce9"
+                },
+                {
+                  "source_path": "docs/models/local-ocr.md",
+                  "start_line": 120,
+                  "end_line": 130,
+                  "chunk_id": "12fd4937dc8d922b69c8"
+                },
+                {
+                  "source_path": "scripts/check-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 94,
+                  "chunk_id": "23cba1116ece2e45307b"
+                },
+                {
+                  "source_path": "scripts/start-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 119,
+                  "chunk_id": "78ddf14ebc725d51f9bd"
+                },
+                {
+                  "source_path": "scripts/stop-local-ocr.ps1",
+                  "start_line": 1,
+                  "end_line": 107,
+                  "chunk_id": "04365c5ac994796ff735"
+                },
+                {
+                  "source_path": "services/ocr/server.py",
+                  "start_line": 427,
+                  "end_line": 439,
+                  "chunk_id": "e3a5586b143b47e7f34f"
+                },
+                {
+                  "source_path": "services/ocr/server.py",
+                  "start_line": 442,
+                  "end_line": 473,
+                  "chunk_id": "e2638a8582d2c72bf819"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 2,
+          "facts_in_answer": 2,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The reranker service is reserved on port **8114** [SOURCE 2].\nThe OCR service is reserved on port **8116** [SOURCE 8].",
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            },
+            {
+              "source": 8,
+              "source_path": "config/local-ocr.yaml",
+              "start_line": 1,
+              "end_line": 105,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 1.102,
+          "vram_free_before": 5211,
+          "vram_free_after": 5200
+        }
+      }
+    },
+    "v06": {
+      "question": "How does the reranker turn the model's output into a relevance score?",
+      "required_facts": [
+        "score_method"
+      ],
+      "by_k": {
+        "5": {
+          "prompt_tokens": 2190,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 5,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/models/local-reranker.md",
+              "start_line": 1,
+              "end_line": 12,
+              "chunk_id": "ec84df902bd5b3255758",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 52,
+              "end_line": 82,
+              "chunk_id": "7b65305adc6c8c4f1472",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "chunk_id": "4e3431cd496c70e55229",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "services/reranker/server.py",
+              "start_line": 38,
+              "end_line": 38,
+              "chunk_id": "7940e916c6dd2b43041b",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "services/reranker/reranker.py",
+              "start_line": 1,
+              "end_line": 33,
+              "chunk_id": "9229fb30f178733b4cc4",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "score_method": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "softmax",
+                "logit"
+              ],
+              "answer_markers_matched": [
+                "softmax",
+                "logit"
+              ],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 13,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 67,
+                  "end_line": 103,
+                  "chunk_id": "d0f29f1edcfccd94af38"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 104,
+                  "end_line": 112,
+                  "chunk_id": "c1e99cb92f527386e03e"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 52,
+                  "end_line": 82,
+                  "chunk_id": "7b65305adc6c8c4f1472"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 100,
+                  "end_line": 120,
+                  "chunk_id": "10b9d120259c2f86435e"
+                },
+                {
+                  "source_path": "services/reranker/compat_probe.py",
+                  "start_line": 1,
+                  "end_line": 13,
+                  "chunk_id": "83bddc847c3fcdf4e2a6"
+                },
+                {
+                  "source_path": "services/reranker/compat_probe.py",
+                  "start_line": 24,
+                  "end_line": 115,
+                  "chunk_id": "03390907e2690823c192"
+                },
+                {
+                  "source_path": "services/reranker/fetch_reranker.py",
+                  "start_line": 31,
+                  "end_line": 46,
+                  "chunk_id": "ca0d2cc71c818354bd1e"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 1,
+                  "end_line": 33,
+                  "chunk_id": "9229fb30f178733b4cc4"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 253,
+                  "end_line": 283,
+                  "chunk_id": "85a7266bea5e8dcb585d"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 281,
+                  "end_line": 303,
+                  "chunk_id": "ca67c72d5d7a1254b653"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 299,
+                  "end_line": 330,
+                  "chunk_id": "0f1b61b23b97a6f67cdc"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 1,
+          "facts_in_answer": 1,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The reranker turns the model's output into a relevance score by:\n\n1.  **Constructing the Input**: It concatenates a fixed prefix, the user's instruction and query wrapped in `<Instruct>` and `<Query>` tags, the document text wrapped in `<Document>` tags, and a fixed suffix. The suffix specifically ends with an empty think block (`</think>`) to ensure the model outputs a final \"yes\" or \"no\" decision rather than a reasoning trace [SOURCE 5].\n2.  **Tokenization and Truncation**: The concatenated text is tokenized. Truncation is applied only to the body (the instruction, query, and document), ensuring the prefix and suffix remain intact so the model can still generate the final decision token [SOURCE 5].\n3.  **Model Inference**: The resulting token sequence is fed into the `local-reranker` model (a Qwen3 CrossEncoder). The model generates logits for the final position of the sequence [SOURCE 5].\n4.  **Scoring Calculation**: The final relevance score is calculated by taking the softmax of the logits for the \"no\" and \"yes\" tokens at the final position: `score = softmax([logit(\"no\"), logit(\"yes\")])[1]` [SOURCE 3].",
+          "citations": [
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            },
+            {
+              "source": 5,
+              "source_path": "services/reranker/reranker.py",
+              "start_line": 1,
+              "end_line": 33,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 2.892,
+          "vram_free_before": 5200,
+          "vram_free_after": 5202
+        },
+        "8": {
+          "prompt_tokens": 2960,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 8,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/models/local-reranker.md",
+              "start_line": 1,
+              "end_line": 12,
+              "chunk_id": "ec84df902bd5b3255758",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 52,
+              "end_line": 82,
+              "chunk_id": "7b65305adc6c8c4f1472",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "chunk_id": "4e3431cd496c70e55229",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "services/reranker/server.py",
+              "start_line": 38,
+              "end_line": 38,
+              "chunk_id": "7940e916c6dd2b43041b",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "services/reranker/reranker.py",
+              "start_line": 1,
+              "end_line": 33,
+              "chunk_id": "9229fb30f178733b4cc4",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "services/reranker/server.py",
+              "start_line": 35,
+              "end_line": 36,
+              "chunk_id": "2c2c0fca17fc7e4dfeb9",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 36,
+              "end_line": 51,
+              "chunk_id": "485baf2ff408b738b6ad",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "services/reranker/reranker.py",
+              "start_line": 63,
+              "end_line": 99,
+              "chunk_id": "7b2ad91ccd76ca7e3b82",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "score_method": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "softmax",
+                "logit"
+              ],
+              "answer_markers_matched": [
+                "softmax",
+                "logit"
+              ],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 13,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 67,
+                  "end_line": 103,
+                  "chunk_id": "d0f29f1edcfccd94af38"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 104,
+                  "end_line": 112,
+                  "chunk_id": "c1e99cb92f527386e03e"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 52,
+                  "end_line": 82,
+                  "chunk_id": "7b65305adc6c8c4f1472"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 100,
+                  "end_line": 120,
+                  "chunk_id": "10b9d120259c2f86435e"
+                },
+                {
+                  "source_path": "services/reranker/compat_probe.py",
+                  "start_line": 1,
+                  "end_line": 13,
+                  "chunk_id": "83bddc847c3fcdf4e2a6"
+                },
+                {
+                  "source_path": "services/reranker/compat_probe.py",
+                  "start_line": 24,
+                  "end_line": 115,
+                  "chunk_id": "03390907e2690823c192"
+                },
+                {
+                  "source_path": "services/reranker/fetch_reranker.py",
+                  "start_line": 31,
+                  "end_line": 46,
+                  "chunk_id": "ca0d2cc71c818354bd1e"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 1,
+                  "end_line": 33,
+                  "chunk_id": "9229fb30f178733b4cc4"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 253,
+                  "end_line": 283,
+                  "chunk_id": "85a7266bea5e8dcb585d"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 281,
+                  "end_line": 303,
+                  "chunk_id": "ca67c72d5d7a1254b653"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 299,
+                  "end_line": 330,
+                  "chunk_id": "0f1b61b23b97a6f67cdc"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 1,
+          "facts_in_answer": 1,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The reranker turns the model's output into a relevance score by applying a softmax function to the logits of two specific tokens at the final position of the input sequence.\n\nSpecifically, the process is as follows:\n1.  The model generates logits for all tokens in the sequence.\n2.  The score is calculated using the formula: `softmax([logit(\"no\"), logit(\"yes\")])[1]` [SOURCE 2].\n3.  This means the score is the probability assigned to the \"yes\" token (index 1) after normalizing the logits for the \"no\" and \"yes\" tokens using the softmax function [SOURCE 3].\n4.  The logits are extracted specifically from the **final position** of the sequence (`logits[:, -1, :]`) [SOURCE 2].\n5.  The token IDs for \"yes\" and \"no\" are hardcoded as `9693` and `2152` respectively [SOURCE 3].\n6.  The input sequence is constructed with a specific prefix (`39` tokens), a body containing the instruction, query, and document, and a suffix ending with an empty think block (`9` tokens) to ensure the model outputs a direct decision rather than a reasoning trace [SOURCE 2].\n7.  The sequence is padded on the left (`padding_side='left'`) so that the final position is always a real token, not a padding token [SOURCE 2].",
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 52,
+              "end_line": 82,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 2.966,
+          "vram_free_before": 5202,
+          "vram_free_after": 5199
+        },
+        "10": {
+          "prompt_tokens": 3452,
+          "budget_tokens": 7616,
+          "count_method": "tokenize",
+          "n_supplied": 10,
+          "n_omitted": 0,
+          "supplied": [
+            {
+              "source": 1,
+              "source_path": "docs/models/local-reranker.md",
+              "start_line": 1,
+              "end_line": 12,
+              "chunk_id": "ec84df902bd5b3255758",
+              "truncated": false
+            },
+            {
+              "source": 2,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 52,
+              "end_line": 82,
+              "chunk_id": "7b65305adc6c8c4f1472",
+              "truncated": false
+            },
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "chunk_id": "4e3431cd496c70e55229",
+              "truncated": false
+            },
+            {
+              "source": 4,
+              "source_path": "services/reranker/server.py",
+              "start_line": 38,
+              "end_line": 38,
+              "chunk_id": "7940e916c6dd2b43041b",
+              "truncated": false
+            },
+            {
+              "source": 5,
+              "source_path": "services/reranker/reranker.py",
+              "start_line": 1,
+              "end_line": 33,
+              "chunk_id": "9229fb30f178733b4cc4",
+              "truncated": false
+            },
+            {
+              "source": 6,
+              "source_path": "services/reranker/server.py",
+              "start_line": 35,
+              "end_line": 36,
+              "chunk_id": "2c2c0fca17fc7e4dfeb9",
+              "truncated": false
+            },
+            {
+              "source": 7,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 36,
+              "end_line": 51,
+              "chunk_id": "485baf2ff408b738b6ad",
+              "truncated": false
+            },
+            {
+              "source": 8,
+              "source_path": "services/reranker/reranker.py",
+              "start_line": 63,
+              "end_line": 99,
+              "chunk_id": "7b2ad91ccd76ca7e3b82",
+              "truncated": false
+            },
+            {
+              "source": 9,
+              "source_path": "services/retrieval/rerank_pipeline.py",
+              "start_line": 1,
+              "end_line": 24,
+              "chunk_id": "03c8d1000ebdc6a831b4",
+              "truncated": false
+            },
+            {
+              "source": 10,
+              "source_path": "docs/models/local-reranker.md",
+              "start_line": 193,
+              "end_line": 208,
+              "chunk_id": "b2a2d9ce61516ee6dc67",
+              "truncated": false
+            }
+          ],
+          "omitted": [],
+          "facts": {
+            "score_method": {
+              "in_pack": true,
+              "in_answer": true,
+              "pack_markers_matched": [
+                "softmax",
+                "logit"
+              ],
+              "answer_markers_matched": [
+                "softmax",
+                "logit"
+              ],
+              "detect": "any_of>=1",
+              "undetermined": false,
+              "carrier_count": 13,
+              "carrier_chunks_full": [
+                {
+                  "source_path": "config/local-reranker.yaml",
+                  "start_line": 1,
+                  "end_line": 93,
+                  "chunk_id": "4e3431cd496c70e55229"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 67,
+                  "end_line": 103,
+                  "chunk_id": "d0f29f1edcfccd94af38"
+                },
+                {
+                  "source_path": "docs/models/local-reranker.md",
+                  "start_line": 104,
+                  "end_line": 112,
+                  "chunk_id": "c1e99cb92f527386e03e"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 52,
+                  "end_line": 82,
+                  "chunk_id": "7b65305adc6c8c4f1472"
+                },
+                {
+                  "source_path": "docs/reranking-architecture.md",
+                  "start_line": 100,
+                  "end_line": 120,
+                  "chunk_id": "10b9d120259c2f86435e"
+                },
+                {
+                  "source_path": "services/reranker/compat_probe.py",
+                  "start_line": 1,
+                  "end_line": 13,
+                  "chunk_id": "83bddc847c3fcdf4e2a6"
+                },
+                {
+                  "source_path": "services/reranker/compat_probe.py",
+                  "start_line": 24,
+                  "end_line": 115,
+                  "chunk_id": "03390907e2690823c192"
+                },
+                {
+                  "source_path": "services/reranker/fetch_reranker.py",
+                  "start_line": 31,
+                  "end_line": 46,
+                  "chunk_id": "ca0d2cc71c818354bd1e"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 1,
+                  "end_line": 33,
+                  "chunk_id": "9229fb30f178733b4cc4"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 253,
+                  "end_line": 283,
+                  "chunk_id": "85a7266bea5e8dcb585d"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 281,
+                  "end_line": 303,
+                  "chunk_id": "ca67c72d5d7a1254b653"
+                },
+                {
+                  "source_path": "services/reranker/reranker.py",
+                  "start_line": 299,
+                  "end_line": 330,
+                  "chunk_id": "0f1b61b23b97a6f67cdc"
+                }
+              ]
+            }
+          },
+          "facts_in_pack": 1,
+          "facts_in_answer": 1,
+          "facts_undetermined": 0,
+          "outcome": "answered",
+          "verdict_marker_based": "complete",
+          "finish_reason": "stop",
+          "answer_truncated": false,
+          "answer": "The reranker turns the model's output into a relevance score by applying a softmax function to the logits of the \"yes\" and \"no\" tokens at the final position of the input sequence.\n\nSpecifically, the scoring procedure is defined as:\n`softmax([logit(\"no\"), logit(\"yes\")])[1]` [SOURCE 2]\n\nThis process occurs after the model processes a specific input format consisting of a prefix, a body containing the instruction, query, and document, and a suffix. The model is a Qwen3 causal LM packaged as a sentence-transformers CrossEncoder, and the scoring is derived from the logits of the final token in the sequence [SOURCE 2]. The \"yes\" token ID is 9693 and the \"no\" token ID is 2152 [SOURCE 3]. The final score is the probability assigned to the \"yes\" class after the softmax operation [SOURCE 2].",
+          "citations": [
+            {
+              "source": 2,
+              "source_path": "docs/reranking-architecture.md",
+              "start_line": 52,
+              "end_line": 82,
+              "verification": "verified"
+            },
+            {
+              "source": 3,
+              "source_path": "config/local-reranker.yaml",
+              "start_line": 1,
+              "end_line": 93,
+              "verification": "verified"
+            }
+          ],
+          "index_version": "3cd2dcda4eeb5555",
+          "elapsed_s": 2.089,
+          "vram_free_before": 5199,
+          "vram_free_after": 5210
+        }
+      }
+    }
+  },
+  "summary": {
+    "5": {
+      "complete": [
+        "v03",
+        "v06"
+      ],
+      "incomplete": [
+        "v01",
+        "v02",
+        "v04",
+        "v05"
+      ],
+      "max_prompt_tokens": 2945
+    },
+    "8": {
+      "complete": [
+        "v02",
+        "v03",
+        "v05",
+        "v06"
+      ],
+      "incomplete": [
+        "v01",
+        "v04"
+      ],
+      "max_prompt_tokens": 4660
+    },
+    "10": {
+      "complete": [
+        "v02",
+        "v03",
+        "v04",
+        "v05",
+        "v06"
+      ],
+      "incomplete": [
+        "v01"
+      ],
+      "max_prompt_tokens": 6565
+    }
+  },
+  "vram": {
+    "min_free_mb": 5105,
+    "margin_mb": 2048,
+    "margin_held": true
+  }
+}

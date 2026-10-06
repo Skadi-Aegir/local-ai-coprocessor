@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: benchmarks/local-smart/concurrency_test.py\nlines: 38-42\nscore: 0.4969\nchunk_id: b7f02fa63e43243901f8\ncontent:\nPROMPT_LONG = (\"Write a comprehensive technical guide to designing a rate limiter for a \"\n               \"distributed API. Cover token bucket, leaky bucket, fixed and sliding windows, \"\n               \"the tradeoffs of each, how to handle clock skew across nodes, what to store \"\n               \"in Redis versus locally, and how to degrade gracefully under overload. \"\n               \"Be thorough and use concrete numbers where useful.\")\n\nSOURCE 2\npath: benchmarks/local-fast/ctx_probe.py\nlines: 1-1\nscore: 0.4860\nchunk_id: 1bf9568d6afeeb2de2c6\ncontent:\n\"\"\"One-shot context probe: send a fixed long prompt and report server-side timings.\"\"\"\n\nSOURCE 3\npath: benchmarks/local-fast-results.md\nlines: 28-42\nscore: 0.4298\nchunk_id: ad771830b4c6c42691e0\nsymbol: 3. Runtime measurements (deployed configuration)\ncontent:\n## 3. Runtime measurements (deployed configuration)\n\n| Metric | Value |\n|---|---|\n| **VRAM, model resident** | **2981 MiB** GPU attribution (model 2603 + context 306 + compute 72) |\n| VRAM, GPU total while loaded | 5484 MiB (≈ 2.5 GB desktop + 2981 MiB worker) |\n| **VRAM headroom** | **6461 MiB free** — far above the ≥ 2048 MiB requirement |\n| SysRAM | host attribution 515 MiB (model 497 + compute 18) |\n| Prompt processing | **3974 t/s** (816-token prompt) |\n| Generation | **128.6 t/s** |\n| **TTFT** | **0.254 s** on an 816-token prompt; **0.13 s** mean on short structured prompts |\n| Time to ready after start | ~2–3 s (warm page cache) |\n| OOM | **none** |\n| CUDA errors | **none** |\n\n\nSOURCE 4\npath: benchmarks/local-fast/ctx_sweep.py\nlines: 34-37\nscore: 0.4253\nchunk_id: 15bb98f37544ada59f4b\ncontent:\nPROMPT_TODO = (\n    \"Summarise the following engineering notes into exactly 5 bullet points, \"\n    \"using only information present in the text.\\n\\n\"\n)\n\nSOURCE 5\npath: benchmarks/local-fast/tasks.py\nlines: 324-329\nscore: 0.4119\nchunk_id: 73539f1cc34da90a748d\ncontent:\nHANDOFF_SYSTEM = (\n    \"You compress long engineering context into a structured handoff another agent can \"\n    \"resume from. Reply with exactly these sections, each as a markdown heading, in order:\\n\"\n    + \"\\n\".join(f\"## {s}\" for s in HANDOFF_SECTIONS)\n    + \"\\nBe concrete: include file paths, decision reasons and blockers. Do not invent facts.\"\n)\n\nTASK: Which files decide how long the prompt window is?"
+    }
+  ],
+  "meta": {
+    "question": "Which files decide how long the prompt window is?",
+    "query_type": "paraphrase",
+    "sources": 5,
+    "source_paths": [
+      "benchmarks/local-smart/concurrency_test.py",
+      "benchmarks/local-fast/ctx_probe.py",
+      "benchmarks/local-fast-results.md",
+      "benchmarks/local-fast/ctx_sweep.py",
+      "benchmarks/local-fast/tasks.py"
+    ],
+    "top_score": 0.49694,
+    "context_tokens": 808,
+    "prompt_tokens": 871,
+    "within_budget": true
+  }
+}

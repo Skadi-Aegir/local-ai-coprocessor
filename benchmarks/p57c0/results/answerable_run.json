@@ -1,0 +1,136 @@
+{
+  "set_id": "p57c0_devset_v1",
+  "manifest_sha256": "aa44a4f870dc10bc831224e500931dbe8544426bcdd0617f32bf1690325e1c51",
+  "k": 5,
+  "results": {
+    "v01": {
+      "question": "Which components does a question pass through before reaching local-fast, and which ports do they use?",
+      "facts_total": 2,
+      "facts_in_pack": 1,
+      "all_facts_in_pack": false,
+      "outcome": "refused",
+      "refused": true,
+      "answer_head": "I could not find enough evidence in the local corpus to answer this.",
+      "n_citations": 0,
+      "citation_verification": [],
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "e2e_s": 3.823,
+      "vram_free_before": 5218,
+      "vram_free_after": 5227
+    },
+    "v02": {
+      "question": "How do the embedding service memory figures and the scheduler margin relate to each other?",
+      "facts_total": 2,
+      "facts_in_pack": 0,
+      "all_facts_in_pack": false,
+      "outcome": "answered",
+      "refused": false,
+      "answer_head": "The embedding service memory figures and the scheduler margin relate to each other through a strict enforcement rule where a **2 GiB (2048 MiB) VRAM margin** must be maintained before admitting any new work, regardless of whether the total memory usage fits within the physical hardware limits.\n\nSpecifically:\n*   **Margin Requirement:** The scheduler enforces a safety margin of 2 GiB before every a",
+      "n_citations": 3,
+      "citation_verification": [
+        "verified",
+        "verified",
+        "verified"
+      ],
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "e2e_s": 4.438,
+      "vram_free_before": 5227,
+      "vram_free_after": 5145
+    },
+    "v03": {
+      "question": "What are the two unload figures on the staged RAG path, and what latency does a full cycle take?",
+      "facts_total": 2,
+      "facts_in_pack": 2,
+      "all_facts_in_pack": true,
+      "outcome": "answered",
+      "refused": false,
+      "answer_head": "Based on the provided sources, here are the answers to your question:\n\n**The two unload figures:**\n*   **Embedding:** The verified unload delta is **+1368 to +1392 MiB** [SOURCE 1].\n*   **Reranker:** The verified unload delta is **+2591 to +2595 MiB** [SOURCE 1].\n\n**Latency of a full cycle:**\n*   A full RAG cycle (including both unloads required and verified) takes **~22–24 s** [SOURCE 1].\n*   Spe",
+      "n_citations": 2,
+      "citation_verification": [
+        "verified",
+        "verified"
+      ],
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "e2e_s": 2.5,
+      "vram_free_before": 5145,
+      "vram_free_after": 5177
+    },
+    "v04": {
+      "question": "What per-chunk character cap does the pack apply, and why was it raised?",
+      "facts_total": 2,
+      "facts_in_pack": 0,
+      "all_facts_in_pack": false,
+      "outcome": "refused",
+      "refused": true,
+      "answer_head": "I could not find enough evidence in the local corpus to answer this.",
+      "n_citations": 0,
+      "citation_verification": [],
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "e2e_s": 0.507,
+      "vram_free_before": 5177,
+      "vram_free_after": 5176
+    },
+    "v05": {
+      "question": "Which ports are reserved for the reranker and the OCR service?",
+      "facts_total": 2,
+      "facts_in_pack": 1,
+      "all_facts_in_pack": false,
+      "outcome": "refused",
+      "refused": true,
+      "answer_head": "I could not find enough evidence in the local corpus to answer this.",
+      "n_citations": 0,
+      "citation_verification": [],
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "e2e_s": 0.525,
+      "vram_free_before": 5176,
+      "vram_free_after": 5176
+    },
+    "v06": {
+      "question": "How does the reranker turn the model's output into a relevance score?",
+      "facts_total": 1,
+      "facts_in_pack": 1,
+      "all_facts_in_pack": true,
+      "outcome": "answered",
+      "refused": false,
+      "answer_head": "The reranker turns the model's output into a relevance score by:\n\n1.  **Constructing the Input**: It concatenates a fixed prefix, the user's instruction and query wrapped in `<Instruct>` and `<Query>` tags, the document text wrapped in `<Document>` tags, and a fixed suffix. The suffix specifically ends with an empty think block (`</think>`) to ensure the model outputs a final \"yes\" or \"no\" decisio",
+      "n_citations": 2,
+      "citation_verification": [
+        "verified",
+        "verified"
+      ],
+      "finish_reason": "stop",
+      "answer_truncated": false,
+      "e2e_s": 2.829,
+      "vram_free_before": 5176,
+      "vram_free_after": 5178
+    }
+  },
+  "summary": {
+    "answered": [
+      "v02",
+      "v03",
+      "v06"
+    ],
+    "refused": [
+      "v01",
+      "v04",
+      "v05"
+    ],
+    "incorrect_refusals": [
+      "v01",
+      "v04",
+      "v05"
+    ],
+    "n_answered": 3,
+    "n_refused": 3
+  },
+  "vram": {
+    "min_free_mb": 5145,
+    "margin_held": true
+  }
+}

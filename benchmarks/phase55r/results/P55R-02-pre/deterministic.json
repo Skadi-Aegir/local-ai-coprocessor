@@ -1,0 +1,121 @@
+{
+  "phase": "pre",
+  "checks": [
+    {
+      "group": "1a",
+      "name": "acquire() accepts a per-request `requires` argument",
+      "passed": false,
+      "detail": "GpuScheduler.acquire() got an unexpected keyword argument 'requires'",
+      "phase": "pre"
+    },
+    {
+      "group": "1a",
+      "name": "an embedding task's dependency is recorded on its reservation",
+      "passed": false,
+      "detail": "no per-request requires support",
+      "phase": "pre"
+    },
+    {
+      "group": "1a",
+      "name": "a reranker task's dependency is recorded on its reservation",
+      "passed": false,
+      "detail": "no per-request requires support",
+      "phase": "pre"
+    },
+    {
+      "group": "1a",
+      "name": "neither dependency can be unloaded while active",
+      "passed": false,
+      "detail": "cannot express",
+      "phase": "pre"
+    },
+    {
+      "group": "1a",
+      "name": "releasing one task frees only its own protection",
+      "passed": false,
+      "detail": "cannot express",
+      "phase": "pre"
+    },
+    {
+      "group": "1b",
+      "name": "each request keeps its OWN deadline (short times out, long does not inherit it)",
+      "passed": true,
+      "detail": "short=refused long=refused",
+      "phase": "pre"
+    },
+    {
+      "group": "1b",
+      "name": "a timeout decision leaves no queued/ticket residue",
+      "passed": false,
+      "detail": "state={'active': {'interactive': 1}, 'reserved': 3881, 'queued': {}, 'serving': 3, 'ticket_seq': 2}",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "a later request can still make progress after a timeout",
+      "passed": true,
+      "detail": "allowed=False",
+      "phase": "post"
+    },
+    {
+      "group": "1b",
+      "name": "head background and later interactive do not deadlock each other",
+      "passed": true,
+      "detail": "bg=returned int=returned",
+      "phase": "pre"
+    },
+    {
+      "group": "1b",
+      "name": "time control uses a monotonic clock",
+      "passed": false,
+      "detail": "monotonic=ABSENT; wall-clock comparisons on deadlines=5",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "reserved memory is not deducted twice once it appears in live VRAM",
+      "passed": false,
+      "detail": "reserved=600 live_fell_by=600 usable_after=16752",
+      "phase": "pre"
+    },
+    {
+      "group": "1c",
+      "name": "a reservation ledger still exists (not deleted to fix double counting)",
+      "passed": true,
+      "detail": "reserved_now=600",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "the reservation is not wildly larger than the stated requirement",
+      "passed": true,
+      "detail": "reserved=600 required=600 (conservatism=0 MiB)",
+      "phase": "post"
+    },
+    {
+      "group": "1c",
+      "name": "release returns the ledger to zero",
+      "passed": true,
+      "detail": "0",
+      "phase": "post"
+    },
+    {
+      "group": "1d",
+      "name": "b4b orders unload BEFORE start and start BEFORE the real request",
+      "passed": false,
+      "detail": "unload@2910 start@4771 request@4108",
+      "phase": "pre"
+    },
+    {
+      "group": "1d",
+      "name": "b4b asserts a successful execution, not just plan().allowed",
+      "passed": true,
+      "detail": "looks for an execution result marker",
+      "phase": "post"
+    }
+  ],
+  "passed": 7,
+  "failed": 9,
+  "outer_timeout_s": 30.0,
+  "note": "mocks/barriers only; no GPU work, no service started or stopped"
+}

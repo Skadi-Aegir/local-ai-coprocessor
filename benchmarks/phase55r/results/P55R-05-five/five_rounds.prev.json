@@ -1,0 +1,138 @@
+{
+  "experiment": "P55R-05 fixed five-item workload (staged, 2 required unloads)",
+  "production_unchanged": true,
+  "budgets_unchanged": {
+    "margin_mb": 2048,
+    "reranker_peak_extra_mb": 1800,
+    "candidate_881_or_1361_used": false
+  },
+  "provenance": {
+    "commit": "111185d01c5b38dccca2a33293a423510b76dffb",
+    "dirty": true
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "requests": 5,
+      "completed": 4,
+      "refused": 0,
+      "failed": 1,
+      "oom": false,
+      "both_unloads_performed": true,
+      "vram_window": {
+        "n_samples": 384,
+        "free_min": 3016,
+        "free_max": 5733,
+        "used_min": 6212,
+        "used_max": 8929,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "first_breach": null
+      },
+      "vram_free_min_mb": 3016,
+      "margin_mb": 2048,
+      "margin_held": true,
+      "wall_s": 38.04,
+      "results": [
+        {
+          "request_id": "r1-1-gen",
+          "item": "1 interactive generation",
+          "status": "completed",
+          "wait_s": 0.176,
+          "exec_s": 0.416,
+          "gen_tps": 103.1
+        },
+        {
+          "request_id": "r1-2-embed",
+          "item": "2 embedding background",
+          "status": "completed",
+          "wait_s": 0.18,
+          "exec_s": 0.367,
+          "vectors": 32
+        },
+        {
+          "request_id": "r1-3-rag",
+          "item": "3 full RAG (staged, 2 required unloads)",
+          "stages": [
+            {
+              "stage": "1 embed+retrieve",
+              "ok": true,
+              "wait_s": 0.176,
+              "n": 10,
+              "reason": "",
+              "wall_s": 0.278
+            },
+            {
+              "stage": "3 unload embedding + admit reranker",
+              "ok": true,
+              "actual_unload_list": [
+                "local-embedding"
+              ],
+              "free_before": 3309,
+              "free_after": 4685,
+              "port_free_verified": true,
+              "wait_s": 2.13,
+              "reason": "2637 MiB usable >= 600 MiB required (free 4685 - reserved 0 - margin 2048)",
+              "wall_s": 8.914
+            },
+            {
+              "stage": "4 rerank",
+              "ok": true,
+              "exec_s": 1.116,
+              "n": 5,
+              "reason": "",
+              "wall_s": 1.116
+            },
+            {
+              "stage": "5 unload reranker",
+              "ok": true,
+              "actual_unload_list": [
+                "local-reranker"
+              ],
+              "free_before": 3410,
+              "free_after": 6004,
+              "port_free_verified": true,
+              "reason": "local-reranker unloaded and verified",
+              "wall_s": 6.933
+            },
+            {
+              "stage": "6 pack+generate",
+              "ok": true,
+              "exec_s": 0.699,
+              "answer_has_8192": true,
+              "reason": "",
+              "wall_s": 4.848
+            }
+          ],
+          "n_sources": 5,
+          "pack_chars": 6814,
+          "answer_has_8192": true,
+          "total_wall_s": 22.089,
+          "status": "completed"
+        },
+        {
+          "request_id": "r1-4a-bg",
+          "item": "4 interactive during background",
+          "status": "failed",
+          "wait_s": 6.132,
+          "error": "URLError: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>"
+        },
+        {
+          "request_id": "r1-4b-int",
+          "item": "4 interactive during background",
+          "status": "completed",
+          "wait_s": 14.355,
+          "exec_s": 0.407,
+          "gen_tps": 106.5
+        }
+      ],
+      "passed": false
+    }
+  ],
+  "resident_at_round_start": [
+    "local-fast",
+    "local-embedding",
+    "local-reranker"
+  ]
+}

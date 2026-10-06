@@ -1,0 +1,58 @@
+{
+  "declared": {
+    "steady_mb": 1160,
+    "transient_mb": 1800,
+    "total_mb": 2960
+  },
+  "note": "declared values are NOT changed; this only compares them with observation",
+  "runs": [
+    {
+      "case": "small (10 docs, short)",
+      "n_docs": 10,
+      "doc_words": 30,
+      "baseline_used": 11270,
+      "peak_used": 11532,
+      "observed_delta_mb": 262,
+      "seconds": 0.988,
+      "n_results": 5
+    },
+    {
+      "case": "realistic (10 docs, ~250 words)",
+      "n_docs": 10,
+      "doc_words": 250,
+      "baseline_used": 11532,
+      "peak_used": 11613,
+      "observed_delta_mb": 81,
+      "seconds": 0.599,
+      "n_results": 5
+    },
+    {
+      "case": "batch (50 docs, ~250 words)",
+      "n_docs": 50,
+      "doc_words": 250,
+      "baseline_used": 11613,
+      "peak_used": 11613,
+      "observed_delta_mb": 0,
+      "seconds": 0.003,
+      "n_results": 5
+    },
+    {
+      "case": "batch (50 docs, ~1000 words)",
+      "n_docs": 50,
+      "doc_words": 1000,
+      "baseline_used": 11613,
+      "peak_used": 11620,
+      "observed_delta_mb": 7,
+      "seconds": 13.226,
+      "n_results": 5
+    }
+  ],
+  "idle_used": 11270,
+  "observed_max_delta_mb": 262,
+  "comparison": {
+    "declared_transient_mb": 1800,
+    "observed_max_delta_mb": 262,
+    "declared_exceeds_observed_by_mb": 1538,
+    "verdict": "the declared transient is materially larger than anything observed, so refusals near the margin may be caused by the BUDGET FIGURE rather than by the hardware; the declared value is left unchanged and this is reported rather than used to relax the margin"
+  }
+}

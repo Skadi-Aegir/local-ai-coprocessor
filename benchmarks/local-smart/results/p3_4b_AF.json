@@ -1,0 +1,91 @@
+{
+  "tag": "p3_4b_AF",
+  "base_url": "http://127.0.0.1:8111",
+  "model": "local-fast",
+  "params": {
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "seed": 20260401,
+    "thinking": false,
+    "grammar": false,
+    "json_schema": false
+  },
+  "started": "2026-09-30T11:18:12",
+  "tests": {
+    "A": {
+      "test": "A_zh_summary",
+      "ok": true,
+      "error": "",
+      "ttft_s": 0.33634840000013355,
+      "total_s": 2.738,
+      "prompt_tokens": 1004,
+      "completion_tokens": 304,
+      "gen_tps": 126.15,
+      "prompt_tps": 3765.74,
+      "output": "1. 新架构采用三层结构，接入层通过 FastAPI 接口按租户限流，调度层引入优先级队列隔离交互式请求，执行层将同步调用改为带 8 秒超时的异步任务。\n2. 向量检索改用 pgvector 扩展以复用现有监控体系，虽检索延迟从 12 毫秒升至 35 毫秒，但在可接受范围内；缓存策略仅针对完全相同查询，命中率为 23%，明确放弃语义缓存。\n3. 压测发现 GPU 显存因批处理任务未释放 KV cache 而增长，通过限制单请求最大上下文为 16K 并在超时路径清空缓存修复，显存稳定在 9.2GB；日志量因结构化日志激增，将采样率降至 10% 后回落到每天 24GB。\n4. 灰度运行两周后错误率降至 0.15%，但租户数超 200 时调度决策耗时升至 40 毫秒，计划先尝试将元数据放入本地内存缓存以优化性能。\n5. 新增 P99 等待时间、单租户错误率及超时比例三个自定义监控指标，采用分周放量策略（5%、25%、60%）上线，回滚方案支持无需重启的流量切换，月度云支出增加 21% 但单位请求成本下降 8%。",
+      "grade": {
+        "bullet_points": 5,
+        "bullet_count_ok": true,
+        "facts_hit": 10,
+        "facts_total": 10,
+        "facts_detail": {
+          "新旧架构": true,
+          "延迟问题": true,
+          "pgvector": true,
+          "缓存策略": true,
+          "显存问题": true,
+          "日志量": true,
+          "灰度状态": true,
+          "未解决问题": true,
+          "成本": true,
+          "回滚": true
+        },
+        "hallucination_markers": [],
+        "numbers_not_in_source": [],
+        "chars": 459
+      },
+      "elapsed_s": 2.74
+    },
+    "F": {
+      "test": "F_handoff_compression",
+      "ok": true,
+      "error": "",
+      "ttft_s": 1.4112429000015254,
+      "total_s": 15.755,
+      "prompt_tokens": 5717,
+      "completion_tokens": 1550,
+      "gen_tps": 107.99,
+      "prompt_tps": 4408.03,
+      "input_chars": 10622,
+      "output_chars": 3069,
+      "compression_ratio": 0.289,
+      "sections_present": {
+        "Goal": true,
+        "Current state": true,
+        "Completed": true,
+        "Failed": true,
+        "Important files": true,
+        "Important decisions": true,
+        "Tests": true,
+        "Open questions": true,
+        "Next step": true
+      },
+      "sections_ok": 9,
+      "sections_total": 9,
+      "anchors_hit": [
+        "ivt.py",
+        "scheduler.py",
+        "calibrate.py",
+        "pipeline.yaml",
+        "Parquet",
+        "seed"
+      ],
+      "truncated": false,
+      "output": "## Goal\n重建眼球追踪数据管线为可重复、断点恢复的批处理系统。\n**核心目标**：将一次性脚本改造为单命令处理整日数据（40 组被试），确保同一输入重复运行三次输出**逐字节一致**。\n**验收标准**：\n1. 所有中间产物使用版本化目录结构（Parquet 格式）。\n2. 任何失败可自动从断点恢复。\n3. 最终输出固定格式 CSV + 质量报告。\n4. 通过 `verify` 子命令进行逐字节比对验证。\n\n## Current state\n管线主体已能跑通，但尚未达到“逐字节一致”标准。\n- **稳定部分**：预处理阶段（同步、校准、面部检测）稳定。\n- **不稳定部分**：注视点检测阶段（`detect/ivt.py`）在约 15% 的被试（集中在眨眼密集片段）存在随机波动。\n- **代码位置**：入口 `src/eyetrack/cli.py`，配置 `config/pipeline.yaml`。\n- **数据路径**：原始 `/data/eyetrack/raw/`，中间产物 `/data/eyetrack/work/`，输出 `/data/eyetrack/out/`。\n- **环境约束**：Python 3.13（需社区 wheel），共享文件系统 I/O 瓶颈大。\n\n## Completed\n- **预处理同步** (`src/eyetrack/preprocess/sync.py`)：以屏幕录制帧计数为主时钟，容差 16ms；失败样本写入 `sync_fail.json` 而非抛异常。\n- **校准处理** (`src/eyetrack/preprocess/calibrate.py`)：自动识别 `origin` 字段（`top-left`/`bottom-left`），若为 `bottom-left` 自动翻转 Y 轴。\n- **面部检测** (`src/eyetrack/preprocess/face.py`)：改用按需解码，避免一次性加载 30GB 内存。\n- **调度器** (`src/eyetrack/scheduler.py`)：基于进程池，失败自动重试两次（重试前清理 work 目录），日志结构化 JSON。\n- **质量报告** (`src/eyetrack/report/quality.py`)：生成包含有效采样率、剔除时长、注视点统计的报告。\n\n## Failed\n1. **IDT 算法** (`src/eyetrack/detect/idt_legacy.py`)：因对采样率敏感（60Hz-200Hz 浮动导致阈值等效采样点数不同）被弃用。\n2. **IVT 算法优化**：\n   - 初版：固定 5 帧窗口，在高低采样率下表现不一致。\n   - 修正版：改为按时间定义窗口（20ms），波动降至 15% 被试，但仍不稳定。\n3. **GPU 加速** (`docs/decisions/0003-no-gpu-face-detect.md`)：MediaPipe GPU 路径与 Triton 冲突，且收益（12 秒/组）不足以抵消复杂度，明确放弃。\n4. **增量执行尝试**：因共享文件系统修改时间戳导致哈希计算失效，最终放弃，改为基于阶段标记的粗粒度恢复。\n\n## Important files\n- `src/eyetrack/cli.py` (入口)\n- `src/eyetrack/scheduler.py` (调度与断点恢复)\n- `src/eyetrack/preprocess/sync.py` (时间对齐)\n- `src/eyetrack/preprocess/calibrate.py` (坐标系处理)\n- `src/eyetrack/preprocess/face.py` (面部裁剪)\n- `src/eyetrack/detect/ivt.py` (当前检测逻辑)\n- `src/eyetrack/detect/idt_legacy.py` (废弃参考)\n- `src/eyetrack/report/quality.py` (报告生成)\n- `config/pipeline.yaml` (全局配置)\n- `tests/test_ivt.py` (不稳定测试)\n- `docs/decisions/` (决策记录)\n\n## Important decisions\n1. **中间格式**：强制使用 **Parquet** (而非 CSV) 以保留浮点精度，确保逐字节可复现 (`docs/decisions/0001-parquet-intermediate.md`)。\n2. **无 GPU**：因环境冲突及收益不足，且实验室 GPU 资源不可预测。\n3. **随机性控制**：所有随机步骤必须从 `config/pipeline.yaml` 的 `seed` 字段显式播种 (默认 20260401)。\n4. **无全局状态**：配置通过 CLI 参数显式传递，禁止模块级变量缓存，防止跨被试污染。\n5. **断点恢复**：基于 `meta.json` (含参数快照、哈希) 判断阶段完成度，而非依赖文件哈希增量计算。\n\n## Tests\n- `tests/test_sync.py`：覆盖正常/边界/失败对齐，全部通过。\n- `tests/test_calibrate.py`：覆盖坐标系差异，存在一个用例因缺乏真实样本（左下原点 + 旋转）而跳过。\n- `tests/test_ivt.py`：**不稳定** (CI 约 20% 失败率)，怀疑与浮点累加顺序及进程池返回顺序有关。\n- **覆盖率**：71%，未覆盖 `report/quality.py` 的格式化分支。\n\n## Open questions\n1. **逐字节不一致根因**：\n   - 怀疑 1：`detect/ivt.py` 排序键不稳定（仅时间戳，缺次级键）。\n   - 怀疑 2：`scheduler.py` 按完成顺序而非被试 ID 顺序写文件。\n2. **测试失败关联**：`test_ivt.py` 的不稳定是否与上述排序问题同源？\n3. **校准支持**：是否需要支持“左下原点 + 旋转”？实验室下月可能到货，若支持需引入旋转矩阵（约 2 天工作量）。\n4. **质量指标定义**：导师建议“有效采样率”按时间加权，但当前定义为简单除法，需权衡解释性。\n5. **遗留代码**：是否保留 `idt_legacy.py` 以支持论文方法对比？\n\n## Next step\n1. **验证排序根因**：\n   - 修改 `scheduler.py`：收集阶段改为按 `subject_id` 排序后写文件。\n   - 修改 `detect/ivt.py`：排序键增加次级键（帧索引）。\n   - 执行 `python -m eyetrack.cli verify --date 2026-09-20 --repeat 3` 进行逐字节比对。\n2. **定位差异**：若仍不一致，对每一步 Parquet 输出计算哈希并逐步对比，定位首次差异阶段。\n3. **并行修复**：若确认根因是排序，同步修复 `test_ivt.py` 的不稳定问题。\n4. **后续清理**：更新 README、清理 `io.py` 遗留引用、考虑依赖锁定。",
+      "elapsed_s": 15.76
+    }
+  },
+  "elapsed_s": 18.5,
+  "thinking_leaks_total": 0,
+  "thinking_enabled": false
+}

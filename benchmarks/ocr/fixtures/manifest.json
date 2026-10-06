@@ -1,0 +1,973 @@
+{
+  "set": "ocr_fixtures_v1",
+  "frozen": true,
+  "frozen_note": "Frozen from creation. B3 reads this file and never rewrites it. Changing any image or truth string means a NEW set under a new name.",
+  "synthetic_count": 28,
+  "category_counts": {
+    "chinese": 4,
+    "english": 4,
+    "mixed": 4,
+    "code": 4,
+    "small": 4,
+    "lowcontrast": 4,
+    "ui": 4
+  },
+  "requirements": {
+    "min_per_category": 4,
+    "min_synthetic_total": 24,
+    "min_real": 6,
+    "met": true
+  },
+  "scoring": {
+    "cer": "Levenshtein(pred, truth) / len(truth), on whitespace-normalised strings",
+    "normalisation": "collapse every run of whitespace to a single space, then strip; no punctuation equivalence, no case folding",
+    "line_recall": "fraction of truth lines that appear COMPLETE inside the recognised text after the same normalisation"
+  },
+  "entries": [
+    {
+      "id": "syn_zh_01",
+      "category": "chinese",
+      "kind": "synthetic",
+      "file": "images/syn_zh_01.png",
+      "sha256": "faf4123f97162387465ae6a731648ae60b24b3c11479a91dc8656c76f71ac2d3",
+      "truth_lines": [
+        "本地人工智能协处理器"
+      ],
+      "truth": "本地人工智能协处理器",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 30,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_zh_02",
+      "category": "chinese",
+      "kind": "synthetic",
+      "file": "images/syn_zh_02.png",
+      "sha256": "a415d531e11de4982ecad4877f7b390e4182b67acb9701493914dc89a043595a",
+      "truth_lines": [
+        "本项目只在本地运行",
+        "不向公网发送任何数据"
+      ],
+      "truth": "本项目只在本地运行 不向公网发送任何数据",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 28,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_zh_03",
+      "category": "chinese",
+      "kind": "synthetic",
+      "file": "images/syn_zh_03.png",
+      "sha256": "83e8ae9212513835e13ce254b90eb877f11c1d3bc70a5159c13f1200c0e53e26",
+      "truth_lines": [
+        "阶段六：本地文字识别服务",
+        "只使用处理器，不占用显存"
+      ],
+      "truth": "阶段六：本地文字识别服务 只使用处理器，不占用显存",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 26,
+        "fg": [
+          20,
+          20,
+          20
+        ],
+        "bg": [
+          250,
+          250,
+          250
+        ],
+        "pad": 18
+      }
+    },
+    {
+      "id": "syn_zh_04",
+      "category": "chinese",
+      "kind": "synthetic",
+      "file": "images/syn_zh_04.png",
+      "sha256": "b0162a8fa04103cf7966a845d50dc3c55537fd8a7467f4232f0fd40a8ae82b85",
+      "truth_lines": [
+        "显卡余量必须保持在两千零四十八兆字节以上"
+      ],
+      "truth": "显卡余量必须保持在两千零四十八兆字节以上",
+      "render": {
+        "font": "msyhbd.ttc",
+        "size_px": 30,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_en_01",
+      "category": "english",
+      "kind": "synthetic",
+      "file": "images/syn_en_01.png",
+      "sha256": "d0b07881d3884a49be8325ed89a5dc4117e4e3af708b90b31d618ebbcf36dd86",
+      "truth_lines": [
+        "Local OCR runs on the CPU only."
+      ],
+      "truth": "Local OCR runs on the CPU only.",
+      "render": {
+        "font": "segoeui.ttf",
+        "size_px": 30,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_en_02",
+      "category": "english",
+      "kind": "synthetic",
+      "file": "images/syn_en_02.png",
+      "sha256": "c6c10c0c475d66a99a4ce93082d07c8048b2807bb2b84a9a902f06c8018e5b8b",
+      "truth_lines": [
+        "The service listens on 127.0.0.1:8116",
+        "and returns text, blocks and confidence."
+      ],
+      "truth": "The service listens on 127.0.0.1:8116 and returns text, blocks and confidence.",
+      "render": {
+        "font": "segoeui.ttf",
+        "size_px": 26,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_en_03",
+      "category": "english",
+      "kind": "synthetic",
+      "file": "images/syn_en_03.png",
+      "sha256": "4514d64cd10eeb9d847ec3352277d8073e2f1251b51a635defd5e33cfec2362a",
+      "truth_lines": [
+        "VRAM margin: 2048 MiB",
+        "Device: cpu",
+        "Tier: mobile"
+      ],
+      "truth": "VRAM margin: 2048 MiB Device: cpu Tier: mobile",
+      "render": {
+        "font": "consola.ttf",
+        "size_px": 28,
+        "fg": [
+          10,
+          10,
+          10
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 18
+      }
+    },
+    {
+      "id": "syn_en_04",
+      "category": "english",
+      "kind": "synthetic",
+      "file": "images/syn_en_04.png",
+      "sha256": "ed460c485b17234af7b4c305123162d53014bd86c315eff0cda5465bf508b481",
+      "truth_lines": [
+        "Screenshots are read top to bottom,",
+        "then left to right."
+      ],
+      "truth": "Screenshots are read top to bottom, then left to right.",
+      "render": {
+        "font": "segoeuib.ttf",
+        "size_px": 30,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_mx_01",
+      "category": "mixed",
+      "kind": "synthetic",
+      "file": "images/syn_mx_01.png",
+      "sha256": "db95cc4164af511bba91fd1946fef6c55293ed8b4fb4e758dd1f639c48da7611",
+      "truth_lines": [
+        "本地服务 local-ocr",
+        "端口 port 8116"
+      ],
+      "truth": "本地服务 local-ocr 端口 port 8116",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 28,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_mx_02",
+      "category": "mixed",
+      "kind": "synthetic",
+      "file": "images/syn_mx_02.png",
+      "sha256": "ff293b47d1f279c5b3d553a77ed52401062b5ad287fd8a64b0482a1ac8cfb03c",
+      "truth_lines": [
+        "状态 status: ok",
+        "设备 device: cpu"
+      ],
+      "truth": "状态 status: ok 设备 device: cpu",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 26,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_mx_03",
+      "category": "mixed",
+      "kind": "synthetic",
+      "file": "images/syn_mx_03.png",
+      "sha256": "4149713a04c0712f4b77532510ac92bdd6d885f8cf0511476dae302e8d1e4a14",
+      "truth_lines": [
+        "识别结果 confidence 0.982",
+        "耗时 elapsed 0.256 s"
+      ],
+      "truth": "识别结果 confidence 0.982 耗时 elapsed 0.256 s",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 26,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_mx_04",
+      "category": "mixed",
+      "kind": "synthetic",
+      "file": "images/syn_mx_04.png",
+      "sha256": "ef8411a289fdc81be7b304d9052219f01f9cb67fa48fcbef31d37378b3068465",
+      "truth_lines": [
+        "测试 test 通过 passed",
+        "余量 margin 已守住 held"
+      ],
+      "truth": "测试 test 通过 passed 余量 margin 已守住 held",
+      "render": {
+        "font": "msyhbd.ttc",
+        "size_px": 28,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_code_01",
+      "category": "code",
+      "kind": "synthetic",
+      "file": "images/syn_code_01.png",
+      "sha256": "30c0372ec1d9784a195f01d9f7399fad7a06cae1b6ad06520674e530206b6ac9",
+      "truth_lines": [
+        "PS D:\\MultiAgent> git log --oneline -1",
+        "b637590 Phase 6 B1: local-ocr environment"
+      ],
+      "truth": "PS D:\\MultiAgent> git log --oneline -1 b637590 Phase 6 B1: local-ocr environment",
+      "render": {
+        "font": "consola.ttf",
+        "size_px": 24,
+        "fg": [
+          220,
+          220,
+          220
+        ],
+        "bg": [
+          12,
+          12,
+          12
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_code_02",
+      "category": "code",
+      "kind": "synthetic",
+      "file": "images/syn_code_02.png",
+      "sha256": "543efe8f3212474a6471e3955d4086bdd6d3ba4e9261edb82ae5d4a96705dedb",
+      "truth_lines": [
+        "$ python -m pip list | findstr paddle",
+        "paddleocr    3.7.0",
+        "paddlepaddle 3.3.1"
+      ],
+      "truth": "$ python -m pip list | findstr paddle paddleocr    3.7.0 paddlepaddle 3.3.1",
+      "render": {
+        "font": "consola.ttf",
+        "size_px": 24,
+        "fg": [
+          200,
+          255,
+          200
+        ],
+        "bg": [
+          16,
+          16,
+          16
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_code_03",
+      "category": "code",
+      "kind": "synthetic",
+      "file": "images/syn_code_03.png",
+      "sha256": "41a94221b6c7b8fcfb81f2324747fde4057e578baffec02200aa61b201d5eaa2",
+      "truth_lines": [
+        "def add(a, b):",
+        "    return a + b"
+      ],
+      "truth": "def add(a, b):     return a + b",
+      "render": {
+        "font": "consola.ttf",
+        "size_px": 26,
+        "fg": [
+          240,
+          240,
+          240
+        ],
+        "bg": [
+          10,
+          10,
+          16
+        ],
+        "pad": 18
+      }
+    },
+    {
+      "id": "syn_code_04",
+      "category": "code",
+      "kind": "synthetic",
+      "file": "images/syn_code_04.png",
+      "sha256": "303a4b712636501e5934c158b61840e4ea9284f699aa0cdec628417321bc70d3",
+      "truth_lines": [
+        "nvidia-smi --query-gpu=memory.free",
+        "--format=csv,noheader",
+        "5379 MiB"
+      ],
+      "truth": "nvidia-smi --query-gpu=memory.free --format=csv,noheader 5379 MiB",
+      "render": {
+        "font": "consolab.ttf",
+        "size_px": 24,
+        "fg": [
+          255,
+          230,
+          180
+        ],
+        "bg": [
+          18,
+          12,
+          12
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_sm_01",
+      "category": "small",
+      "kind": "synthetic",
+      "file": "images/syn_sm_01.png",
+      "sha256": "1a52897eefa5c45af79deff3a426b80cc3b53213a6da82d75cd990fa8d181308",
+      "truth_lines": [
+        "small twelve pixel text line one",
+        "and a second line at the same size"
+      ],
+      "truth": "small twelve pixel text line one and a second line at the same size",
+      "render": {
+        "font": "segoeui.ttf",
+        "size_px": 12,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 10
+      }
+    },
+    {
+      "id": "syn_sm_02",
+      "category": "small",
+      "kind": "synthetic",
+      "file": "images/syn_sm_02.png",
+      "sha256": "9a1cfe62674678c651dd654095023ec6d1fc30167d93fd74a9762af63db58b60",
+      "truth_lines": [
+        "本地小字号十二像素测试",
+        "第二行同样大小"
+      ],
+      "truth": "本地小字号十二像素测试 第二行同样大小",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 12,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 10
+      }
+    },
+    {
+      "id": "syn_sm_03",
+      "category": "small",
+      "kind": "synthetic",
+      "file": "images/syn_sm_03.png",
+      "sha256": "2635a13d1d9851634bec97e883e4474f872abea24ca45137f60f4fce64e97298",
+      "truth_lines": [
+        "127.0.0.1:8116",
+        "margin 2048 MiB"
+      ],
+      "truth": "127.0.0.1:8116 margin 2048 MiB",
+      "render": {
+        "font": "consola.ttf",
+        "size_px": 12,
+        "fg": [
+          0,
+          0,
+          0
+        ],
+        "bg": [
+          255,
+          255,
+          255
+        ],
+        "pad": 10
+      }
+    },
+    {
+      "id": "syn_sm_04",
+      "category": "small",
+      "kind": "synthetic",
+      "file": "images/syn_sm_04.png",
+      "sha256": "bc0d709c37ca536151bcf5ab3d1e9055b2da27e164865b5bd62ff3b0d0402c90",
+      "truth_lines": [
+        "port 8116 device cpu tier mobile",
+        "confidence 0.982 elapsed 0.256 s"
+      ],
+      "truth": "port 8116 device cpu tier mobile confidence 0.982 elapsed 0.256 s",
+      "render": {
+        "font": "segoeui.ttf",
+        "size_px": 12,
+        "fg": [
+          30,
+          30,
+          30
+        ],
+        "bg": [
+          250,
+          250,
+          250
+        ],
+        "pad": 10
+      }
+    },
+    {
+      "id": "syn_lc_01",
+      "category": "lowcontrast",
+      "kind": "synthetic",
+      "file": "images/syn_lc_01.png",
+      "sha256": "728dd389fa4d00bd3083a1000f6f1bab238129d3c84db4670bd5058e32018121",
+      "truth_lines": [
+        "low contrast grey on grey"
+      ],
+      "truth": "low contrast grey on grey",
+      "render": {
+        "font": "segoeui.ttf",
+        "size_px": 28,
+        "fg": [
+          150,
+          150,
+          150
+        ],
+        "bg": [
+          200,
+          200,
+          200
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_lc_02",
+      "category": "lowcontrast",
+      "kind": "synthetic",
+      "file": "images/syn_lc_02.png",
+      "sha256": "e15edc45bcadbb4204038f3bb1c2e480b6a942d06364f093eb9de3d2efb8e79c",
+      "truth_lines": [
+        "低对比度测试文本"
+      ],
+      "truth": "低对比度测试文本",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 28,
+        "fg": [
+          160,
+          160,
+          160
+        ],
+        "bg": [
+          205,
+          205,
+          205
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_lc_03",
+      "category": "lowcontrast",
+      "kind": "synthetic",
+      "file": "images/syn_lc_03.png",
+      "sha256": "66f561b6a4b9dadf458543e1f8071bc413ee479e78a60b75a0378512e99cb635",
+      "truth_lines": [
+        "margin 2048 MiB",
+        "device cpu"
+      ],
+      "truth": "margin 2048 MiB device cpu",
+      "render": {
+        "font": "consola.ttf",
+        "size_px": 24,
+        "fg": [
+          140,
+          140,
+          150
+        ],
+        "bg": [
+          195,
+          195,
+          205
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_lc_04",
+      "category": "lowcontrast",
+      "kind": "synthetic",
+      "file": "images/syn_lc_04.png",
+      "sha256": "2e77aa6a46f0027ac62cedcf9f7d3d1e9671022761a094e4bf1a85bc0049a17f",
+      "truth_lines": [
+        "barely visible second line"
+      ],
+      "truth": "barely visible second line",
+      "render": {
+        "font": "segoeui.ttf",
+        "size_px": 26,
+        "fg": [
+          170,
+          170,
+          170
+        ],
+        "bg": [
+          210,
+          210,
+          210
+        ],
+        "pad": 16
+      }
+    },
+    {
+      "id": "syn_ui_01",
+      "category": "ui",
+      "kind": "synthetic",
+      "file": "images/syn_ui_01.png",
+      "sha256": "c78101c2d93b4a508855a27f8eba5503cb1c47515aa8c9269c36968675bb4934",
+      "truth_lines": [
+        "Settings",
+        "Device: cpu",
+        "Model: PP-OCRv5 mobile"
+      ],
+      "truth": "Settings Device: cpu Model: PP-OCRv5 mobile",
+      "render": {
+        "font": "segoeui.ttf",
+        "size_px": 20,
+        "fg": [
+          20,
+          20,
+          20
+        ],
+        "bg": [
+          245,
+          245,
+          245
+        ],
+        "pad": 14
+      }
+    },
+    {
+      "id": "syn_ui_02",
+      "category": "ui",
+      "kind": "synthetic",
+      "file": "images/syn_ui_02.png",
+      "sha256": "9ad305dccffa6856d938f6032ba330aed3c33e988333215c6288350a7d045da4",
+      "truth_lines": [
+        "设置 Settings",
+        "端口 Port 8116"
+      ],
+      "truth": "设置 Settings 端口 Port 8116",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 20,
+        "fg": [
+          20,
+          20,
+          20
+        ],
+        "bg": [
+          245,
+          245,
+          245
+        ],
+        "pad": 14
+      }
+    },
+    {
+      "id": "syn_ui_03",
+      "category": "ui",
+      "kind": "synthetic",
+      "file": "images/syn_ui_03.png",
+      "sha256": "d5c03388daead387944408333bdb12705a7724a3ef365c7c4a9f1419b6af551e",
+      "truth_lines": [
+        "OCR result",
+        "confidence 0.992",
+        "elapsed 1.191 s"
+      ],
+      "truth": "OCR result confidence 0.992 elapsed 1.191 s",
+      "render": {
+        "font": "segoeui.ttf",
+        "size_px": 20,
+        "fg": [
+          20,
+          20,
+          20
+        ],
+        "bg": [
+          250,
+          250,
+          250
+        ],
+        "pad": 14
+      }
+    },
+    {
+      "id": "syn_ui_04",
+      "category": "ui",
+      "kind": "synthetic",
+      "file": "images/syn_ui_04.png",
+      "sha256": "e0fdab031f54d5f9fff85a15f0efc107bc470fc35aa0b96788a885800a0ffb43",
+      "truth_lines": [
+        "状态 Status: ok",
+        "模型 Model: server"
+      ],
+      "truth": "状态 Status: ok 模型 Model: server",
+      "render": {
+        "font": "msyh.ttc",
+        "size_px": 20,
+        "fg": [
+          20,
+          20,
+          20
+        ],
+        "bg": [
+          248,
+          248,
+          248
+        ],
+        "pad": 14
+      }
+    },
+    {
+      "id": "real_nvidia_smi",
+      "category": "real/terminal",
+      "kind": "real",
+      "file": "images/real_nvidia_smi.png",
+      "sha256": "6a53dce9c30661dc08452d415adb6c4ec5259299b55948d149a9274f8653167e",
+      "truth_lines": [
+        "nvidia-smi memory query",
+        "",
+        "name, memory.used [MiB], memory.free [MiB]",
+        "NVIDIA GeForce RTX 5070 Ti Laptop GPU, 6558 MiB, 5387 MiB"
+      ],
+      "truth": "nvidia-smi memory query  name, memory.used [MiB], memory.free [MiB] NVIDIA GeForce RTX 5070 Ti Laptop GPU, 6558 MiB, 5387 MiB",
+      "source": {
+        "title": "nvidia-smi memory query",
+        "capture": "capture/real_nvidia_smi.txt",
+        "personal_info_check": "passed -- no user name, email, profile path, browser or chat content"
+      }
+    },
+    {
+      "id": "real_git_log",
+      "category": "real/terminal",
+      "kind": "real",
+      "file": "images/real_git_log.png",
+      "sha256": "5c703de0cb26702b45ac11064264832e17e345292447c8ee56e05e5162ca019a",
+      "truth_lines": [
+        "git log --oneline (project history)",
+        "",
+        "b637590 Phase 6 B1: local-ocr environment and models - CPU-only, nothing",
+        "    on C:, models not in git",
+        "d29d2dc Part A: QA hardening - truncation fix (AD-22), management",
+        "    decisions (AD-21), errata E30",
+        "5989730 ERRATA E29: antivirus removed a DSH runtime file mid-call; one",
+        "    tool call did not run",
+        "94f95f2 Phase A/B acceptance round complete: B re-verified, report and",
+        "    management files, offline tests re-run",
+        "568799d Phase A acceptance run: heldout_v1 run1, audit, per-question",
+        "    review, P56 regression",
+        "8b5f00d P55R/Phase A-B acceptance, checkpoint 1: review fixes deployed,",
+        "    P1-11 verified on the deployed 8113, QA index rebuilt",
+        "4166fdd Merge branch 'claude/workspace-content-review-be429a'",
+        "a83efe9 R-1005 follow-up: two more checks made independent of which index",
+        "    is current"
+      ],
+      "truth": "git log --oneline (project history)  b637590 Phase 6 B1: local-ocr environment and models - CPU-only, nothing     on C:, models not in git d29d2dc Part A: QA hardening - truncation fix (AD-22), management     decisions (AD-21), errata E30 5989730 ERRATA E29: antivirus removed a DSH runtime file mid-call; one     tool call did not run 94f95f2 Phase A/B acceptance round complete: B re-verified, report and     management files, offline tests re-run 568799d Phase A acceptance run: heldout_v1 run1, audit, per-question     review, P56 regression 8b5f00d P55R/Phase A-B acceptance, checkpoint 1: review fixes deployed,     P1-11 verified on the deployed 8113, QA index rebuilt 4166fdd Merge branch 'claude/workspace-content-review-be429a' a83efe9 R-1005 follow-up: two more checks made independent of which index     is current",
+      "source": {
+        "title": "git log --oneline (project history)",
+        "capture": "capture/real_git_log.txt",
+        "personal_info_check": "passed -- no user name, email, profile path, browser or chat content"
+      }
+    },
+    {
+      "id": "real_pip_paddle",
+      "category": "real/terminal",
+      "kind": "real",
+      "file": "images/real_pip_paddle.png",
+      "sha256": "ac7c7f903d5934fdc308f60c45bb937774dc59a2a1443c0279e398d046e3e45b",
+      "truth_lines": [
+        "pip list: OCR packages",
+        "",
+        "paddleocr             3.7.0",
+        "paddlepaddle          3.3.1",
+        "paddlex               3.7.2"
+      ],
+      "truth": "pip list: OCR packages  paddleocr             3.7.0 paddlepaddle          3.3.1 paddlex               3.7.2",
+      "source": {
+        "title": "pip list: OCR packages",
+        "capture": "capture/real_pip_paddle.txt",
+        "personal_info_check": "passed -- no user name, email, profile path, browser or chat content"
+      }
+    },
+    {
+      "id": "real_server_py",
+      "category": "real/editor",
+      "kind": "real",
+      "file": "images/real_server_py.png",
+      "sha256": "caf78429769d3c72c52f6681d6c796c4ed89f8b20ffbdc06681ee275b1730807",
+      "truth_lines": [
+        "services/retrieval/server.py",
+        "",
+        "            \"projects\": out,",
+        "        }",
+        "",
+        "    def close(self) -> None:",
+        "        for st in self._stores.values():",
+        "            try:",
+        "                st.close()",
+        "            except Exception:",
+        "                pass",
+        "",
+        "",
+        "def make_handler(svc: Service):",
+        "    class Handler(BaseHTTPRequestHandler):",
+        "        protocol_version = \"HTTP/1.1\"",
+        "        server_version = \"local-embedding/0.1\"",
+        ""
+      ],
+      "truth": "services/retrieval/server.py              \"projects\": out,         }      def close(self) -> None:         for st in self._stores.values():             try:                 st.close()             except Exception:                 pass   def make_handler(svc: Service):     class Handler(BaseHTTPRequestHandler):         protocol_version = \"HTTP/1.1\"         server_version = \"local-embedding/0.1\" ",
+      "source": {
+        "title": "services/retrieval/server.py",
+        "capture": "capture/real_server_py.txt",
+        "personal_info_check": "passed -- no user name, email, profile path, browser or chat content"
+      }
+    },
+    {
+      "id": "real_local_fast_yaml",
+      "category": "real/editor",
+      "kind": "real",
+      "file": "images/real_local_fast_yaml.png",
+      "sha256": "8bdddd85bf9f4b113bcdb3da19a737dde97481ed77a12a3d5edba3c86adb8683",
+      "truth_lines": [
+        "config/local-fast.yaml",
+        "",
+        "  architecture: qwen3_5",
+        "  family: qwen3.5",
+        "  modalities: text",
+        "  note: upstream is a VLM; mmproj is intentionally not deployed for this",
+        "    text-only worker",
+        "",
+        "# Selected quantisation. Q4_K_M is the Phase 2 default; see results doc.",
+        "quant: Q4_K_M",
+        "model_path: D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q4_K_M.gguf",
+        "model_sha256:",
+        "    00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+        "model_size_mb: 2614",
+        "",
+        "# Alternatives kept on disk for A/B comparison (not deployed by default).",
+        "alternates:",
+        "  Q5_K_M: D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q5_K_M.gguf",
+        "  Q6_K: D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q6_K.gguf",
+        ""
+      ],
+      "truth": "config/local-fast.yaml    architecture: qwen3_5   family: qwen3.5   modalities: text   note: upstream is a VLM; mmproj is intentionally not deployed for this     text-only worker  # Selected quantisation. Q4_K_M is the Phase 2 default; see results doc. quant: Q4_K_M model_path: D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q4_K_M.gguf model_sha256:     00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4 model_size_mb: 2614  # Alternatives kept on disk for A/B comparison (not deployed by default). alternates:   Q5_K_M: D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q5_K_M.gguf   Q6_K: D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q6_K.gguf ",
+      "source": {
+        "title": "config/local-fast.yaml",
+        "capture": "capture/real_local_fast_yaml.txt",
+        "personal_info_check": "passed -- no user name, email, profile path, browser or chat content"
+      }
+    },
+    {
+      "id": "real_local_ocr_md",
+      "category": "real/editor",
+      "kind": "real",
+      "file": "images/real_local_ocr_md.png",
+      "sha256": "4d93a0c5f237221c604ddcc200b15d461f35eb57bb59339f746cb4c000ac4c3d",
+      "truth_lines": [
+        "docs/models/local-ocr.md",
+        "",
+        "**CPU.** One important measured caveat:",
+        "",
+        "> **oneDNN must be disabled on this build.** With the default (oneDNN",
+        "    enabled) both tiers **loaded",
+        "> successfully and then failed at predict**:",
+        ">",
+        "> ```",
+        "> NotImplementedError: (Unimplemented)",
+        "    ConvertPirAttribute2RuntimeAttribute not support",
+        "> [pir::ArrayAttribute<pir::DoubleAttribute>]  (onednn_instruction.cc:118)",
+        "> ```",
+        ">",
+        "> This is a oneDNN/PIR kernel incompatibility in `paddlepaddle 3.3.1`,",
+        "    **not a bad model or a failed",
+        "> download** — the same files succeed unchanged once oneDNN is off. Two",
+        "    equivalent remedies were",
+        "> measured to work: `enable_mkldnn=False` on the `PaddleOCR` constructor,",
+        "    or the environment variable",
+        "> `FLAGS_use_mkldnn=0`. Setting only `FLAGS_enable_pir_api=0` does **not**",
+        "    fix it."
+      ],
+      "truth": "docs/models/local-ocr.md  **CPU.** One important measured caveat:  > **oneDNN must be disabled on this build.** With the default (oneDNN     enabled) both tiers **loaded > successfully and then failed at predict**: > > ``` > NotImplementedError: (Unimplemented)     ConvertPirAttribute2RuntimeAttribute not support > [pir::ArrayAttribute<pir::DoubleAttribute>]  (onednn_instruction.cc:118) > ``` > > This is a oneDNN/PIR kernel incompatibility in `paddlepaddle 3.3.1`,     **not a bad model or a failed > download** — the same files succeed unchanged once oneDNN is off. Two     equivalent remedies were > measured to work: `enable_mkldnn=False` on the `PaddleOCR` constructor,     or the environment variable > `FLAGS_use_mkldnn=0`. Setting only `FLAGS_enable_pir_api=0` does **not**     fix it.",
+      "source": {
+        "title": "docs/models/local-ocr.md",
+        "capture": "capture/real_local_ocr_md.txt",
+        "personal_info_check": "passed -- no user name, email, profile path, browser or chat content"
+      }
+    }
+  ],
+  "real_count": 6,
+  "real_rejected": [],
+  "total_count": 34,
+  "all_category_counts": {
+    "chinese": 4,
+    "english": 4,
+    "mixed": 4,
+    "code": 4,
+    "small": 4,
+    "lowcontrast": 4,
+    "ui": 4,
+    "real/terminal": 3,
+    "real/editor": 3
+  }
+}

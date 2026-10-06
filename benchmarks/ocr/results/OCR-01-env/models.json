@@ -1,0 +1,721 @@
+{
+  "paddlex_version": "3.7.2",
+  "cache_dir": "D:\\MultiAgent\\models\\ocr\\_paddlex_cache",
+  "registry": {
+    "PP-OCRv5_mobile_det": {
+      "in_model_list": true,
+      "model_source": "huggingface",
+      "hosters": [
+        "ABCMeta",
+        "ABCMeta",
+        "ABCMeta",
+        "ABCMeta"
+      ]
+    },
+    "PP-OCRv5_mobile_rec": {
+      "in_model_list": true,
+      "model_source": "huggingface",
+      "hosters": [
+        "ABCMeta",
+        "ABCMeta",
+        "ABCMeta",
+        "ABCMeta"
+      ]
+    },
+    "PP-OCRv5_server_det": {
+      "in_model_list": true,
+      "model_source": "huggingface",
+      "hosters": [
+        "ABCMeta",
+        "ABCMeta",
+        "ABCMeta",
+        "ABCMeta"
+      ]
+    },
+    "PP-OCRv5_server_rec": {
+      "in_model_list": true,
+      "model_source": "huggingface",
+      "hosters": [
+        "ABCMeta",
+        "ABCMeta",
+        "ABCMeta",
+        "ABCMeta"
+      ]
+    }
+  },
+  "models": {
+    "PP-OCRv5_mobile_det": {
+      "dir": "D:\\MultiAgent\\models\\ocr\\_paddlex_cache\\official_models\\PP-OCRv5_mobile_det",
+      "n_files": 15,
+      "total_bytes": 4946018,
+      "seconds": 25.7,
+      "files": [
+        {
+          "rel": ".cache/huggingface/.gitignore",
+          "bytes": 1,
+          "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+        },
+        {
+          "rel": ".cache/huggingface/CACHEDIR.TAG",
+          "bytes": 195,
+          "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+        },
+        {
+          "rel": ".cache/huggingface/download/.gitattributes.metadata",
+          "bytes": 104,
+          "sha256": "125a6d7885c920707dddccb8e1e02e9911f37b2e64a3194ac0731d147debc55f"
+        },
+        {
+          "rel": ".cache/huggingface/download/config.json.metadata",
+          "bytes": 104,
+          "sha256": "c451d89ae2d10aa20bc207b077905b189b07d93cc31f3cf575f51b638e47db49"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.json.metadata",
+          "bytes": 104,
+          "sha256": "9b682298e3d27d1cde72e09333de9bda958e64f0b9026c40b39b307e9b39db1e"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.pdiparams.metadata",
+          "bytes": 128,
+          "sha256": "2f1abd11160069f594fd2d49ab61723f7ccccab3d1a42a99d735d9ce42467c8d"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.yml.metadata",
+          "bytes": 104,
+          "sha256": "15b8f84835722805882783a0565fbf781537b7de4fa684ad82b5c2d083e7c07b"
+        },
+        {
+          "rel": ".cache/huggingface/download/README.md.metadata",
+          "bytes": 103,
+          "sha256": "0ec810ce6714ab0ec9d61e47bf98e83b825e3ee84cc33628cf02d2beda738668"
+        },
+        {
+          "rel": ".cache/huggingface/trees/0d63e78e2b680928f6b1747d76a08db6e645efb7.json",
+          "bytes": 869,
+          "sha256": "52f183ab0177d44d00b03b1978572d9d4991b13fc7cc9854f3807acfab7d903b"
+        },
+        {
+          "rel": ".gitattributes",
+          "bytes": 1575,
+          "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 2871,
+          "sha256": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665"
+        },
+        {
+          "rel": "inference.json",
+          "bytes": 229777,
+          "sha256": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c"
+        },
+        {
+          "rel": "inference.pdiparams",
+          "bytes": 4692937,
+          "sha256": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b"
+        },
+        {
+          "rel": "inference.yml",
+          "bytes": 903,
+          "sha256": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 16243,
+          "sha256": "4cc20ad6d41af86b3ce9885ffb0956e152574a2eb14179aeb07fd2d3956161ca"
+        }
+      ],
+      "staged_at": "D:\\MultiAgent\\models\\ocr\\PP-OCRv5_mobile_det",
+      "staged_n_files": 15
+    },
+    "PP-OCRv5_mobile_rec": {
+      "dir": "D:\\MultiAgent\\models\\ocr\\_paddlex_cache\\official_models\\PP-OCRv5_mobile_rec",
+      "n_files": 15,
+      "total_bytes": 17196352,
+      "seconds": 18.7,
+      "files": [
+        {
+          "rel": ".cache/huggingface/.gitignore",
+          "bytes": 1,
+          "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+        },
+        {
+          "rel": ".cache/huggingface/CACHEDIR.TAG",
+          "bytes": 195,
+          "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+        },
+        {
+          "rel": ".cache/huggingface/download/.gitattributes.metadata",
+          "bytes": 103,
+          "sha256": "a08e480cb586d46fc8eb426cfcd747d5d9e7149585ec7155938552ef38ebeb48"
+        },
+        {
+          "rel": ".cache/huggingface/download/config.json.metadata",
+          "bytes": 102,
+          "sha256": "e3bea067ecbe2b874a4befda9c3ce9675ea11df340de67aaa1fc2153f767f84c"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.json.metadata",
+          "bytes": 103,
+          "sha256": "4ba9d8840b863b6cd92e21b64612df805b166d934510caf227a8f36d1349c54a"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.pdiparams.metadata",
+          "bytes": 128,
+          "sha256": "3b5a460dc762ac967d4dac1b71b83ee4ae7f2cc6cfde4781f89235576b781006"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.yml.metadata",
+          "bytes": 103,
+          "sha256": "e989c4a61617b300be901d04168d09838acf8e8044801bb87792617aab0abdb2"
+        },
+        {
+          "rel": ".cache/huggingface/download/README.md.metadata",
+          "bytes": 104,
+          "sha256": "fc2c90a9836d585fdd09821a1a0c9f695d6652e492071d86fc9d95edc29c043c"
+        },
+        {
+          "rel": ".cache/huggingface/trees/682f20538d8c086cb2128e5cfac775e6c4904e85.json",
+          "bytes": 876,
+          "sha256": "c825c360ed25df063c7b771a78a1253873771ec4d7d878d84b4d1d7614a1f976"
+        },
+        {
+          "rel": ".gitattributes",
+          "bytes": 1575,
+          "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 352253,
+          "sha256": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8"
+        },
+        {
+          "rel": "inference.json",
+          "bytes": 217724,
+          "sha256": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569"
+        },
+        {
+          "rel": "inference.pdiparams",
+          "bytes": 16458665,
+          "sha256": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a"
+        },
+        {
+          "rel": "inference.yml",
+          "bytes": 148345,
+          "sha256": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 16075,
+          "sha256": "b02727443cef4904a9ee12accdfaf66fcbada7b93a1a05c40dde7582291ba28c"
+        }
+      ],
+      "staged_at": "D:\\MultiAgent\\models\\ocr\\PP-OCRv5_mobile_rec",
+      "staged_n_files": 15
+    },
+    "PP-OCRv5_server_det": {
+      "dir": "D:\\MultiAgent\\models\\ocr\\_paddlex_cache\\official_models\\PP-OCRv5_server_det",
+      "n_files": 15,
+      "total_bytes": 88358343,
+      "seconds": 47.2,
+      "files": [
+        {
+          "rel": ".cache/huggingface/.gitignore",
+          "bytes": 1,
+          "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+        },
+        {
+          "rel": ".cache/huggingface/CACHEDIR.TAG",
+          "bytes": 195,
+          "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+        },
+        {
+          "rel": ".cache/huggingface/download/.gitattributes.metadata",
+          "bytes": 104,
+          "sha256": "19d9f29a7cc2f9046104251a38aa1c54f170c79c0bbc6fbb1e883042d76757a6"
+        },
+        {
+          "rel": ".cache/huggingface/download/config.json.metadata",
+          "bytes": 104,
+          "sha256": "9be9af1f22ca72b3d6b2b2f4ed4c5c3911e7b17cb6a9fb6f58c0c869b1231cba"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.json.metadata",
+          "bytes": 104,
+          "sha256": "e521907cb519da929a1dc652eae5de94ffc71a7b05c34c8637fcbe22ce7c5b50"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.pdiparams.metadata",
+          "bytes": 128,
+          "sha256": "bb2a88eda89a48226263638467bb9d8399893c54f559fea670dce2006b57c3cc"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.yml.metadata",
+          "bytes": 104,
+          "sha256": "3e27341881df549cf7e6c7037585f2d0ff536b550d563bb78253022a5fceac10"
+        },
+        {
+          "rel": ".cache/huggingface/download/README.md.metadata",
+          "bytes": 104,
+          "sha256": "f7598e4484a8f229312fc523c6d0f43cda2192696201af8c05495c1c391cab6c"
+        },
+        {
+          "rel": ".cache/huggingface/trees/ca867c897ecbca8873081573a802ad70d499cb94.json",
+          "bytes": 871,
+          "sha256": "647b6d2a62d47e95710710b28fca63b633600ad75fbe73e5a5eaaf0e3a522faf"
+        },
+        {
+          "rel": ".gitattributes",
+          "bytes": 1575,
+          "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 2871,
+          "sha256": "436bf19010fe3879477e8599a870a0ec8ccd14ca39056805ec4ed20ab318ec04"
+        },
+        {
+          "rel": "inference.json",
+          "bytes": 402480,
+          "sha256": "af5876933d8806a1b50d895867e0781e135cd92ff37381992828fc8d1b842d28"
+        },
+        {
+          "rel": "inference.pdiparams",
+          "bytes": 87932887,
+          "sha256": "183146fe9d9910352f68482f623bcbbb9fa7b9e8fa1463b9ad288cef00524d2d"
+        },
+        {
+          "rel": "inference.yml",
+          "bytes": 903,
+          "sha256": "28fb721efc3634fc8aa677e474b9602cb815a91cf569ef357a7a553d7b3ce685"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 15912,
+          "sha256": "4fd4cf7c6fc3239ede7274c3877e7a0c4424ffa7f56b2775e4e7961c24b1f107"
+        }
+      ],
+      "staged_at": "D:\\MultiAgent\\models\\ocr\\PP-OCRv5_server_det",
+      "staged_n_files": 15
+    },
+    "PP-OCRv5_server_rec": {
+      "dir": "D:\\MultiAgent\\models\\ocr\\_paddlex_cache\\official_models\\PP-OCRv5_server_rec",
+      "n_files": 15,
+      "total_bytes": 85235106,
+      "seconds": 33.3,
+      "files": [
+        {
+          "rel": ".cache/huggingface/.gitignore",
+          "bytes": 1,
+          "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+        },
+        {
+          "rel": ".cache/huggingface/CACHEDIR.TAG",
+          "bytes": 195,
+          "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+        },
+        {
+          "rel": ".cache/huggingface/download/.gitattributes.metadata",
+          "bytes": 104,
+          "sha256": "b7c99d3c94f1d59c4fbd93d88bab954d86db1380756cee730d779bb827029d53"
+        },
+        {
+          "rel": ".cache/huggingface/download/config.json.metadata",
+          "bytes": 104,
+          "sha256": "1f1c56aae459f1fb66cfcb219c1c4616220dff154929a9c4623f50a69f752b77"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.json.metadata",
+          "bytes": 104,
+          "sha256": "c0c6c7c44226bcc8670fbd2e82b7db0d99cf48e3695b4200f47ff0449d7b4d10"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.pdiparams.metadata",
+          "bytes": 128,
+          "sha256": "10844b11967133679efe2c51271bfa8d3723eb72798a5f59ef3caa88d9aa158e"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.yml.metadata",
+          "bytes": 104,
+          "sha256": "89807e8b3f15001d4a170585c03fdd18a5b18cdf4c6ddbfc3f3431ab75103495"
+        },
+        {
+          "rel": ".cache/huggingface/download/README.md.metadata",
+          "bytes": 104,
+          "sha256": "2d7e3f47add9917765aca27468199e928d2a62d7a5467e57e994a42842772a58"
+        },
+        {
+          "rel": ".cache/huggingface/trees/b26c3587fda8da3c8ec0ce357214b4d661ff1558.json",
+          "bytes": 876,
+          "sha256": "52814b7c90275fc207e37ef36d222fdda8a58bf1098e6ee7fe1162a77295325c"
+        },
+        {
+          "rel": ".gitattributes",
+          "bytes": 1575,
+          "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 352253,
+          "sha256": "6a780e213d7a830058ae1b6899c62cc13ca9c1f0f04ae39a27ebb2610fae7c51"
+        },
+        {
+          "rel": "inference.json",
+          "bytes": 325204,
+          "sha256": "8e6e12e5d42531840310977fffb58165bf889fc5061408c5a8afdb6985f47fcb"
+        },
+        {
+          "rel": "inference.pdiparams",
+          "bytes": 84390117,
+          "sha256": "63853f062a5f4089befc16f565a68277618e0da5cb45468b49d11079de0ada77"
+        },
+        {
+          "rel": "inference.yml",
+          "bytes": 148345,
+          "sha256": "2c719dba044c4e2228aef8ff92f5f575394d75d24c16de096a33b7cfd902f66d"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 15892,
+          "sha256": "519eba1704ddeb8d3e68c4f54221dde11074be0644197cdc4d5581b6d74bd62c"
+        }
+      ],
+      "staged_at": "D:\\MultiAgent\\models\\ocr\\PP-OCRv5_server_rec",
+      "staged_n_files": 15
+    }
+  },
+  "cache_dir_removed": true,
+  "c_user_paddlex": {
+    "path": "C:\\Users\\<user>\\.paddlex",
+    "exists": true,
+    "n_files": 0,
+    "files": []
+  },
+  "staged": {
+    "PP-OCRv5_mobile_det": {
+      "n_files": 15,
+      "total_bytes": 4946018,
+      "files": [
+        {
+          "rel": ".cache/huggingface/.gitignore",
+          "bytes": 1,
+          "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+        },
+        {
+          "rel": ".cache/huggingface/CACHEDIR.TAG",
+          "bytes": 195,
+          "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+        },
+        {
+          "rel": ".cache/huggingface/download/.gitattributes.metadata",
+          "bytes": 104,
+          "sha256": "125a6d7885c920707dddccb8e1e02e9911f37b2e64a3194ac0731d147debc55f"
+        },
+        {
+          "rel": ".cache/huggingface/download/config.json.metadata",
+          "bytes": 104,
+          "sha256": "c451d89ae2d10aa20bc207b077905b189b07d93cc31f3cf575f51b638e47db49"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.json.metadata",
+          "bytes": 104,
+          "sha256": "9b682298e3d27d1cde72e09333de9bda958e64f0b9026c40b39b307e9b39db1e"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.pdiparams.metadata",
+          "bytes": 128,
+          "sha256": "2f1abd11160069f594fd2d49ab61723f7ccccab3d1a42a99d735d9ce42467c8d"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.yml.metadata",
+          "bytes": 104,
+          "sha256": "15b8f84835722805882783a0565fbf781537b7de4fa684ad82b5c2d083e7c07b"
+        },
+        {
+          "rel": ".cache/huggingface/download/README.md.metadata",
+          "bytes": 103,
+          "sha256": "0ec810ce6714ab0ec9d61e47bf98e83b825e3ee84cc33628cf02d2beda738668"
+        },
+        {
+          "rel": ".cache/huggingface/trees/0d63e78e2b680928f6b1747d76a08db6e645efb7.json",
+          "bytes": 869,
+          "sha256": "52f183ab0177d44d00b03b1978572d9d4991b13fc7cc9854f3807acfab7d903b"
+        },
+        {
+          "rel": ".gitattributes",
+          "bytes": 1575,
+          "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 2871,
+          "sha256": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665"
+        },
+        {
+          "rel": "inference.json",
+          "bytes": 229777,
+          "sha256": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c"
+        },
+        {
+          "rel": "inference.pdiparams",
+          "bytes": 4692937,
+          "sha256": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b"
+        },
+        {
+          "rel": "inference.yml",
+          "bytes": 903,
+          "sha256": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 16243,
+          "sha256": "4cc20ad6d41af86b3ce9885ffb0956e152574a2eb14179aeb07fd2d3956161ca"
+        }
+      ]
+    },
+    "PP-OCRv5_mobile_rec": {
+      "n_files": 15,
+      "total_bytes": 17196352,
+      "files": [
+        {
+          "rel": ".cache/huggingface/.gitignore",
+          "bytes": 1,
+          "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+        },
+        {
+          "rel": ".cache/huggingface/CACHEDIR.TAG",
+          "bytes": 195,
+          "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+        },
+        {
+          "rel": ".cache/huggingface/download/.gitattributes.metadata",
+          "bytes": 103,
+          "sha256": "a08e480cb586d46fc8eb426cfcd747d5d9e7149585ec7155938552ef38ebeb48"
+        },
+        {
+          "rel": ".cache/huggingface/download/config.json.metadata",
+          "bytes": 102,
+          "sha256": "e3bea067ecbe2b874a4befda9c3ce9675ea11df340de67aaa1fc2153f767f84c"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.json.metadata",
+          "bytes": 103,
+          "sha256": "4ba9d8840b863b6cd92e21b64612df805b166d934510caf227a8f36d1349c54a"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.pdiparams.metadata",
+          "bytes": 128,
+          "sha256": "3b5a460dc762ac967d4dac1b71b83ee4ae7f2cc6cfde4781f89235576b781006"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.yml.metadata",
+          "bytes": 103,
+          "sha256": "e989c4a61617b300be901d04168d09838acf8e8044801bb87792617aab0abdb2"
+        },
+        {
+          "rel": ".cache/huggingface/download/README.md.metadata",
+          "bytes": 104,
+          "sha256": "fc2c90a9836d585fdd09821a1a0c9f695d6652e492071d86fc9d95edc29c043c"
+        },
+        {
+          "rel": ".cache/huggingface/trees/682f20538d8c086cb2128e5cfac775e6c4904e85.json",
+          "bytes": 876,
+          "sha256": "c825c360ed25df063c7b771a78a1253873771ec4d7d878d84b4d1d7614a1f976"
+        },
+        {
+          "rel": ".gitattributes",
+          "bytes": 1575,
+          "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 352253,
+          "sha256": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8"
+        },
+        {
+          "rel": "inference.json",
+          "bytes": 217724,
+          "sha256": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569"
+        },
+        {
+          "rel": "inference.pdiparams",
+          "bytes": 16458665,
+          "sha256": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a"
+        },
+        {
+          "rel": "inference.yml",
+          "bytes": 148345,
+          "sha256": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 16075,
+          "sha256": "b02727443cef4904a9ee12accdfaf66fcbada7b93a1a05c40dde7582291ba28c"
+        }
+      ]
+    },
+    "PP-OCRv5_server_det": {
+      "n_files": 15,
+      "total_bytes": 88358343,
+      "files": [
+        {
+          "rel": ".cache/huggingface/.gitignore",
+          "bytes": 1,
+          "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+        },
+        {
+          "rel": ".cache/huggingface/CACHEDIR.TAG",
+          "bytes": 195,
+          "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+        },
+        {
+          "rel": ".cache/huggingface/download/.gitattributes.metadata",
+          "bytes": 104,
+          "sha256": "19d9f29a7cc2f9046104251a38aa1c54f170c79c0bbc6fbb1e883042d76757a6"
+        },
+        {
+          "rel": ".cache/huggingface/download/config.json.metadata",
+          "bytes": 104,
+          "sha256": "9be9af1f22ca72b3d6b2b2f4ed4c5c3911e7b17cb6a9fb6f58c0c869b1231cba"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.json.metadata",
+          "bytes": 104,
+          "sha256": "e521907cb519da929a1dc652eae5de94ffc71a7b05c34c8637fcbe22ce7c5b50"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.pdiparams.metadata",
+          "bytes": 128,
+          "sha256": "bb2a88eda89a48226263638467bb9d8399893c54f559fea670dce2006b57c3cc"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.yml.metadata",
+          "bytes": 104,
+          "sha256": "3e27341881df549cf7e6c7037585f2d0ff536b550d563bb78253022a5fceac10"
+        },
+        {
+          "rel": ".cache/huggingface/download/README.md.metadata",
+          "bytes": 104,
+          "sha256": "f7598e4484a8f229312fc523c6d0f43cda2192696201af8c05495c1c391cab6c"
+        },
+        {
+          "rel": ".cache/huggingface/trees/ca867c897ecbca8873081573a802ad70d499cb94.json",
+          "bytes": 871,
+          "sha256": "647b6d2a62d47e95710710b28fca63b633600ad75fbe73e5a5eaaf0e3a522faf"
+        },
+        {
+          "rel": ".gitattributes",
+          "bytes": 1575,
+          "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 2871,
+          "sha256": "436bf19010fe3879477e8599a870a0ec8ccd14ca39056805ec4ed20ab318ec04"
+        },
+        {
+          "rel": "inference.json",
+          "bytes": 402480,
+          "sha256": "af5876933d8806a1b50d895867e0781e135cd92ff37381992828fc8d1b842d28"
+        },
+        {
+          "rel": "inference.pdiparams",
+          "bytes": 87932887,
+          "sha256": "183146fe9d9910352f68482f623bcbbb9fa7b9e8fa1463b9ad288cef00524d2d"
+        },
+        {
+          "rel": "inference.yml",
+          "bytes": 903,
+          "sha256": "28fb721efc3634fc8aa677e474b9602cb815a91cf569ef357a7a553d7b3ce685"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 15912,
+          "sha256": "4fd4cf7c6fc3239ede7274c3877e7a0c4424ffa7f56b2775e4e7961c24b1f107"
+        }
+      ]
+    },
+    "PP-OCRv5_server_rec": {
+      "n_files": 15,
+      "total_bytes": 85235106,
+      "files": [
+        {
+          "rel": ".cache/huggingface/.gitignore",
+          "bytes": 1,
+          "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+        },
+        {
+          "rel": ".cache/huggingface/CACHEDIR.TAG",
+          "bytes": 195,
+          "sha256": "e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f"
+        },
+        {
+          "rel": ".cache/huggingface/download/.gitattributes.metadata",
+          "bytes": 104,
+          "sha256": "b7c99d3c94f1d59c4fbd93d88bab954d86db1380756cee730d779bb827029d53"
+        },
+        {
+          "rel": ".cache/huggingface/download/config.json.metadata",
+          "bytes": 104,
+          "sha256": "1f1c56aae459f1fb66cfcb219c1c4616220dff154929a9c4623f50a69f752b77"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.json.metadata",
+          "bytes": 104,
+          "sha256": "c0c6c7c44226bcc8670fbd2e82b7db0d99cf48e3695b4200f47ff0449d7b4d10"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.pdiparams.metadata",
+          "bytes": 128,
+          "sha256": "10844b11967133679efe2c51271bfa8d3723eb72798a5f59ef3caa88d9aa158e"
+        },
+        {
+          "rel": ".cache/huggingface/download/inference.yml.metadata",
+          "bytes": 104,
+          "sha256": "89807e8b3f15001d4a170585c03fdd18a5b18cdf4c6ddbfc3f3431ab75103495"
+        },
+        {
+          "rel": ".cache/huggingface/download/README.md.metadata",
+          "bytes": 104,
+          "sha256": "2d7e3f47add9917765aca27468199e928d2a62d7a5467e57e994a42842772a58"
+        },
+        {
+          "rel": ".cache/huggingface/trees/b26c3587fda8da3c8ec0ce357214b4d661ff1558.json",
+          "bytes": 876,
+          "sha256": "52814b7c90275fc207e37ef36d222fdda8a58bf1098e6ee7fe1162a77295325c"
+        },
+        {
+          "rel": ".gitattributes",
+          "bytes": 1575,
+          "sha256": "a3a43406012ee8c7b9b38dfab1b11610f33e8245cd864a9a9302d042616a859e"
+        },
+        {
+          "rel": "config.json",
+          "bytes": 352253,
+          "sha256": "6a780e213d7a830058ae1b6899c62cc13ca9c1f0f04ae39a27ebb2610fae7c51"
+        },
+        {
+          "rel": "inference.json",
+          "bytes": 325204,
+          "sha256": "8e6e12e5d42531840310977fffb58165bf889fc5061408c5a8afdb6985f47fcb"
+        },
+        {
+          "rel": "inference.pdiparams",
+          "bytes": 84390117,
+          "sha256": "63853f062a5f4089befc16f565a68277618e0da5cb45468b49d11079de0ada77"
+        },
+        {
+          "rel": "inference.yml",
+          "bytes": 148345,
+          "sha256": "2c719dba044c4e2228aef8ff92f5f575394d75d24c16de096a33b7cfd902f66d"
+        },
+        {
+          "rel": "README.md",
+          "bytes": 15892,
+          "sha256": "519eba1704ddeb8d3e68c4f54221dde11074be0644197cdc4d5581b6d74bd62c"
+        }
+      ]
+    }
+  }
+}

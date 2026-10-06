@@ -1,0 +1,280 @@
+{
+  "purpose": "attribute the Phase 4 91.7% vs Phase 5 66.7% difference",
+  "harnesses": {
+    "phase4_rag": {
+      "exists": true,
+      "sha256": "91797c1cff393bac1c2c399d6b5f8bce824432ad46a75aafd5bd9da190d99776",
+      "lines": 195,
+      "index_literals": [],
+      "embed_urls": [
+        "http://127.0.0.1:8111",
+        "http://127.0.0.1:8111 --model local-fast --out ...json\n",
+        "http://127.0.0.1:8113"
+      ],
+      "retrieve_config": [],
+      "retrieve_calls": [],
+      "system_prompts": [
+        "\"Answer the question using ONLY the provided sources. If the sources do \" \"not contain the answer, reply exactly: NOT IN SOURCES. Quote the \" \"specific numbers and file names you rely on.\"",
+        "\"Answer the question from your own knowledge. If you do not know, say \" \"'I do not know' rather than guessing.\""
+      ],
+      "uses_http_pack": true,
+      "uses_local_pack": false,
+      "uses_pipeline_pack": false,
+      "facts_blocks": 12,
+      "bad_blocks": 12,
+      "refusal_strings": [
+        "i do not know",
+        "not in sources"
+      ]
+    },
+    "phase4_retrieval_bench": {
+      "exists": true,
+      "sha256": "eeabcdceb0a8bba763507fe3b9679c017ad48ad774f5c385dfad09fca579b6bc",
+      "lines": 266,
+      "index_literals": [
+        "\n\n\n# --------------------------------------------------------------------------\n# build\n# --------------------------------------------------------------------------\n\ndef build_indexes(dims=DIMENSIONS, strategies=STRATEGIES, force: bool = False,\n                  verbose: bool = True) -> dict:\n    if not CORPUS.exists() or force:\n        n = materialise_corpus(CORPUS)\n        print(f",
+        "\nretrieval_bench.py - Phase 4 retrieval benchmark with the metric sweeps.\n\nSweeps, as the specification requires:\n  * dimension     256 / 512 / 1024 (Matryoshka)\n  * instruction   on / off (query side only)\n  * chunking      structured / fixed\n\nMetrics: Recall@1, Recall@3, Recall@5, MRR, nDCG@5.\n\nGround truth is a file path per query (see benchmark_data.py). A retrieved chunk counts\nas relevant when it comes from the expected file - that is the decision a caller\nactually makes. Requiring an exact chunk id would measure chunk-boundary luck rather\nthan retrieval quality.\n\nEach index is cached on disk and REUSED when present, because embedding ~150 chunks per\nconfiguration is the slow part; the FAISS search itself is microseconds. A run can\ntherefore sweep many query configurations over the same index cheaply, and a rerun with\na changed query set costs nothing.\n\nRun:\n  python retrieval_bench.py --build           # build all indexes\n  python retrieval_bench.py --eval            # evaluate (builds any missing index)\n  python retrieval_bench.py --eval --sets doc\n",
+        "=== building/validating indexes ===",
+        "indexes",
+        "rebuild indexes"
+      ],
+      "embed_urls": [],
+      "top_k": [
+        "5",
+        "k_max"
+      ],
+      "max_tokens": [
+        "900"
+      ],
+      "retrieve_config": [
+        "top_k=5, instruction=None"
+      ],
+      "retrieve_calls": [
+        "q[\"q\"], top_k=k_max, instruction=instr",
+        "q[\"q\"], top_k=5, instruction=None"
+      ],
+      "system_prompts": [],
+      "uses_http_pack": false,
+      "uses_local_pack": false,
+      "uses_pipeline_pack": false,
+      "facts_blocks": 0,
+      "bad_blocks": 0,
+      "refusal_strings": []
+    },
+    "phase5_rag": {
+      "exists": true,
+      "sha256": "0cab0414aecf3a9c8754fae5216bfbdf1a250295e7472f4b0eb0054b1a85afd9",
+      "lines": 218,
+      "index_literals": [
+        "D:\\MultiAgent\\cache\\retrieval_bench\\indexes\\d1024_structured"
+      ],
+      "embed_urls": [
+        "http://127.0.0.1:8111"
+      ],
+      "top_k": [
+        "5",
+        "args.final_top_k"
+      ],
+      "candidate_top_n": [
+        "args.candidate_top_n"
+      ],
+      "final_top_k": [
+        "args.final_top_k"
+      ],
+      "retrieve_config": [
+        "top_k=5, instruction=None"
+      ],
+      "retrieve_calls": [
+        "t[\"q\"], top_k=args.final_top_k, instruction=None",
+        "t[\"q\"], top_k=args.final_top_k,\n                                                                 instruction=None"
+      ],
+      "system_prompts": [
+        "\"Answer the question using ONLY the provided sources. If the sources do \" \"not contain the answer, reply exactly: NOT IN SOURCES. Quote the \" \"specific numbers and file names you rely on.\"",
+        "\"Answer the question from your own knowledge. If you do not know, say \" \"'I do not know' rather than guessing.\""
+      ],
+      "uses_http_pack": false,
+      "uses_local_pack": true,
+      "uses_pipeline_pack": true,
+      "facts_blocks": 12,
+      "bad_blocks": 12,
+      "refusal_strings": [
+        "i do not know",
+        "no information",
+        "not in sources",
+        "not provided"
+      ]
+    },
+    "phase55_reconcile": {
+      "exists": true,
+      "sha256": "cf5f5df1cf36f50aa966a2670f066ce38b77b020c49af4d44b020e15ec1dcc27",
+      "lines": 215,
+      "index_literals": [
+        "\nbaseline_reconcile.py - why did Phase 4 report 91.7% RAG and Phase 5 66.7%?\n\nBoth used the same 12 questions and the same mechanical scorer, so the difference must come\nfrom the RETRIEVAL ARM, not the scoring. The two RAG harnesses retrieved from different\nindexes:\n\n  Phase 4 rag_compare.py       -> HTTP /v1/retrieve on the SERVED index  (1173 chunks)\n  Phase 5 rag_compare_rerank.py -> direct IndexStore on the BENCH index   (186 chunks)\n\nThis script holds everything else constant - same questions, same top_k=5, same local-fast,\nsame temperature, same grader - and varies ONLY the index, so the comparison is like for\nlike. It reports three arms:\n\n  A  served index, top-5\n  B  bench index, top-5\n  C  served index, top-5, reranked from a top-20 pool\n\nIf A reproduces ~91.7% and B reproduces ~66.7%, the discrepancy is explained by corpus\ncomposition and the Phase 4 figure was never comparable to the Phase 5 baseline.\n\nUsage:\n  python baseline_reconcile.py --out ../../benchmarks/retrieval-v2/results/baseline_reconcile.json\n",
+        "D:\\MultiAgent\\cache\\retrieval_bench\\indexes\\d1024_structured",
+        "D:\\MultiAgent\\vector\\embedding\\local-ai"
+      ],
+      "embed_urls": [
+        "http://127.0.0.1:8111",
+        "http://127.0.0.1:8113"
+      ],
+      "top_k": [
+        "5"
+      ],
+      "candidate_top_n": [
+        "20"
+      ],
+      "final_top_k": [
+        "5"
+      ],
+      "max_tokens": [
+        "400"
+      ],
+      "retrieve_config": [
+        "top_k=5, instruction=None",
+        "top_k=5, instruction=None"
+      ],
+      "retrieve_calls": [
+        "t[\"q\"], top_k=5, instruction=None"
+      ],
+      "system_prompts": [
+        "\"Answer the question using ONLY the provided sources. If the sources do \" \"not contain the answer, reply exactly: NOT IN SOURCES. Quote the \" \"specific numbers and file names you rely on.\"",
+        "\"Answer the question from your own knowledge. If you do not know, say \" \"'I do not know' rather than guessing.\""
+      ],
+      "uses_http_pack": true,
+      "uses_local_pack": true,
+      "uses_pipeline_pack": true,
+      "facts_blocks": 12,
+      "bad_blocks": 12,
+      "refusal_strings": [
+        "i do not know",
+        "no information",
+        "not in sources",
+        "not provided"
+      ]
+    }
+  },
+  "indexes": {
+    "served_local_ai": {
+      "exists": true,
+      "index.faiss": {
+        "exists": true,
+        "size": 4804653,
+        "sha256": "b50a3e46d094ca8f32cbfb166213a868e95a867bb93038ade2495d64e52648d5"
+      },
+      "vectors.npy": {
+        "exists": true,
+        "size": 4804736,
+        "sha256": "1812a8a3b70130c16e10194616edda8318b751b1d1aa8c1e8e02b26e66dd3dae"
+      },
+      "metadata.sqlite": {
+        "exists": true,
+        "size": 1306624,
+        "sha256": "f1c7800abd8af0b885b0aa0129be0f633739bf4fd11131d8066a40df779ccc84"
+      },
+      "chunks": 1173,
+      "vectors": 1173,
+      "consistent": true,
+      "distinct_paths": 94
+    },
+    "bench_d1024_structured": {
+      "exists": true,
+      "index.faiss": {
+        "exists": true,
+        "size": 761901,
+        "sha256": "7cc65324db5bb6948832adb6bf6bc2eb5f79b7512a3abba026226aafb80cba5e"
+      },
+      "vectors.npy": {
+        "exists": true,
+        "size": 761984,
+        "sha256": "f57f64016952b1ee323dd9eab3a8b843a7303e1fecb69f95b7cc99437f3b7fcf"
+      },
+      "metadata.sqlite": {
+        "exists": true,
+        "size": 380928,
+        "sha256": "533869bca089a8724a414366f3ed5848ca1593eeb8a7a5d37adc010fac03009c"
+      },
+      "chunks": 186,
+      "vectors": 186,
+      "consistent": true,
+      "distinct_paths": 30
+    }
+  },
+  "corpora": {
+    "served_corpus": {
+      "exists": true,
+      "file_count": 99,
+      "combined_sha256": "4ddd23cabe4946f08fd5149f37dadf63beb2ffdcc2953ea73db7476b3bf1790b"
+    },
+    "bench_corpus": {
+      "exists": true,
+      "file_count": 32,
+      "combined_sha256": "cd177fa205983855b7273c1257b7d9a8f1cc437e0d2b1c5dc1f0531f5d3955d2"
+    }
+  },
+  "question_sets": {
+    "per_harness": {
+      "phase4_rag": {
+        "count": 12,
+        "questions": [
+          "What context size does the local-fast worker use by default?",
+          "How much VRAM does local-fast occupy when resident?",
+          "What generation speed did local-fast reach in its benchmark?",
+          "Why is concurrent inference of two local models not recommended?",
+          "How long does it take to switch between the two local models?",
+          "What is the JSON schema adherence rate reported for local-fast?",
+          "Which pooling method does the Qwen3 embedding model use?",
+          "What is the maximum embedding dimension of the embedding model?",
+          "How much did retrieval reduce the token count?",
+          "What port does the embedding service listen on?",
+          "What is the recommended batch size for embedding, and why?",
+          "Which chunking strategy performed better, fixed or structure aware?"
+        ]
+      },
+      "phase4_retrieval_bench": {
+        "count": 0,
+        "questions": []
+      },
+      "phase5_rag": {
+        "count": 12,
+        "questions": [
+          "What context size does the local-fast worker use by default?",
+          "How much VRAM does local-fast occupy when resident?",
+          "What generation speed did local-fast reach in its benchmark?",
+          "Why is concurrent inference of two local models not recommended?",
+          "How long does it take to switch between the two local models?",
+          "What is the JSON schema adherence rate reported for local-fast?",
+          "Which pooling method does the Qwen3 embedding model use?",
+          "What is the maximum embedding dimension of the embedding model?",
+          "How much did retrieval reduce the token count?",
+          "What port does the embedding service listen on?",
+          "What is the recommended batch size for embedding, and why?",
+          "Which chunking strategy performed better, fixed or structure aware?"
+        ]
+      },
+      "phase55_reconcile": {
+        "count": 12,
+        "questions": [
+          "What context size does the local-fast worker use by default?",
+          "How much VRAM does local-fast occupy when resident?",
+          "What generation speed did local-fast reach in its benchmark?",
+          "Why is concurrent inference of two local models not recommended?",
+          "How long does it take to switch between the two local models?",
+          "What is the JSON schema adherence rate reported for local-fast?",
+          "Which pooling method does the Qwen3 embedding model use?",
+          "What is the maximum embedding dimension of the embedding model?",
+          "How much did retrieval reduce the token count?",
+          "What port does the embedding service listen on?",
+          "What is the recommended batch size for embedding, and why?",
+          "Which chunking strategy performed better, fixed or structure aware?"
+        ]
+      }
+    },
+    "rag_question_sets_identical": true,
+    "rag_set_sizes": {
+      "phase4_rag": 12,
+      "phase5_rag": 12,
+      "phase55_reconcile": 12
+    }
+  },
+  "corpora_identical": false
+}

@@ -1,0 +1,2042 @@
+[
+  {
+    "question": "Which NVIDIA driver version and CUDA version did the Phase 0 environment check find, and was a CUDA toolkit installed?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4991,
+    "retrieve_s": 16.792,
+    "candidates": [
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 67,
+        "end_line": 88,
+        "score": 0.7748,
+        "chunk_id": "587bbae77157eb76f546"
+      },
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 219,
+        "end_line": 237,
+        "score": 0.7311,
+        "chunk_id": "4ebc65c91f27965171f1"
+      },
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 11,
+        "end_line": 26,
+        "score": 0.709,
+        "chunk_id": "f18aad1bb198d8f64055"
+      },
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 202,
+        "end_line": 218,
+        "score": 0.6972,
+        "chunk_id": "85771ec54ee1f4a551d2"
+      },
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 89,
+        "end_line": 114,
+        "score": 0.6377,
+        "chunk_id": "b8d8cb1c8f2ff8be8ed4"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.7748,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "587bbae77157eb76f546",
+          "start_line": 67,
+          "end_line": 88,
+          "chunk_start_line": 67,
+          "chunk_end_line": 88,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "4ebc65c91f27965171f1",
+          "start_line": 219,
+          "end_line": 237,
+          "chunk_start_line": 219,
+          "chunk_end_line": 237,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "f18aad1bb198d8f64055",
+          "start_line": 11,
+          "end_line": 26,
+          "chunk_start_line": 11,
+          "chunk_end_line": 26,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "85771ec54ee1f4a551d2",
+          "start_line": 202,
+          "end_line": 218,
+          "chunk_start_line": 202,
+          "chunk_end_line": 218,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "b8d8cb1c8f2ff8be8ed4",
+          "start_line": 89,
+          "end_line": 114,
+          "chunk_start_line": 89,
+          "chunk_end_line": 114,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1768,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 5103
+    },
+    "pack_chars": 5103,
+    "generate_s": 1.954,
+    "usage": {
+      "completion_tokens": 174,
+      "prompt_tokens": 1780,
+      "total_tokens": 1954,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified",
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The Phase 0 environment check found the following NVIDIA driver and CUDA versions:\n- **Driver version:** 591.86 [SOURCE 1]\n- **CUDA version reported by driver:** 13.1 [SOURCE 1]\n\nRegarding the CUDA toolkit installation:\n- **CUDA toolkit installed:** No [SOURCE 1]\n- **Reason:** The `nvcc` compiler was absent, and the CUDA toolkit directory (`C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA`) did not exist [SOURCE 1].\n- **Confirmation:** The check explicitly recorded that while the driver and CUDA runtime were present, the toolkit was absent [SOURCE 2].\n- **Additional confirmation:** The executive summary confirms that a CUDA toolkit was not installed, noting that `nvcc` is absent entirely [SOURCE 3].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "docs/environment-report.md",
+        "start_line": 67,
+        "end_line": 88,
+        "chunk_start_line": 67,
+        "chunk_end_line": 88,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/environment-report.md",
+          "start_line": 67,
+          "end_line": 88,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "5f67549350a41177",
+          "current_hash": "5f67549350a41177",
+          "current_lines": 254,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "docs/environment-report.md",
+        "start_line": 219,
+        "end_line": 237,
+        "chunk_start_line": 219,
+        "chunk_end_line": 237,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/environment-report.md",
+          "start_line": 219,
+          "end_line": 237,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "5f67549350a41177",
+          "current_hash": "5f67549350a41177",
+          "current_lines": 254,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 3,
+        "source_path": "docs/environment-report.md",
+        "start_line": 11,
+        "end_line": 26,
+        "chunk_start_line": 11,
+        "chunk_end_line": 26,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/environment-report.md",
+          "start_line": 11,
+          "end_line": 26,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "5f67549350a41177",
+          "current_hash": "5f67549350a41177",
+          "current_lines": 254,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2,
+      3
+    ],
+    "reported_source_numbers": [
+      1,
+      2,
+      3
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 18.799,
+    "free_vram_after_mb": 4934
+  },
+  {
+    "question": "What did Phase 0 expect to be the binding resource constraint for this project, and how much weight storage did it estimate the planned model pool would need?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4934,
+    "retrieve_s": 0.048,
+    "candidates": [
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 125,
+        "end_line": 144,
+        "score": 0.6835,
+        "chunk_id": "0d85c9e2afe171bd2a8e"
+      },
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 238,
+        "end_line": 254,
+        "score": 0.6007,
+        "chunk_id": "4fca90539fbab081a229"
+      },
+      {
+        "source_path": "docs/staged-lifecycle-design.md",
+        "start_line": 76,
+        "end_line": 83,
+        "score": 0.518,
+        "chunk_id": "a688cae22ba26a74c679"
+      },
+      {
+        "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+        "start_line": 369,
+        "end_line": 482,
+        "score": 0.4978,
+        "chunk_id": "16e767b4930b4da1b131"
+      },
+      {
+        "source_path": "docs/phase55r-evidence-consolidation.md",
+        "start_line": 90,
+        "end_line": 98,
+        "score": 0.4862,
+        "chunk_id": "1d87ed03589f1f7ea90e"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6835,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "0d85c9e2afe171bd2a8e",
+          "start_line": 125,
+          "end_line": 144,
+          "chunk_start_line": 125,
+          "chunk_end_line": 144,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "4fca90539fbab081a229",
+          "start_line": 238,
+          "end_line": 254,
+          "chunk_start_line": 238,
+          "chunk_end_line": 254,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/staged-lifecycle-design.md",
+          "chunk_id": "a688cae22ba26a74c679",
+          "start_line": 76,
+          "end_line": 83,
+          "chunk_start_line": 76,
+          "chunk_end_line": 83,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "chunk_id": "16e767b4930b4da1b131",
+          "start_line": 369,
+          "end_line": 482,
+          "chunk_start_line": 369,
+          "chunk_end_line": 482,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/phase55r-evidence-consolidation.md",
+          "chunk_id": "1d87ed03589f1f7ea90e",
+          "start_line": 90,
+          "end_line": 98,
+          "chunk_start_line": 90,
+          "chunk_end_line": 98,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 2466,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 9718
+    },
+    "pack_chars": 9718,
+    "generate_s": 1.356,
+    "usage": {
+      "completion_tokens": 76,
+      "prompt_tokens": 2478,
+      "total_tokens": 2554,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified"
+    ],
+    "refused": false,
+    "answer": "Phase 0 expected **disk** (specifically the D: drive) to be the binding resource constraint, as it was anticipated to be the limiting resource before VRAM considerations [SOURCE 1]. The planned model pool was estimated to require approximately **15–25 GB** of weight storage alone, before accounting for caches and FAISS indices [SOURCE 1].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "docs/environment-report.md",
+        "start_line": 125,
+        "end_line": 144,
+        "chunk_start_line": 125,
+        "chunk_end_line": 144,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/environment-report.md",
+          "start_line": 125,
+          "end_line": 144,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "5f67549350a41177",
+          "current_hash": "5f67549350a41177",
+          "current_lines": 254,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1
+    ],
+    "reported_source_numbers": [
+      1
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 1.495,
+    "free_vram_after_mb": 4981
+  },
+  {
+    "question": "How does the local reranker turn the model's output into a relevance score?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4981,
+    "retrieve_s": 0.069,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-reranker.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.7926,
+        "chunk_id": "ec84df902bd5b3255758"
+      },
+      {
+        "source_path": "config/local-reranker.yaml",
+        "start_line": 1,
+        "end_line": 93,
+        "score": 0.7136,
+        "chunk_id": "4e3431cd496c70e55229"
+      },
+      {
+        "source_path": "services/reranker/server.py",
+        "start_line": 38,
+        "end_line": 38,
+        "score": 0.6899,
+        "chunk_id": "7940e916c6dd2b43041b"
+      },
+      {
+        "source_path": "docs/reranking-architecture.md",
+        "start_line": 52,
+        "end_line": 82,
+        "score": 0.6545,
+        "chunk_id": "7b65305adc6c8c4f1472"
+      },
+      {
+        "source_path": "docs/reranking-architecture.md",
+        "start_line": 36,
+        "end_line": 51,
+        "score": 0.6348,
+        "chunk_id": "485baf2ff408b738b6ad"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.7926,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/models/local-reranker.md",
+          "chunk_id": "ec84df902bd5b3255758",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "config/local-reranker.yaml",
+          "chunk_id": "4e3431cd496c70e55229",
+          "start_line": 1,
+          "end_line": 93,
+          "chunk_start_line": 1,
+          "chunk_end_line": 93,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "services/reranker/server.py",
+          "chunk_id": "7940e916c6dd2b43041b",
+          "start_line": 38,
+          "end_line": 38,
+          "chunk_start_line": 38,
+          "chunk_end_line": 38,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/reranking-architecture.md",
+          "chunk_id": "7b65305adc6c8c4f1472",
+          "start_line": 52,
+          "end_line": 82,
+          "chunk_start_line": 52,
+          "chunk_end_line": 82,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/reranking-architecture.md",
+          "chunk_id": "485baf2ff408b738b6ad",
+          "start_line": 36,
+          "end_line": 51,
+          "chunk_start_line": 36,
+          "chunk_end_line": 51,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 2032,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 6907
+    },
+    "pack_chars": 6907,
+    "generate_s": 2.028,
+    "usage": {
+      "completion_tokens": 149,
+      "prompt_tokens": 2044,
+      "total_tokens": 2193,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The local reranker outputs a relevance score by applying a softmax function to the logits of the \"yes\" and \"no\" tokens at the final position of the input sequence. Specifically, the score is calculated as `softmax([logit(\"no\"), logit(\"yes\")])[1]`, which corresponds to the probability of the \"yes\" token [SOURCE 2]. This process is part of the model's architecture, where the second module is `1_LogitScore`, and the scoring follows the repository's documented procedure [SOURCE 4]. The model is a Qwen3 causal LM packaged as a sentence-transformers CrossEncoder, and the scoring is based on the logits at the final position of the sequence [SOURCE 4].",
+    "citations": [
+      {
+        "source": 2,
+        "source_path": "config/local-reranker.yaml",
+        "start_line": 1,
+        "end_line": 93,
+        "chunk_start_line": 1,
+        "chunk_end_line": 93,
+        "truncated": false,
+        "verification": {
+          "source_path": "config/local-reranker.yaml",
+          "start_line": 1,
+          "end_line": 93,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "c82a8969eb3b73bc",
+          "current_hash": "c82a8969eb3b73bc",
+          "current_lines": 93,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 4,
+        "source_path": "docs/reranking-architecture.md",
+        "start_line": 52,
+        "end_line": 82,
+        "chunk_start_line": 52,
+        "chunk_end_line": 82,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 52,
+          "end_line": 82,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "eefcf1aa20bbbe01",
+          "current_hash": "eefcf1aa20bbbe01",
+          "current_lines": 246,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      2,
+      4
+    ],
+    "reported_source_numbers": [
+      2,
+      4
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 2.164,
+    "free_vram_after_mb": 4988
+  },
+  {
+    "question": "According to the local-fast integration guide, what must a caller put in the model field of a request, and why?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4988,
+    "retrieve_s": 0.046,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.542,
+        "chunk_id": "76c8e81593a2b3d64130"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.5201,
+        "chunk_id": "37e6acc88550be7f88b3"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 26,
+        "end_line": 45,
+        "score": 0.4949,
+        "chunk_id": "3933fb0e9cf320e13caa"
+      },
+      {
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 10,
+        "end_line": 25,
+        "score": 0.4834,
+        "chunk_id": "58a28dbd82c9c664bfeb"
+      },
+      {
+        "source_path": "docs/models/local-smart.md",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 0.4705,
+        "chunk_id": "da5c32af22a8b0a46af6"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.542,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "76c8e81593a2b3d64130",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/local-fast-api.md",
+          "chunk_id": "37e6acc88550be7f88b3",
+          "start_line": 1,
+          "end_line": 9,
+          "chunk_start_line": 1,
+          "chunk_end_line": 9,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "3933fb0e9cf320e13caa",
+          "start_line": 26,
+          "end_line": 45,
+          "chunk_start_line": 26,
+          "chunk_end_line": 45,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/local-fast-api.md",
+          "chunk_id": "58a28dbd82c9c664bfeb",
+          "start_line": 10,
+          "end_line": 25,
+          "chunk_start_line": 10,
+          "chunk_end_line": 25,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/models/local-smart.md",
+          "chunk_id": "da5c32af22a8b0a46af6",
+          "start_line": 1,
+          "end_line": 12,
+          "chunk_start_line": 1,
+          "chunk_end_line": 12,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 869,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 2682
+    },
+    "pack_chars": 2682,
+    "generate_s": 1.394,
+    "usage": {
+      "completion_tokens": 118,
+      "prompt_tokens": 881,
+      "total_tokens": 999,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified"
+    ],
+    "refused": false,
+    "answer": "According to the local-fast integration guide, a caller must put the logical alias **`local-fast`** in the model field of a request [SOURCE 4].\n\nThe reason for this requirement is to ensure that the quantisation underlying the model can change (e.g., from Q4_K_M to Q5_K_M or newer versions in 2027) without any upstream agent noticing [SOURCE 4]. If a caller hardcodes a specific GGUF filename, repository ID, or quantisation label, the setup will break when the weights change [SOURCE 4].",
+    "citations": [
+      {
+        "source": 4,
+        "source_path": "docs/local-fast-api.md",
+        "start_line": 10,
+        "end_line": 25,
+        "chunk_start_line": 10,
+        "chunk_end_line": 25,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/local-fast-api.md",
+          "start_line": 10,
+          "end_line": 25,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "05d16237fe3876ca",
+          "current_hash": "05d16237fe3876ca",
+          "current_lines": 173,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      4
+    ],
+    "reported_source_numbers": [
+      4
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 1.515,
+    "free_vram_after_mb": 4977
+  },
+  {
+    "question": "Which observable conditions would trigger a rollback of the proposed staged two-unload RAG integration?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4977,
+    "retrieve_s": 0.058,
+    "candidates": [
+      {
+        "source_path": "docs/production-integration-design.md",
+        "start_line": 99,
+        "end_line": 119,
+        "score": 0.7303,
+        "chunk_id": "708af2ab026b8f8b2564"
+      },
+      {
+        "source_path": "docs/production-integration-design.md",
+        "start_line": 1,
+        "end_line": 10,
+        "score": 0.7176,
+        "chunk_id": "7447698a1eed75de2c74"
+      },
+      {
+        "source_path": "docs/staged-lifecycle-design.md",
+        "start_line": 1,
+        "end_line": 19,
+        "score": 0.6865,
+        "chunk_id": "655a349dda9b233d8054"
+      },
+      {
+        "source_path": "docs/production-integration-design.md",
+        "start_line": 11,
+        "end_line": 19,
+        "score": 0.6376,
+        "chunk_id": "97b2d9e3f3e977757f61"
+      },
+      {
+        "source_path": "docs/phase55r-evidence-consolidation.md",
+        "start_line": 75,
+        "end_line": 89,
+        "score": 0.5759,
+        "chunk_id": "c46633c54cd92f118456"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.7303,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/production-integration-design.md",
+          "chunk_id": "708af2ab026b8f8b2564",
+          "start_line": 99,
+          "end_line": 119,
+          "chunk_start_line": 99,
+          "chunk_end_line": 119,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/production-integration-design.md",
+          "chunk_id": "7447698a1eed75de2c74",
+          "start_line": 1,
+          "end_line": 10,
+          "chunk_start_line": 1,
+          "chunk_end_line": 10,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/staged-lifecycle-design.md",
+          "chunk_id": "655a349dda9b233d8054",
+          "start_line": 1,
+          "end_line": 19,
+          "chunk_start_line": 1,
+          "chunk_end_line": 19,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/production-integration-design.md",
+          "chunk_id": "97b2d9e3f3e977757f61",
+          "start_line": 11,
+          "end_line": 19,
+          "chunk_start_line": 11,
+          "chunk_end_line": 19,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/phase55r-evidence-consolidation.md",
+          "chunk_id": "c46633c54cd92f118456",
+          "start_line": 75,
+          "end_line": 89,
+          "chunk_start_line": 75,
+          "chunk_end_line": 89,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1412,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 4666
+    },
+    "pack_chars": 4666,
+    "generate_s": 2.734,
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 1424,
+      "total_tokens": 1680,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified"
+    ],
+    "refused": false,
+    "answer": "Based on the provided sources, a rollback to the co-resident path (single request) would be triggered if ANY of the following observable conditions hold:\n\n1.  **Margin breach:** Any sample of free VRAM falls below 2048 MiB during a staged RAG cycle [SOURCE 1].\n2.  **Unverified unload:** Required unload reports anything other than a port-free state AND a rise in free VRAM [SOURCE 1].\n3.  **Reload failure:** A stage cannot reach a healthy dependency, or a reload exceeds a configured ceiling (suggested as 3x the observed p95, i.e., well above 45 s) [SOURCE 1].\n4.  **Latency regression beyond a set budget:** The staged RAG wall time exceeds an agreed ceiling, noting that the measured cold path is approximately 22–24 s plus reload time [SOURCE 1].\n5.  **Cross-process interference:** Any evidence of two processes driving the same services without a shared ledger [SOURCE 1].\n6.  **Any OOM (Out of Memory):** This triggers an immediate rollback with no retry [SOURCE 1].\n\nThe rollback mechanism involves reverting the routing change",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "docs/production-integration-design.md",
+        "start_line": 99,
+        "end_line": 119,
+        "chunk_start_line": 99,
+        "chunk_end_line": 119,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/production-integration-design.md",
+          "start_line": 99,
+          "end_line": 119,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "e96087a13433bbf8",
+          "current_hash": "e96087a13433bbf8",
+          "current_lines": 127,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1
+    ],
+    "reported_source_numbers": [
+      1
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 2.886,
+    "free_vram_after_mb": 4982
+  },
+  {
+    "question": "Which kinds of work does the escalation policy send straight to Claude or Codex, and what role do local models keep for that work?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4982,
+    "retrieve_s": 0.061,
+    "candidates": [
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 84,
+        "end_line": 101,
+        "score": 0.5483,
+        "chunk_id": "fe5f328c37f0846d36ef"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 91,
+        "end_line": 101,
+        "score": 0.5376,
+        "chunk_id": "469d30ef4091b075d8a0"
+      },
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 1,
+        "end_line": 21,
+        "score": 0.5369,
+        "chunk_id": "1082c551fb253580b04e"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 123,
+        "end_line": 128,
+        "score": 0.5082,
+        "chunk_id": "30ce721bd3f92463256a"
+      },
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 41,
+        "end_line": 46,
+        "score": 0.4826,
+        "chunk_id": "fcbd980ed5432aa12ee9"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.5483,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "chunk_id": "fe5f328c37f0846d36ef",
+          "start_line": 84,
+          "end_line": 101,
+          "chunk_start_line": 84,
+          "chunk_end_line": 101,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "469d30ef4091b075d8a0",
+          "start_line": 91,
+          "end_line": 101,
+          "chunk_start_line": 91,
+          "chunk_end_line": 101,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "chunk_id": "1082c551fb253580b04e",
+          "start_line": 1,
+          "end_line": 21,
+          "chunk_start_line": 1,
+          "chunk_end_line": 21,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "30ce721bd3f92463256a",
+          "start_line": 123,
+          "end_line": 128,
+          "chunk_start_line": 123,
+          "chunk_end_line": 128,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "chunk_id": "fcbd980ed5432aa12ee9",
+          "start_line": 41,
+          "end_line": 46,
+          "chunk_start_line": 41,
+          "chunk_end_line": 46,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 958,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 3311
+    },
+    "pack_chars": 3311,
+    "generate_s": 1.625,
+    "usage": {
+      "completion_tokens": 144,
+      "prompt_tokens": 970,
+      "total_tokens": 1114,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The escalation policy sends the following kinds of work directly to Claude or Codex:\n- architecture and cross-system design [SOURCE 2]\n- large refactors (multi-module, multi-service) [SOURCE 2]\n- security-critical code: auth, permissions, crypto, payment, data deletion [SOURCE 2]\n- production-affecting changes [SOURCE 2]\n- anything where the blast radius of a subtle error is large [SOURCE 2]\n\nFor this work, the role of local models is **support, not authorship**: they gather context, retrieve relevant files, run tests, verify the resulting patch, and compress history into a handoff [SOURCE 2].",
+    "citations": [
+      {
+        "source": 2,
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 91,
+        "end_line": 101,
+        "chunk_start_line": 91,
+        "chunk_end_line": 101,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 91,
+          "end_line": 101,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "6ff6fb57f8f40b53",
+          "current_hash": "6ff6fb57f8f40b53",
+          "current_lines": 135,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      2
+    ],
+    "reported_source_numbers": [
+      2
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 1.759,
+    "free_vram_after_mb": 4979
+  },
+  {
+    "question": "Can an interactive request in the GPU scheduler end up waiting for background work, and what bounds that wait?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4979,
+    "retrieve_s": 0.068,
+    "candidates": [
+      {
+        "source_path": "docs/retrieval-hardening.md",
+        "start_line": 161,
+        "end_line": 169,
+        "score": 0.7235,
+        "chunk_id": "e470742a3dbb314a3806"
+      },
+      {
+        "source_path": "docs/gpu-scheduling.md",
+        "start_line": 40,
+        "end_line": 61,
+        "score": 0.7092,
+        "chunk_id": "2ab0cfd0431244ee18be"
+      },
+      {
+        "source_path": "docs/gpu-scheduling.md",
+        "start_line": 26,
+        "end_line": 39,
+        "score": 0.6938,
+        "chunk_id": "ddbfea1c483502b0d853"
+      },
+      {
+        "source_path": "docs/gpu-scheduling.md",
+        "start_line": 81,
+        "end_line": 88,
+        "score": 0.64,
+        "chunk_id": "5c6b2d616b8cc4af0117"
+      },
+      {
+        "source_path": "docs/gpu-scheduling.md",
+        "start_line": 166,
+        "end_line": 177,
+        "score": 0.6195,
+        "chunk_id": "4511aea8e989355f8eee"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.7235,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/retrieval-hardening.md",
+          "chunk_id": "e470742a3dbb314a3806",
+          "start_line": 161,
+          "end_line": 169,
+          "chunk_start_line": 161,
+          "chunk_end_line": 169,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/gpu-scheduling.md",
+          "chunk_id": "2ab0cfd0431244ee18be",
+          "start_line": 40,
+          "end_line": 61,
+          "chunk_start_line": 40,
+          "chunk_end_line": 61,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/gpu-scheduling.md",
+          "chunk_id": "ddbfea1c483502b0d853",
+          "start_line": 26,
+          "end_line": 39,
+          "chunk_start_line": 26,
+          "chunk_end_line": 39,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/gpu-scheduling.md",
+          "chunk_id": "5c6b2d616b8cc4af0117",
+          "start_line": 81,
+          "end_line": 88,
+          "chunk_start_line": 81,
+          "chunk_end_line": 88,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/gpu-scheduling.md",
+          "chunk_id": "4511aea8e989355f8eee",
+          "start_line": 166,
+          "end_line": 177,
+          "chunk_start_line": 166,
+          "chunk_end_line": 177,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1319,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 4593
+    },
+    "pack_chars": 4593,
+    "generate_s": 1.504,
+    "usage": {
+      "completion_tokens": 120,
+      "prompt_tokens": 1331,
+      "total_tokens": 1451,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "Yes, an interactive request can end up waiting for background work, but it only waits for background units that are **already running** [SOURCE 1]. While waiting for these existing units, **no new background unit is admitted** [SOURCE 1].\n\nThe wait is bounded by the total number of currently running background units multiplied by the duration of a single unit. Specifically, the wait is bounded by `max_background_units` × the unit duration, which is measured at **0.207 s** against a **0.600 s bound** [SOURCE 2].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "docs/retrieval-hardening.md",
+        "start_line": 161,
+        "end_line": 169,
+        "chunk_start_line": 161,
+        "chunk_end_line": 169,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/retrieval-hardening.md",
+          "start_line": 161,
+          "end_line": 169,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "726254eb32cdac31",
+          "current_hash": "726254eb32cdac31",
+          "current_lines": 219,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "docs/gpu-scheduling.md",
+        "start_line": 40,
+        "end_line": 61,
+        "chunk_start_line": 40,
+        "chunk_end_line": 61,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/gpu-scheduling.md",
+          "start_line": 40,
+          "end_line": 61,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "2645975b36180abf",
+          "current_hash": "2645975b36180abf",
+          "current_lines": 177,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2
+    ],
+    "reported_source_numbers": [
+      1,
+      2
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 1.656,
+    "free_vram_after_mb": 4978
+  },
+  {
+    "question": "On the isolated staged two-unload RAG path, how much free VRAM did each required unload return, and how long does a full RAG cycle take?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4978,
+    "retrieve_s": 0.048,
+    "candidates": [
+      {
+        "source_path": "docs/staged-lifecycle-design.md",
+        "start_line": 1,
+        "end_line": 19,
+        "score": 0.7503,
+        "chunk_id": "655a349dda9b233d8054"
+      },
+      {
+        "source_path": "docs/phase55r-evidence-consolidation.md",
+        "start_line": 75,
+        "end_line": 89,
+        "score": 0.7116,
+        "chunk_id": "c46633c54cd92f118456"
+      },
+      {
+        "source_path": "docs/production-integration-design.md",
+        "start_line": 99,
+        "end_line": 119,
+        "score": 0.6983,
+        "chunk_id": "708af2ab026b8f8b2564"
+      },
+      {
+        "source_path": "docs/production-integration-design.md",
+        "start_line": 1,
+        "end_line": 10,
+        "score": 0.6089,
+        "chunk_id": "7447698a1eed75de2c74"
+      },
+      {
+        "source_path": "docs/models/local-reranker.md",
+        "start_line": 141,
+        "end_line": 157,
+        "score": 0.6005,
+        "chunk_id": "1100459fef4d8f7a510b"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.7503,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/staged-lifecycle-design.md",
+          "chunk_id": "655a349dda9b233d8054",
+          "start_line": 1,
+          "end_line": 19,
+          "chunk_start_line": 1,
+          "chunk_end_line": 19,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/phase55r-evidence-consolidation.md",
+          "chunk_id": "c46633c54cd92f118456",
+          "start_line": 75,
+          "end_line": 89,
+          "chunk_start_line": 75,
+          "chunk_end_line": 89,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/production-integration-design.md",
+          "chunk_id": "708af2ab026b8f8b2564",
+          "start_line": 99,
+          "end_line": 119,
+          "chunk_start_line": 99,
+          "chunk_end_line": 119,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/production-integration-design.md",
+          "chunk_id": "7447698a1eed75de2c74",
+          "start_line": 1,
+          "end_line": 10,
+          "chunk_start_line": 1,
+          "chunk_end_line": 10,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/models/local-reranker.md",
+          "chunk_id": "1100459fef4d8f7a510b",
+          "start_line": 141,
+          "end_line": 157,
+          "chunk_start_line": 141,
+          "chunk_end_line": 157,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1543,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 4769
+    },
+    "pack_chars": 4769,
+    "generate_s": 1.496,
+    "usage": {
+      "completion_tokens": 117,
+      "prompt_tokens": 1555,
+      "total_tokens": 1672,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified",
+      "verified"
+    ],
+    "refused": false,
+    "answer": "On the isolated staged two-unload RAG path, the required unloads returned the following amounts of free VRAM:\n*   **Embedding model:** +1368 to +1392 MiB [SOURCE 1] [SOURCE 2].\n*   **Reranker model:** +2591 to +2595 MiB [SOURCE 1] [SOURCE 2].\n\nA full RAG cycle on this path takes approximately **22–24 seconds** [SOURCE 1] [SOURCE 2].",
+    "citations": [
+      {
+        "source": 1,
+        "source_path": "docs/staged-lifecycle-design.md",
+        "start_line": 1,
+        "end_line": 19,
+        "chunk_start_line": 1,
+        "chunk_end_line": 19,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/staged-lifecycle-design.md",
+          "start_line": 1,
+          "end_line": 19,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "d173a6af94a99c84",
+          "current_hash": "d173a6af94a99c84",
+          "current_lines": 148,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      },
+      {
+        "source": 2,
+        "source_path": "docs/phase55r-evidence-consolidation.md",
+        "start_line": 75,
+        "end_line": 89,
+        "chunk_start_line": 75,
+        "chunk_end_line": 89,
+        "truncated": false,
+        "verification": {
+          "source_path": "docs/phase55r-evidence-consolidation.md",
+          "start_line": 75,
+          "end_line": 89,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "bf5450a7b08903ba",
+          "current_hash": "bf5450a7b08903ba",
+          "current_lines": 98,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      1,
+      2
+    ],
+    "reported_source_numbers": [
+      1,
+      2
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 1.618,
+    "free_vram_after_mb": 4981
+  },
+  {
+    "question": "What per-chunk character limit does the retrieval layer apply when it packs context for a model, and why was the earlier limit dropped?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4981,
+    "retrieve_s": 0.058,
+    "candidates": [
+      {
+        "source_path": "services/retrieval/retriever.py",
+        "start_line": 1,
+        "end_line": 13,
+        "score": 0.6027,
+        "chunk_id": "8b77ecda964cfe7e559c"
+      },
+      {
+        "source_path": "services/retrieval/retriever.py",
+        "start_line": 43,
+        "end_line": 114,
+        "score": 0.5945,
+        "chunk_id": "1ed66fe052a59e242fbd"
+      },
+      {
+        "source_path": "docs/models/local-embedding.md",
+        "start_line": 139,
+        "end_line": 150,
+        "score": 0.5817,
+        "chunk_id": "96fee8018cf8e0368f72"
+      },
+      {
+        "source_path": "services/retrieval/retriever.py",
+        "start_line": 25,
+        "end_line": 40,
+        "score": 0.5806,
+        "chunk_id": "253a84ed0f49ee2ac995"
+      },
+      {
+        "source_path": "docs/retrieval-architecture.md",
+        "start_line": 191,
+        "end_line": 205,
+        "score": 0.5716,
+        "chunk_id": "48e042118b4fd38e929f"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.6027,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "services/retrieval/retriever.py",
+          "chunk_id": "8b77ecda964cfe7e559c",
+          "start_line": 1,
+          "end_line": 13,
+          "chunk_start_line": 1,
+          "chunk_end_line": 13,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "services/retrieval/retriever.py",
+          "chunk_id": "1ed66fe052a59e242fbd",
+          "start_line": 43,
+          "end_line": 114,
+          "chunk_start_line": 43,
+          "chunk_end_line": 114,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "docs/models/local-embedding.md",
+          "chunk_id": "96fee8018cf8e0368f72",
+          "start_line": 139,
+          "end_line": 150,
+          "chunk_start_line": 139,
+          "chunk_end_line": 150,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "services/retrieval/retriever.py",
+          "chunk_id": "253a84ed0f49ee2ac995",
+          "start_line": 25,
+          "end_line": 40,
+          "chunk_start_line": 25,
+          "chunk_end_line": 40,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/retrieval-architecture.md",
+          "chunk_id": "48e042118b4fd38e929f",
+          "start_line": 191,
+          "end_line": 205,
+          "chunk_start_line": 191,
+          "chunk_end_line": 205,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 1881,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 6665
+    },
+    "pack_chars": 6665,
+    "generate_s": 1.911,
+    "usage": {
+      "completion_tokens": 156,
+      "prompt_tokens": 1893,
+      "total_tokens": 2049,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [
+      "verified"
+    ],
+    "refused": false,
+    "answer": "The retrieval layer applies a per-chunk character limit of **8000 characters** when packing context for a model [SOURCE 4].\n\nThe earlier limit of **2000 characters** was dropped because it was cutting the answer out of correctly retrieved chunks, causing the model to report facts as absent when they had actually been retrieved. Specifically, in a RAG experiment regarding the question \"what context size does local-fast use by default?\", the packed text had the `context:` line truncated away, leading the model to incorrectly state the answer was not present [SOURCE 4]. Additionally, the chunker's own maximum is approximately 900 tokens, meaning an 8000-character cap effectively never truncates the content [SOURCE 4].",
+    "citations": [
+      {
+        "source": 4,
+        "source_path": "services/retrieval/retriever.py",
+        "start_line": 25,
+        "end_line": 40,
+        "chunk_start_line": 25,
+        "chunk_end_line": 40,
+        "truncated": false,
+        "verification": {
+          "source_path": "services/retrieval/retriever.py",
+          "start_line": 25,
+          "end_line": 40,
+          "hash_scheme": "sha256-lf-v1",
+          "indexed_hash": "a39ce60b5c8e8b2f",
+          "current_hash": "a39ce60b5c8e8b2f",
+          "current_lines": 124,
+          "status": "verified",
+          "match": "hash",
+          "detail": "file content matches the indexed version and the cited lines exist"
+        }
+      }
+    ],
+    "cited_source_numbers": [
+      4
+    ],
+    "reported_source_numbers": [
+      4
+    ],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 2.03,
+    "free_vram_after_mb": 4978
+  },
+  {
+    "question": "What word error rate does the Whisper speech worker achieve on Chinese audio in this project?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4978,
+    "retrieve_s": 0.046,
+    "candidates": [
+      {
+        "source_path": "services/reranker/fetch_reranker.py",
+        "start_line": 25,
+        "end_line": 25,
+        "score": 0.4366,
+        "chunk_id": "e7d9556464749391255e"
+      },
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 41,
+        "end_line": 55,
+        "score": 0.4315,
+        "chunk_id": "fed95d5e3fa86e405d31"
+      },
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 41,
+        "end_line": 46,
+        "score": 0.4229,
+        "chunk_id": "fcbd980ed5432aa12ee9"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 129,
+        "end_line": 135,
+        "score": 0.4194,
+        "chunk_id": "e82ff67f1c90ccaf39d6"
+      },
+      {
+        "source_path": "services/retrieval/cloud_context_prep.py",
+        "start_line": 49,
+        "end_line": 67,
+        "score": 0.4166,
+        "chunk_id": "558993403299abdee621"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.4366,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "services/reranker/fetch_reranker.py",
+          "chunk_id": "e7d9556464749391255e",
+          "start_line": 25,
+          "end_line": 25,
+          "chunk_start_line": 25,
+          "chunk_end_line": 25,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "fed95d5e3fa86e405d31",
+          "start_line": 41,
+          "end_line": 55,
+          "chunk_start_line": 41,
+          "chunk_end_line": 55,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "chunk_id": "fcbd980ed5432aa12ee9",
+          "start_line": 41,
+          "end_line": 46,
+          "chunk_start_line": 41,
+          "chunk_end_line": 46,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "e82ff67f1c90ccaf39d6",
+          "start_line": 129,
+          "end_line": 135,
+          "chunk_start_line": 129,
+          "chunk_end_line": 135,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "chunk_id": "558993403299abdee621",
+          "start_line": 49,
+          "end_line": 67,
+          "chunk_start_line": 49,
+          "chunk_end_line": 67,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 816,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 2500
+    },
+    "pack_chars": 2500,
+    "generate_s": 0.42,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 828,
+      "total_tokens": 843,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [],
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 0.525,
+    "free_vram_after_mb": 4979
+  },
+  {
+    "question": "What text-recognition accuracy did PaddleOCR reach on terminal screenshots in this project?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4979,
+    "retrieve_s": 0.074,
+    "candidates": [
+      {
+        "source_path": "docs/models/local-fast.md",
+        "start_line": 41,
+        "end_line": 55,
+        "score": 0.5321,
+        "chunk_id": "fed95d5e3fa86e405d31"
+      },
+      {
+        "source_path": "services/reranker/compat_probe.py",
+        "start_line": 24,
+        "end_line": 115,
+        "score": 0.4751,
+        "chunk_id": "03390907e2690823c192"
+      },
+      {
+        "source_path": "services/reranker/verify_hashes.py",
+        "start_line": 34,
+        "end_line": 38,
+        "score": 0.4676,
+        "chunk_id": "e8c7295500ec8c73185a"
+      },
+      {
+        "source_path": "services/reranker/fetch_reranker.py",
+        "start_line": 25,
+        "end_line": 25,
+        "score": 0.4592,
+        "chunk_id": "e7d9556464749391255e"
+      },
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 219,
+        "end_line": 237,
+        "score": 0.4541,
+        "chunk_id": "4ebc65c91f27965171f1"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.5321,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/models/local-fast.md",
+          "chunk_id": "fed95d5e3fa86e405d31",
+          "start_line": 41,
+          "end_line": 55,
+          "chunk_start_line": 41,
+          "chunk_end_line": 55,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "services/reranker/compat_probe.py",
+          "chunk_id": "03390907e2690823c192",
+          "start_line": 24,
+          "end_line": 115,
+          "chunk_start_line": 24,
+          "chunk_end_line": 115,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "services/reranker/verify_hashes.py",
+          "chunk_id": "e8c7295500ec8c73185a",
+          "start_line": 34,
+          "end_line": 38,
+          "chunk_start_line": 34,
+          "chunk_end_line": 38,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "services/reranker/fetch_reranker.py",
+          "chunk_id": "e7d9556464749391255e",
+          "start_line": 25,
+          "end_line": 25,
+          "chunk_start_line": 25,
+          "chunk_end_line": 25,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "4ebc65c91f27965171f1",
+          "start_line": 219,
+          "end_line": 237,
+          "chunk_start_line": 219,
+          "chunk_end_line": 237,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 2020,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 6532
+    },
+    "pack_chars": 6532,
+    "generate_s": 0.717,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 2032,
+      "total_tokens": 2047,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [],
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 0.853,
+    "free_vram_after_mb": 4978
+  },
+  {
+    "question": "Which certificate authority issues the TLS certificate that secures the MacBook supervisor's connection to this machine?",
+    "rerank": false,
+    "models": {
+      "generative": "local-fast",
+      "embedder": "service"
+    },
+    "top_k": 5,
+    "evidence_floor": 0.3,
+    "prompt_version": "qa-v2",
+    "index_version": "488f54d755224c5b",
+    "index_working_tree_dirty": true,
+    "free_vram_before_mb": 4978,
+    "retrieve_s": 0.046,
+    "candidates": [
+      {
+        "source_path": "docs/environment-report.md",
+        "start_line": 1,
+        "end_line": 10,
+        "score": 0.3891,
+        "chunk_id": "15974991c023ffd4502a"
+      },
+      {
+        "source_path": "services/retrieval/provenance.py",
+        "start_line": 25,
+        "end_line": 25,
+        "score": 0.372,
+        "chunk_id": "338c6f523af5c79d69f5"
+      },
+      {
+        "source_path": "services/retrieval/provenance.py",
+        "start_line": 26,
+        "end_line": 26,
+        "score": 0.3585,
+        "chunk_id": "1915cc36a79c14d12a03"
+      },
+      {
+        "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+        "start_line": 64,
+        "end_line": 64,
+        "score": 0.358,
+        "chunk_id": "061c95d1bdc80b86d4d0"
+      },
+      {
+        "source_path": "docs/escalation-policy.md",
+        "start_line": 1,
+        "end_line": 9,
+        "score": 0.3502,
+        "chunk_id": "33e445791f460c50acab"
+      }
+    ],
+    "n_candidates": 5,
+    "n_above_floor": 5,
+    "max_score": 0.3891,
+    "rerank_used": false,
+    "pack": {
+      "supplied": [
+        {
+          "source": 1,
+          "source_path": "docs/environment-report.md",
+          "chunk_id": "15974991c023ffd4502a",
+          "start_line": 1,
+          "end_line": 10,
+          "chunk_start_line": 1,
+          "chunk_end_line": 10,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 2,
+          "source_path": "services/retrieval/provenance.py",
+          "chunk_id": "338c6f523af5c79d69f5",
+          "start_line": 25,
+          "end_line": 25,
+          "chunk_start_line": 25,
+          "chunk_end_line": 25,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 3,
+          "source_path": "services/retrieval/provenance.py",
+          "chunk_id": "1915cc36a79c14d12a03",
+          "start_line": 26,
+          "end_line": 26,
+          "chunk_start_line": 26,
+          "chunk_end_line": 26,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 4,
+          "source_path": "services/gpu_scheduler/gpu_scheduler.py",
+          "chunk_id": "061c95d1bdc80b86d4d0",
+          "start_line": 64,
+          "end_line": 64,
+          "chunk_start_line": 64,
+          "chunk_end_line": 64,
+          "truncated": false,
+          "partial_line": false
+        },
+        {
+          "source": 5,
+          "source_path": "docs/escalation-policy.md",
+          "chunk_id": "33e445791f460c50acab",
+          "start_line": 1,
+          "end_line": 9,
+          "chunk_start_line": 1,
+          "chunk_end_line": 9,
+          "truncated": false,
+          "partial_line": false
+        }
+      ],
+      "omitted": [],
+      "prompt_tokens": 498,
+      "budget_tokens": 7872,
+      "count_method": "tokenize",
+      "pack_chars": 1103
+    },
+    "pack_chars": 1103,
+    "generate_s": 0.375,
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 510,
+      "total_tokens": 525,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "citation_verification": [],
+    "refused": true,
+    "answer": "I could not find enough evidence in the local corpus to answer this.",
+    "citations": [],
+    "cited_source_numbers": [],
+    "reported_source_numbers": [],
+    "out_of_range_source_numbers": [],
+    "e2e_s": 0.494,
+    "free_vram_after_mb": 4981
+  }
+]

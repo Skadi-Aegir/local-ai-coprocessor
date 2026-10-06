@@ -1,0 +1,112 @@
+﻿{
+    "fourb_alone":  {
+                        "self_MiB":  2981,
+                        "model_MiB":  2603,
+                        "context_MiB":  306,
+                        "gpu_used":  5183,
+                        "gpu_free":  6762,
+                        "load_s":  "see reload section",
+                        "probe":  "{\"wall_s\": 0.25, \"gen_tps\": 124.97, \"prompt_tps\": 317.1, \"completion_tokens\": 19}"
+                    },
+    "coresident":  {
+                       "ok":  true,
+                       "nineb_self_MiB":  5527,
+                       "nineb_model_MiB":  4861,
+                       "nineb_context_MiB":  562,
+                       "gpu_used":  10848,
+                       "gpu_free":  1089,
+                       "fourb_self_MiB":  2981,
+                       "combined_model_MiB":  8508
+                   },
+    "scenario_A_fast_active":  "{\"wall_s\": 1.01, \"gen_tps\": 129.58, \"prompt_tps\": 756.2, \"completion_tokens\": 121}",
+    "scenario_B_smart_active":  "{\"wall_s\": 2.9, \"gen_tps\": 71.0, \"prompt_tps\": 407.8, \"completion_tokens\": 200}",
+    "scenario_C_concurrent":  {
+                                  "fast":  {
+                                               "value":  "{\"wall_s\": 0.85, \"gen_tps\": 80.01, \"prompt_tps\": 707.2, \"completion_tokens\": 61}",
+                                               "PSComputerName":  "localhost",
+                                               "RunspaceId":  "a33849f8-0534-4950-9e08-a2a141561a39",
+                                               "PSShowComputerName":  false
+                                           },
+                                  "smart":  {
+                                                "value":  "{\"wall_s\": 4.38, \"gen_tps\": 72.09, \"prompt_tps\": 180.4, \"completion_tokens\": 300}",
+                                                "PSComputerName":  "localhost",
+                                                "RunspaceId":  "e7a14d84-2a18-4f16-bcc8-7c65ad71c621",
+                                                "PSShowComputerName":  false
+                                            }
+                              },
+    "scenario_C":  {
+                       "gpu_after":  10877
+                   },
+    "scenario_D_alternating":  [
+                                   {
+                                       "n":  0,
+                                       "port":  8111,
+                                       "wall_s":  0.33,
+                                       "result":  "{\"wall_s\": 0.25, \"gen_tps\": 111.47, \"prompt_tps\": 563.2, \"completion_tokens\": 18}"
+                                   },
+                                   {
+                                       "n":  1,
+                                       "port":  8112,
+                                       "wall_s":  0.46,
+                                       "result":  "{\"wall_s\": 0.38, \"gen_tps\": 72.09, \"prompt_tps\": 472.2, \"completion_tokens\": 20}"
+                                   },
+                                   {
+                                       "n":  2,
+                                       "port":  8111,
+                                       "wall_s":  0.3,
+                                       "result":  "{\"wall_s\": 0.23, \"gen_tps\": 112.65, \"prompt_tps\": 611.7, \"completion_tokens\": 16}"
+                                   },
+                                   {
+                                       "n":  3,
+                                       "port":  8112,
+                                       "wall_s":  0.44,
+                                       "result":  "{\"wall_s\": 0.37, \"gen_tps\": 72.76, \"prompt_tps\": 459.0, \"completion_tokens\": 20}"
+                                   },
+                                   {
+                                       "n":  4,
+                                       "port":  8111,
+                                       "wall_s":  0.31,
+                                       "result":  "{\"wall_s\": 0.24, \"gen_tps\": 113.79, \"prompt_tps\": 695.8, \"completion_tokens\": 16}"
+                                   },
+                                   {
+                                       "n":  5,
+                                       "port":  8112,
+                                       "wall_s":  0.43,
+                                       "result":  "{\"wall_s\": 0.36, \"gen_tps\": 72.84, \"prompt_tps\": 530.7, \"completion_tokens\": 20}"
+                                   },
+                                   {
+                                       "n":  6,
+                                       "port":  8111,
+                                       "wall_s":  0.29,
+                                       "result":  "{\"wall_s\": 0.22, \"gen_tps\": 112.14, \"prompt_tps\": 680.5, \"completion_tokens\": 16}"
+                                   },
+                                   {
+                                       "n":  7,
+                                       "port":  8112,
+                                       "wall_s":  0.45,
+                                       "result":  "{\"wall_s\": 0.38, \"gen_tps\": 73.09, \"prompt_tps\": 527.6, \"completion_tokens\": 20}"
+                                   }
+                               ],
+    "nineb_alone":  {
+                        "self_MiB":  5527,
+                        "model_MiB":  4861,
+                        "context_MiB":  562,
+                        "gpu_used":  7693,
+                        "gpu_free":  4252,
+                        "probe":  "{\"wall_s\": 0.31, \"gen_tps\": 82.76, \"prompt_tps\": 349.0, \"completion_tokens\": 19}"
+                    },
+    "reload":  [
+                   {
+                       "model":  "4B",
+                       "cold_load_s":  3,
+                       "unload_s":  3,
+                       "resident_MiB":  5146
+                   },
+                   {
+                       "model":  "9B",
+                       "cold_load_s":  4,
+                       "unload_s":  3,
+                       "resident_MiB":  7721
+                   }
+               ]
+}

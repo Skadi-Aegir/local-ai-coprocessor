@@ -1,0 +1,8 @@
+﻿# CPU-only context sweep (llama-cli -ngl 0), fit_memory_breakdown host row
+# Qwen3.5-4B-Q4_K_M, llama.cpp b11254, measured 2026-09-29
+# Model: context_MiB = 50.0 + ctx * 32768 B/token
+ctx,context_MiB,compute_MiB,model_MiB,self_MiB,implied_B_per_token
+4096,178,25,2603,2806,
+8192,306,29,2603,2938,32768
+16384,562,37,2603,3202,32768
+32768,1074,53,2603,3730,32768

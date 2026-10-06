@@ -1,0 +1,147 @@
+{
+  "model": "local-smart",
+  "base_url": "http://127.0.0.1:8112",
+  "grammar": false,
+  "fixtures": [
+    {
+      "fixture": "proj1_pagination",
+      "attempts": [
+        {
+          "attempt": 1,
+          "latency_s": 2.23,
+          "gen_tps": 80.27,
+          "raw": "{\n  \"files\": [\"pagination.py\"],\n  \"edits\": [\n    {\n      \"file\": \"pagination.py\",\n      \"find\": \"start = page * per_page\",\n      \"replace\": \"start = (page - 1) * per_page\"\n    }\n  ],\n  \"explanation\": \"The bug is that page 1 starts at index 0, but the code calculates start as page * per_page (1 * 10 = 10), skipping the first page. Subtracting 1 from the 1-based page number corrects the offset.\"\n}",
+          "leak": null,
+          "error": "",
+          "json_ok": true,
+          "files_declared": [
+            "pagination.py"
+          ],
+          "explanation": "The bug is that page 1 starts at index 0, but the code calculates start as page * per_page (1 * 10 = 10), skipping the first page. Subtracting 1 from the 1-based page number corrects the offset.",
+          "applied": true,
+          "apply_msgs": [
+            "edit 1: applied to pagination.py"
+          ],
+          "files_touched": [
+            "pagination.py"
+          ],
+          "undeclared_touches": [],
+          "out_of_scope": [],
+          "tests_pass": true,
+          "bug_fixed": true,
+          "tests_tail": "3 passed in 0.02s",
+          "demo_tail": "page beyond range: start=10 len=25",
+          "success": true
+        }
+      ],
+      "pass_at_1": true,
+      "pass_at_2": true,
+      "tests_pass": true,
+      "bug_fixed": true
+    },
+    {
+      "fixture": "proj2_importer",
+      "attempts": [
+        {
+          "attempt": 1,
+          "latency_s": 3.62,
+          "gen_tps": 77.67,
+          "raw": "{\n  \"files\": [\"reader.py\"],\n  \"edits\": [\n    {\n      \"file\": \"reader.py\",\n      \"find\": \"fh = open(path, \\\"r\\\", encoding=\\\"utf-8\\\")\\n    raw = fh.read()\\n    data = json.loads(raw)\\n    if not isinstance(data, dict):\\n        raise ValueError(f\\\"expected a JSON object in {path}\\\")\\n    fh.close()\\n    return data\",\n      \"replace\": \"with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as fh:\\n    raw = fh.read()\\n    data = json.loads(raw)\\n    if not isinstance(data, dict):\\n        raise ValueError(f\\\"expected a JSON object in {path}\\\")\\n    return data\"\n    }\n  ],\n  \"explanation\": \"The root cause is that `reader.py` opens a file handle without a context manager, causing it to remain open when a `ValueError` is raised for malformed JSON. Using a `with` statement ensures the file is closed immediately upon any exception, preventing the file descriptor leak.\"\n}",
+          "leak": null,
+          "error": "",
+          "json_ok": true,
+          "files_declared": [
+            "reader.py"
+          ],
+          "explanation": "The root cause is that `reader.py` opens a file handle without a context manager, causing it to remain open when a `ValueError` is raised for malformed JSON. Using a `with` statement ensures the file is closed immediately upon any exception, preventing the file descriptor leak.",
+          "applied": true,
+          "apply_msgs": [
+            "edit 1: applied to reader.py"
+          ],
+          "files_touched": [
+            "reader.py"
+          ],
+          "undeclared_touches": [],
+          "out_of_scope": [],
+          "tests_pass": false,
+          "bug_fixed": false,
+          "tests_tail": "1 error in 0.13s",
+          "demo_tail": "IndentationError: expected an indented block after 'with' statement on line 18",
+          "success": false
+        },
+        {
+          "attempt": 2,
+          "latency_s": 3.33,
+          "gen_tps": 76.4,
+          "raw": "{\n  \"files\": [\"reader.py\"],\n  \"edits\": [\n    {\n      \"file\": \"reader.py\",\n      \"find\": \"    fh = open(path, \\\"r\\\", encoding=\\\"utf-8\\\")\\n    raw = fh.read()\\n    data = json.loads(raw)\\n    if not isinstance(data, dict):\\n        raise ValueError(f\\\"expected a JSON object in {path}\\\")\\n    fh.close()\\n    return data\",\n      \"replace\": \"    with open(path, \\\"r\\\", encoding=\\\"utf-8\\\") as fh:\\n        raw = fh.read()\\n        data = json.loads(raw)\\n        if not isinstance(data, dict):\\n            raise ValueError(f\\\"expected a JSON object in {path}\\\")\\n        return data\"\n    }\n  ],\n  \"explanation\": \"The root cause is that `reader.py` opens a file handle without a context manager, causing it to remain open when a `ValueError` is raised for malformed JSON. Using a `with` statement ensures the file is closed immediately upon any exception, preventing the file descriptor leak.\"\n}",
+          "leak": null,
+          "error": "",
+          "json_ok": true,
+          "files_declared": [
+            "reader.py"
+          ],
+          "explanation": "The root cause is that `reader.py` opens a file handle without a context manager, causing it to remain open when a `ValueError` is raised for malformed JSON. Using a `with` statement ensures the file is closed immediately upon any exception, preventing the file descriptor leak.",
+          "applied": true,
+          "apply_msgs": [
+            "edit 1: applied to reader.py"
+          ],
+          "files_touched": [
+            "reader.py"
+          ],
+          "undeclared_touches": [],
+          "out_of_scope": [],
+          "tests_pass": true,
+          "bug_fixed": true,
+          "tests_tail": "1 passed in 0.02s",
+          "demo_tail": "failed to read C:\\Users\\<user>\\AppData\\Local\\Temp\\tmp227sgs0o\\bad399.json: expected a JSON object in C:\\Users\\<user>\\AppData\\Local\\Temp\\tmp227sgs0o\\bad399.json",
+          "success": true
+        }
+      ],
+      "pass_at_1": false,
+      "pass_at_2": true,
+      "tests_pass": true,
+      "bug_fixed": true
+    },
+    {
+      "fixture": "proj3_report",
+      "attempts": [
+        {
+          "attempt": 1,
+          "latency_s": 2.23,
+          "gen_tps": 73.38,
+          "raw": "{\n  \"files\": [\"report.py\"],\n  \"edits\": [\n    {\n      \"file\": \"report.py\",\n      \"find\": \"        by_customer[customer] = cents\",\n      \"replace\": \"        by_customer[customer] = by_customer.get(customer, 0) + cents\"\n    }\n  ],\n  \"explanation\": \"The bug is that the code overwrites the customer's total instead of accumulating it when a customer appears in multiple regions. Changing the assignment to use get() with addition ensures all amounts for a customer are summed correctly.\"\n}",
+          "leak": null,
+          "error": "",
+          "json_ok": true,
+          "files_declared": [
+            "report.py"
+          ],
+          "explanation": "The bug is that the code overwrites the customer's total instead of accumulating it when a customer appears in multiple regions. Changing the assignment to use get() with addition ensures all amounts for a customer are summed correctly.",
+          "applied": true,
+          "apply_msgs": [
+            "edit 1: applied to report.py"
+          ],
+          "files_touched": [
+            "report.py"
+          ],
+          "undeclared_touches": [],
+          "out_of_scope": [],
+          "tests_pass": true,
+          "bug_fixed": true,
+          "tests_tail": "1 passed in 0.01s",
+          "demo_tail": "PASS",
+          "success": true
+        }
+      ],
+      "pass_at_1": true,
+      "pass_at_2": true,
+      "tests_pass": true,
+      "bug_fixed": true
+    }
+  ],
+  "pass_at_1": 2,
+  "pass_at_1_rate": 66.7,
+  "pass_at_2": 3,
+  "pass_at_2_rate": 100.0,
+  "scope_creep_count": 0
+}

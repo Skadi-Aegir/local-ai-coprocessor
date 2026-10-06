@@ -1,0 +1,5 @@
+loading local-embedding ...
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  13%|█▎        | 40/310 [00:00<00:00, 385.37it/s]Loading weights:  25%|██▌       | 79/310 [00:00<00:00, 257.93it/s]Loading weights:  37%|███▋      | 116/310 [00:00<00:00, 290.20it/s]Loading weights:  48%|████▊     | 150/310 [00:00<00:00, 292.14it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 600.95it/s]
+device=cuda:0 dimension=1024 vram_mb=2360.6 (cudaMemGetInfo; not the device-wide figure) this_process_reserved=1160.0 MiB cache_release_above=256 MiB
+projects preloaded: []
+listening on http://127.0.0.1:8199

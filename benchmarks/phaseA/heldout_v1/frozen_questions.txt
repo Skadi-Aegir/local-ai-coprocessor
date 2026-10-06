@@ -1,0 +1,12 @@
+Which NVIDIA driver version and CUDA version did the Phase 0 environment check find, and was a CUDA toolkit installed?
+What did Phase 0 expect to be the binding resource constraint for this project, and how much weight storage did it estimate the planned model pool would need?
+How does the local reranker turn the model's output into a relevance score?
+According to the local-fast integration guide, what must a caller put in the model field of a request, and why?
+Which observable conditions would trigger a rollback of the proposed staged two-unload RAG integration?
+Which kinds of work does the escalation policy send straight to Claude or Codex, and what role do local models keep for that work?
+Can an interactive request in the GPU scheduler end up waiting for background work, and what bounds that wait?
+On the isolated staged two-unload RAG path, how much free VRAM did each required unload return, and how long does a full RAG cycle take?
+What per-chunk character limit does the retrieval layer apply when it packs context for a model, and why was the earlier limit dropped?
+What word error rate does the Whisper speech worker achieve on Chinese audio in this project?
+What text-recognition accuracy did PaddleOCR reach on terminal screenshots in this project?
+Which certificate authority issues the TLS certificate that secures the MacBook supervisor's connection to this machine?

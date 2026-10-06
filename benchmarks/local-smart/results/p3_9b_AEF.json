@@ -1,0 +1,181 @@
+{
+  "tag": "p3_9b_AEF",
+  "base_url": "http://127.0.0.1:8112",
+  "model": "local-fast",
+  "params": {
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "seed": 20260401,
+    "thinking": false,
+    "grammar": false,
+    "json_schema": false
+  },
+  "started": "2026-09-30T11:16:15",
+  "tests": {
+    "A": {
+      "test": "A_zh_summary",
+      "ok": true,
+      "error": "",
+      "ttft_s": 0.4624296000038157,
+      "total_s": 3.053,
+      "prompt_tokens": 1004,
+      "completion_tokens": 191,
+      "gen_tps": 73.35,
+      "prompt_tps": 2510.92,
+      "output": "1. 新架构采用三层结构，接入层按租户限流，调度层划分交互式等优先级队列，执行层将同步调用改为带 8 秒超时的异步任务。\n2. 改用 pgvector 扩展替代自建向量检索服务，放弃语义缓存策略，仅对完全相同的查询进行缓存。\n3. 修复了批处理任务未释放 KV cache 导致 GPU 显存占满的问题，并将日志采样率降至 10% 以解决磁盘写满问题。\n4. 当前灰度环境错误率降至 0.15%，但租户超 200 时调度耗时升至 40 毫秒，计划通过本地内存缓存优化。\n5. 新增队列等待时间 P99 等自定义监控指标，上线采用逐步放量策略，基础设施成本上涨 21% 但单位请求成本下降 8%。",
+      "grade": {
+        "bullet_points": 5,
+        "bullet_count_ok": true,
+        "facts_hit": 9,
+        "facts_total": 10,
+        "facts_detail": {
+          "新旧架构": true,
+          "延迟问题": true,
+          "pgvector": true,
+          "缓存策略": true,
+          "显存问题": true,
+          "日志量": true,
+          "灰度状态": true,
+          "未解决问题": true,
+          "成本": true,
+          "回滚": false
+        },
+        "hallucination_markers": [],
+        "numbers_not_in_source": [],
+        "chars": 297
+      },
+      "elapsed_s": 3.06
+    },
+    "E": {
+      "test": "E_code",
+      "rows": [
+        {
+          "name": "python_json_to_csv",
+          "kind": "python",
+          "ok": true,
+          "error": "",
+          "ttft_s": 0.14869829999952344,
+          "total_s": 1.276,
+          "gen_tps": 73.65,
+          "code": "def to_csv(records, path):\n    if not records:\n        open(path, 'w').close()\n        return\n    keys = list(records[0].keys())\n    with open(path, 'w', newline='') as f:\n        writer = csv.DictWriter(f, fieldnames=keys)\n        writer.writeheader()\n        writer.writerows(records)",
+          "output": "```python\ndef to_csv(records, path):\n    if not records:\n        open(path, 'w').close()\n        return\n    keys = list(records[0].keys())\n    with open(path, 'w', newline='') as f:\n        writer = csv.DictWriter(f, fieldnames=keys)\n        writer.writeheader()\n        writer.writerows(records)\n```",
+          "exec_pass": false,
+          "exec_detail": "Traceback (most recent call last):\n  File \"C:\\Users\\<user>\\AppData\\Local\\Temp\\tmph46jllio\\harness.py\", line 13, in <module>\n    fn([{'a': 1, 'b': 2}, {'a': 3, 'b': 4}], str(p))\n    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<string>\", line 7, in to_csv\nNameError: name 'csv' is not defined. Did you forget to import 'csv'?"
+        },
+        {
+          "name": "shell_batch_rename",
+          "kind": "shell",
+          "ok": true,
+          "error": "",
+          "ttft_s": 0.14168400000198744,
+          "total_s": 1.333,
+          "gen_tps": 73.89,
+          "code": "#!/usr/bin/env bash\nshopt -s nullglob\nfor f in *.jpeg; do\n  target=\"${f%.jpeg}.jpg\"\n  if [[ -e \"$target\" ]]; then\n    echo \"Skipping: $target already exists\"\n  else\n    echo \"Renaming: $f -> $target\"\n    mv -- \"$f\" \"$target\"\n  fi\ndone",
+          "output": "```bash\n#!/usr/bin/env bash\nshopt -s nullglob\nfor f in *.jpeg; do\n  target=\"${f%.jpeg}.jpg\"\n  if [[ -e \"$target\" ]]; then\n    echo \"Skipping: $target already exists\"\n  else\n    echo \"Renaming: $f -> $target\"\n    mv -- \"$f\" \"$target\"\n  fi\ndone\n```",
+          "exec_pass": null,
+          "exec_detail": "",
+          "structural": [
+            {
+              "check": "has_shebang_or_set",
+              "pass": true
+            },
+            {
+              "check": "loops_or_glob",
+              "pass": true
+            },
+            {
+              "check": "guards_existing",
+              "pass": true
+            },
+            {
+              "check": "does_not_overwrite",
+              "pass": true
+            }
+          ]
+        },
+        {
+          "name": "sql_group_by",
+          "kind": "sql",
+          "ok": true,
+          "error": "",
+          "ttft_s": 0.13068759999441681,
+          "total_s": 0.696,
+          "gen_tps": 74.3,
+          "code": "SELECT project, COUNT(*) AS task_count, AVG(priority) AS avg_priority\nFROM tasks\nGROUP BY project\nHAVING COUNT(*) > 1\nORDER BY task_count DESC;",
+          "output": "```sql\nSELECT project, COUNT(*) AS task_count, AVG(priority) AS avg_priority\nFROM tasks\nGROUP BY project\nHAVING COUNT(*) > 1\nORDER BY task_count DESC;\n```",
+          "exec_pass": true,
+          "exec_detail": "PASS"
+        },
+        {
+          "name": "python_pytest",
+          "kind": "python",
+          "ok": true,
+          "error": "",
+          "ttft_s": 0.1502228000026662,
+          "total_s": 1.393,
+          "gen_tps": 74.01,
+          "code": "import pytest\n\ndef test_plain_seconds():\n    assert parse_duration('45s') == 45\n\ndef test_minutes_and_seconds():\n    assert parse_duration('1h30m') == 3600 + 1800\n    assert parse_duration('2m') == 120\n\ndef test_invalid_string():\n    with pytest.raises(ValueError):\n        parse_duration('invalid')",
+          "output": "```python\nimport pytest\n\ndef test_plain_seconds():\n    assert parse_duration('45s') == 45\n\ndef test_minutes_and_seconds():\n    assert parse_duration('1h30m') == 3600 + 1800\n    assert parse_duration('2m') == 120\n\ndef test_invalid_string():\n    with pytest.raises(ValueError):\n        parse_duration('invalid')\n```",
+          "exec_pass": null,
+          "exec_detail": "",
+          "structural": [
+            {
+              "check": "imports_pytest",
+              "pass": true
+            },
+            {
+              "check": "uses_raises",
+              "pass": true
+            },
+            {
+              "check": "has_tests",
+              "pass": false
+            }
+          ]
+        }
+      ],
+      "elapsed_s": 4.83
+    },
+    "F": {
+      "test": "F_handoff_compression",
+      "ok": true,
+      "error": "",
+      "ttft_s": 2.092886099999305,
+      "total_s": 30.511,
+      "prompt_tokens": 5717,
+      "completion_tokens": 1984,
+      "gen_tps": 69.78,
+      "prompt_tps": 2845.13,
+      "input_chars": 10622,
+      "output_chars": 3829,
+      "compression_ratio": 0.36,
+      "sections_present": {
+        "Goal": true,
+        "Current state": true,
+        "Completed": true,
+        "Failed": true,
+        "Important files": true,
+        "Important decisions": true,
+        "Tests": true,
+        "Open questions": true,
+        "Next step": true
+      },
+      "sections_ok": 9,
+      "sections_total": 9,
+      "anchors_hit": [
+        "ivt.py",
+        "scheduler.py",
+        "calibrate.py",
+        "pipeline.yaml",
+        "Parquet",
+        "seed"
+      ],
+      "truncated": false,
+      "output": "## Goal\n将眼球追踪（eye-tracking）实验的数据处理管线从易出错的单次脚本重构为可重复运行的批处理系统。\n核心目标：\n1.  **自动化**：一条命令处理全天约 40 组被试数据（视频、屏幕录制、校准文件）。\n2.  **可复现性**：同一批输入重复运行三次，输出必须**逐字节完全一致**（用于论文发表）。\n3.  **鲁棒性**：支持断点恢复，单步失败不影响整体流程，中间产物版本化。\n4.  **标准化**：输出固定格式的 CSV 注视点数据及包含质量指标（有效采样率、剔除时长等）的报告。\n\n## Current state\n- **管线主体**：已能跑通全流程，预处理阶段稳定。\n- **不一致问题**：尚未达到“逐字节一致”验收标准。\n  - 注视点检测阶段在约 15% 的被试（眨眼密集片段）出现随机波动。\n  - 怀疑原因：`detect/ivt.py` 排序键不稳定（仅用时间戳），以及 `scheduler.py` 收集结果时未按固定顺序写入文件。\n- **测试状态**：`tests/test_ivt.py` 在 CI 上偶发失败（约每 20 次一次），怀疑与浮点累加顺序或进程池返回顺序有关。\n- **代码位置**：`src/eyetrack/`，入口 `src/eyetrack/cli.py`。\n- **数据路径**：原始数据 `/data/eyetrack/raw/`，中间产物 `/data/eyetrack/work/`，结果 `/data/eyetrack/out/`。\n\n## Completed\n- **预处理 (`src/eyetrack/preprocess/`)**：\n  - `sync.py`：实现视频与屏幕录制的时间戳对齐（主时钟为屏幕录制，容差 16ms），失败样本写入 `sync_fail.json` 而非抛出异常。\n  - `calibrate.py`：自动解析校准文件坐标系（`top-left` vs `bottom-left`），根据文件头 `origin` 字段自动翻转 Y 轴。\n  - `face.py`：使用 MediaPipe 进行面部关键点检测，改为按需解码以节省内存（避免 30GB 峰值）。\n- **调度 (`src/eyetrack/scheduler.py`)**：基于进程池，支持单被试任务、失败自动重试（2 次）、重试前清理工作目录、结构化 JSON 日志。\n- **检测 (`src/eyetrack/detect/ivt.py`)**：采用 I-VT（速度阈值）算法，将阈值归一化为视角/秒，解耦采样率影响。\n- **报告 (`src/eyetrack/report/quality.py`)**：生成包含有效采样率、剔除时长、注视点统计的质量报告。\n- **决策落地**：\n  - 中间产物使用 Parquet 替代 CSV 以保证精度。\n  - 禁用 GPU（收益低且环境冲突）。\n  - 显式随机种子（`config/pipeline.yaml` 中的 `seed`）。\n  - 配置通过参数传递，避免全局状态污染。\n\n## Failed\n- **I-DT 算法 (`src/eyetrack/detect/idt_legacy.py`)**：因对采样率敏感（60Hz-200Hz 浮动导致固定时间阈值等价于不同采样点数），结果不可比，已弃用。\n- **GPU 加速**：MediaPipe 与 Triton 冲突，且单组耗时仅 12 秒，加速收益不足以抵消复杂度，已明确放弃（见 `docs/decisions/0003-no-gpu-face-detect.md`）。\n- **哈希增量执行**：因视频文件元数据变化导致哈希误判，且计算哈希耗时过长，已放弃，改用基于 `meta.json` 标记的粗粒度恢复。\n- **坐标系统一预处理**：为避免原始数据混淆及磁盘占用翻倍，决定采用“读时转换”而非预处理统一坐标系。\n\n## Important files\n- **入口与配置**：\n  - `src/eyetrack/cli.py`: 唯一入口，参数解析与阶段编排。\n  - `config/pipeline.yaml`: 定义所有阶段参数、路径模板及随机种子。\n- **核心逻辑**：\n  - `src/eyetrack/scheduler.py`: 进程池调度、重试、断点恢复逻辑。\n  - `src/eyetrack/preprocess/sync.py`: 时间戳对齐。\n  - `src/eyetrack/preprocess/calibrate.py`: 校准解析与坐标系处理。\n  - `src/eyetrack/preprocess/face.py`: 面部检测与裁剪。\n  - `src/eyetrack/detect/ivt.py`: 当前注视点检测逻辑。\n  - `src/eyetrack/detect/idt_legacy.py`: 已弃用，仅作对比参考。\n  - `src/eyetrack/report/quality.py`: 质量报告生成。\n- **测试与文档**：\n  - `tests/test_sync.py`, `tests/test_calibrate.py`, `tests/test_ivt.py` (不稳定)。\n  - `docs/decisions/0001-...`, `0002-...`, `0003-...`: 关键架构决策记录。\n  - `docs/env-snapshot.txt`: 记录 Python 版本及依赖快照（MediaPipe 对 Py3.13 支持问题）。\n\n## Important decisions\n1.  **中间格式**：强制使用 **Parquet** 而非 CSV。原因：避免文本往返导致的浮点精度损失，确保逐字节复现。\n2.  **硬件策略**：**不使用 GPU**。原因：加速收益低（面部检测仅 12 秒），且共享环境下 GPU 资源不可预测。\n3.  **随机性控制**：所有随机步骤必须从 `config/pipeline.yaml` 的 `seed` 字段取值（默认 20260401），这是复现的前提。\n4.  **状态管理**：禁止使用模块级全局变量缓存配置，所有配置通过显式参数传递，防止多被试并行时的参数污染。\n5.  **数据组织**：扁平化目录结构（`YYYY-MM-DD/<subject_id>/`），避免 Windows 路径长度限制问题。\n\n## Tests\n- **`tests/test_sync.py`**: 覆盖正常对齐、容差边界、对齐失败三种情况，全部通过。\n- **`tests/test_calibrate.py`**: 覆盖两种坐标系、缺失字段、坐标越界。有一个用例处于 `skip` 状态（左下原点带旋转的校准文件缺乏真实样本）。\n- **`tests/test_ivt.py`**: 覆盖速度阈值边界及眨眼剔除。**当前不稳定**，CI 上约 5% 失败率，怀疑与浮点累加顺序或进程池返回顺序有关。\n- **覆盖率**: 整体 71%，主要缺失 `report/quality.py` 的格式化分支测试。\n\n## Open questions\n1.  **逐字节不一致根因**：\n    - 怀疑 `detect/ivt.py` 排序键不稳定（仅时间戳，无次级键）。\n    - 怀疑 `scheduler.py` 收集结果时未按被试 ID 顺序写入文件。\n    - 需验证修复这两个点后是否解决不一致问题。\n2.  **测试稳定性**：`test_ivt.py` 的偶发失败是否与上述排序问题同源？\n3.  **坐标系扩展**：是否需要支持“左下原点 + 旋转”的校准文件？（实验室新设备可能用到，预计需 2 天工作量）。\n4.  **质量指标定义**：有效采样率定义是否应改为时间加权？（导师建议，但可能降低报告可读性）。\n5.  **遗留代码**：是否保留 `idt_legacy.py` 以支持论文方法对比章节？\n6.  **依赖锁定**：是否引入 `pip-tools` 或 `uv` 锁定依赖版本，防止 numpy 升级导致的微小浮点差异？\n7.  **I/O 瓶颈**：共享文件系统读取 180GB 原始数据耗时过长（30+ 分钟），是否应改为复制到本地 SSD？\n\n## Next step\n**优先验证并修复“逐字节不一致”问题**：\n1.  修改 `scheduler.py`：在收集结果阶段，改为**按被试 ID 排序**后写入文件。\n2.  修改 `detect/ivt.py`：为排序键增加**次级键（帧索引）**，确保全序。\n3.  **验证实验**：对同一批 5 个被试连续运行三次，执行逐字节比较。\n4.  **故障排查**：若上述修改后仍不一致，在每一步 Parquet 输出上计算哈希并进行逐步对比，定位首次出现差异的阶段。\n5.  **附带修复**：同步复查 `tests/test_ivt.py` 的不稳定问题，确认是否与排序逻辑相关并一并修复。",
+      "elapsed_s": 30.53
+    }
+  },
+  "elapsed_s": 38.42,
+  "thinking_leaks_total": 0,
+  "thinking_enabled": false
+}

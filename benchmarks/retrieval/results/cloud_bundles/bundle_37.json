@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: services/retrieval/verify_pipeline.py\nlines: 31-31\nscore: 0.4258\nchunk_id: ce0b2aa9f4beea4ad5cf\ncontent:\nfrom retriever import Retriever, RetrieveConfig  # noqa: E402\n\nSOURCE 2\npath: services/retrieval/server.py\nlines: 41-41\nscore: 0.4192\nchunk_id: 8a36adaee6adebd8443f\ncontent:\nfrom retriever import Retriever, RetrieveConfig, instruction_for  # noqa: E402\n\nSOURCE 3\npath: docs/models/local-embedding.md\nlines: 120-130\nscore: 0.3948\nchunk_id: f9109dd0da98f96a5285\nsymbol: 7. Usage contract\ncontent:\n## 7. Usage contract\n\n```\nPOST http://127.0.0.1:8113/v1/embeddings     OpenAI-compatible\nPOST http://127.0.0.1:8113/v1/retrieve       project-scoped retrieval\nGET  http://127.0.0.1:8113/health | /v1/models | /stats\n```\n\nLoopback only. Documents must be encoded **without** an instruction; queries should carry\nthe official retrieval instruction. The service exposes a `query: true` flag that applies it.\n\n\nSOURCE 4\npath: services/retrieval/test_index_store.py\nlines: 1-8\nscore: 0.3946\nchunk_id: 28eeba03e10ad3fc532a\ncontent:\n\"\"\"\ntest_index_store.py - asserting tests for the FAISS + SQLite retrieval store.\n\nThe most important test here is that FAISS inner-product search over L2-normalised\nvectors really does reproduce reference cosine similarity. The specification asks for\nthat to be verified rather than assumed, and getting it wrong would corrupt every\nretrieval metric downstream while still \"working\".\n\"\"\"\n\nSOURCE 5\npath: docs/retrieval-architecture.md\nlines: 151-165\nscore: 0.3942\nchunk_id: 7889de74b335917771c2\nsymbol: 7. Service\ncontent:\n## 7. Service\n\n`POST /v1/embeddings` — OpenAI-compatible; accepts a string or a list, honours\n`dimensions` for Matryoshka truncation, and offers a local `query: true` flag that\napplies the retrieval instruction.\n\n`POST /v1/retrieve` — `{project, query, top_k, instruction_type, pack}` →\n`{results:[{score, source_path, start_line, end_line, content, …}], context?}`.\n\n`GET /health`, `/v1/models`, `/stats`.\n\nLoopback only (`127.0.0.1:8113`). Concurrency is serialised behind a lock because a torch\nmodule is not thread-safe for concurrent `encode`, and measurement shows concurrent GPU\nwork *loses* throughput rather than gaining it.\n\n\nTASK: Where are the retrieval service's own tests kept?"
+    }
+  ],
+  "meta": {
+    "question": "Where are the retrieval service's own tests kept?",
+    "query_type": "mixed_code",
+    "sources": 5,
+    "source_paths": [
+      "services/retrieval/verify_pipeline.py",
+      "services/retrieval/server.py",
+      "docs/models/local-embedding.md",
+      "services/retrieval/test_index_store.py",
+      "docs/retrieval-architecture.md"
+    ],
+    "top_score": 0.425786,
+    "context_tokens": 751,
+    "prompt_tokens": 814,
+    "within_budget": true
+  }
+}

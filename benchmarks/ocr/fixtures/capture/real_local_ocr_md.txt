@@ -1,0 +1,14 @@
+**CPU.** One important measured caveat:
+
+> **oneDNN must be disabled on this build.** With the default (oneDNN enabled) both tiers **loaded
+> successfully and then failed at predict**:
+>
+> ```
+> NotImplementedError: (Unimplemented) ConvertPirAttribute2RuntimeAttribute not support
+> [pir::ArrayAttribute<pir::DoubleAttribute>]  (onednn_instruction.cc:118)
+> ```
+>
+> This is a oneDNN/PIR kernel incompatibility in `paddlepaddle 3.3.1`, **not a bad model or a failed
+> download** — the same files succeed unchanged once oneDNN is off. Two equivalent remedies were
+> measured to work: `enable_mkldnn=False` on the `PaddleOCR` constructor, or the environment variable
+> `FLAGS_use_mkldnn=0`. Setting only `FLAGS_enable_pir_api=0` does **not** fix it.

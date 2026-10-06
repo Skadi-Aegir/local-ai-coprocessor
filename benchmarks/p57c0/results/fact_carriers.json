@@ -1,0 +1,143 @@
+{
+  "index_version": "3cd2dcda4eeb5555",
+  "facts": {
+    "d01.fast_port": {
+      "needles": [
+        "8111"
+      ],
+      "carrier_files": {
+        "config/local-fast.yaml": 1,
+        "docs/local-fast-api.md": 2,
+        "docs/models/local-fast.md": 1,
+        "scripts/check-local-fast.ps1": 1,
+        "scripts/coresidency.ps1": 2,
+        "scripts/start-local-fast.ps1": 1,
+        "scripts/stop-local-fast.ps1": 1,
+        "services/gpu_scheduler/gpu_scheduler.py": 1,
+        "services/gpu_scheduler/scheduler_cli.py": 1
+      }
+    },
+    "d01.embed_port": {
+      "needles": [
+        "8113"
+      ],
+      "carrier_files": {
+        "config/local-embedding.yaml": 1,
+        "config/local-reranker.yaml": 1,
+        "docs/models/local-embedding.md": 1,
+        "docs/reranking-architecture.md": 2,
+        "docs/retrieval-architecture.md": 1,
+        "scripts/check-local-embedding.ps1": 1,
+        "scripts/start-local-embedding.ps1": 1,
+        "scripts/stop-local-embedding.ps1": 1,
+        "services/gpu_scheduler/gpu_scheduler.py": 1,
+        "services/gpu_scheduler/scheduler_cli.py": 1,
+        "services/retrieval/cloud_context_prep.py": 1,
+        "services/retrieval/rerank_pipeline.py": 1,
+        "services/retrieval/server.py": 2
+      }
+    },
+    "d05.char_cap": {
+      "needles": [
+        "8000"
+      ],
+      "carrier_files": {
+        "services/retrieval/retriever.py": 2
+      }
+    },
+    "d06.reranker_port": {
+      "needles": [
+        "8114"
+      ],
+      "carrier_files": {
+        "config/local-reranker.yaml": 1,
+        "docs/models/local-reranker.md": 1,
+        "docs/reranking-architecture.md": 2,
+        "docs/retrieval-architecture.md": 1,
+        "scripts/check-local-reranker.ps1": 1,
+        "scripts/start-local-reranker.ps1": 1,
+        "scripts/stop-local-reranker.ps1": 1,
+        "services/gpu_scheduler/gpu_scheduler.py": 1,
+        "services/gpu_scheduler/scheduler_cli.py": 1,
+        "services/reranker/server.py": 2,
+        "services/retrieval/rerank_pipeline.py": 2
+      }
+    },
+    "d06.ocr_port": {
+      "needles": [
+        "8116"
+      ],
+      "carrier_files": {
+        "config/local-ocr.yaml": 1,
+        "docs/models/local-ocr.md": 3,
+        "scripts/check-local-ocr.ps1": 1,
+        "scripts/start-local-ocr.ps1": 1,
+        "scripts/stop-local-ocr.ps1": 1,
+        "services/ocr/server.py": 2
+      }
+    },
+    "d02.torch_reserved": {
+      "needles": [
+        "torch_reserved"
+      ],
+      "carrier_files": {
+        "docs/models/local-embedding.md": 1,
+        "services/retrieval/embedder.py": 2,
+        "services/retrieval/server.py": 2
+      }
+    },
+    "d02.margin_policy": {
+      "needles": [
+        "2048"
+      ],
+      "carrier_files": {
+        "config/local-fast.yaml": 1,
+        "config/local-ocr.yaml": 1,
+        "config/local-reranker.yaml": 1,
+        "config/local-smart.yaml": 1,
+        "docs/environment-report.md": 1,
+        "docs/models/local-reranker.md": 2,
+        "docs/phase55r-evidence-consolidation.md": 2,
+        "docs/production-integration-design.md": 2,
+        "docs/reranking-architecture.md": 1,
+        "docs/staged-lifecycle-design.md": 2,
+        "scripts/coresidency.ps1": 1,
+        "scripts/start-local-fast.ps1": 1,
+        "scripts/start-local-reranker.ps1": 1,
+        "services/gpu_scheduler/gpu_scheduler.py": 1,
+        "services/gpu_scheduler/scheduler_cli.py": 4,
+        "services/reranker/compat_probe.py": 1,
+        "services/reranker/reranker.py": 3,
+        "services/reranker/server.py": 1,
+        "services/retrieval/build_index.py": 1,
+        "services/retrieval/embedder.py": 1
+      }
+    },
+    "d03.policy_threshold": {
+      "needles": [
+        "escalat"
+      ],
+      "carrier_files": {
+        "docs/environment-report.md": 2,
+        "docs/escalation-policy.md": 5,
+        "docs/local-fast-api.md": 1,
+        "docs/models/local-smart.md": 1,
+        "docs/reranking-architecture.md": 1,
+        "services/retrieval/cloud_context_prep.py": 3
+      }
+    },
+    "d07.softmax_score": {
+      "needles": [
+        "softmax"
+      ],
+      "carrier_files": {
+        "config/local-reranker.yaml": 1,
+        "docs/models/local-reranker.md": 1,
+        "docs/reranking-architecture.md": 1,
+        "services/reranker/compat_probe.py": 2,
+        "services/reranker/reranker.py": 3,
+        "services/reranker/server.py": 1
+      }
+    }
+  }
+}

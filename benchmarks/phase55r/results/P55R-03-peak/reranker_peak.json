@@ -1,0 +1,258 @@
+{
+  "margin_mb": 2048,
+  "declared": {
+    "vram_mb": 1160,
+    "peak_extra_mb": 1800
+  },
+  "prior_hot_sample_max_mb": 262,
+  "prior_ceiling_rejected": "the 262 MiB hot-sample maximum is NOT treated as a safe ceiling; this measurement exists because it was too thin",
+  "repeats": 3,
+  "cases": [
+    {
+      "case": "cold_load_and_first_inference",
+      "repeat": 1,
+      "load_s": 102.986,
+      "latency_s": 0.677,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n_samples": 7,
+        "interval_mean_s": 0.095,
+        "interval_max_s": 0.107,
+        "used_min": 7186,
+        "used_max": 7432,
+        "free_min": 4513,
+        "free_max": 4759,
+        "peak_delta_mb": 246,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "worst_free_below_margin_mb": 0
+      },
+      "commit_before_mb": 34557,
+      "commit_after_mb": 35721,
+      "commit_delta_mb": 1164
+    },
+    {
+      "case": "cold_load_and_first_inference",
+      "repeat": 2,
+      "load_s": 8.572,
+      "latency_s": 0.359,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n_samples": 4,
+        "interval_mean_s": 0.098,
+        "interval_max_s": 0.109,
+        "used_min": 7171,
+        "used_max": 7481,
+        "free_min": 4464,
+        "free_max": 4774,
+        "peak_delta_mb": 310,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "worst_free_below_margin_mb": 0
+      },
+      "commit_before_mb": 33873,
+      "commit_after_mb": 34983,
+      "commit_delta_mb": 1110
+    },
+    {
+      "case": "cold_load_and_first_inference",
+      "repeat": 3,
+      "load_s": 8.102,
+      "latency_s": 0.361,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n_samples": 3,
+        "interval_mean_s": 0.107,
+        "interval_max_s": 0.107,
+        "used_min": 7171,
+        "used_max": 7335,
+        "free_min": 4610,
+        "free_max": 4774,
+        "peak_delta_mb": 164,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "worst_free_below_margin_mb": 0
+      },
+      "commit_before_mb": 34101,
+      "commit_after_mb": 35270,
+      "commit_delta_mb": 1169
+    },
+    {
+      "case": "warm_inference_small",
+      "repeat": 1,
+      "load_s": 0.0,
+      "latency_s": 0.072,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n_samples": 1,
+        "interval_mean_s": null,
+        "interval_max_s": null,
+        "used_min": 7473,
+        "used_max": 7473,
+        "free_min": 4472,
+        "free_max": 4472,
+        "peak_delta_mb": 0,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "worst_free_below_margin_mb": 0
+      },
+      "commit_before_mb": 35275,
+      "commit_after_mb": 35357,
+      "commit_delta_mb": 82
+    },
+    {
+      "case": "warm_inference_small",
+      "repeat": 2,
+      "load_s": 0.0,
+      "latency_s": 0.013,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n": 0
+      },
+      "commit_before_mb": 35325,
+      "commit_after_mb": 35305,
+      "commit_delta_mb": -20
+    },
+    {
+      "case": "warm_inference_small",
+      "repeat": 3,
+      "load_s": 0.0,
+      "latency_s": 0.02,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n": 0
+      },
+      "commit_before_mb": 35317,
+      "commit_after_mb": 35334,
+      "commit_delta_mb": 17
+    },
+    {
+      "case": "warm_inference_max_body",
+      "repeat": 1,
+      "load_s": 0.0,
+      "latency_s": 0.459,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n_samples": 4,
+        "interval_mean_s": 0.107,
+        "interval_max_s": 0.108,
+        "used_min": 8027,
+        "used_max": 8423,
+        "free_min": 3522,
+        "free_max": 3918,
+        "peak_delta_mb": 396,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "worst_free_below_margin_mb": 0
+      },
+      "commit_before_mb": 35354,
+      "commit_after_mb": 36444,
+      "commit_delta_mb": 1090
+    },
+    {
+      "case": "warm_inference_max_body",
+      "repeat": 2,
+      "load_s": 0.0,
+      "latency_s": 0.019,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n": 0
+      },
+      "commit_before_mb": 36454,
+      "commit_after_mb": 36475,
+      "commit_delta_mb": 21
+    },
+    {
+      "case": "warm_inference_max_body",
+      "repeat": 3,
+      "load_s": 0.0,
+      "latency_s": 0.002,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n": 0
+      },
+      "commit_before_mb": 36450,
+      "commit_after_mb": 36465,
+      "commit_delta_mb": 15
+    },
+    {
+      "case": "large_batch_max_body",
+      "repeat": 1,
+      "load_s": 0.0,
+      "latency_s": 0.014,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n": 0
+      },
+      "commit_before_mb": 36475,
+      "commit_after_mb": 36495,
+      "commit_delta_mb": 20
+    },
+    {
+      "case": "large_batch_max_body",
+      "repeat": 2,
+      "load_s": 0.0,
+      "latency_s": 0.026,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n": 0
+      },
+      "commit_before_mb": 36481,
+      "commit_after_mb": 36500,
+      "commit_delta_mb": 19
+    },
+    {
+      "case": "large_batch_max_body",
+      "repeat": 3,
+      "load_s": 0.0,
+      "latency_s": 0.002,
+      "n_results": 5,
+      "error": null,
+      "vram": {
+        "n": 0
+      },
+      "commit_before_mb": 36491,
+      "commit_after_mb": 36501,
+      "commit_delta_mb": 10
+    }
+  ],
+  "note": "2048 MiB margin and the 1800 MiB default budget are both unchanged",
+  "baseline_idle": {
+    "used": 8953,
+    "free": 2992,
+    "holds_margin": true,
+    "commit_mb": 36915
+  },
+  "reranker_health": {
+    "status": "ok",
+    "model": "local-reranker",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "max_length": 2048,
+    "uptime_s": 37993.5
+  },
+  "summary": {
+    "n_cycles": 12,
+    "observed_peak_delta_mb_max": 396,
+    "observed_peak_delta_mb_median": 246,
+    "observed_free_min_mb": 3522,
+    "cases_breaching_margin": [],
+    "margin_held_everywhere": true
+  }
+}

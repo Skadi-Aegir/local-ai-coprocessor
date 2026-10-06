@@ -1,0 +1,4 @@
+﻿sweep,quant,ctx,ngl,file_mb,prompt_tps,gen_tps
+quant,Q4_K_M,native,99,2614,103135200,961409440
+quant,Q5_K_M,native,99,2998,111885300,1096071820
+quant,Q6_K,native,99,3362.6,122343440,1215469180

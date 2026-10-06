@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: benchmarks/local-fast/test_grading.py\nlines: 193-195\nscore: 0.7358\nchunk_id: 4d42b183eb3a3c5f008a\ncontent:\ncheck(\"1-slot GPU context matches the CPU-validated model exactly\",\n      abs(_GPU_1SLOT_CTX - _predicted_at_8192) < 1.0,\n      f\"gpu {_GPU_1SLOT_CTX} vs model {_predicted_at_8192:.0f} MiB\")\n\nSOURCE 2\npath: benchmarks/local-fast/test_grading.py\nlines: 196-198\nscore: 0.6754\nchunk_id: a6e0838859f219c6db8b\ncontent:\ncheck(\"4-slot GPU context exceeded the model (pool overallocation)\",\n      _GPU_4SLOT_CTX > _predicted_at_8192,\n      f\"gpu {_GPU_4SLOT_CTX} vs model {_predicted_at_8192:.0f} MiB\")\n\nSOURCE 3\npath: benchmarks/local-fast/test_grading.py\nlines: 209-211\nscore: 0.6710\nchunk_id: 9eee38c8d1bee3ec1a37\ncontent:\ncheck(\"deployed GPU footprint ~2981 MiB (model+context+compute)\",\n      2603 + _GPU_1SLOT_CTX + 72 == 2981,\n      f\"{2603 + _GPU_1SLOT_CTX + 72} MiB\")\n\nSOURCE 4\npath: benchmarks/local-fast/test_grading.py\nlines: 188-188\nscore: 0.6177\nchunk_id: bce4b234c7c31e0763b7\ncontent:\nprint(\"\\n--- GPU context: 4-slot vs 1-slot (resolved) ---\")\n\nSOURCE 5\npath: benchmarks/llama-cpp-baseline.md\nlines: 150-183\nscore: 0.6141\nchunk_id: 4c37b916509a29b1c3d8\nsymbol: 4.3 GPU utilisation and VRAM — the offload proof\ncontent:\n### 4.3 GPU utilisation and VRAM — the offload proof\n\nMeasured with `scripts/vram_watch.ps1` (`nvidia-smi` sampled every 300–500 ms) during sustained\ninference. Raw: `benchmarks/vram_gpu_full_99.csv`, `benchmarks/vram_cpu_only.csv`.\n\n| Metric | GPU full offload (`-ngl 99`) | CPU only (`-ngl 0`) |\n|---|---|---|\n| Peak VRAM used | **3,257 MiB** | 2,684 MiB |\n| Mean GPU utilisation | **22.3 %** | 6.2 % |\n| **Peak GPU utilisation** | **94 %** | 49 % (ambient desktop, not the model) |\n| **Peak board power** | **139.19 W** (at the 140 W cap) | 70.47 W |\n| Peak SM clock | 2,700 MHz | 2,700 MHz |\n| Throughput (tg) | 490.5 t/s | 91.9 t/s |\n\nIdle baseline for reference: ~2011–2116 MiB VRAM, 4–6 % utilisation, ~20 W.\n\n**Why this proves real GPU compute (requirement #8):**\n\n1. **GPU utilisation climbs to 94 %** during offloaded inference vs 6.2 % mean on CPU — the\n   GPU is doing work, not idling as a display adapter.\n2. **Board power hits the 140 W cap** (139.19 W) versus ~20 W idle — sustained compute-level draw.\n3. **Throughput is 5.3× higher** than CPU and is **invariant to host thread count**, the\n   signature of GPU-bound execution.\n4. Backend diagnostics explicitly report `compute capability 12.0` and\n   `loaded CUDA backend from …ggml-cuda.dll`.\n\n**Honest caveat on the VRAM delta.** Peak VRAM rose to 3257 MiB against a ~2011–2116 MiB\nbaseline — an apparent delta of ~1150 MiB for a 610 MB model. The extra is the CUDA context,\ncompute buffers and KV cache (4096-ctx f16 KV for this architecture is ~450 MB), not the model\nalone. The CPU-only run also showed ambient peaks (2684 MiB) caused by unrelated desktop\napplications, since Windows gives no per-process VRAM attribution under WDDM. **Model-resident\nVRAM was confirmed directly instead:** with `llama-server` loaded, VRAM read 3293 MiB, and\nafter shutdown it returned to **2023 MiB** — i.e. the model + runtime were genuinely released.\n\n\nTASK: 如何判断模型是否真的在用 GPU 而不是 CPU？"
+    }
+  ],
+  "meta": {
+    "question": "如何判断模型是否真的在用 GPU 而不是 CPU？",
+    "query_type": "cross_lang",
+    "sources": 5,
+    "source_paths": [
+      "benchmarks/local-fast/test_grading.py",
+      "benchmarks/local-fast/test_grading.py",
+      "benchmarks/local-fast/test_grading.py",
+      "benchmarks/local-fast/test_grading.py",
+      "benchmarks/llama-cpp-baseline.md"
+    ],
+    "top_score": 0.735812,
+    "context_tokens": 1210,
+    "prompt_tokens": 1278,
+    "within_budget": true
+  }
+}

@@ -1,0 +1,4 @@
+﻿sweep,quant,ngl,file_mb,prompt512_tps,gen128_tps
+quant,Q4_K_M,99,2614,4769.7,130.14
+quant,Q5_K_M,99,2998,4510.2,113.91
+quant,Q6_K,99,3362.6,4089,102.57

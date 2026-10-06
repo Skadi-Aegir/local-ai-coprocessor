@@ -1,0 +1,68 @@
+{
+  "snapshot": "AB-00 environment, before any change",
+  "read_only": true,
+  "gpu": {
+    "total_mb": 12227,
+    "used_mb": 2386,
+    "free_mb": 9559
+  },
+  "ports": [
+    {
+      "listening": false,
+      "port": 8111
+    },
+    {
+      "listening": false,
+      "port": 8113
+    },
+    {
+      "listening": false,
+      "port": 8114
+    },
+    {
+      "listening": false,
+      "port": 8115
+    }
+  ],
+  "git": {
+    "head": "35cf3b11c31734ec2e8a814eeecf2a5502dba080",
+    "head_short": "35cf3b1",
+    "branch": "master",
+    "status_porcelain": [
+      "?? agentvoice/",
+      "?? benchmarks/phaseAB/"
+    ],
+    "worktree_list": [
+      "D:/MultiAgent                                                    35cf3b1 [master]",
+      "C:/Users/<user>/.codex/worktrees/94a6/MultiAgent                 bac96ab (detached HEAD)",
+      "D:/MultiAgent/.claude/worktrees/workspace-content-review-be429a  a83efe9 [claude/workspace-content-review-be429a]"
+    ],
+    "review_branch": "claude/workspace-content-review-be429a",
+    "review_branch_head": "a83efe9",
+    "review_branch_head_expected": "a83efe9",
+    "review_branch_head_matches": true,
+    "log_3_review_branch": [
+      "a83efe9 R-1005 follow-up: two more checks made independent of which index is current",
+      "75d8532 R-1005 follow-up: builder end-to-end test judged against git, not against uncommitted state",
+      "19c3a0b R-1005: review fix set - provenance, safe switch, QA path hardening, P1-11 fixed and measured, Phase A held-out set frozen (not run)"
+    ]
+  },
+  "resources": {
+    "disk_free_gb": 131.1,
+    "disk_total_gb": 652.9,
+    "commit_limit_mb": 64427,
+    "commit_free_mb": 40545,
+    "ram_free_mb": 16051
+  },
+  "local_fast_config": {
+    "path": "D:\\MultiAgent\\config\\local-fast.yaml",
+    "exists": true,
+    "runtime.context": "8192",
+    "parallel": "1",
+    "expected": {
+      "runtime.context": "8192",
+      "parallel": "1"
+    },
+    "matches_expectation": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "note": "stubbed memory and process execution; no GPU work",
+  "cases": [],
+  "wait_bound": {
+    "unit_s": 0.3,
+    "max_background_units": 2,
+    "theoretical_bound_s": 0.6,
+    "measured_wait_s": 10.034,
+    "background_units_observed": 35,
+    "admitted": false
+  },
+  "exclusive_starvation": {
+    "allowed": false,
+    "waited_s": 2.02,
+    "background_completions": 44
+  }
+}

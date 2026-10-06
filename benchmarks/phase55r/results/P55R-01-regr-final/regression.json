@@ -1,0 +1,112 @@
+{
+  "suites": [
+    {
+      "label": "index_store",
+      "path": "D:\\MultiAgent\\services\\retrieval\\test_index_store.py",
+      "covers": "duplicate chunk_id, FAISS/metadata count and ID mapping, update and delete",
+      "exit": 0,
+      "last_line": "index_store self-test passed",
+      "passed": true,
+      "cuda_oom": false,
+      "gpu_hungry": false
+    },
+    {
+      "label": "chunker",
+      "path": "D:\\MultiAgent\\services\\retrieval\\test_chunker.py",
+      "covers": "chunk shape and metadata completeness",
+      "exit": 0,
+      "last_line": "chunker self-test passed",
+      "passed": true,
+      "cuda_oom": false,
+      "gpu_hungry": false
+    },
+    {
+      "label": "fallback",
+      "path": "D:\\MultiAgent\\services\\retrieval\\test_fallback.py",
+      "covers": "degradation when the reranker is unavailable",
+      "exit": 1,
+      "last_line": "FAILED (1): ['the fallback reason identifies a transport-class failure']",
+      "passed": false,
+      "cuda_oom": false,
+      "gpu_hungry": true
+    },
+    {
+      "label": "version_policy",
+      "path": "D:\\MultiAgent\\benchmarks\\retrieval-v2\\test_version_aware.py",
+      "covers": "current/historical/superseded policy",
+      "exit": 0,
+      "last_line": "version-aware policy test passed",
+      "passed": true,
+      "cuda_oom": false,
+      "gpu_hungry": false
+    },
+    {
+      "label": "reranker_core",
+      "path": "D:\\MultiAgent\\services\\reranker\\test_reranker.py",
+      "covers": "scoring correctness and memory behaviour",
+      "exit": 0,
+      "last_line": "reranker self-test passed",
+      "passed": true,
+      "cuda_oom": false,
+      "gpu_hungry": true
+    }
+  ],
+  "note": "delegates to existing suites; adds pack retention and version-field checks",
+  "gpu_free_at_start_mb": 6497,
+  "preconditions": {
+    "gpu_hungry_suites": [
+      "fallback",
+      "reranker_core"
+    ],
+    "min_free_mb_required": 6000,
+    "gpu_free_at_start_mb": 6497,
+    "satisfied": true,
+    "why": "the fallback and reranker-core suites build their own models in-process. With local-fast, local-embedding and local-reranker all resident there is not enough room, and they fail with CUDA out of memory - a PRECONDITION failure, not a regression."
+  },
+  "pack_retention": {
+    "checks": {
+      "SOURCE labels one per hit": true,
+      "path present": true,
+      "lines present": true,
+      "score present": true,
+      "chunk_id present": true,
+      "content present": true,
+      "first chunk body retained": true,
+      "every path retained": true
+    },
+    "hits": 3
+  },
+  "version_fields": {
+    "columns": [
+      "faiss_id",
+      "chunk_id",
+      "project",
+      "source_path",
+      "content_type",
+      "language",
+      "start_line",
+      "end_line",
+      "content",
+      "symbol",
+      "strategy",
+      "commit_hash",
+      "mtime",
+      "content_hash",
+      "file_hash",
+      "indexed_at"
+    ],
+    "has_commit_hash": true,
+    "has_mtime": true,
+    "has_content_hash": true,
+    "has_file_hash": true,
+    "nonempty_counts": {
+      "commit_hash": 0,
+      "mtime": 186
+    },
+    "total_chunks": 186,
+    "commit_hash_populated": false
+  },
+  "mtime_policy": {
+    "suspicious_lines": []
+  }
+}

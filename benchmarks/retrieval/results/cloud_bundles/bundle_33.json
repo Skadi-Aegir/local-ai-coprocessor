@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: benchmarks/local-fast/test_grading.py\nlines: 193-195\nscore: 0.6479\nchunk_id: 4d42b183eb3a3c5f008a\ncontent:\ncheck(\"1-slot GPU context matches the CPU-validated model exactly\",\n      abs(_GPU_1SLOT_CTX - _predicted_at_8192) < 1.0,\n      f\"gpu {_GPU_1SLOT_CTX} vs model {_predicted_at_8192:.0f} MiB\")\n\nSOURCE 2\npath: benchmarks/local-fast/test_grading.py\nlines: 209-211\nscore: 0.6093\nchunk_id: 9eee38c8d1bee3ec1a37\ncontent:\ncheck(\"deployed GPU footprint ~2981 MiB (model+context+compute)\",\n      2603 + _GPU_1SLOT_CTX + 72 == 2981,\n      f\"{2603 + _GPU_1SLOT_CTX + 72} MiB\")\n\nSOURCE 3\npath: benchmarks/local-fast/test_grading.py\nlines: 196-198\nscore: 0.6055\nchunk_id: a6e0838859f219c6db8b\ncontent:\ncheck(\"4-slot GPU context exceeded the model (pool overallocation)\",\n      _GPU_4SLOT_CTX > _predicted_at_8192,\n      f\"gpu {_GPU_4SLOT_CTX} vs model {_predicted_at_8192:.0f} MiB\")\n\nSOURCE 4\npath: services/retrieval/probe_embedding.py\nlines: 1-13\nscore: 0.6015\nchunk_id: 2f5083bc18398e292e70\ncontent:\n\"\"\"\nprobe_embedding.py - first-contact verification for Qwen3-Embedding-0.6B.\n\nChecks, before anything is built on top:\n  * the model loads on CUDA\n  * output dimension and dtype\n  * whether outputs are already L2-normalised (the repo ships 2_Normalize)\n  * whether Matryoshka truncation to 512 / 256 preserves sane similarities\n  * that the query instruction measurably changes the query vector\n  * VRAM footprint\n\nRun: python probe_embedding.py\n\"\"\"\n\nSOURCE 5\npath: benchmarks/embedding-results.md\nlines: 1-9\nscore: 0.5936\nchunk_id: e5cbceb5a9ebfeeb90c9\nsymbol: Embedding performance — Phase 4\ncontent:\n# Embedding performance — Phase 4\n\n**Model:** `local-embedding` = `Qwen/Qwen3-Embedding-0.6B` rev `97b0c614`, Apache-2.0\n**Backend:** sentence-transformers 6.1.0 on PyTorch 2.11.0+cu128, isolated venv\n**Measured:** 2026-09-30 on RTX 5070 Ti Laptop (sm_120), service on `127.0.0.1:8113`\n**Raw data:** `results/embedding_throughput.json`, `results/embedding_coresident_*.json`\n\n---\n\n\nTASK: Where would I look to confirm the embedding model is loaded on the GPU rather than the CPU?"
+    }
+  ],
+  "meta": {
+    "question": "Where would I look to confirm the embedding model is loaded on the GPU rather than the CPU?",
+    "query_type": "mixed_code",
+    "sources": 5,
+    "source_paths": [
+      "benchmarks/local-fast/test_grading.py",
+      "benchmarks/local-fast/test_grading.py",
+      "benchmarks/local-fast/test_grading.py",
+      "services/retrieval/probe_embedding.py",
+      "benchmarks/embedding-results.md"
+    ],
+    "top_score": 0.647886,
+    "context_tokens": 795,
+    "prompt_tokens": 868,
+    "within_budget": true
+  }
+}

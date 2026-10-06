@@ -1,0 +1,170 @@
+{
+  "experiment": "P55R-05 safe-baseline check",
+  "margin_mb": 2048,
+  "policy": "read-only; only DSH-OWNED services are touched, via the existing safe start/stop scripts; no user process is stopped",
+  "steps": [
+    {
+      "step": "as-found: all three DSH services resident",
+      "action": null,
+      "resident": [
+        "local-fast",
+        "local-embedding",
+        "local-reranker"
+      ],
+      "gpu": {
+        "used": 10153,
+        "free": 1792
+      },
+      "window": {
+        "n": 25,
+        "window_s": 6.0,
+        "used_min": 10146,
+        "used_max": 10159,
+        "free_min": 1786,
+        "free_max": 1799,
+        "margin_mb": 2048,
+        "holds_margin": false,
+        "n_sub_margin": 25
+      }
+    },
+    {
+      "step": "after stopping local-reranker",
+      "action": "stop-local-reranker.ps1",
+      "resident": [
+        "local-fast",
+        "local-embedding"
+      ],
+      "gpu": {
+        "used": 7528,
+        "free": 4417
+      },
+      "window": {
+        "n": 25,
+        "window_s": 6.0,
+        "used_min": 7524,
+        "used_max": 7537,
+        "free_min": 4408,
+        "free_max": 4421,
+        "margin_mb": 2048,
+        "holds_margin": true,
+        "n_sub_margin": 0
+      }
+    },
+    {
+      "step": "after stopping local-embedding",
+      "action": "stop-local-embedding.ps1",
+      "resident": [
+        "local-fast"
+      ],
+      "gpu": {
+        "used": 6154,
+        "free": 5791
+      },
+      "window": {
+        "n": 25,
+        "window_s": 6.0,
+        "used_min": 6150,
+        "used_max": 6181,
+        "free_min": 5764,
+        "free_max": 5795,
+        "margin_mb": 2048,
+        "holds_margin": true,
+        "n_sub_margin": 0
+      }
+    },
+    {
+      "step": "after stopping local-fast (all DSH services down)",
+      "action": "stop-local-fast.ps1",
+      "resident": [],
+      "gpu": {
+        "used": 2961,
+        "free": 8984
+      },
+      "window": {
+        "n": 25,
+        "window_s": 6.0,
+        "used_min": 2949,
+        "used_max": 2962,
+        "free_min": 8983,
+        "free_max": 8996,
+        "margin_mb": 2048,
+        "holds_margin": true,
+        "n_sub_margin": 0
+      }
+    },
+    {
+      "step": "after restoring all three DSH services",
+      "action": null,
+      "resident": [
+        "local-fast",
+        "local-embedding",
+        "local-reranker"
+      ],
+      "gpu": {
+        "used": 8844,
+        "free": 3101
+      },
+      "window": {
+        "n": 25,
+        "window_s": 6.0,
+        "used_min": 8839,
+        "used_max": 8851,
+        "free_min": 3094,
+        "free_max": 3106,
+        "margin_mb": 2048,
+        "holds_margin": true,
+        "n_sub_margin": 0
+      }
+    }
+  ],
+  "active_requests_before": {
+    "local-reranker": {
+      "requests": 2,
+      "errors": 0,
+      "uptime_s": 500.9
+    },
+    "local-embedding": {
+      "requests": null,
+      "errors": null,
+      "uptime_s": 1340.8
+    },
+    "local-fast": "HTTPError: HTTP Error 501: Not Implemented"
+  },
+  "floors": {
+    "all_three": 1786,
+    "after_reranker_stop": 4408,
+    "after_embedding_stop": 5764,
+    "all_dsh_down": 8983
+  },
+  "non_dsh_occupancy_mb": 2961,
+  "conclusion": {
+    "non_dsh_occupancy_mb": 2961,
+    "free_with_no_dsh_service_mb": 8983,
+    "can_any_subset_hold_margin": true
+  },
+  "restored": {
+    "step": "after restoring all three DSH services",
+    "action": null,
+    "resident": [
+      "local-fast",
+      "local-embedding",
+      "local-reranker"
+    ],
+    "gpu": {
+      "used": 8844,
+      "free": 3101
+    },
+    "window": {
+      "n": 25,
+      "window_s": 6.0,
+      "used_min": 8839,
+      "used_max": 8851,
+      "free_min": 3094,
+      "free_max": 3106,
+      "margin_mb": 2048,
+      "holds_margin": true,
+      "n_sub_margin": 0
+    }
+  },
+  "restored_ok": true
+}

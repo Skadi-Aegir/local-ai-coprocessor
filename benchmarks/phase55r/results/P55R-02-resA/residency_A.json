@@ -1,0 +1,152 @@
+{
+  "mode": "A",
+  "margin_mb": 2048,
+  "rounds": [
+    {
+      "round": 1,
+      "results": [
+        {
+          "request_id": "r0-gen",
+          "job_class": "interactive",
+          "requires": [
+            "local-fast"
+          ],
+          "allowed": false,
+          "queue_s": 0.118,
+          "required_mb": 900,
+          "reason": "insufficient margin: 837 MiB usable < 900 MiB required (free 2885 - reserved 0 - margin 2048)",
+          "status": "refused"
+        },
+        {
+          "request_id": "r0-embed",
+          "job_class": "background",
+          "requires": [
+            "local-embedding"
+          ],
+          "allowed": true,
+          "queue_s": 0.178,
+          "required_mb": 600,
+          "reason": "837 MiB usable >= 600 MiB required (free 2885 - reserved 0 - margin 2048)",
+          "exec_s": 0.069,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 0.178,
+          "ok": true,
+          "vectors": 32,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-rag",
+          "job_class": "background",
+          "requires": [
+            "local-embedding",
+            "local-reranker",
+            "local-fast"
+          ],
+          "allowed": true,
+          "queue_s": 0.185,
+          "required_mb": 600,
+          "reason": "837 MiB usable >= 600 MiB required (free 2885 - reserved 0 - margin 2048)",
+          "exec_s": 2.316,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 0.185,
+          "ok": true,
+          "retrieve_s": 0.063,
+          "rerank_s": 0.888,
+          "generate_s": 1.349,
+          "n_sources": 5,
+          "pack_chars": 6814,
+          "used_reranker": true,
+          "answer_has_8192": true,
+          "answer_head": "Based on **Source 1** (the test task definition) and **Source 3** (the configuration file), the local-fast worker uses a default context size of **8192** tokens",
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-bg2",
+          "job_class": "background",
+          "requires": [
+            "local-embedding"
+          ],
+          "allowed": true,
+          "queue_s": 0.173,
+          "required_mb": 600,
+          "reason": "841 MiB usable >= 600 MiB required (free 2889 - reserved 0 - margin 2048)",
+          "exec_s": 0.061,
+          "load_s": 0.0,
+          "health_gate_s": null,
+          "first_inference_s": 0.173,
+          "ok": true,
+          "vectors": 32,
+          "status": "completed",
+          "released": true
+        },
+        {
+          "request_id": "r0-int2",
+          "job_class": "interactive",
+          "requires": [
+            "local-fast"
+          ],
+          "allowed": false,
+          "queue_s": 0.413,
+          "required_mb": 900,
+          "reason": "insufficient margin: 841 MiB usable < 900 MiB required (free 2889 - reserved 0 - margin 2048)",
+          "status": "refused"
+        }
+      ],
+      "round_s": 3.4,
+      "completed": 3,
+      "refused": 2,
+      "failed": 0,
+      "vram": {
+        "n": 17,
+        "used_min": 9338,
+        "used_max": 9342,
+        "free_min": 2603,
+        "free_max": 2607,
+        "margin_breached": false
+      }
+    }
+  ],
+  "vram": {
+    "cold_start": [
+      6791,
+      5154
+    ],
+    "after_warmup": [
+      9342,
+      2603
+    ],
+    "after_run": [
+      9338,
+      2607
+    ],
+    "after_idle": [
+      9340,
+      2605
+    ],
+    "task_peak": 9342
+  },
+  "resident_at_start": [
+    "local-fast",
+    "local-embedding",
+    "local-reranker"
+  ],
+  "margin_check": {
+    "breached_rounds": [],
+    "statement": "no margin breach observed within the sampling window",
+    "caveat": "sampling cannot establish a continuous-time guarantee"
+  },
+  "sampler": {
+    "samples": 17,
+    "interval_s": 0.15
+  },
+  "summary": {
+    "requests": 5,
+    "completed": 3,
+    "completion_rate_pct": 60.0
+  },
+  "verdict": "FAIL - the supported workload did not complete"
+}

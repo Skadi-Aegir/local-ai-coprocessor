@@ -1,0 +1,38 @@
+{
+  "harness": "thread-barrier forced TOCTOU",
+  "note": "no GPU work; no service started or stopped",
+  "cases": [
+    {
+      "case": "serial_double_admit",
+      "planned_allowed": 2,
+      "active_after": {
+        "interactive": 2
+      }
+    },
+    {
+      "case": "exclusive_co_admit",
+      "planned_allowed": 2,
+      "active_after": {
+        "background": 1,
+        "exclusive": 1
+      }
+    },
+    {
+      "case": "interactive_join_background",
+      "planned_allowed": 2,
+      "active_after": {
+        "interactive": 1,
+        "background": 1
+      }
+    },
+    {
+      "case": "budget_double_spend",
+      "planned_allowed": 3,
+      "active_after": {
+        "background": 3
+      },
+      "usable_mb": 700,
+      "each_mb": 600
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "service": {
+    "status": "ok",
+    "model": "local-embedding",
+    "device": "cuda:0",
+    "dimension": 1024,
+    "uptime_s": 85.4
+  },
+  "gpu_used_with_embedding_mb": 11288.0,
+  "batches": [
+    {
+      "batch_size": 1,
+      "rounds": 5,
+      "median_seconds": 0.0925,
+      "min_seconds": 0.0676,
+      "chunks_per_s": 10.8,
+      "ms_per_chunk": 92.54,
+      "vram_peak_mb": 11290.0,
+      "gpu_util_peak": 80.0,
+      "dimension": 1024
+    },
+    {
+      "batch_size": 8,
+      "rounds": 5,
+      "median_seconds": 0.128,
+      "min_seconds": 0.0765,
+      "chunks_per_s": 62.5,
+      "ms_per_chunk": 16.0,
+      "vram_peak_mb": 11297.0,
+      "gpu_util_peak": 85.0,
+      "dimension": 1024
+    },
+    {
+      "batch_size": 32,
+      "rounds": 5,
+      "median_seconds": 0.1895,
+      "min_seconds": 0.1727,
+      "chunks_per_s": 168.8,
+      "ms_per_chunk": 5.92,
+      "vram_peak_mb": 11294.0,
+      "gpu_util_peak": 98.0,
+      "dimension": 1024
+    },
+    {
+      "batch_size": 64,
+      "rounds": 5,
+      "median_seconds": 0.3468,
+      "min_seconds": 0.3163,
+      "chunks_per_s": 184.5,
+      "ms_per_chunk": 5.42,
+      "vram_peak_mb": 11191.0,
+      "gpu_util_peak": 98.0,
+      "dimension": 1024
+    }
+  ],
+  "coresident": {
+    "kind": "local-smart",
+    "worker_url": "http://127.0.0.1:8112",
+    "model": "local-smart",
+    "embedding_batches": 30,
+    "embedding_batch_size": 32,
+    "embedding_median_s": 0.2678,
+    "embedding_chunks_per_s": 119.5,
+    "worker_requests": 1,
+    "worker_gen_tps_samples": [
+      28.22
+    ],
+    "worker_errors": []
+  },
+  "best_batch_size": 64,
+  "best_chunks_per_s": 184.5,
+  "stats": {
+    "model": "local-embedding",
+    "dimension": 1024,
+    "device": "cuda:0",
+    "vram_mb": 7035.8,
+    "max_seq_length": 8192,
+    "native_dimension": 1024,
+    "uptime_s": 94.5,
+    "projects": {
+      "local-ai": {
+        "vectors_in_index": 150,
+        "chunks_in_metadata": 150,
+        "projects": [
+          "local-ai"
+        ],
+        "dimension": 1024,
+        "consistent": true
+      }
+    }
+  },
+  "gpu_used_coresident_mb": 11189.0
+}

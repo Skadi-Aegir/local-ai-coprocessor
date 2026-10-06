@@ -1,0 +1,245 @@
+{
+  "captured_at": "2026-09-30T12:02:34+00:00",
+  "task": "P55R-01 environment snapshot",
+  "repository": {
+    "project_root": "D:\\MultiAgent",
+    "cwd_at_capture": "D:\\MultiAgent",
+    "is_git_repo": true,
+    "head": "bac96ab1b5714845bd2f4a46f0a96af3561a33e3",
+    "branch": "master",
+    "ahead_of_baseline": "0",
+    "behind_baseline": "0",
+    "commit_count": "51",
+    "dirty": true,
+    "uncommitted_files": [
+      "?? benchmarks/phase55r/"
+    ],
+    "audit_baseline": "bac96ab1b5714845bd2f4a46f0a96af3561a33e3",
+    "head_matches_baseline": true,
+    "remotes": "",
+    "other_working_copies": [
+      "D:\\MultiAgent"
+    ]
+  },
+  "services": {
+    "8111": {
+      "expected_name": "local-fast",
+      "listening": true,
+      "pid": "51248",
+      "local_address": "127.0.0.1",
+      "process_name": "llama-server.exe",
+      "executable": "D:\\MultiAgent\\tools\\llama.cpp\\b11254-cuda13.4\\llama-server.exe",
+      "command_line": "\"D:\\MultiAgent\\tools\\llama.cpp\\b11254-cuda13.4\\llama-server.exe\" -m D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q4_K_M.gguf --alias local-fast -ngl 99 -c 8192 -np 1 -t 12 -b 2048 -ub 512 --flash-attn auto --host 127.0.0.1 --port 8111 --no-webui",
+      "under_project_root": true,
+      "uses_venv": false,
+      "health": {
+        "reachable": true,
+        "status": "ok",
+        "body": {
+          "status": "ok"
+        }
+      }
+    },
+    "8113": {
+      "expected_name": "local-embedding",
+      "listening": true,
+      "pid": "51132",
+      "local_address": "127.0.0.1",
+      "process_name": "python.exe",
+      "executable": "D:\\Python\\python.exe",
+      "command_line": "\"D:\\MultiAgent\\services\\retrieval\\venv\\Scripts\\python.exe\" D:\\MultiAgent\\services\\retrieval\\server.py --host 127.0.0.1 --port 8113 --index-root D:\\MultiAgent\\vector\\embedding --dimension 1024 --batch-size 32 --max-seq-length 8192 --project local-ai=1024",
+      "under_project_root": true,
+      "uses_venv": true,
+      "health": {
+        "reachable": true,
+        "status": "ok",
+        "body": {
+          "status": "ok",
+          "model": "local-embedding",
+          "device": "cuda:0",
+          "dimension": 1024,
+          "uptime_s": 2452.9
+        }
+      }
+    },
+    "8114": {
+      "expected_name": "local-reranker",
+      "listening": true,
+      "pid": "22772",
+      "local_address": "127.0.0.1",
+      "process_name": "python.exe",
+      "executable": "D:\\Python\\python.exe",
+      "command_line": "\"D:\\MultiAgent\\services\\reranker\\venv\\Scripts\\python.exe\" D:\\MultiAgent\\services\\reranker\\server.py --max-length 2048",
+      "under_project_root": true,
+      "uses_venv": true,
+      "health": {
+        "reachable": true,
+        "status": "ok",
+        "body": {
+          "status": "ok",
+          "model": "local-reranker",
+          "device": "cuda",
+          "dtype": "bfloat16",
+          "max_length": 2048,
+          "uptime_s": 5055.6
+        }
+      }
+    },
+    "8188": {
+      "expected_name": "possible Qwen-Image/ComfyUI",
+      "listening": false
+    },
+    "3080": {
+      "expected_name": "DSH web GUI",
+      "listening": true,
+      "pid": "16752",
+      "local_address": "127.0.0.1",
+      "process_name": "node.exe",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "command_line": "\"node\"   \"C:\\Users\\<user>\\AppData\\Local\\npm-cache\\_npx\\1e7f6d9597241db0\\node_modules\\.bin\\\\..\\@deepseek-ai\\dsh\\lib\\bin.js\" web --no-open --port 3080",
+      "under_project_root": false,
+      "uses_venv": false,
+      "health": {
+        "reachable": false,
+        "error": "HTTPError: HTTP Error 404: Not Found"
+      }
+    }
+  },
+  "models": {
+    "local-fast 4B Q4_K_M": {
+      "path": "D:\\MultiAgent\\models\\llm\\Qwen3.5-4B-Q4_K_M.gguf",
+      "exists": true,
+      "size_mb": 2613.96,
+      "sha256": null
+    },
+    "local-smart 9B Q4_K_M": {
+      "path": "D:\\MultiAgent\\models\\llm\\Qwen3.5-9B-Q4_K_M.gguf",
+      "exists": true,
+      "size_mb": 5417.37,
+      "sha256": null
+    },
+    "local-embedding weights": {
+      "path": "D:\\MultiAgent\\models\\embedding\\Qwen3-Embedding-0.6B\\model.safetensors",
+      "exists": true,
+      "size_mb": 1136.39,
+      "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+    },
+    "local-reranker weights": {
+      "path": "D:\\MultiAgent\\models\\reranker\\Qwen3-Reranker-0.6B\\model.safetensors",
+      "exists": true,
+      "size_mb": 1136.39,
+      "sha256": "27cd75a405b9c1b46b59abfd88aaa209e6fed2a1972cde9b70e7659537c5e65b"
+    }
+  },
+  "gpu": {
+    "raw": "NVIDIA GeForce RTX 5070 Ti Laptop GPU, 12227 MiB, 9863 MiB, 2082 MiB, 7 %, 51",
+    "name": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "total_mb": 12227,
+    "used_mb": 9863,
+    "free_mb": 2082
+  },
+  "memory": {
+    "ram_total_mb": 32213,
+    "ram_free_mb": 18152,
+    "pagefile_allocated_mb": 38400,
+    "pagefile_peak_mb": 32016,
+    "commit_limit_mb": 70613,
+    "pagefile_headroom_mb": 6384
+  },
+  "historical_artifacts": {
+    "phase4_retrieval": {
+      "path": "D:\\MultiAgent\\benchmarks\\retrieval\\results",
+      "exists": true,
+      "files": [
+        "cloud_bundles",
+        "cloud_context_prep.json",
+        "embedding_coresident_4b.json",
+        "embedding_coresident_9b.json",
+        "embedding_throughput.json",
+        "rag_after_fix_k5.json",
+        "rag_compare.json",
+        "rag_compare_k10.json",
+        "retrieval_sweep.json",
+        "token_savings.json",
+        "token_savings_compressed.json"
+      ]
+    },
+    "phase4_reranker": {
+      "path": "D:\\MultiAgent\\benchmarks\\reranker\\results",
+      "exists": true,
+      "files": [
+        "coresidency_all_three.json",
+        "coresidency_embed_reranker.json",
+        "coresidency_fast_reranker.json",
+        "coresidency_reranker_alone.json",
+        "hard_negatives.json",
+        "instruction_ab.json",
+        "params.json",
+        "rag_end_to_end.json",
+        "rag_end_to_end_pool10.json",
+        "serialized_vs_concurrent.json",
+        "sweep.json"
+      ]
+    },
+    "phase55_v2": {
+      "path": "D:\\MultiAgent\\benchmarks\\retrieval-v2\\results",
+      "exists": true,
+      "files": [
+        "baseline_reconcile.json",
+        "cost_eval.json",
+        "eval_dev.json",
+        "eval_dev_pools.json",
+        "eval_heldout.json",
+        "resource_regression.json",
+        "version_status.json"
+      ]
+    },
+    "phase55_v2_baseline": {
+      "path": "D:\\MultiAgent\\benchmarks\\retrieval-v2",
+      "exists": true,
+      "files": [
+        "__pycache__",
+        "baseline.json",
+        "baseline_reconcile.py",
+        "benchmark_v2.py",
+        "cost_eval.py",
+        "eval_v2.py",
+        "failure_analysis.py",
+        "freeze_baseline.py",
+        "label_helper.py",
+        "make_report.py",
+        "resource_regression.py",
+        "results",
+        "test_version_aware.py",
+        "version_aware.py"
+      ]
+    },
+    "served_index": {
+      "path": "D:\\MultiAgent\\vector\\embedding\\local-ai",
+      "exists": true,
+      "files": [
+        "index.faiss",
+        "metadata.sqlite",
+        "vectors.npy"
+      ]
+    },
+    "bench_index": {
+      "path": "D:\\MultiAgent\\cache\\retrieval_bench\\indexes",
+      "exists": true,
+      "files": [
+        "d1024_fixed",
+        "d1024_structured",
+        "d256_fixed",
+        "d256_structured",
+        "d512_fixed",
+        "d512_structured"
+      ]
+    }
+  },
+  "protected_paths": {
+    "D:\\DSH\\computer_science\\qwen-image-deploy": true,
+    "tools/llama.cpp/b11254-cuda13.4/llama-server.exe": true,
+    "services/retrieval/venv/Scripts/python.exe": true,
+    "services/reranker/venv/Scripts/python.exe": true
+  }
+}

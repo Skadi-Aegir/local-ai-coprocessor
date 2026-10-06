@@ -1,0 +1,828 @@
+{
+  "index_version": "3cd2dcda4eeb5555",
+  "depths": [
+    5,
+    8,
+    10
+  ],
+  "probes": {
+    "d01": {
+      "question": "Which components does a question pass through before reaching local-fast, and which ports do they use?",
+      "facts": {
+        "fast_port": [
+          "8111"
+        ],
+        "embed_port": [
+          "8113"
+        ]
+      },
+      "ranks": [
+        {
+          "rank": 1,
+          "chunk_id": "37e6acc88550be7f88b3",
+          "score": 0.5758,
+          "source_path": "docs/local-fast-api.md",
+          "start_line": 1
+        },
+        {
+          "rank": 2,
+          "chunk_id": "76c8e81593a2b3d64130",
+          "score": 0.5539,
+          "source_path": "docs/models/local-fast.md",
+          "start_line": 1
+        },
+        {
+          "rank": 3,
+          "chunk_id": "44bf367c93fec8c77592",
+          "score": 0.5183,
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 10
+        },
+        {
+          "rank": 4,
+          "chunk_id": "3933fb0e9cf320e13caa",
+          "score": 0.4965,
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 26
+        },
+        {
+          "rank": 5,
+          "chunk_id": "8b981462f118e4915edf",
+          "score": 0.4934,
+          "source_path": "config/local-fast.yaml",
+          "start_line": 1
+        },
+        {
+          "rank": 6,
+          "chunk_id": "db1b606bfb51046f3606",
+          "score": 0.481,
+          "source_path": "docs/local-fast-api.md",
+          "start_line": 113
+        },
+        {
+          "rank": 7,
+          "chunk_id": "2f7ee755d2e323af14c7",
+          "score": 0.4577,
+          "source_path": "docs/local-fast-api.md",
+          "start_line": 144
+        },
+        {
+          "rank": 8,
+          "chunk_id": "026840eff6be8eabee88",
+          "score": 0.4481,
+          "source_path": "docs/models/local-fast.md",
+          "start_line": 132
+        },
+        {
+          "rank": 9,
+          "chunk_id": "daa749598f240b614547",
+          "score": 0.4469,
+          "source_path": "scripts/check-local-fast.ps1",
+          "start_line": 1
+        },
+        {
+          "rank": 10,
+          "chunk_id": "0b14e73be6663f1c9ab9",
+          "score": 0.4299,
+          "source_path": "scripts/start-local-fast.ps1",
+          "start_line": 1
+        }
+      ],
+      "per_depth": {
+        "5": {
+          "gathered": {
+            "fast_port": 5
+          },
+          "missing": {
+            "embed_port": null
+          },
+          "complete": false
+        },
+        "8": {
+          "gathered": {
+            "fast_port": 5
+          },
+          "missing": {
+            "embed_port": null
+          },
+          "complete": false
+        },
+        "10": {
+          "gathered": {
+            "fast_port": 5
+          },
+          "missing": {
+            "embed_port": null
+          },
+          "complete": false
+        }
+      }
+    },
+    "d02": {
+      "question": "How do the embedding service memory figures and the scheduler margin relate to each other?",
+      "facts": {
+        "torch_reserved_meaning": [
+          "torch_reserved",
+          "reserved_mb"
+        ],
+        "margin_policy": [
+          "2048"
+        ]
+      },
+      "ranks": [
+        {
+          "rank": 1,
+          "chunk_id": "d2ed531097e580a8c7a7",
+          "score": 0.6056,
+          "source_path": "docs/gpu-scheduling.md",
+          "start_line": 101
+        },
+        {
+          "rank": 2,
+          "chunk_id": "4d5ddb839666508c39fc",
+          "score": 0.5717,
+          "source_path": "docs/retrieval-architecture.md",
+          "start_line": 206
+        },
+        {
+          "rank": 3,
+          "chunk_id": "7e563ed8419d3b869c72",
+          "score": 0.5413,
+          "source_path": "services/gpu_scheduler/scheduler_cli.py",
+          "start_line": 126
+        },
+        {
+          "rank": 4,
+          "chunk_id": "c332008ea04a0b63b3a3",
+          "score": 0.535,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 162
+        },
+        {
+          "rank": 5,
+          "chunk_id": "51c41562ad8dc741398f",
+          "score": 0.5284,
+          "source_path": "docs/gpu-scheduling.md",
+          "start_line": 62
+        },
+        {
+          "rank": 6,
+          "chunk_id": "19ddbdc338fad2869abc",
+          "score": 0.5203,
+          "source_path": "docs/gpu-scheduling.md",
+          "start_line": 89
+        },
+        {
+          "rank": 7,
+          "chunk_id": "b3928e6f759f05955051",
+          "score": 0.5112,
+          "source_path": "config/local-embedding.yaml",
+          "start_line": 1
+        },
+        {
+          "rank": 8,
+          "chunk_id": "cfd6a17c1b201abbf64c",
+          "score": 0.4972,
+          "source_path": "docs/staged-lifecycle-design.md",
+          "start_line": 84
+        },
+        {
+          "rank": 9,
+          "chunk_id": "1c70fe41f9aac04003c5",
+          "score": 0.4859,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 178
+        },
+        {
+          "rank": 10,
+          "chunk_id": "d6b22bb165c234da2d00",
+          "score": 0.4824,
+          "source_path": "services/retrieval/embedder.py",
+          "start_line": 72
+        }
+      ],
+      "per_depth": {
+        "5": {
+          "gathered": {
+            "margin_policy": 3
+          },
+          "missing": {
+            "torch_reserved_meaning": null
+          },
+          "complete": false
+        },
+        "8": {
+          "gathered": {
+            "margin_policy": 3
+          },
+          "missing": {
+            "torch_reserved_meaning": null
+          },
+          "complete": false
+        },
+        "10": {
+          "gathered": {
+            "margin_policy": 3
+          },
+          "missing": {
+            "torch_reserved_meaning": null
+          },
+          "complete": false
+        }
+      }
+    },
+    "d03": {
+      "question": "What does the escalation policy require when local retrieval is weak, and where is that threshold configured?",
+      "facts": {
+        "escalation_threshold": [
+          "0.30",
+          "evidence floor",
+          "EVIDENCE_FLOOR"
+        ]
+      },
+      "ranks": [
+        {
+          "rank": 1,
+          "chunk_id": "33e445791f460c50acab",
+          "score": 0.617,
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 1
+        },
+        {
+          "rank": 2,
+          "chunk_id": "fe5f328c37f0846d36ef",
+          "score": 0.5779,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "start_line": 84
+        },
+        {
+          "rank": 3,
+          "chunk_id": "30ce721bd3f92463256a",
+          "score": 0.5476,
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 123
+        },
+        {
+          "rank": 4,
+          "chunk_id": "e82ff67f1c90ccaf39d6",
+          "score": 0.5011,
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 129
+        },
+        {
+          "rank": 5,
+          "chunk_id": "1082c551fb253580b04e",
+          "score": 0.4914,
+          "source_path": "services/retrieval/cloud_context_prep.py",
+          "start_line": 1
+        },
+        {
+          "rank": 6,
+          "chunk_id": "ec84df902bd5b3255758",
+          "score": 0.483,
+          "source_path": "docs/models/local-reranker.md",
+          "start_line": 1
+        },
+        {
+          "rank": 7,
+          "chunk_id": "c7b80af22881f25b945c",
+          "score": 0.4652,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 239
+        },
+        {
+          "rank": 8,
+          "chunk_id": "5d9523e2b43a34028bbb",
+          "score": 0.4628,
+          "source_path": "docs/retrieval-hardening.md",
+          "start_line": 1
+        },
+        {
+          "rank": 9,
+          "chunk_id": "44bf367c93fec8c77592",
+          "score": 0.4486,
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 10
+        },
+        {
+          "rank": 10,
+          "chunk_id": "b494eecf5c52deade9dd",
+          "score": 0.4485,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 229
+        }
+      ],
+      "per_depth": {
+        "5": {
+          "gathered": {},
+          "missing": {
+            "escalation_threshold": null
+          },
+          "complete": false
+        },
+        "8": {
+          "gathered": {},
+          "missing": {
+            "escalation_threshold": null
+          },
+          "complete": false
+        },
+        "10": {
+          "gathered": {},
+          "missing": {
+            "escalation_threshold": null
+          },
+          "complete": false
+        }
+      }
+    },
+    "d04": {
+      "question": "What are the two unload figures on the staged RAG path and what latency does a full cycle take?",
+      "facts": {
+        "unload_figures": [
+          "1368",
+          "1392",
+          "2591",
+          "2595"
+        ],
+        "cycle_latency": [
+          "22",
+          "24"
+        ]
+      },
+      "ranks": [
+        {
+          "rank": 1,
+          "chunk_id": "655a349dda9b233d8054",
+          "score": 0.7316,
+          "source_path": "docs/staged-lifecycle-design.md",
+          "start_line": 1
+        },
+        {
+          "rank": 2,
+          "chunk_id": "c46633c54cd92f118456",
+          "score": 0.715,
+          "source_path": "docs/phase55r-evidence-consolidation.md",
+          "start_line": 75
+        },
+        {
+          "rank": 3,
+          "chunk_id": "2b1b2ebf09c80856b996",
+          "score": 0.6417,
+          "source_path": "docs/staged-lifecycle-design.md",
+          "start_line": 125
+        },
+        {
+          "rank": 4,
+          "chunk_id": "7447698a1eed75de2c74",
+          "score": 0.6357,
+          "source_path": "docs/production-integration-design.md",
+          "start_line": 1
+        },
+        {
+          "rank": 5,
+          "chunk_id": "708af2ab026b8f8b2564",
+          "score": 0.6161,
+          "source_path": "docs/production-integration-design.md",
+          "start_line": 99
+        },
+        {
+          "rank": 6,
+          "chunk_id": "8048d5769f1a9bb099f6",
+          "score": 0.5941,
+          "source_path": "docs/production-integration-design.md",
+          "start_line": 120
+        },
+        {
+          "rank": 7,
+          "chunk_id": "97b2d9e3f3e977757f61",
+          "score": 0.5644,
+          "source_path": "docs/production-integration-design.md",
+          "start_line": 11
+        },
+        {
+          "rank": 8,
+          "chunk_id": "5001c70395756c584ad1",
+          "score": 0.527,
+          "source_path": "docs/production-integration-design.md",
+          "start_line": 20
+        },
+        {
+          "rank": 9,
+          "chunk_id": "0af9f9cfbcb9c7f289fb",
+          "score": 0.5069,
+          "source_path": "docs/retrieval-hardening.md",
+          "start_line": 31
+        },
+        {
+          "rank": 10,
+          "chunk_id": "1988977540c3a25b0985",
+          "score": 0.5033,
+          "source_path": "docs/staged-lifecycle-design.md",
+          "start_line": 142
+        }
+      ],
+      "per_depth": {
+        "5": {
+          "gathered": {
+            "unload_figures": 1,
+            "cycle_latency": 1
+          },
+          "missing": {},
+          "complete": true
+        },
+        "8": {
+          "gathered": {
+            "unload_figures": 1,
+            "cycle_latency": 1
+          },
+          "missing": {},
+          "complete": true
+        },
+        "10": {
+          "gathered": {
+            "unload_figures": 1,
+            "cycle_latency": 1
+          },
+          "missing": {},
+          "complete": true
+        }
+      }
+    },
+    "d05": {
+      "question": "What per-chunk character cap does the pack apply and why was it raised?",
+      "facts": {
+        "char_cap": [
+          "8000"
+        ],
+        "why_raised": [
+          "2000",
+          "truncat"
+        ]
+      },
+      "ranks": [
+        {
+          "rank": 1,
+          "chunk_id": "c7b80af22881f25b945c",
+          "score": 0.3947,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 239
+        },
+        {
+          "rank": 2,
+          "chunk_id": "8cc5f0c9704fae23fe01",
+          "score": 0.3915,
+          "source_path": "services/retrieval/chunker.py",
+          "start_line": 1
+        },
+        {
+          "rank": 3,
+          "chunk_id": "c994702d863b6427b43c",
+          "score": 0.3902,
+          "source_path": "services/ocr/server.py",
+          "start_line": 51
+        },
+        {
+          "rank": 4,
+          "chunk_id": "d8920facbc358d940c84",
+          "score": 0.3792,
+          "source_path": "docs/phase55r-evidence-consolidation.md",
+          "start_line": 53
+        },
+        {
+          "rank": 5,
+          "chunk_id": "47cc5802d5b0637c7441",
+          "score": 0.3766,
+          "source_path": "services/retrieval/chunker.py",
+          "start_line": 363
+        },
+        {
+          "rank": 6,
+          "chunk_id": "7dbe7afaec05a051049b",
+          "score": 0.3746,
+          "source_path": "docs/retrieval-architecture.md",
+          "start_line": 87
+        },
+        {
+          "rank": 7,
+          "chunk_id": "253a84ed0f49ee2ac995",
+          "score": 0.3655,
+          "source_path": "services/retrieval/retriever.py",
+          "start_line": 25
+        },
+        {
+          "rank": 8,
+          "chunk_id": "3a80a7d9b4af732950af",
+          "score": 0.3646,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 206
+        },
+        {
+          "rank": 9,
+          "chunk_id": "e82ff67f1c90ccaf39d6",
+          "score": 0.3589,
+          "source_path": "docs/escalation-policy.md",
+          "start_line": 129
+        },
+        {
+          "rank": 10,
+          "chunk_id": "4fa609508e489d39d680",
+          "score": 0.3587,
+          "source_path": "services/retrieval/chunker.py",
+          "start_line": 54
+        }
+      ],
+      "per_depth": {
+        "5": {
+          "gathered": {},
+          "missing": {
+            "char_cap": 7,
+            "why_raised": 7
+          },
+          "complete": false
+        },
+        "8": {
+          "gathered": {
+            "char_cap": 7,
+            "why_raised": 7
+          },
+          "missing": {},
+          "complete": true
+        },
+        "10": {
+          "gathered": {
+            "char_cap": 7,
+            "why_raised": 7
+          },
+          "missing": {},
+          "complete": true
+        }
+      }
+    },
+    "d06": {
+      "question": "Which ports are reserved for the reranker and the OCR service?",
+      "facts": {
+        "reranker_port": [
+          "8114"
+        ],
+        "ocr_port": [
+          "8116"
+        ]
+      },
+      "ranks": [
+        {
+          "rank": 1,
+          "chunk_id": "2c2c0fca17fc7e4dfeb9",
+          "score": 0.5149,
+          "source_path": "services/reranker/server.py",
+          "start_line": 35
+        },
+        {
+          "rank": 2,
+          "chunk_id": "4e3431cd496c70e55229",
+          "score": 0.5144,
+          "source_path": "config/local-reranker.yaml",
+          "start_line": 1
+        },
+        {
+          "rank": 3,
+          "chunk_id": "485baf2ff408b738b6ad",
+          "score": 0.5095,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 36
+        },
+        {
+          "rank": 4,
+          "chunk_id": "b494eecf5c52deade9dd",
+          "score": 0.4978,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 229
+        },
+        {
+          "rank": 5,
+          "chunk_id": "089569ded57b91e67529",
+          "score": 0.4945,
+          "source_path": "scripts/check-local-reranker.ps1",
+          "start_line": 93
+        },
+        {
+          "rank": 6,
+          "chunk_id": "a958e02018072ab7b625",
+          "score": 0.4919,
+          "source_path": "docs/models/local-ocr.md",
+          "start_line": 1
+        },
+        {
+          "rank": 7,
+          "chunk_id": "03c8d1000ebdc6a831b4",
+          "score": 0.4897,
+          "source_path": "services/retrieval/rerank_pipeline.py",
+          "start_line": 1
+        },
+        {
+          "rank": 8,
+          "chunk_id": "374bb17528575559cf84",
+          "score": 0.4896,
+          "source_path": "config/local-ocr.yaml",
+          "start_line": 1
+        },
+        {
+          "rank": 9,
+          "chunk_id": "c5cb69121543d9ec2003",
+          "score": 0.4831,
+          "source_path": "docs/retrieval-hardening.md",
+          "start_line": 191
+        },
+        {
+          "rank": 10,
+          "chunk_id": "bf4c350e359683eea92c",
+          "score": 0.4829,
+          "source_path": "scripts/start-local-reranker.ps1",
+          "start_line": 1
+        }
+      ],
+      "per_depth": {
+        "5": {
+          "gathered": {
+            "reranker_port": 2
+          },
+          "missing": {
+            "ocr_port": 6
+          },
+          "complete": false
+        },
+        "8": {
+          "gathered": {
+            "reranker_port": 2,
+            "ocr_port": 6
+          },
+          "missing": {},
+          "complete": true
+        },
+        "10": {
+          "gathered": {
+            "reranker_port": 2,
+            "ocr_port": 6
+          },
+          "missing": {},
+          "complete": true
+        }
+      }
+    },
+    "d07": {
+      "question": "How does the reranker turn model output into a score, and what test pins that arithmetic?",
+      "facts": {
+        "score_method": [
+          "softmax",
+          "logit"
+        ],
+        "config": [
+          "CrossEncoder",
+          "LogitScore"
+        ]
+      },
+      "ranks": [
+        {
+          "rank": 1,
+          "chunk_id": "7b65305adc6c8c4f1472",
+          "score": 0.6767,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 52
+        },
+        {
+          "rank": 2,
+          "chunk_id": "ec84df902bd5b3255758",
+          "score": 0.6249,
+          "source_path": "docs/models/local-reranker.md",
+          "start_line": 1
+        },
+        {
+          "rank": 3,
+          "chunk_id": "9229fb30f178733b4cc4",
+          "score": 0.6173,
+          "source_path": "services/reranker/reranker.py",
+          "start_line": 1
+        },
+        {
+          "rank": 4,
+          "chunk_id": "485baf2ff408b738b6ad",
+          "score": 0.6115,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 36
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2c2c0fca17fc7e4dfeb9",
+          "score": 0.6112,
+          "source_path": "services/reranker/server.py",
+          "start_line": 35
+        },
+        {
+          "rank": 6,
+          "chunk_id": "4e3431cd496c70e55229",
+          "score": 0.6093,
+          "source_path": "config/local-reranker.yaml",
+          "start_line": 1
+        },
+        {
+          "rank": 7,
+          "chunk_id": "7b2ad91ccd76ca7e3b82",
+          "score": 0.6078,
+          "source_path": "services/reranker/reranker.py",
+          "start_line": 63
+        },
+        {
+          "rank": 8,
+          "chunk_id": "b2a2d9ce61516ee6dc67",
+          "score": 0.6055,
+          "source_path": "docs/models/local-reranker.md",
+          "start_line": 193
+        },
+        {
+          "rank": 9,
+          "chunk_id": "7940e916c6dd2b43041b",
+          "score": 0.5909,
+          "source_path": "services/reranker/server.py",
+          "start_line": 38
+        },
+        {
+          "rank": 10,
+          "chunk_id": "385803171e6bf986e655",
+          "score": 0.5907,
+          "source_path": "docs/reranking-architecture.md",
+          "start_line": 138
+        }
+      ],
+      "per_depth": {
+        "5": {
+          "gathered": {
+            "score_method": 1,
+            "config": 1
+          },
+          "missing": {},
+          "complete": true
+        },
+        "8": {
+          "gathered": {
+            "score_method": 1,
+            "config": 1
+          },
+          "missing": {},
+          "complete": true
+        },
+        "10": {
+          "gathered": {
+            "score_method": 1,
+            "config": 1
+          },
+          "missing": {},
+          "complete": true
+        }
+      }
+    }
+  },
+  "summary": {
+    "n": 7,
+    "by_depth": {
+      "5": {
+        "complete": [
+          "d04",
+          "d07"
+        ],
+        "missing": [
+          "d01",
+          "d02",
+          "d03",
+          "d05",
+          "d06"
+        ]
+      },
+      "8": {
+        "complete": [
+          "d04",
+          "d05",
+          "d06",
+          "d07"
+        ],
+        "missing": [
+          "d01",
+          "d02",
+          "d03"
+        ]
+      },
+      "10": {
+        "complete": [
+          "d04",
+          "d05",
+          "d06",
+          "d07"
+        ],
+        "missing": [
+          "d01",
+          "d02",
+          "d03"
+        ]
+      }
+    }
+  }
+}

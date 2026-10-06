@@ -1,0 +1,295 @@
+{
+  "experiment": "P55R-05 fixed five-item workload (staged, 2 required unloads)",
+  "production_unchanged": true,
+  "budgets_unchanged": {
+    "margin_mb": 2048,
+    "reranker_peak_extra_mb": 1800,
+    "candidate_881_or_1361_used": false
+  },
+  "provenance": {
+    "commit": "346ada45b60902a78542b9a2edc0201442a09854",
+    "dirty": true
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "requests": 5,
+      "completed": 5,
+      "refused": 0,
+      "failed": 0,
+      "oom": false,
+      "both_unloads_performed": true,
+      "vram_window": {
+        "n_samples": 439,
+        "free_min": 3368,
+        "free_max": 6087,
+        "used_min": 5858,
+        "used_max": 8577,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "first_breach": null
+      },
+      "vram_free_min_mb": 3368,
+      "margin_mb": 2048,
+      "margin_held": true,
+      "wall_s": 42.84,
+      "results": [
+        {
+          "request_id": "r1-1-gen",
+          "item": "1 interactive generation",
+          "status": "completed",
+          "wait_s": 0.148,
+          "exec_s": 0.374,
+          "gen_tps": 98.6
+        },
+        {
+          "request_id": "r1-2-embed",
+          "item": "2 embedding background",
+          "status": "completed",
+          "wait_s": 0.153,
+          "exec_s": 0.057,
+          "vectors": 32
+        },
+        {
+          "request_id": "r1-3-rag",
+          "item": "3 full RAG (staged, 2 required unloads)",
+          "stages": [
+            {
+              "stage": "1 embed+retrieve",
+              "ok": true,
+              "wait_s": 0.159,
+              "n": 10,
+              "reason": "",
+              "wall_s": 0.254
+            },
+            {
+              "stage": "3 unload embedding + admit reranker",
+              "ok": true,
+              "actual_unload_list": [
+                "local-embedding"
+              ],
+              "free_before": 3660,
+              "free_after": 5042,
+              "port_free_verified": true,
+              "wait_s": 2.136,
+              "reason": "2994 MiB usable >= 600 MiB required (free 5042 - reserved 0 - margin 2048)",
+              "wall_s": 8.679
+            },
+            {
+              "stage": "4 rerank",
+              "ok": true,
+              "exec_s": 1.116,
+              "n": 5,
+              "reason": "",
+              "wall_s": 1.116
+            },
+            {
+              "stage": "5 unload reranker",
+              "ok": true,
+              "actual_unload_list": [
+                "local-reranker"
+              ],
+              "free_before": 3767,
+              "free_after": 6357,
+              "port_free_verified": true,
+              "reason": "local-reranker unloaded and verified",
+              "wall_s": 6.811
+            },
+            {
+              "stage": "6 pack+generate",
+              "ok": true,
+              "exec_s": 0.687,
+              "answer_has_8192": true,
+              "reason": "",
+              "wall_s": 4.817
+            }
+          ],
+          "n_sources": 5,
+          "pack_chars": 6814,
+          "answer_has_8192": true,
+          "total_wall_s": 21.677,
+          "status": "completed"
+        },
+        {
+          "request_id": "r1-4a-bg",
+          "item": "4 interactive during background",
+          "status": "completed",
+          "wait_s": 0.142,
+          "exec_s": 0.388,
+          "vectors": 32
+        },
+        {
+          "request_id": "r1-4b-int",
+          "item": "4 interactive during background",
+          "status": "completed",
+          "wait_s": 0.777,
+          "exec_s": 0.363,
+          "gen_tps": 125.2
+        }
+      ],
+      "passed": true
+    },
+    {
+      "round": 2,
+      "requests": 5,
+      "completed": 5,
+      "refused": 0,
+      "failed": 0,
+      "oom": false,
+      "both_unloads_performed": true,
+      "vram_window": {
+        "n_samples": 438,
+        "free_min": 3374,
+        "free_max": 6088,
+        "used_min": 5857,
+        "used_max": 8571,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "first_breach": null
+      },
+      "vram_free_min_mb": 3374,
+      "margin_mb": 2048,
+      "margin_held": true,
+      "wall_s": 43.07,
+      "results": [
+        {
+          "request_id": "r2-1-gen",
+          "item": "1 interactive generation",
+          "status": "completed",
+          "wait_s": 0.166,
+          "exec_s": 0.308,
+          "gen_tps": 127.1
+        },
+        {
+          "request_id": "r2-2-embed",
+          "item": "2 embedding background",
+          "status": "completed",
+          "wait_s": 0.174,
+          "exec_s": 0.078,
+          "vectors": 32
+        },
+        {
+          "request_id": "r2-3-rag",
+          "item": "3 full RAG (staged, 2 required unloads)",
+          "stages": [
+            {
+              "stage": "1 embed+retrieve",
+              "ok": true,
+              "wait_s": 0.172,
+              "n": 10,
+              "reason": "",
+              "wall_s": 0.24
+            },
+            {
+              "stage": "3 unload embedding + admit reranker",
+              "ok": true,
+              "actual_unload_list": [
+                "local-embedding"
+              ],
+              "free_before": 3667,
+              "free_after": 5036,
+              "port_free_verified": true,
+              "wait_s": 2.152,
+              "reason": "2968 MiB usable >= 600 MiB required (free 5016 - reserved 0 - margin 2048)",
+              "wall_s": 8.784
+            },
+            {
+              "stage": "4 rerank",
+              "ok": true,
+              "exec_s": 1.11,
+              "n": 5,
+              "reason": "",
+              "wall_s": 1.11
+            },
+            {
+              "stage": "5 unload reranker",
+              "ok": true,
+              "actual_unload_list": [
+                "local-reranker"
+              ],
+              "free_before": 3761,
+              "free_after": 6357,
+              "port_free_verified": true,
+              "reason": "local-reranker unloaded and verified",
+              "wall_s": 6.638
+            },
+            {
+              "stage": "6 pack+generate",
+              "ok": true,
+              "exec_s": 0.744,
+              "answer_has_8192": true,
+              "reason": "",
+              "wall_s": 4.905
+            }
+          ],
+          "n_sources": 5,
+          "pack_chars": 6814,
+          "answer_has_8192": true,
+          "total_wall_s": 21.676,
+          "status": "completed"
+        },
+        {
+          "request_id": "r2-4a-bg",
+          "item": "4 interactive during background",
+          "status": "completed",
+          "wait_s": 0.146,
+          "exec_s": 0.813,
+          "vectors": 32
+        },
+        {
+          "request_id": "r2-4b-int",
+          "item": "4 interactive during background",
+          "status": "completed",
+          "wait_s": 1.09,
+          "exec_s": 0.365,
+          "gen_tps": 125.2
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "resident_at_round_start": [
+    "local-fast",
+    "local-embedding",
+    "local-reranker"
+  ],
+  "precondition_before_item3": {
+    "services": {
+      "local-embedding": {
+        "was_down": false,
+        "restored": true,
+        "seconds": 0.0
+      },
+      "local-reranker": {
+        "was_down": false,
+        "restored": true,
+        "seconds": 0.0
+      },
+      "local-fast": {
+        "was_down": false,
+        "restored": true,
+        "seconds": 0.0
+      }
+    },
+    "wall_s": 0.04,
+    "note": "item 3 requires the embedding service; the requirement is declared and satisfied here, and its latency is reported separately"
+  },
+  "restore_before_item4": {
+    "services": {
+      "local-embedding": {
+        "was_down": true,
+        "restored": true,
+        "seconds": 7.09
+      },
+      "local-reranker": {
+        "was_down": true,
+        "restored": true,
+        "seconds": 8.02
+      }
+    },
+    "wall_s": 19.12,
+    "note": "item 3 intentionally unloads both models; item 4 needs them, so the restoration is explicit and its latency is reported separately rather than folded into item 4"
+  }
+}

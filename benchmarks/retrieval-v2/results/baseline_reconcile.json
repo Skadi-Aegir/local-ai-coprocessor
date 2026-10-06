@@ -1,0 +1,787 @@
+{
+  "questions": 12,
+  "arms": {
+    "A_served": {
+      "all_correct": 11,
+      "accuracy_pct": 91.7,
+      "fact_hits": 13,
+      "fact_total": 14,
+      "hallucinations": 4,
+      "refusals": 0,
+      "rows": [
+        {
+          "q": "What context size does the local-fast worker use by default?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/probe_embedding.py",
+            "config/local-fast.yaml",
+            "docs/local-fast-api.md",
+            "benchmarks/local-fast/mock_server.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How much VRAM does local-fast occupy when resident?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "benchmarks/embedding-results.md",
+            "benchmarks/local-smart-results.md",
+            "services/retrieval/probe_embedding.py",
+            "docs/local-fast-api.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What generation speed did local-fast reach in its benchmark?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "benchmarks/local-fast-results.md",
+            "docs/local-fast-api.md",
+            "benchmarks/local-fast/mock_server.py",
+            "benchmarks/local-smart/compare_models.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 2,
+          "refused": false
+        },
+        {
+          "q": "Why is concurrent inference of two local models not recommended?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "benchmarks/local-fast/mock_server.py",
+            "services/retrieval/benchmark_data.py",
+            "services/retrieval/benchmark_data.py",
+            "benchmarks/local-fast/ctx_sweep.py"
+          ],
+          "fact_hits": 2,
+          "fact_total": 2,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How long does it take to switch between the two local models?",
+          "paths": [
+            "benchmarks/local-smart-results.md",
+            "benchmarks/local-fast/mock_server.py",
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/probe_embedding.py",
+            "scripts/coresidency.ps1"
+          ],
+          "fact_hits": 2,
+          "fact_total": 2,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the JSON schema adherence rate reported for local-fast?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "docs/escalation-policy.md",
+            "benchmarks/local-fast/mock_server.py",
+            "docs/models/local-fast.md",
+            "docs/local-fast-api.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 2,
+          "refused": false
+        },
+        {
+          "q": "Which pooling method does the Qwen3 embedding model use?",
+          "paths": [
+            "services/retrieval/embedder.py",
+            "services/retrieval/probe_embedding.py",
+            "benchmarks/local-fast/test_grading.py",
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/probe_embedding.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the maximum embedding dimension of the embedding model?",
+          "paths": [
+            "services/retrieval/server.py",
+            "docs/models/local-embedding.md",
+            "services/retrieval/index_builder.py",
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/probe_embedding.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 2,
+          "refused": false
+        },
+        {
+          "q": "How much did retrieval reduce the token count?",
+          "paths": [
+            "benchmarks/retrieval-results.md",
+            "services/retrieval/token_savings.py",
+            "benchmarks/local-fast/test_grading.py",
+            "benchmarks/local-fast/test_grading.py",
+            "services/retrieval/retriever.py"
+          ],
+          "fact_hits": 0,
+          "fact_total": 1,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What port does the embedding service listen on?",
+          "paths": [
+            "services/retrieval/token_savings.py",
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/bench_throughput.py",
+            "scripts/start-local-embedding.ps1",
+            "services/retrieval/server.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the recommended batch size for embedding, and why?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/embedder.py",
+            "services/retrieval/server.py",
+            "config/local-embedding.yaml",
+            "services/retrieval/bench_throughput.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 2,
+          "refused": false
+        },
+        {
+          "q": "Which chunking strategy performed better, fixed or structure aware?",
+          "paths": [
+            "services/retrieval/chunker.py",
+            "benchmarks/retrieval-results.md",
+            "docs/retrieval-architecture.md",
+            "services/retrieval/chunker.py",
+            "benchmarks/retrieval-results.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        }
+      ],
+      "fact_recall_pct": 92.9
+    },
+    "B_bench": {
+      "all_correct": 7,
+      "accuracy_pct": 58.3,
+      "fact_hits": 9,
+      "fact_total": 14,
+      "hallucinations": 2,
+      "refusals": 0,
+      "rows": [
+        {
+          "q": "What context size does the local-fast worker use by default?",
+          "paths": [
+            "config/local-fast.yaml",
+            "docs/local-fast-api.md",
+            "benchmarks/local-fast-results.md",
+            "docs/models/local-fast.md",
+            "config/local-smart.yaml"
+          ],
+          "fact_hits": 0,
+          "fact_total": 1,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How much VRAM does local-fast occupy when resident?",
+          "paths": [
+            "benchmarks/local-smart-results.md",
+            "scripts/coresidency.ps1",
+            "docs/local-fast-api.md",
+            "benchmarks/local-smart-results.md",
+            "benchmarks/local-smart-results.md"
+          ],
+          "fact_hits": 0,
+          "fact_total": 1,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What generation speed did local-fast reach in its benchmark?",
+          "paths": [
+            "benchmarks/local-fast-results.md",
+            "docs/local-fast-api.md",
+            "docs/models/local-fast.md",
+            "docs/escalation-policy.md",
+            "config/local-fast.yaml"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "Why is concurrent inference of two local models not recommended?",
+          "paths": [
+            "docs/escalation-policy.md",
+            "scripts/coresidency.ps1",
+            "scripts/coresidency.ps1",
+            "benchmarks/local-smart-results.md",
+            "docs/models/local-smart.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 2,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How long does it take to switch between the two local models?",
+          "paths": [
+            "benchmarks/local-smart-results.md",
+            "scripts/coresidency.ps1",
+            "docs/environment-report.md",
+            "docs/escalation-policy.md",
+            "docs/models/local-fast.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 2,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the JSON schema adherence rate reported for local-fast?",
+          "paths": [
+            "docs/escalation-policy.md",
+            "docs/models/local-fast.md",
+            "docs/local-fast-api.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-fast-results.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "Which pooling method does the Qwen3 embedding model use?",
+          "paths": [
+            "docs/models/local-embedding.md",
+            "benchmarks/local-fast-results.md",
+            "docs/models/local-embedding.md",
+            "benchmarks/local-smart-results.md",
+            "docs/models/local-embedding.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 1,
+          "refused": false
+        },
+        {
+          "q": "What is the maximum embedding dimension of the embedding model?",
+          "paths": [
+            "docs/models/local-embedding.md",
+            "config/local-embedding.yaml",
+            "docs/retrieval-architecture.md",
+            "docs/models/local-embedding.md",
+            "docs/models/local-embedding.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 1,
+          "refused": false
+        },
+        {
+          "q": "How much did retrieval reduce the token count?",
+          "paths": [
+            "docs/retrieval-architecture.md",
+            "config/local-embedding.yaml",
+            "docs/retrieval-architecture.md",
+            "docs/models/local-embedding.md",
+            "docs/models/local-embedding.md"
+          ],
+          "fact_hits": 0,
+          "fact_total": 1,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What port does the embedding service listen on?",
+          "paths": [
+            "scripts/start-local-embedding.ps1",
+            "docs/models/local-embedding.md",
+            "config/local-embedding.yaml",
+            "scripts/stop-local-embedding.ps1",
+            "scripts/check-local-embedding.ps1"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the recommended batch size for embedding, and why?",
+          "paths": [
+            "docs/retrieval-architecture.md",
+            "config/local-embedding.yaml",
+            "docs/models/local-embedding.md",
+            "docs/models/local-embedding.md",
+            "config/local-embedding.yaml"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "Which chunking strategy performed better, fixed or structure aware?",
+          "paths": [
+            "docs/retrieval-architecture.md",
+            "docs/retrieval-architecture.md",
+            "docs/local-fast-api.md",
+            "benchmarks/local-fast-results.md",
+            "benchmarks/local-smart-results.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        }
+      ],
+      "fact_recall_pct": 64.3
+    },
+    "C_served_reranked": {
+      "all_correct": 10,
+      "accuracy_pct": 83.3,
+      "fact_hits": 12,
+      "fact_total": 14,
+      "hallucinations": 1,
+      "refusals": 0,
+      "rows": [
+        {
+          "q": "What context size does the local-fast worker use by default?",
+          "paths": [
+            "services/retrieval/benchmark_data.py",
+            "services/retrieval/rag_compare.py",
+            "docs/models/local-fast.md",
+            "config/local-fast.yaml",
+            "services/retrieval/probe_embedding.py"
+          ],
+          "fact_hits": 0,
+          "fact_total": 1,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How much VRAM does local-fast occupy when resident?",
+          "paths": [
+            "services/retrieval/bench_throughput.py",
+            "benchmarks/local-smart-results.md",
+            "benchmarks/embedding-results.md",
+            "services/retrieval/rag_compare.py",
+            "benchmarks/local-smart-results.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What generation speed did local-fast reach in its benchmark?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/bench_throughput.py",
+            "benchmarks/retrieval-results.md",
+            "benchmarks/local-smart/concurrency_test.py",
+            "benchmarks/local-fast-results.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "Why is concurrent inference of two local models not recommended?",
+          "paths": [
+            "services/retrieval/benchmark_data.py",
+            "benchmarks/local-smart-results.md",
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/bench_throughput.py",
+            "services/retrieval/probe_embedding.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 2,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How long does it take to switch between the two local models?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/benchmark_data.py",
+            "benchmarks/local-smart-results.md",
+            "services/retrieval/benchmark_data.py",
+            "benchmarks/local-smart/compare_models.py"
+          ],
+          "fact_hits": 2,
+          "fact_total": 2,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the JSON schema adherence rate reported for local-fast?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "docs/escalation-policy.md",
+            "services/retrieval/benchmark_data.py",
+            "benchmarks/local-fast/tasks.py",
+            "docs/local-fast-api.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 2,
+          "refused": false
+        },
+        {
+          "q": "Which pooling method does the Qwen3 embedding model use?",
+          "paths": [
+            "services/retrieval/embedder.py",
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/probe_embedding.py",
+            "services/retrieval/probe_embedding.py",
+            "services/retrieval/embedder.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the maximum embedding dimension of the embedding model?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/embedder.py",
+            "config/local-embedding.yaml",
+            "services/retrieval/embedder.py",
+            "docs/models/local-embedding.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How much did retrieval reduce the token count?",
+          "paths": [
+            "benchmarks/retrieval-results.md",
+            "services/retrieval/token_savings.py",
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/token_savings.py",
+            "docs/retrieval-architecture.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What port does the embedding service listen on?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "services/retrieval/server.py",
+            "config/local-embedding.yaml",
+            "services/retrieval/token_savings.py",
+            "services/retrieval/rag_compare.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the recommended batch size for embedding, and why?",
+          "paths": [
+            "services/retrieval/rag_compare.py",
+            "config/local-embedding.yaml",
+            "services/retrieval/embedder.py",
+            "services/retrieval/bench_throughput.py",
+            "services/retrieval/embedder.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "Which chunking strategy performed better, fixed or structure aware?",
+          "paths": [
+            "services/retrieval/chunker.py",
+            "docs/retrieval-architecture.md",
+            "benchmarks/retrieval-results.md",
+            "services/retrieval/chunker.py",
+            "services/retrieval/rag_compare.py"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        }
+      ],
+      "fact_recall_pct": 85.7
+    },
+    "D_bench_reranked": {
+      "all_correct": 8,
+      "accuracy_pct": 66.7,
+      "fact_hits": 10,
+      "fact_total": 14,
+      "hallucinations": 2,
+      "refusals": 1,
+      "rows": [
+        {
+          "q": "What context size does the local-fast worker use by default?",
+          "paths": [
+            "config/local-fast.yaml",
+            "docs/models/local-fast.md",
+            "scripts/start-local-fast.ps1",
+            "config/local-smart.yaml",
+            "docs/local-fast-api.md"
+          ],
+          "fact_hits": 0,
+          "fact_total": 1,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How much VRAM does local-fast occupy when resident?",
+          "paths": [
+            "benchmarks/local-smart-results.md",
+            "benchmarks/local-smart-results.md",
+            "docs/local-fast-api.md",
+            "config/local-fast.yaml",
+            "scripts/coresidency.ps1"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What generation speed did local-fast reach in its benchmark?",
+          "paths": [
+            "benchmarks/local-fast-results.md",
+            "scripts/phase2_sweep.ps1",
+            "benchmarks/local-fast-results.md",
+            "docs/local-fast-api.md",
+            "config/local-fast.yaml"
+          ],
+          "fact_hits": 0,
+          "fact_total": 1,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": true
+        },
+        {
+          "q": "Why is concurrent inference of two local models not recommended?",
+          "paths": [
+            "benchmarks/local-smart-results.md",
+            "scripts/coresidency.ps1",
+            "benchmarks/local-smart-results.md",
+            "docs/escalation-policy.md",
+            "benchmarks/local-smart-results.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 2,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "How long does it take to switch between the two local models?",
+          "paths": [
+            "benchmarks/local-smart-results.md",
+            "benchmarks/local-smart-results.md",
+            "scripts/coresidency.ps1",
+            "scripts/coresidency.ps1",
+            "docs/escalation-policy.md"
+          ],
+          "fact_hits": 2,
+          "fact_total": 2,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the JSON schema adherence rate reported for local-fast?",
+          "paths": [
+            "docs/escalation-policy.md",
+            "docs/local-fast-api.md",
+            "docs/local-fast-api.md",
+            "docs/local-fast-api.md",
+            "benchmarks/local-fast-results.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "Which pooling method does the Qwen3 embedding model use?",
+          "paths": [
+            "config/local-embedding.yaml",
+            "docs/models/local-embedding.md",
+            "benchmarks/local-smart-results.md",
+            "docs/models/local-embedding.md",
+            "docs/models/local-fast.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 1,
+          "refused": false
+        },
+        {
+          "q": "What is the maximum embedding dimension of the embedding model?",
+          "paths": [
+            "docs/models/local-embedding.md",
+            "config/local-embedding.yaml",
+            "scripts/start-local-embedding.ps1",
+            "docs/models/local-embedding.md",
+            "docs/models/local-embedding.md"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 1,
+          "refused": false
+        },
+        {
+          "q": "How much did retrieval reduce the token count?",
+          "paths": [
+            "config/local-embedding.yaml",
+            "docs/retrieval-architecture.md",
+            "docs/models/local-embedding.md",
+            "docs/retrieval-architecture.md",
+            "docs/models/local-embedding.md"
+          ],
+          "fact_hits": 0,
+          "fact_total": 1,
+          "all_facts": false,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What port does the embedding service listen on?",
+          "paths": [
+            "config/local-embedding.yaml",
+            "scripts/start-local-embedding.ps1",
+            "docs/models/local-embedding.md",
+            "scripts/stop-local-embedding.ps1",
+            "scripts/check-local-embedding.ps1"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "What is the recommended batch size for embedding, and why?",
+          "paths": [
+            "config/local-embedding.yaml",
+            "scripts/start-local-embedding.ps1",
+            "docs/retrieval-architecture.md",
+            "benchmarks/local-smart-results.md",
+            "config/local-embedding.yaml"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        },
+        {
+          "q": "Which chunking strategy performed better, fixed or structure aware?",
+          "paths": [
+            "docs/retrieval-architecture.md",
+            "docs/retrieval-architecture.md",
+            "benchmarks/local-fast-results.md",
+            "docs/retrieval-architecture.md",
+            "config/local-embedding.yaml"
+          ],
+          "fact_hits": 1,
+          "fact_total": 1,
+          "all_facts": true,
+          "hallucination_flags": 0,
+          "refused": false
+        }
+      ],
+      "fact_recall_pct": 71.4
+    }
+  },
+  "served_index": {
+    "vectors_in_index": 1173,
+    "chunks_in_metadata": 1173,
+    "projects": [
+      "local-ai"
+    ],
+    "dimension": 1024,
+    "consistent": true
+  },
+  "bench_index": {
+    "vectors_in_index": 186,
+    "chunks_in_metadata": 186,
+    "projects": [
+      "local-ai"
+    ],
+    "dimension": 1024,
+    "consistent": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "model_target": "deepseek-chat | claude-sonnet | codex",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior engineer reviewing a task that a local model could not complete confidently. You are given the only project sources available. Cite file paths and line ranges for every claim. State explicitly when the sources do not answer the question."
+    },
+    {
+      "role": "user",
+      "content": "SOURCES:\nThe following sources were retrieved from the project. They are the only project facts available to you. If the answer is not present, say so instead of guessing.\n\n\nSOURCE 1\npath: services/retrieval/rag_compare.py\nlines: 39-64\nscore: 0.5238\nchunk_id: 4293138b1547c925a0d1\ncontent:\nTASKS = [\n    dict(q=\"What context size does the local-fast worker use by default?\",\n         facts=[[\"8192\", \"8k\"]], bad=[[\"4096\"], [\"16384\"]]),\n    dict(q=\"How much VRAM does local-fast occupy when resident?\",\n         facts=[[\"2981\"]], bad=[[\"1500\"], [\"8000\"]]),\n    dict(q=\"What generation speed did local-fast reach in its benchmark?\",\n         facts=[[\"130\"]], bad=[[\"500 tok\"], [\"50 tok\"]]),\n    dict(q=\"Why is concurrent inference of two local models not recommended?\",\n         facts=[[\"47\", \"throughput\"], [\"half\", \"47\"]], bad=[[]]),\n    dict(q=\"How long does it take to switch between the two local models?\",\n         facts=[[\"7\", \"second\"], [\"3\", \"4\"]], bad=[[\"minute\"]]),\n    dict(q=\"What is the JSON schema adherence rate reported for local-fast?\",\n         facts=[[\"100\"]], bad=[[\"50%\"], [\"80%\"]]),\n    dict(q=\"Which pooling method does the Qwen3 embedding model use?\",\n         facts=[[\"last\"], [\"lasttoken\", \"last_token\", \"last-token\"]], bad=[[\"mean pooling\"]]),\n    dict(q=\"What is the maximum embedding dimension of the embedding model?\",\n         facts=[[\"1024\"]], bad=[[\"256\"], [\"4096\"]]),\n    dict(q=\"How much did retrieval reduce the token count?\",\n         facts=[[\"96\", \"99\", \"reduction\"]], bad=[[\"10%\"], [\"20%\"]]),\n    dict(q=\"What port does the embedding service listen on?\",\n         facts=[[\"8113\"]], bad=[[\"8111\"], [\"8112\"]]),\n    dict(q=\"What is the recommended batch size for embedding, and why?\",\n         facts=[[\"32\"]], bad=[[\"128\"], [\"256\"]]),\n    dict(q=\"Which chunking strategy performed better, fixed or structure aware?\",\n         facts=[[\"structure\"]], bad=[[\"fixed performed better\", \"fixed was better\"]]),\n]\n\nSOURCE 2\npath: benchmarks/local-fast/mock_server.py\nlines: 25-25\nscore: 0.5155\nchunk_id: 71d2bf338980c9381d9d\ncontent:\nMODEL_ID = \"local-fast\"\n\nSOURCE 3\npath: benchmarks/local-smart/compare_models.py\nlines: 1-9\nscore: 0.5119\nchunk_id: c83f89be5dcd6afbc855\ncontent:\n\"\"\"\ncompare_models.py - Phase 3: direct local-fast (4B) vs local-smart (9B) head-to-head.\n\nReads the result JSONs produced by repair_suite.py, tasks_c_review.py, run_phase3.py\nand run_bench.py for both models and prints the comparison table the Phase 3 report\nrequires, with a winner per row.\n\nUsage: python compare_models.py\n\"\"\"\n\nSOURCE 4\npath: docs/models/local-fast.md\nlines: 1-12\nscore: 0.5025\nchunk_id: 76c8e81593a2b3d64130\nsymbol: local-fast — Model Record (Phase 2)\ncontent:\n# local-fast — Model Record (Phase 2)\n\n**Logical alias:** `local-fast`\n**Role:** Local Fast Worker — high-frequency, low-cost, verifiable tasks\n**Phase:** 2\n**Recorded:** 2026-09-29\n\n> Upper layers must only ever reference the alias **`local-fast`**. GGUF filenames,\n> repository names and quantisation names must never appear in agent code or prompts.\n\n---\n\n\nSOURCE 5\npath: benchmarks/embedding-results.md\nlines: 87-104\nscore: 0.4980\nchunk_id: f67ba61aa6bb579c5412\nsymbol: 6. Concurrency contention\ncontent:\n## 6. Concurrency contention\n\nBoth services resident, generating/indexing **at the same time**:\n\n| Workload | Alone | Concurrent | Loss |\n|---|---:|---:|---:|\n| embedding, batch 32 | 178.6 chunks/s | **126.3 chunks/s** | **−29 %** |\n| local-fast generation | ~130 t/s | **42–49 t/s** | **−65 %** |\n| local-smart generation | 74.6 t/s | 28.2 t/s | **−62 %** |\n\n**Concurrent inference is expensive for both sides**, and the generative worker suffers\nfar more than the embedder. This mirrors the Phase 3 finding that the GPU serialises\nthe work anyway while adding contention.\n\n**Recommendation: serialise inference across the embedding service and a generative\nworker** (a GPU semaphore, or simply not issuing both at once). Do not assume that\nbecause they fit in VRAM they can usefully run together.\n\n\nTASK: Why is it a bad idea to have two local models generate at the same time?"
+    }
+  ],
+  "meta": {
+    "question": "Why is it a bad idea to have two local models generate at the same time?",
+    "query_type": "semantic",
+    "sources": 5,
+    "source_paths": [
+      "services/retrieval/rag_compare.py",
+      "benchmarks/local-fast/mock_server.py",
+      "benchmarks/local-smart/compare_models.py",
+      "docs/models/local-fast.md",
+      "benchmarks/embedding-results.md"
+    ],
+    "top_score": 0.523814,
+    "context_tokens": 1233,
+    "prompt_tokens": 1303,
+    "within_budget": true
+  }
+}

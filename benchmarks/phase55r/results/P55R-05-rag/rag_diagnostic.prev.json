@@ -1,0 +1,155 @@
+{
+  "experiment": "P55R-05 single full RAG diagnostic (two required unloads)",
+  "margin_mb": 2048,
+  "production_unchanged": true,
+  "budgets_unchanged": {
+    "margin_mb": 2048,
+    "reranker_peak_extra_mb": 1800,
+    "candidate_881_or_1361_used": false
+  },
+  "provenance": {
+    "commit": "111185d01c5b38dccca2a33293a423510b76dffb",
+    "dirty": true
+  },
+  "stages": [
+    {
+      "stage": "1 embed+retrieve",
+      "ok": true,
+      "admission": "admitted",
+      "wait_s": 0.163,
+      "reason": "",
+      "n_candidates": 10,
+      "wall_s": 1.018,
+      "vram": {
+        "n_samples": 10,
+        "free_min": 3055,
+        "free_max": 3099,
+        "used_min": 8846,
+        "used_max": 8890,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "first_breach": null
+      }
+    },
+    {
+      "stage": "3 unload embedding + admit reranker",
+      "ok": true,
+      "actual_unload_list": [
+        "local-embedding"
+      ],
+      "unload_verified": {
+        "scheduler_ok": true,
+        "port_free": true,
+        "free_before": 3338,
+        "free_after": 4706,
+        "rose": true
+      },
+      "free_vram_before_unload": 3338,
+      "wait_s": 2.109,
+      "reason": "2646 MiB usable >= 600 MiB required (free 4694 - reserved 0 - margin 2048)",
+      "wall_s": 9.586,
+      "vram": {
+        "n_samples": 97,
+        "free_min": 3056,
+        "free_max": 4424,
+        "used_min": 7521,
+        "used_max": 8889,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "first_breach": null
+      }
+    },
+    {
+      "stage": "4 rerank",
+      "ok": true,
+      "exec_s": 1.145,
+      "n_reranked": 5,
+      "reason": "",
+      "wall_s": 1.145,
+      "vram": {
+        "n_samples": 12,
+        "free_min": 3130,
+        "free_max": 4417,
+        "used_min": 7528,
+        "used_max": 8815,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "first_breach": null
+      }
+    },
+    {
+      "stage": "5 unload reranker",
+      "ok": true,
+      "actual_unload_list": [
+        "local-reranker"
+      ],
+      "unload_verified": {
+        "port_free": true,
+        "free_before": 3421,
+        "free_after": 6012,
+        "rose": true
+      },
+      "free_vram_before_unload": 3421,
+      "wait_s": 5.997,
+      "reason": "local-reranker unloaded and verified",
+      "wall_s": 7.198,
+      "vram": {
+        "n_samples": 72,
+        "free_min": 3139,
+        "free_max": 5743,
+        "used_min": 6202,
+        "used_max": 8806,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "first_breach": null
+      }
+    },
+    {
+      "stage": "6 pack+generate",
+      "ok": true,
+      "exec_s": 1.269,
+      "answer_has_8192": true,
+      "answer_head": "Based on **Source 1** (the test task definition) and **Source 3** (the configuration file), the local-fast worker uses a default context size of **8192** tokens.\n\n*   **Source 1** explicitly lists thi",
+      "reason": "",
+      "wall_s": 5.412,
+      "vram": {
+        "n_samples": 55,
+        "free_min": 5723,
+        "free_max": 5742,
+        "used_min": 6203,
+        "used_max": 6222,
+        "margin_mb": 2048,
+        "margin_breached": false,
+        "n_sub_margin_samples": 0,
+        "first_breach": null
+      }
+    }
+  ],
+  "abort": null,
+  "resident_before": [
+    "local-fast",
+    "local-embedding",
+    "local-reranker"
+  ],
+  "pack_chars": 6814,
+  "total_wall_s": 24.401,
+  "overall_window": {
+    "n_samples": 246,
+    "free_min": 3055,
+    "free_max": 5743,
+    "used_min": 6202,
+    "used_max": 8890,
+    "margin_mb": 2048,
+    "margin_breached": false,
+    "n_sub_margin_samples": 0,
+    "first_breach": null
+  },
+  "state_at_end": "DONE",
+  "min_free_vram_mb": 3055,
+  "margin_held": true,
+  "any_margin_breach": false
+}

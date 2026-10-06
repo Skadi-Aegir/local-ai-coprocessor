@@ -1,0 +1,2470 @@
+{
+  "run_id": "2026-10-05-rs4",
+  "started_utc": "2026-10-05T07:23:03Z",
+  "preconditions": {
+    "services_listening": [],
+    "nvidia_smi_before": {
+      "total": 12227,
+      "used": 3145,
+      "free": 8800
+    },
+    "allocator_cap_mb": 6344,
+    "margin_mb": 2048
+  },
+  "what_vram_mb_measures": {
+    "torch_device_used_mb": 1232.6,
+    "nvidia_smi_used_mb": 3297,
+    "this_process_allocator_reserved_mb": 2.0,
+    "note": "cudaMemGetInfo-based used memory (what /stats vram_mb reports) compared with nvidia-smi's device-wide figure, taken when this process holds only its context"
+  },
+  "corpus": {
+    "chunks": 520,
+    "longest_chars": 6456,
+    "source": "git 854fabcd7f8a, every file checked against the manifest hash",
+    "files": 48,
+    "manifest_chunks": 520
+  },
+  "model_loaded": {
+    "device_used_mb": 2390.6,
+    "device_free_mb": 9836.0,
+    "torch_allocated_mb": 1136.4,
+    "torch_reserved_mb": 1160.0,
+    "torch_peak_reserved_mb": 1160.0,
+    "cache_releases": 0,
+    "released_mb_total": 0.0,
+    "release_threshold_mb": 0
+  },
+  "arms": {
+    "release_off": {
+      "release_cache_mb": 0,
+      "request_size": 4,
+      "requests_completed": 130,
+      "oom": null,
+      "seconds": 13.34,
+      "start": {
+        "device_used_mb": 2390.6,
+        "device_free_mb": 9836.0,
+        "torch_allocated_mb": 1136.4,
+        "torch_reserved_mb": 1160.0,
+        "torch_peak_reserved_mb": 1160.0,
+        "cache_releases": 0,
+        "released_mb_total": 0.0,
+        "release_threshold_mb": 0
+      },
+      "end": {
+        "device_used_mb": 3396.6,
+        "device_free_mb": 8830.0,
+        "torch_allocated_mb": 1144.5,
+        "torch_reserved_mb": 2154.0,
+        "torch_peak_reserved_mb": 2154.0,
+        "cache_releases": 0,
+        "released_mb_total": 0.0,
+        "release_threshold_mb": 0
+      },
+      "end_nvidia_smi": {
+        "total": 12227,
+        "used": 5464,
+        "free": 6481
+      },
+      "peak_reserved_mb": 2154.0,
+      "peak_above_weights_mb": 1017.6,
+      "retained_above_weights_mb": 1009.5,
+      "device_free_samples": 222,
+      "device_free_min_mb": 6476,
+      "margin_held_in_samples": true,
+      "per_request": [
+        {
+          "request": 0,
+          "n": 4,
+          "max_chars": 4817,
+          "seconds": 0.727,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 1,
+          "n": 4,
+          "max_chars": 1039,
+          "seconds": 0.063,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 2,
+          "n": 4,
+          "max_chars": 1183,
+          "seconds": 0.088,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 3,
+          "n": 4,
+          "max_chars": 1152,
+          "seconds": 0.086,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 4,
+          "n": 4,
+          "max_chars": 913,
+          "seconds": 0.054,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 5,
+          "n": 4,
+          "max_chars": 919,
+          "seconds": 0.061,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 6,
+          "n": 4,
+          "max_chars": 1006,
+          "seconds": 0.061,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 7,
+          "n": 4,
+          "max_chars": 640,
+          "seconds": 0.042,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 8,
+          "n": 4,
+          "max_chars": 1291,
+          "seconds": 0.061,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 9,
+          "n": 4,
+          "max_chars": 713,
+          "seconds": 0.049,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 10,
+          "n": 4,
+          "max_chars": 665,
+          "seconds": 0.043,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 11,
+          "n": 4,
+          "max_chars": 642,
+          "seconds": 0.049,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 12,
+          "n": 4,
+          "max_chars": 1207,
+          "seconds": 0.078,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 13,
+          "n": 4,
+          "max_chars": 1014,
+          "seconds": 0.084,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 14,
+          "n": 4,
+          "max_chars": 1137,
+          "seconds": 0.062,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 15,
+          "n": 4,
+          "max_chars": 812,
+          "seconds": 0.055,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 16,
+          "n": 4,
+          "max_chars": 2304,
+          "seconds": 0.178,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 17,
+          "n": 4,
+          "max_chars": 1459,
+          "seconds": 0.128,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 18,
+          "n": 4,
+          "max_chars": 1611,
+          "seconds": 0.13,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 19,
+          "n": 4,
+          "max_chars": 1585,
+          "seconds": 0.082,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 20,
+          "n": 4,
+          "max_chars": 1025,
+          "seconds": 0.07,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 21,
+          "n": 4,
+          "max_chars": 1667,
+          "seconds": 0.091,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 22,
+          "n": 4,
+          "max_chars": 938,
+          "seconds": 0.089,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 23,
+          "n": 4,
+          "max_chars": 1915,
+          "seconds": 0.205,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 24,
+          "n": 4,
+          "max_chars": 1036,
+          "seconds": 0.064,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 25,
+          "n": 4,
+          "max_chars": 2004,
+          "seconds": 0.098,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 26,
+          "n": 4,
+          "max_chars": 1278,
+          "seconds": 0.064,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 27,
+          "n": 4,
+          "max_chars": 1302,
+          "seconds": 0.07,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 28,
+          "n": 4,
+          "max_chars": 733,
+          "seconds": 0.062,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 29,
+          "n": 4,
+          "max_chars": 1494,
+          "seconds": 0.088,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 30,
+          "n": 4,
+          "max_chars": 1170,
+          "seconds": 0.071,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 31,
+          "n": 4,
+          "max_chars": 1302,
+          "seconds": 0.063,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 32,
+          "n": 4,
+          "max_chars": 878,
+          "seconds": 0.061,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 33,
+          "n": 4,
+          "max_chars": 671,
+          "seconds": 0.044,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 34,
+          "n": 4,
+          "max_chars": 702,
+          "seconds": 0.049,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 35,
+          "n": 4,
+          "max_chars": 728,
+          "seconds": 0.046,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 36,
+          "n": 4,
+          "max_chars": 571,
+          "seconds": 0.043,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 37,
+          "n": 4,
+          "max_chars": 684,
+          "seconds": 0.044,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 38,
+          "n": 4,
+          "max_chars": 1469,
+          "seconds": 0.069,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 39,
+          "n": 4,
+          "max_chars": 1801,
+          "seconds": 0.121,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 40,
+          "n": 4,
+          "max_chars": 4775,
+          "seconds": 0.412,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 41,
+          "n": 4,
+          "max_chars": 4368,
+          "seconds": 0.334,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 42,
+          "n": 4,
+          "max_chars": 4555,
+          "seconds": 0.44,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 2096.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 43,
+          "n": 4,
+          "max_chars": 453,
+          "seconds": 0.042,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 44,
+          "n": 4,
+          "max_chars": 24,
+          "seconds": 0.04,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 45,
+          "n": 4,
+          "max_chars": 1354,
+          "seconds": 0.07,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 46,
+          "n": 4,
+          "max_chars": 387,
+          "seconds": 0.037,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 47,
+          "n": 4,
+          "max_chars": 4711,
+          "seconds": 0.437,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 48,
+          "n": 4,
+          "max_chars": 4785,
+          "seconds": 0.446,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 49,
+          "n": 4,
+          "max_chars": 4705,
+          "seconds": 0.367,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 50,
+          "n": 4,
+          "max_chars": 3209,
+          "seconds": 0.181,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 51,
+          "n": 4,
+          "max_chars": 17,
+          "seconds": 0.189,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 52,
+          "n": 4,
+          "max_chars": 40,
+          "seconds": 0.048,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 53,
+          "n": 4,
+          "max_chars": 693,
+          "seconds": 0.056,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 54,
+          "n": 4,
+          "max_chars": 932,
+          "seconds": 0.056,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 55,
+          "n": 4,
+          "max_chars": 2020,
+          "seconds": 0.099,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 56,
+          "n": 4,
+          "max_chars": 624,
+          "seconds": 0.05,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 57,
+          "n": 4,
+          "max_chars": 1786,
+          "seconds": 0.084,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 58,
+          "n": 4,
+          "max_chars": 6456,
+          "seconds": 0.313,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 59,
+          "n": 4,
+          "max_chars": 5330,
+          "seconds": 0.251,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 60,
+          "n": 4,
+          "max_chars": 1918,
+          "seconds": 0.09,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 61,
+          "n": 4,
+          "max_chars": 1415,
+          "seconds": 0.064,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 62,
+          "n": 4,
+          "max_chars": 16,
+          "seconds": 0.036,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 63,
+          "n": 4,
+          "max_chars": 147,
+          "seconds": 0.057,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 64,
+          "n": 4,
+          "max_chars": 4634,
+          "seconds": 0.291,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 65,
+          "n": 4,
+          "max_chars": 3160,
+          "seconds": 0.188,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 66,
+          "n": 4,
+          "max_chars": 691,
+          "seconds": 0.042,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 67,
+          "n": 4,
+          "max_chars": 4397,
+          "seconds": 0.264,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 68,
+          "n": 4,
+          "max_chars": 556,
+          "seconds": 0.043,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 69,
+          "n": 4,
+          "max_chars": 24,
+          "seconds": 0.031,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 70,
+          "n": 4,
+          "max_chars": 364,
+          "seconds": 0.041,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 71,
+          "n": 4,
+          "max_chars": 590,
+          "seconds": 0.044,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 72,
+          "n": 4,
+          "max_chars": 3431,
+          "seconds": 0.198,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 73,
+          "n": 4,
+          "max_chars": 1481,
+          "seconds": 0.09,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 74,
+          "n": 4,
+          "max_chars": 1530,
+          "seconds": 0.082,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 75,
+          "n": 4,
+          "max_chars": 1516,
+          "seconds": 0.08,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 76,
+          "n": 4,
+          "max_chars": 1538,
+          "seconds": 0.074,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 77,
+          "n": 4,
+          "max_chars": 16,
+          "seconds": 0.037,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 78,
+          "n": 4,
+          "max_chars": 67,
+          "seconds": 0.039,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 79,
+          "n": 4,
+          "max_chars": 143,
+          "seconds": 0.034,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 80,
+          "n": 4,
+          "max_chars": 4554,
+          "seconds": 0.225,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 81,
+          "n": 4,
+          "max_chars": 1589,
+          "seconds": 0.088,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 82,
+          "n": 4,
+          "max_chars": 24,
+          "seconds": 0.031,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 83,
+          "n": 4,
+          "max_chars": 396,
+          "seconds": 0.049,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 84,
+          "n": 4,
+          "max_chars": 1489,
+          "seconds": 0.072,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 85,
+          "n": 4,
+          "max_chars": 1097,
+          "seconds": 0.054,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 86,
+          "n": 4,
+          "max_chars": 48,
+          "seconds": 0.039,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 87,
+          "n": 4,
+          "max_chars": 542,
+          "seconds": 0.042,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 88,
+          "n": 4,
+          "max_chars": 1196,
+          "seconds": 0.069,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 89,
+          "n": 4,
+          "max_chars": 2693,
+          "seconds": 0.136,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 90,
+          "n": 4,
+          "max_chars": 2123,
+          "seconds": 0.103,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 91,
+          "n": 4,
+          "max_chars": 21,
+          "seconds": 0.034,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 92,
+          "n": 4,
+          "max_chars": 51,
+          "seconds": 0.035,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 93,
+          "n": 4,
+          "max_chars": 699,
+          "seconds": 0.048,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 94,
+          "n": 4,
+          "max_chars": 1064,
+          "seconds": 0.055,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 95,
+          "n": 4,
+          "max_chars": 3778,
+          "seconds": 0.239,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 96,
+          "n": 4,
+          "max_chars": 40,
+          "seconds": 0.044,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 97,
+          "n": 4,
+          "max_chars": 53,
+          "seconds": 0.037,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 98,
+          "n": 4,
+          "max_chars": 109,
+          "seconds": 0.042,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 99,
+          "n": 4,
+          "max_chars": 912,
+          "seconds": 0.052,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 100,
+          "n": 4,
+          "max_chars": 759,
+          "seconds": 0.054,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 101,
+          "n": 4,
+          "max_chars": 862,
+          "seconds": 0.05,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 102,
+          "n": 4,
+          "max_chars": 2743,
+          "seconds": 0.157,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 103,
+          "n": 4,
+          "max_chars": 1515,
+          "seconds": 0.07,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 104,
+          "n": 4,
+          "max_chars": 1503,
+          "seconds": 0.07,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 105,
+          "n": 4,
+          "max_chars": 16,
+          "seconds": 0.042,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 106,
+          "n": 4,
+          "max_chars": 37,
+          "seconds": 0.035,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 107,
+          "n": 4,
+          "max_chars": 1041,
+          "seconds": 0.056,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 108,
+          "n": 4,
+          "max_chars": 1241,
+          "seconds": 0.063,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 109,
+          "n": 4,
+          "max_chars": 3284,
+          "seconds": 0.174,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 110,
+          "n": 4,
+          "max_chars": 2189,
+          "seconds": 0.114,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 111,
+          "n": 4,
+          "max_chars": 1559,
+          "seconds": 0.082,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 112,
+          "n": 4,
+          "max_chars": 483,
+          "seconds": 0.036,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 113,
+          "n": 4,
+          "max_chars": 425,
+          "seconds": 0.034,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 114,
+          "n": 4,
+          "max_chars": 1060,
+          "seconds": 0.054,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 115,
+          "n": 4,
+          "max_chars": 40,
+          "seconds": 0.045,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 116,
+          "n": 4,
+          "max_chars": 2389,
+          "seconds": 0.128,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 117,
+          "n": 4,
+          "max_chars": 2568,
+          "seconds": 0.126,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 118,
+          "n": 4,
+          "max_chars": 64,
+          "seconds": 0.039,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 119,
+          "n": 4,
+          "max_chars": 3426,
+          "seconds": 0.182,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 120,
+          "n": 4,
+          "max_chars": 34,
+          "seconds": 0.03,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 121,
+          "n": 4,
+          "max_chars": 373,
+          "seconds": 0.043,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 122,
+          "n": 4,
+          "max_chars": 459,
+          "seconds": 0.034,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 123,
+          "n": 4,
+          "max_chars": 471,
+          "seconds": 0.036,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 124,
+          "n": 4,
+          "max_chars": 2001,
+          "seconds": 0.1,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 125,
+          "n": 4,
+          "max_chars": 16,
+          "seconds": 0.037,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 126,
+          "n": 4,
+          "max_chars": 67,
+          "seconds": 0.038,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 127,
+          "n": 4,
+          "max_chars": 94,
+          "seconds": 0.032,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 128,
+          "n": 4,
+          "max_chars": 2394,
+          "seconds": 0.107,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 129,
+          "n": 4,
+          "max_chars": 4565,
+          "seconds": 0.215,
+          "peak_reserved_mb": 2154.0,
+          "reserved_after_mb": 2154.0,
+          "allocated_after_mb": 1144.5
+        }
+      ]
+    },
+    "release_on": {
+      "release_cache_mb": 256,
+      "request_size": 4,
+      "requests_completed": 130,
+      "oom": null,
+      "seconds": 13.09,
+      "start": {
+        "device_used_mb": 2422.6,
+        "device_free_mb": 9804.0,
+        "torch_allocated_mb": 1144.5,
+        "torch_reserved_mb": 1180.0,
+        "torch_peak_reserved_mb": 1180.0,
+        "cache_releases": 0,
+        "released_mb_total": 0.0,
+        "release_threshold_mb": 256
+      },
+      "end": {
+        "device_used_mb": 2422.6,
+        "device_free_mb": 9804.0,
+        "torch_allocated_mb": 1144.5,
+        "torch_reserved_mb": 1180.0,
+        "torch_peak_reserved_mb": 1752.0,
+        "cache_releases": 46,
+        "released_mb_total": 23563.3,
+        "release_threshold_mb": 256
+      },
+      "end_nvidia_smi": {
+        "total": 12227,
+        "used": 4478,
+        "free": 7467
+      },
+      "peak_reserved_mb": 2138.0,
+      "peak_above_weights_mb": 993.5,
+      "retained_above_weights_mb": 35.5,
+      "device_free_samples": 214,
+      "device_free_min_mb": 6498,
+      "margin_held_in_samples": true,
+      "per_request": [
+        {
+          "request": 0,
+          "n": 4,
+          "max_chars": 4817,
+          "seconds": 0.417,
+          "peak_reserved_mb": 2096.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 1,
+          "n": 4,
+          "max_chars": 1039,
+          "seconds": 0.064,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 2,
+          "n": 4,
+          "max_chars": 1183,
+          "seconds": 0.096,
+          "peak_reserved_mb": 1454.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 3,
+          "n": 4,
+          "max_chars": 1152,
+          "seconds": 0.094,
+          "peak_reserved_mb": 1418.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 4,
+          "n": 4,
+          "max_chars": 913,
+          "seconds": 0.06,
+          "peak_reserved_mb": 1300.0,
+          "reserved_after_mb": 1300.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 5,
+          "n": 4,
+          "max_chars": 919,
+          "seconds": 0.063,
+          "peak_reserved_mb": 1340.0,
+          "reserved_after_mb": 1340.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 6,
+          "n": 4,
+          "max_chars": 1006,
+          "seconds": 0.063,
+          "peak_reserved_mb": 1340.0,
+          "reserved_after_mb": 1340.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 7,
+          "n": 4,
+          "max_chars": 640,
+          "seconds": 0.046,
+          "peak_reserved_mb": 1340.0,
+          "reserved_after_mb": 1340.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 8,
+          "n": 4,
+          "max_chars": 1291,
+          "seconds": 0.064,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 9,
+          "n": 4,
+          "max_chars": 713,
+          "seconds": 0.047,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 10,
+          "n": 4,
+          "max_chars": 665,
+          "seconds": 0.042,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 11,
+          "n": 4,
+          "max_chars": 642,
+          "seconds": 0.051,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 12,
+          "n": 4,
+          "max_chars": 1207,
+          "seconds": 0.083,
+          "peak_reserved_mb": 1374.0,
+          "reserved_after_mb": 1374.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 13,
+          "n": 4,
+          "max_chars": 1014,
+          "seconds": 0.089,
+          "peak_reserved_mb": 1408.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 14,
+          "n": 4,
+          "max_chars": 1137,
+          "seconds": 0.062,
+          "peak_reserved_mb": 1320.0,
+          "reserved_after_mb": 1320.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 15,
+          "n": 4,
+          "max_chars": 812,
+          "seconds": 0.054,
+          "peak_reserved_mb": 1320.0,
+          "reserved_after_mb": 1320.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 16,
+          "n": 4,
+          "max_chars": 2304,
+          "seconds": 0.189,
+          "peak_reserved_mb": 1660.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 17,
+          "n": 4,
+          "max_chars": 1459,
+          "seconds": 0.131,
+          "peak_reserved_mb": 1550.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 18,
+          "n": 4,
+          "max_chars": 1611,
+          "seconds": 0.137,
+          "peak_reserved_mb": 1552.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 19,
+          "n": 4,
+          "max_chars": 1585,
+          "seconds": 0.081,
+          "peak_reserved_mb": 1376.0,
+          "reserved_after_mb": 1376.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 20,
+          "n": 4,
+          "max_chars": 1025,
+          "seconds": 0.072,
+          "peak_reserved_mb": 1378.0,
+          "reserved_after_mb": 1378.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 21,
+          "n": 4,
+          "max_chars": 1667,
+          "seconds": 0.096,
+          "peak_reserved_mb": 1462.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 22,
+          "n": 4,
+          "max_chars": 938,
+          "seconds": 0.093,
+          "peak_reserved_mb": 1418.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 23,
+          "n": 4,
+          "max_chars": 1915,
+          "seconds": 0.21,
+          "peak_reserved_mb": 1718.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 24,
+          "n": 4,
+          "max_chars": 1036,
+          "seconds": 0.065,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 25,
+          "n": 4,
+          "max_chars": 2004,
+          "seconds": 0.102,
+          "peak_reserved_mb": 1470.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 26,
+          "n": 4,
+          "max_chars": 1278,
+          "seconds": 0.065,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 27,
+          "n": 4,
+          "max_chars": 1302,
+          "seconds": 0.069,
+          "peak_reserved_mb": 1374.0,
+          "reserved_after_mb": 1374.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 28,
+          "n": 4,
+          "max_chars": 733,
+          "seconds": 0.062,
+          "peak_reserved_mb": 1374.0,
+          "reserved_after_mb": 1374.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 29,
+          "n": 4,
+          "max_chars": 1494,
+          "seconds": 0.091,
+          "peak_reserved_mb": 1408.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 30,
+          "n": 4,
+          "max_chars": 1170,
+          "seconds": 0.071,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 31,
+          "n": 4,
+          "max_chars": 1302,
+          "seconds": 0.064,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 32,
+          "n": 4,
+          "max_chars": 878,
+          "seconds": 0.062,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 33,
+          "n": 4,
+          "max_chars": 671,
+          "seconds": 0.045,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 34,
+          "n": 4,
+          "max_chars": 702,
+          "seconds": 0.051,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 35,
+          "n": 4,
+          "max_chars": 728,
+          "seconds": 0.045,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 36,
+          "n": 4,
+          "max_chars": 571,
+          "seconds": 0.043,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 37,
+          "n": 4,
+          "max_chars": 684,
+          "seconds": 0.044,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 38,
+          "n": 4,
+          "max_chars": 1469,
+          "seconds": 0.07,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 39,
+          "n": 4,
+          "max_chars": 1801,
+          "seconds": 0.125,
+          "peak_reserved_mb": 1548.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 40,
+          "n": 4,
+          "max_chars": 4775,
+          "seconds": 0.421,
+          "peak_reserved_mb": 2078.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 41,
+          "n": 4,
+          "max_chars": 4368,
+          "seconds": 0.345,
+          "peak_reserved_mb": 1950.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 42,
+          "n": 4,
+          "max_chars": 4555,
+          "seconds": 0.452,
+          "peak_reserved_mb": 2104.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 43,
+          "n": 4,
+          "max_chars": 453,
+          "seconds": 0.04,
+          "peak_reserved_mb": 1242.0,
+          "reserved_after_mb": 1242.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 44,
+          "n": 4,
+          "max_chars": 24,
+          "seconds": 0.037,
+          "peak_reserved_mb": 1242.0,
+          "reserved_after_mb": 1242.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 45,
+          "n": 4,
+          "max_chars": 1354,
+          "seconds": 0.077,
+          "peak_reserved_mb": 1426.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 46,
+          "n": 4,
+          "max_chars": 387,
+          "seconds": 0.041,
+          "peak_reserved_mb": 1242.0,
+          "reserved_after_mb": 1242.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 47,
+          "n": 4,
+          "max_chars": 4711,
+          "seconds": 0.448,
+          "peak_reserved_mb": 2138.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 48,
+          "n": 4,
+          "max_chars": 4785,
+          "seconds": 0.452,
+          "peak_reserved_mb": 2104.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 49,
+          "n": 4,
+          "max_chars": 4705,
+          "seconds": 0.368,
+          "peak_reserved_mb": 2002.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 50,
+          "n": 4,
+          "max_chars": 3209,
+          "seconds": 0.186,
+          "peak_reserved_mb": 1660.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 51,
+          "n": 4,
+          "max_chars": 17,
+          "seconds": 0.038,
+          "peak_reserved_mb": 1182.0,
+          "reserved_after_mb": 1182.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 52,
+          "n": 4,
+          "max_chars": 40,
+          "seconds": 0.038,
+          "peak_reserved_mb": 1186.0,
+          "reserved_after_mb": 1186.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 53,
+          "n": 4,
+          "max_chars": 693,
+          "seconds": 0.055,
+          "peak_reserved_mb": 1266.0,
+          "reserved_after_mb": 1266.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 54,
+          "n": 4,
+          "max_chars": 932,
+          "seconds": 0.053,
+          "peak_reserved_mb": 1306.0,
+          "reserved_after_mb": 1306.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 55,
+          "n": 4,
+          "max_chars": 2020,
+          "seconds": 0.103,
+          "peak_reserved_mb": 1462.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 56,
+          "n": 4,
+          "max_chars": 624,
+          "seconds": 0.043,
+          "peak_reserved_mb": 1240.0,
+          "reserved_after_mb": 1240.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 57,
+          "n": 4,
+          "max_chars": 1786,
+          "seconds": 0.08,
+          "peak_reserved_mb": 1388.0,
+          "reserved_after_mb": 1388.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 58,
+          "n": 4,
+          "max_chars": 6456,
+          "seconds": 0.339,
+          "peak_reserved_mb": 1950.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 59,
+          "n": 4,
+          "max_chars": 5330,
+          "seconds": 0.269,
+          "peak_reserved_mb": 1824.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 60,
+          "n": 4,
+          "max_chars": 1918,
+          "seconds": 0.095,
+          "peak_reserved_mb": 1430.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 61,
+          "n": 4,
+          "max_chars": 1415,
+          "seconds": 0.066,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 62,
+          "n": 4,
+          "max_chars": 16,
+          "seconds": 0.041,
+          "peak_reserved_mb": 1342.0,
+          "reserved_after_mb": 1342.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 63,
+          "n": 4,
+          "max_chars": 147,
+          "seconds": 0.044,
+          "peak_reserved_mb": 1362.0,
+          "reserved_after_mb": 1362.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 64,
+          "n": 4,
+          "max_chars": 4634,
+          "seconds": 0.298,
+          "peak_reserved_mb": 1906.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 65,
+          "n": 4,
+          "max_chars": 3160,
+          "seconds": 0.194,
+          "peak_reserved_mb": 1660.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 66,
+          "n": 4,
+          "max_chars": 691,
+          "seconds": 0.043,
+          "peak_reserved_mb": 1240.0,
+          "reserved_after_mb": 1240.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 67,
+          "n": 4,
+          "max_chars": 4397,
+          "seconds": 0.267,
+          "peak_reserved_mb": 1842.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 68,
+          "n": 4,
+          "max_chars": 556,
+          "seconds": 0.043,
+          "peak_reserved_mb": 1240.0,
+          "reserved_after_mb": 1240.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 69,
+          "n": 4,
+          "max_chars": 24,
+          "seconds": 0.034,
+          "peak_reserved_mb": 1242.0,
+          "reserved_after_mb": 1242.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 70,
+          "n": 4,
+          "max_chars": 364,
+          "seconds": 0.041,
+          "peak_reserved_mb": 1300.0,
+          "reserved_after_mb": 1300.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 71,
+          "n": 4,
+          "max_chars": 590,
+          "seconds": 0.045,
+          "peak_reserved_mb": 1320.0,
+          "reserved_after_mb": 1320.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 72,
+          "n": 4,
+          "max_chars": 3431,
+          "seconds": 0.207,
+          "peak_reserved_mb": 1778.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 73,
+          "n": 4,
+          "max_chars": 1481,
+          "seconds": 0.095,
+          "peak_reserved_mb": 1418.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 74,
+          "n": 4,
+          "max_chars": 1530,
+          "seconds": 0.084,
+          "peak_reserved_mb": 1370.0,
+          "reserved_after_mb": 1370.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 75,
+          "n": 4,
+          "max_chars": 1516,
+          "seconds": 0.083,
+          "peak_reserved_mb": 1394.0,
+          "reserved_after_mb": 1394.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 76,
+          "n": 4,
+          "max_chars": 1538,
+          "seconds": 0.072,
+          "peak_reserved_mb": 1394.0,
+          "reserved_after_mb": 1394.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 77,
+          "n": 4,
+          "max_chars": 16,
+          "seconds": 0.04,
+          "peak_reserved_mb": 1394.0,
+          "reserved_after_mb": 1394.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 78,
+          "n": 4,
+          "max_chars": 67,
+          "seconds": 0.037,
+          "peak_reserved_mb": 1398.0,
+          "reserved_after_mb": 1398.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 79,
+          "n": 4,
+          "max_chars": 143,
+          "seconds": 0.041,
+          "peak_reserved_mb": 1414.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 80,
+          "n": 4,
+          "max_chars": 4554,
+          "seconds": 0.229,
+          "peak_reserved_mb": 1752.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 81,
+          "n": 4,
+          "max_chars": 1589,
+          "seconds": 0.088,
+          "peak_reserved_mb": 1418.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 82,
+          "n": 4,
+          "max_chars": 24,
+          "seconds": 0.036,
+          "peak_reserved_mb": 1182.0,
+          "reserved_after_mb": 1182.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 83,
+          "n": 4,
+          "max_chars": 396,
+          "seconds": 0.049,
+          "peak_reserved_mb": 1262.0,
+          "reserved_after_mb": 1262.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 84,
+          "n": 4,
+          "max_chars": 1489,
+          "seconds": 0.071,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 85,
+          "n": 4,
+          "max_chars": 1097,
+          "seconds": 0.053,
+          "peak_reserved_mb": 1366.0,
+          "reserved_after_mb": 1366.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 86,
+          "n": 4,
+          "max_chars": 48,
+          "seconds": 0.037,
+          "peak_reserved_mb": 1370.0,
+          "reserved_after_mb": 1370.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 87,
+          "n": 4,
+          "max_chars": 542,
+          "seconds": 0.042,
+          "peak_reserved_mb": 1370.0,
+          "reserved_after_mb": 1370.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 88,
+          "n": 4,
+          "max_chars": 1196,
+          "seconds": 0.068,
+          "peak_reserved_mb": 1370.0,
+          "reserved_after_mb": 1370.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 89,
+          "n": 4,
+          "max_chars": 2693,
+          "seconds": 0.133,
+          "peak_reserved_mb": 1578.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 90,
+          "n": 4,
+          "max_chars": 2123,
+          "seconds": 0.103,
+          "peak_reserved_mb": 1466.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 91,
+          "n": 4,
+          "max_chars": 21,
+          "seconds": 0.038,
+          "peak_reserved_mb": 1182.0,
+          "reserved_after_mb": 1182.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 92,
+          "n": 4,
+          "max_chars": 51,
+          "seconds": 0.042,
+          "peak_reserved_mb": 1188.0,
+          "reserved_after_mb": 1188.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 93,
+          "n": 4,
+          "max_chars": 699,
+          "seconds": 0.051,
+          "peak_reserved_mb": 1268.0,
+          "reserved_after_mb": 1268.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 94,
+          "n": 4,
+          "max_chars": 1064,
+          "seconds": 0.055,
+          "peak_reserved_mb": 1308.0,
+          "reserved_after_mb": 1308.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 95,
+          "n": 4,
+          "max_chars": 3778,
+          "seconds": 0.235,
+          "peak_reserved_mb": 1812.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 96,
+          "n": 4,
+          "max_chars": 40,
+          "seconds": 0.036,
+          "peak_reserved_mb": 1184.0,
+          "reserved_after_mb": 1184.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 97,
+          "n": 4,
+          "max_chars": 53,
+          "seconds": 0.039,
+          "peak_reserved_mb": 1184.0,
+          "reserved_after_mb": 1184.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 98,
+          "n": 4,
+          "max_chars": 109,
+          "seconds": 0.041,
+          "peak_reserved_mb": 1196.0,
+          "reserved_after_mb": 1196.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 99,
+          "n": 4,
+          "max_chars": 912,
+          "seconds": 0.05,
+          "peak_reserved_mb": 1276.0,
+          "reserved_after_mb": 1276.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 100,
+          "n": 4,
+          "max_chars": 759,
+          "seconds": 0.053,
+          "peak_reserved_mb": 1276.0,
+          "reserved_after_mb": 1276.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 101,
+          "n": 4,
+          "max_chars": 862,
+          "seconds": 0.053,
+          "peak_reserved_mb": 1296.0,
+          "reserved_after_mb": 1296.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 102,
+          "n": 4,
+          "max_chars": 2743,
+          "seconds": 0.154,
+          "peak_reserved_mb": 1656.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 103,
+          "n": 4,
+          "max_chars": 1515,
+          "seconds": 0.07,
+          "peak_reserved_mb": 1370.0,
+          "reserved_after_mb": 1370.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 104,
+          "n": 4,
+          "max_chars": 1503,
+          "seconds": 0.068,
+          "peak_reserved_mb": 1370.0,
+          "reserved_after_mb": 1370.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 105,
+          "n": 4,
+          "max_chars": 16,
+          "seconds": 0.036,
+          "peak_reserved_mb": 1370.0,
+          "reserved_after_mb": 1370.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 106,
+          "n": 4,
+          "max_chars": 37,
+          "seconds": 0.033,
+          "peak_reserved_mb": 1372.0,
+          "reserved_after_mb": 1372.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 107,
+          "n": 4,
+          "max_chars": 1041,
+          "seconds": 0.052,
+          "peak_reserved_mb": 1372.0,
+          "reserved_after_mb": 1372.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 108,
+          "n": 4,
+          "max_chars": 1241,
+          "seconds": 0.06,
+          "peak_reserved_mb": 1372.0,
+          "reserved_after_mb": 1372.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 109,
+          "n": 4,
+          "max_chars": 3284,
+          "seconds": 0.17,
+          "peak_reserved_mb": 1636.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 110,
+          "n": 4,
+          "max_chars": 2189,
+          "seconds": 0.111,
+          "peak_reserved_mb": 1516.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 111,
+          "n": 4,
+          "max_chars": 1559,
+          "seconds": 0.081,
+          "peak_reserved_mb": 1376.0,
+          "reserved_after_mb": 1376.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 112,
+          "n": 4,
+          "max_chars": 483,
+          "seconds": 0.047,
+          "peak_reserved_mb": 1438.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 113,
+          "n": 4,
+          "max_chars": 425,
+          "seconds": 0.039,
+          "peak_reserved_mb": 1240.0,
+          "reserved_after_mb": 1240.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 114,
+          "n": 4,
+          "max_chars": 1060,
+          "seconds": 0.054,
+          "peak_reserved_mb": 1340.0,
+          "reserved_after_mb": 1340.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 115,
+          "n": 4,
+          "max_chars": 40,
+          "seconds": 0.034,
+          "peak_reserved_mb": 1340.0,
+          "reserved_after_mb": 1340.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 116,
+          "n": 4,
+          "max_chars": 2389,
+          "seconds": 0.13,
+          "peak_reserved_mb": 1614.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 117,
+          "n": 4,
+          "max_chars": 2568,
+          "seconds": 0.127,
+          "peak_reserved_mb": 1552.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 118,
+          "n": 4,
+          "max_chars": 64,
+          "seconds": 0.036,
+          "peak_reserved_mb": 1190.0,
+          "reserved_after_mb": 1190.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 119,
+          "n": 4,
+          "max_chars": 3426,
+          "seconds": 0.183,
+          "peak_reserved_mb": 1668.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 120,
+          "n": 4,
+          "max_chars": 34,
+          "seconds": 0.044,
+          "peak_reserved_mb": 1184.0,
+          "reserved_after_mb": 1184.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 121,
+          "n": 4,
+          "max_chars": 373,
+          "seconds": 0.04,
+          "peak_reserved_mb": 1244.0,
+          "reserved_after_mb": 1244.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 122,
+          "n": 4,
+          "max_chars": 459,
+          "seconds": 0.042,
+          "peak_reserved_mb": 1302.0,
+          "reserved_after_mb": 1302.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 123,
+          "n": 4,
+          "max_chars": 471,
+          "seconds": 0.037,
+          "peak_reserved_mb": 1302.0,
+          "reserved_after_mb": 1302.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 124,
+          "n": 4,
+          "max_chars": 2001,
+          "seconds": 0.103,
+          "peak_reserved_mb": 1510.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 125,
+          "n": 4,
+          "max_chars": 16,
+          "seconds": 0.04,
+          "peak_reserved_mb": 1182.0,
+          "reserved_after_mb": 1182.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 126,
+          "n": 4,
+          "max_chars": 67,
+          "seconds": 0.038,
+          "peak_reserved_mb": 1186.0,
+          "reserved_after_mb": 1186.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 127,
+          "n": 4,
+          "max_chars": 94,
+          "seconds": 0.036,
+          "peak_reserved_mb": 1198.0,
+          "reserved_after_mb": 1198.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 128,
+          "n": 4,
+          "max_chars": 2394,
+          "seconds": 0.113,
+          "peak_reserved_mb": 1534.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        },
+        {
+          "request": 129,
+          "n": 4,
+          "max_chars": 4565,
+          "seconds": 0.223,
+          "peak_reserved_mb": 1752.0,
+          "reserved_after_mb": 1180.0,
+          "allocated_after_mb": 1144.5
+        }
+      ]
+    }
+  },
+  "vectors_across_arms": {
+    "max_abs_diff": 0.0,
+    "bit_identical": true
+  },
+  "after_close": {
+    "nvidia_smi": {
+      "total": 12227,
+      "used": 3318,
+      "free": 8627
+    }
+  }
+}
